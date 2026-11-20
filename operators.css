@@ -11,6 +11,10 @@
 #operator-lift-body { justify-content:flex-start; gap:10px 24px; }
 #operator-heat-tip { font:.81rem/1.5 var(--mono); max-width:38ch; }
 .operator-controls { margin-block:8px 4px; }
+.operator-models { display:flex; flex-wrap:wrap; gap:6px 16px; align-items:center; }
+.operator-models label select { max-width:min(58ch,67vw); }
+#operator-selection { flex-basis:100%; }
+#operator-views { margin-block:6px; }
 #operator-tables { display:grid; gap:14px; }
 #operator-tables caption { text-align:left; color:var(--muted); padding:.35rem 0; }
 #operator-tables .operator-selected td { color:var(--copper); }

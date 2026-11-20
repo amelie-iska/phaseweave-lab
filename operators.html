@@ -9,6 +9,7 @@
  <link rel="stylesheet" href="architecture.css">
  <link rel="stylesheet" href="operators.css">
  <script defer src="reasoning-3d.js"></script>
+ <script defer src="operator-volumes.js"></script>
  <script defer src="operators.js"></script>
  <title>Matrix and qudit workbench · PhaseWeave</title>
 </head>
@@ -17,7 +18,12 @@
  <nav aria-label="Related tools"><a class="button" href="architecture.html">Full forecast trace</a>
  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div></nav></header>
  <main class="architecture">
-  <header><h1>Matrix and qudit workbench</h1><p class="arch-lead">Follow a recorded FX input through a four-spatial, four-temporal-block TokenGT or through a trained four-qutrit patch.</p></header>
+  <header><h1>Matrix and qudit workbench</h1><p class="arch-lead">Follow the same recorded FX window through trained graph networks at different widths, from quote tokens to the forecast head.</p></header>
+  <section class="arch-panel operator-models" aria-label="Checkpoint browser">
+   <label>Model width <select id="operator-width"><option value="all">All widths</option></select></label>
+   <label>Checkpoint <select id="operator-model"><option value="deep">Deep TokenGT · width 200</option></select></label>
+   <p id="operator-selection"></p>
+  </section>
   <p id="operator-status" role="status">Loading the saved operation.</p>
   <div class="arch-tabs" aria-label="Execution trace">
    <button type="button" id="operator-classical" aria-pressed="true">Matrix operations</button>
@@ -33,6 +39,11 @@
     <div class="arch-heading operator-controls">
      <label>Operation <select id="operator-step"></select></label>
      <button id="operator-play" type="button">Play operations</button>
+    </div>
+    <div class="arch-tabs" id="operator-views" aria-label="Three-dimensional layout">
+     <button type="button" data-model-view="stack" aria-pressed="true">Model stack</button>
+     <button type="button" data-model-view="tensor" aria-pressed="false">Tensor volumes</button>
+     <button type="button" data-model-view="signal" aria-pressed="false">Signal plot</button>
     </div>
     <canvas id="operator-scene" aria-label="Rotatable operands or four-qutrit amplitudes" tabindex="0"></canvas>
     <div class="arch-camera" id="operator-camera">
@@ -67,7 +78,7 @@
   <section class="arch-panel" aria-labelledby="operator-provenance-title">
    <h2 id="operator-provenance-title">Trace and reference tools</h2>
    <p style="overflow-wrap:anywhere" id="operator-provenance"></p>
-   <p>The classical view exports one output coordinate per matrix operation. The circuit exposes every basis amplitude and labels the preparation gates that realize the model’s native product state.</p>
+   <p>The default deep trace exposes every term of one output coordinate per contraction. The roster exports a short operand tile from each verified contraction. Coherent circuit traces also show all basis amplitudes and identify the equivalent preparation gates.</p>
    <p><a href="operator-ledger-v1.json">Matrix trace</a> · <a href="qudit-operator-ledger-v1.json">Circuit trace</a> · <a href="horizons.html">Forecast benchmark</a></p>
    <p><a href="https://bbycroft.net/llm">Bycroft’s 3D walkthrough</a> · <a href="https://poloclub.github.io/transformer-explainer/">Transformer Explainer</a> · <a href="https://github.com/tensorspace-team/tensorspace">TensorSpace</a> · <a href="https://qiskit.qotlabs.org/docs/guides/composer">IBM Quantum Composer</a> · <a href="https://github.com/Strilanc/Quirk">Quirk</a> · <a href="quantum-comparison.html">Quantum ablations</a></p>
   </section>

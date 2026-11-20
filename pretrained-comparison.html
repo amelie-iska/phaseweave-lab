@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Source-pinned QLoRA, frozen pretrained model, and specialist comparisons in PhaseWeave.">
+  <title>Pretrained model comparisons · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .pre-page { width: min(calc(100% - 2rem), 72rem); margin: 1.5rem auto 3rem; }
+    .pre-top, .pre-top nav, .pre-nav { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .pre-page h1 { margin-bottom: .35rem; font-size: clamp(1.8rem, 6vw, 3.3rem); line-height: 1.08; }
+    .pre-page h2 { margin-top: 1.5rem; }
+    .pre-page section { border-top: 1px solid var(--faint); margin-top: 1.4rem; }
+    .pre-page caption { padding: .55rem; text-align: left; }
+    .pre-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; }
+    .pre-scroll table { min-width: 35rem; width: 100%; border-collapse: collapse; }
+    .pre-scroll th, .pre-scroll td { padding: .48rem .65rem; }
+    .pre-scroll td { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .pre-scroll:focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; }
+    .pre-page li + li { padding-top: .4rem; }
+  </style>
+</head>
+<body>
+  <header class="top pre-top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Results">
+      <a class="button" href="model-comparisons.html">All model comparisons</a>
+      <a class="button" href="quantum-comparison.html">Quantum and tropical matrix</a>
+    </nav>
+  </header>
+  <main class="pre-page">
+    <h1>Pretrained model comparisons</h1>
+    <p>Measured QLoRA checkpoints, matched financial reasoning tasks, and frozen pretrained model evaluations.</p>
+    <nav class="pre-nav" aria-label="Report sections">
+      <a class="button" href="#qlora">QLoRA training</a>
+      <a class="button" href="#reasoning">Paired reasoning</a>
+      <a class="button" href="#frozen">Frozen pretrained models</a>
+      <a class="button" href="#coverage">Experiment coverage</a>
+      <a class="button" href="pretrained-comparison-v1.json" download>Download aggregate JSON</a>
+    </nav>
+    <section id="qlora">
+      <h2>Qwen3.8-27B FinQA QLoRA</h2>
+      <p>Both completed recipes trained rank-16 LoRA on a frozen bitsandbytes four-bit decoder. Each adapter has 116,727,808 FP32 scalars across 992 tensors and is 467,047,680 bytes. The full FinQA selection contains 256 questions for training across 81 issuers and 48 for validation across 16 separate issuers. The 1,024-token budget admitted 67 and 6. Both recipes use seed 20261122. <a href="https://huggingface.co/unsloth/Qwen3.8-27B-unsloth-bnb-4bit/tree/8aa5f05d26b7205477066e1449e0af13f762a299">Pinned four-bit Qwen checkpoint</a></p>
+      <div class="pre-scroll" role="region" tabindex="0" aria-label="Completion loss on the run’s validation sample"><table><caption>Completion loss on the run’s validation sample</caption><thead><tr><th scope="col">Recipe</th><th scope="col">Train examples</th><th scope="col">Validation</th><th scope="col">Passes</th><th scope="col">Updates</th><th scope="col">Base loss</th><th scope="col">QLoRA loss</th><th scope="col">Peak allocation</th></tr></thead><tbody><tr><th scope="row">Runtime smoke v4</th><td>16</td><td>4</td><td>1.0</td><td>2</td><td>0.982817</td><td>0.755608</td><td>20,086 MiB</td></tr><tr><th scope="row">Two-epoch pilot</th><td>67</td><td>6</td><td>2.0</td><td>18</td><td>0.872800</td><td>0.165651</td><td>20,086 MiB</td></tr></tbody></table></div>
+      <p>The smoke checks that training updates and saves weights. The pilot saved steps 9 and 18, and the final adapter matches step 18 byte for byte. Completion loss is reported for each recipe’s own sample. <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/finqa-qwen27b-smoke-v4.json">Smoke receipt</a> · <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/finqa-qwen27b-pilot-v1.json">Pilot receipt</a> · <a href="https://wandb.ai/amelie-iska-math/phaseweave/runs/yw5le40b">Smoke history</a> · <a href="https://wandb.ai/amelie-iska-math/phaseweave/runs/5ug7jbme">Pilot history</a></p>
+    </section>
+    <section id="reasoning">
+      <h2>Issuer-held-out FinQA arithmetic</h2>
+      <p>The 42 questions come from 13 held-out issuers. The pilot’s six loss-validation cases were excluded. Each Qwen arm receives identical full report context and the same greedy decode budget. The base model’s pretraining exposure to historical FinQA is unknown.</p>
+      <div class="pre-scroll" role="region" tabindex="0" aria-label="Same 42 answerable documents and 13 report-withheld controls"><table><caption>Same 42 answerable documents and 13 report-withheld controls</caption><thead><tr><th scope="col">Variant</th><th scope="col">Numeric / 42</th><th scope="col">Evidence / 42</th><th scope="col">Joint / 42</th><th scope="col">Grounded abstention / 13</th></tr></thead><tbody><tr><th scope="row">Frozen Qwen 4-bit</th><td>27</td><td>33</td><td>25</td><td>13</td></tr><tr><th scope="row">Same Qwen + FinQA QLoRA step 18</th><td>31</td><td>34</td><td>28</td><td>13</td></tr><tr><th scope="row">Cell lookup</th><td>2</td><td>19</td><td>2</td><td>13</td></tr><tr><th scope="row">Nearest arithmetic template</th><td>4</td><td>21</td><td>4</td><td>13</td></tr><tr><th scope="row">Structured arithmetic specialist</th><td>5</td><td>22</td><td>5</td><td>13</td></tr></tbody></table></div>
+      <p>On the joint endpoint, three cases improve with the adapter and zero regress. The descriptive 95% interval from resampling issuers is 0.00 to 18.18 percentage points. <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/finqa-matched-reasoners-v1.json">Paired reasoners receipt</a> · <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/finqa-structured-specialist-v1.json">Structured specialist receipt</a></p>
+      <h2>Later-release arithmetic and evidence</h2>
+      <p>Thirty questions come from 11 official releases after the fixed August 26, 2026 cutoff. Both Qwen arms receive the same compact labeled cells. The joint result requires exact answer, units, and evidence IDs.</p>
+      <div class="pre-scroll" role="region" tabindex="0" aria-label="Same 30 answerable prompts and 11 required-cell-withheld controls"><table><caption>Same 30 answerable prompts and 11 required-cell-withheld controls</caption><thead><tr><th scope="col">Variant</th><th scope="col">Parsed / 30</th><th scope="col">Answer / 30</th><th scope="col">Units / 30</th><th scope="col">Evidence / 30</th><th scope="col">Joint / 30</th><th scope="col">Grounded abstention / 11</th></tr></thead><tbody><tr><th scope="row">Frozen Qwen 4-bit</th><td>21</td><td>16</td><td>21</td><td>21</td><td>16</td><td>5</td></tr><tr><th scope="row">Same Qwen + FinQA QLoRA step 18</th><td>27</td><td>18</td><td>27</td><td>27</td><td>18</td><td>5</td></tr></tbody></table></div>
+      <p>Two more cases meet the joint criterion with the adapter. Grounded abstention is unchanged on the 11 missing-cell controls. <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/finqa-post-checkpoint-v1.json">Later-release paired receipt</a></p>
+    </section>
+    <section id="frozen">
+      <h2>Frozen Qwen token embeddings for evidence retrieval</h2>
+      <p>The text arms read native frozen Qwen input embeddings. The learned graph and ranking heads use 256 training questions. Seed-averaged results use 45 issuer-disjoint, similarity-screened questions, with a secondary 39-question subset.</p>
+      <div class="pre-scroll" role="region" tabindex="0" aria-label="Evidence candidate ranking on 45 screened questions"><table><caption>Evidence candidate ranking on 45 screened questions</caption><thead><tr><th scope="col">Variant</th><th scope="col">Trained parameters</th><th scope="col">Seeds</th><th scope="col">Hit@1</th><th scope="col">Recall@3</th><th scope="col">All gold@3</th><th scope="col">MRR</th><th scope="col">Recall@3 on 39</th></tr></thead><tbody><tr><th scope="row">Lexical Jaccard</th><td>0</td><td>0</td><td>0.5556</td><td>0.6407</td><td>0.5111</td><td>0.6980</td><td>0.6667</td></tr><tr><th scope="row">Typed graph</th><td>6,913</td><td>3</td><td>0.7778</td><td>0.8000</td><td>0.6667</td><td>0.8560</td><td>0.8462</td></tr><tr><th scope="row">Frozen Qwen embeddings + concatenation</th><td>11,009</td><td>3</td><td>0.8519</td><td>0.8444</td><td>0.7111</td><td>0.9147</td><td>0.8974</td></tr><tr><th scope="row">Frozen Qwen embeddings + graph-to-question attention</th><td>13,057</td><td>3</td><td>0.8593</td><td>0.8444</td><td>0.7111</td><td>0.9184</td><td>0.8974</td></tr><tr><th scope="row">Concatenation + contrastive alignment</th><td>11,009</td><td>3</td><td>0.8519</td><td>0.8444</td><td>0.7111</td><td>0.9147</td><td>0.8974</td></tr><tr><th scope="row">Graph-to-question attention + contrastive alignment</th><td>13,057</td><td>3</td><td>0.8667</td><td>0.8444</td><td>0.7111</td><td>0.9220</td><td>0.8974</td></tr></tbody></table></div>
+      <p>All text arms reached 0.8444 mean recall@3. The fitted components are the graph, fusion and ranking heads. <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/finqa-graph-cross-attention-v1.json">Retrieval experiment receipt</a></p>
+      <h2>Frozen TimesFM 2.5 200M</h2>
+      <p>Zero-shot inference uses 16 seconds of complete directional margin history. The receipt evaluates TimesFM, the PhaseWeave 2M forecaster and persistence on the same windows within each split.</p>
+      <div class="pre-scroll" role="region" tabindex="0" aria-label="Paired one-second FX executable-margin MAE (basis points)"><table><caption>Paired one-second FX executable-margin MAE (basis points)</caption><thead><tr><th scope="col">Evaluation split</th><th scope="col">Windows</th><th scope="col">UTC days</th><th scope="col">Persistence</th><th scope="col">PhaseWeave 2M</th><th scope="col">TimesFM 2.5 200M</th></tr></thead><tbody><tr><th scope="row">Validation</th><td>256</td><td>12</td><td>0.405063</td><td>0.310073</td><td>0.315574</td></tr><tr><th scope="row">Stress</th><td>256</td><td>9</td><td>0.289889</td><td>0.223332</td><td>0.216327</td></tr><tr><th scope="row">October test</th><td>256</td><td>21</td><td>0.285639</td><td>0.223809</td><td>0.235913</td></tr><tr><th scope="row">New assets</th><td>128</td><td>17</td><td>0.317426</td><td>0.239402</td><td>0.231920</td></tr></tbody></table></div>
+      <p><a href="https://huggingface.co/google/timesfm-2.5-200m-transformers/tree/5a9806b9b291fad9233b5249d88263f1846304d3">Pinned TimesFM checkpoint</a> · <a href="baseline-roster-v2.json">Same-window results and paired intervals</a></p>
+    </section>
+    <section id="coverage">
+      <h2>Unmeasured comparisons</h2>
+      <ul><li>Same-task base versus QLoRA comparisons for Qwen3.5-9B, Gemma 4 12B IT, Ministral 3 8B Reasoning, and gpt-oss-20b remain unmeasured.</li><li>The two completed QLoRA recipes use one seed and one four-bit base revision. A second seed and a same-task precision or adapter-rank comparison remain unmeasured.</li><li>No pinned held-out task receipt links the smoke or pilot step-9 adapter to answer or evidence accuracy. Both measured QLoRA task comparisons use pilot step 18.</li><li>Graph-conditioned and multimodal QLoRA, graph-to-decoder fusion, and tuned foundation-model FX forecasts require their own matched evaluations.</li><li>The existing TimesFM pilot covers one-second inference. The longer-horizon PhaseWeave studies have their own model and persistence controls.</li></ul>
+      <p><a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/REASONER_MODELS.json">18 reviewed model cards and pinned revisions</a> · <a href="model-comparisons.html">Main experimental inventory and separate published vendor evidence</a></p>
+    </section>
+  </main>
+</body>
+</html>

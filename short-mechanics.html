@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light">
+ <title>Short mechanics · PhaseWeave</title><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="short-mechanics.css"><script defer src="short-mechanics.js"></script>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span>PhaseWeave</a>
+  <nav aria-label="Related pages"><a href="readiness.html">Execution evidence</a><div class="themes" aria-label="Color theme"><button data-theme="dark" aria-pressed="true">Dark</button><button data-theme="light" aria-pressed="false">Light</button></div></nav></header>
+ <main id="short-lab">
+  <header class="short-title"><div><h1>Short mechanics</h1><p>Follow a paper short through observed Gate BTC/USDT perpetual markets.</p></div><div class="session"><span>Recorded session</span><b id="session-date">Loading…</b></div></header>
+  <section class="chart-layout" aria-label="Replay chart and position">
+   <article class="quote-panel"><div class="pane-title"><h2>Market tape</h2><div class="switch" aria-label="Chart measure"><button id="show-price" aria-pressed="true">Contract price</button><button id="show-equity" aria-pressed="false">Equity</button></div></div>
+    <div class="chart-head"><strong id="quote-value">—</strong><span id="quote-unit"></span><small id="clock">—</small></div>
+    <canvas id="tape" role="img" aria-describedby="chart-desc" aria-label="Observed BTC perpetual price through time"></canvas>
+    <div class="legend" id="legend"></div><p id="chart-desc" class="sr-only"></p>
+    <div class="transport"><button id="prev" aria-label="Previous observed frame">←</button><button id="toggle-play">Play</button><button id="next" aria-label="Next observed frame">→</button>
+     <label for="frame">Frame <output id="frame-count">—</output></label><input id="frame" type="range" min="0" max="0" value="0" aria-label="Observed frame"></div>
+   </article>
+   <aside class="position-panel"><div class="pane-title"><h2>Position</h2><span class="state" id="position-status">Loading</span></div>
+    <div class="balance"><span>Marked equity</span><strong id="equity">—</strong><small>USDT</small></div>
+    <dl id="position"></dl><div class="event"><div class="event-rail"></div><div><h3 id="action">—</h3><p id="action-detail">Loading source frames.</p></div></div>
+   </aside>
+  </section>
+  <section class="details-panel"><div class="pane-title"><h2>Inspect this frame</h2><div class="switch" role="group" aria-label="Inspection view"><button id="inspect-depth" aria-pressed="true">Depth &amp; fills</button><button id="inspect-risk" aria-pressed="false">Margin</button><button id="inspect-clock" aria-pressed="false">Clocks</button></div></div>
+   <div id="detail"></div>
+  </section>
+  <section class="source-panel"><details><summary>Contract terms and source evidence</summary><div id="source-info"></div></details>
+   <p id="coverage" role="status">Loading the immutable replay.</p><a href="short-mechanics-v1.json" download>Download replay JSON</a></section>
+ </main>
+</body></html>
