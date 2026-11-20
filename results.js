@@ -3,6 +3,7 @@
 let records;
 let convergence;
 let baselines;
+let semiring;
 const item = (id) => document.getElementById(id);
 const number = (value, digits = 5) => value == null ? "—" : value.toFixed(digits);
 const formatCount = new Intl.NumberFormat("en", {notation:"compact", maximumFractionDigits:2});
@@ -142,14 +143,30 @@ function renderConvergence() {
       number(epoch.loss), number(epoch.seconds, 1)]));
 }
 
+function renderSemiring() {
+  if (!semiring || !records) return;
+  const split = item("semiring-split").value;
+  const evaluated = new Map(semiring.holdout.filter((row) => row.split === split).map((row) => [row.run,row]));
+  const names = {circuit_coherent:"Coherent", circuit_dephased:"Dephased", circuit_maxplus:"Max-plus"};
+  table(item("semiring-table"), ["Circuit", "Seed", "Trainable parameters", "MAE", "Persistence MAE"],
+    semiring.runs.map((run) => {
+      const row = evaluated.get(run.run);
+      return [names[run.config.phase_variant], run.config.seed, run.parameters.toLocaleString(),
+        number(row?.learned.mae_bps ?? run.best_validation),
+        number(row?.persistence.mae_bps ?? records.validation_persistence)];
+    }));
+}
+
 function renderBaselines() {
   if (!baselines || !convergence?.length) return;
   const split = item("baseline-split").value;
-  const persistence = baselines.find((run) => run.name === "Persistence").splits[split].metrics.mae_bps;
+  const budget = item("baseline-budget").value;
+  const runs = baselines[budget];
+  const persistence = runs.find((run) => run.name === "Persistence").splits[split].metrics.mae_bps;
   const phaseweave = convergence.find((run) => run.width === 200).summary;
   const phaseScore = split === "validation" ? phaseweave.best_validation.mae_bps :
     phaseweave.holdout[split].learned.mae_bps;
-  const series = baselines.map((run) => ({
+  const series = runs.map((run) => ({
     label: run.name, value: run.splits[split].metrics.mae_bps, parameters: run.parameters, budget: run.best_epoch ?? "—",
   }));
   series.push({label:"PhaseWeave 2M", value:phaseScore, parameters:2020265, budget:phaseweave.best_epoch, transfer:true});
@@ -157,6 +174,9 @@ function renderBaselines() {
   drawBars(item("baseline-chart"), series.map((row, index) => ({...row, label:String(index + 1)})), persistence);
   table(item("baseline-table"), ["Rank", "Forecast", "Trainable parameters", "Selected epoch", "MAE (log bps)"],
     series.map((row, index) => [index+1, row.label, row.parameters?.toLocaleString() ?? "—", row.budget, number(row.value)]));
+  item("baseline-note").textContent = budget === "23" ?
+    "The ten backbone adaptations and PhaseWeave saw 23 full passes. They used respectively 5,888 and 23,552 updates with different parameter counts. Persistence and histogram boosting are fixed controls." :
+    "The ten compact backbone adaptations saw three full passes and PhaseWeave saw 23. Persistence and histogram boosting are fixed controls.";
 }
 
 function applyTheme(theme) {
@@ -173,8 +193,10 @@ document.querySelectorAll("[data-theme-choice]").forEach((button) =>
   button.addEventListener("click",() => applyTheme(button.dataset.themeChoice)));
 item("series").addEventListener("change",renderCampaign);
 item("ablation-split").addEventListener("change",renderAblation);
+item("semiring-split").addEventListener("change",renderSemiring);
 item("convergence-width").addEventListener("change",renderConvergence);
 item("baseline-split").addEventListener("change",renderBaselines);
+item("baseline-budget").addEventListener("change",renderBaselines);
 window.addEventListener("resize",() => { renderCampaign(); renderConvergence(); renderBaselines(); });
 applyTheme(readTheme());
 fetch("experiment-data.json").then((response) => {
@@ -184,7 +206,15 @@ fetch("experiment-data.json").then((response) => {
   records = data;
   renderCampaign();
   renderAblation();
+  renderSemiring();
 }).catch(() => { item("result-status").textContent = "The experiment data could not load."; });
+fetch("semiring-data.json").then((response) => {
+  if (!response.ok) throw new Error("circuit export unavailable");
+  return response.json();
+}).then((data) => {
+  semiring = data;
+  renderSemiring();
+}).catch(() => { item("semiring-table").textContent = "Circuit results are unavailable."; });
 fetch("convergence-data.json").then((response) => {
   if (!response.ok) throw new Error("epoch export unavailable");
   return response.json();
@@ -199,10 +229,11 @@ fetch("convergence-data.json").then((response) => {
   renderConvergence();
   renderBaselines();
 }).catch(() => { item("convergence-note").textContent = "The epoch data could not load."; });
-fetch("baseline-data.json").then((response) => {
+Promise.all(["baseline-data.json","baseline-23-data.json"].map((file) => fetch(file).then((response) => {
   if (!response.ok) throw new Error("baseline export unavailable");
   return response.json();
-}).then((data) => {
-  baselines = data.roster;
+}))).then(([short, extended]) => {
+  const fixed = short.roster.filter((row) => !row.epochs?.length);
+  baselines = {"3":short.roster, "23":[...extended.roster, ...fixed]};
   renderBaselines();
 }).catch(() => { item("baseline-note").textContent = "The baseline data could not load."; });

@@ -11,7 +11,8 @@
 \setlength{\parindent}{0pt}\setlength{\parskip}{4.5pt plus 1pt minus 1pt}
 \setlength{\emergencystretch}{2em}
 \raggedbottom
-\titleformat{\chapter}[display]{\normalfont\raggedright\color{ink}\sffamily\bfseries}{\color{teal}\small\MakeUppercase{Chapter \thechapter}}{5pt}{\huge}
+\newcommand{\bookdivision}{Chapter}
+\titleformat{\chapter}[display]{\normalfont\raggedright\color{ink}\sffamily\bfseries}{\color{teal}\small\MakeUppercase{\bookdivision{} \thechapter}}{5pt}{\huge}
 \titlespacing*{\chapter}{0pt}{-12pt}{12pt}
 \titleformat{\section}{\normalfont\color{teal}\large\sffamily\bfseries}{}{0pt}{}
 \titlespacing*{\section}{0pt}{12pt plus 2pt}{2pt}
@@ -691,9 +692,19 @@ test & 0.156308 & 0.207674 & -0.053231 & -0.049256 \\
 CHF & 0.177130 & 0.220153 & -0.046415 & -0.039312 \\
 stress & 0.159753 & 0.207013 & -0.051273 & -0.042985 \\
 \bottomrule\end{tabular}\end{adjustbox}\end{center}
-The paired intervals describe prediction error in the frozen samples. Running for longer, using a learning-rate schedule and selecting a feature configuration changes multiple elements relative to the fixed-budget proxy study. Attribute differences to the complete recipe unless a matched experiment isolates one change.
+\section*{Width 832}
+The run stopped after 21 epochs under validation plateau. Epoch 20 had the lowest validation MAE, 0.175131, against 0.227916 for persistence. Peak allocated CUDA memory reported during training and validation was 1613.5 MiB.
 
-At the cutoff for this edition, the width-832 full-epoch run was in progress. Its fixed-budget pilot checkpoint remains represented in the separate campaign ledger.
+\begin{center}\footnotesize\sffamily\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{1.2}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}lrrrr@{}}\toprule
+Split & MAE & Persistence & Lower 95\% & Upper 95\% \\ \midrule
+test & 0.155961 & 0.207674 & -0.053512 & -0.049665 \\
+CHF & 0.176914 & 0.220153 & -0.047065 & -0.039320 \\
+stress & 0.159299 & 0.207013 & -0.051679 & -0.043492 \\
+\bottomrule\end{tabular}\end{adjustbox}\end{center}
+All three widths reached the specified validation plateau. Width 832 stopped at epoch 21 and selected epoch 20. Width 200 had the lowest October and CHF error of the three converged fits, while width 832 had the lowest stress error. The per-width intervals in this ledger compare each learned predictor with persistence. A direct width ranking with uncertainty requires paired differences between the learned models.
+
+The paired intervals describe prediction error in the frozen samples. Running for longer, using a learning-rate schedule and selecting a feature configuration changes multiple elements relative to the fixed-budget proxy study. Attribute differences to the complete recipe unless a matched experiment isolates one change.
 
 The convergence run uses initialization seed 20261122 and per-epoch CPU shuffle seed 20261123 plus the epoch index. Each full epoch covers 65,536 training windows in 1,024 steps of 64. The learning rate warms up for one epoch, falls by a factor of two after every two non-material checks, and has a floor of 1/16 of its initial scale. An improvement of at least 0.0005 log bps resets patience. Stopping requires at least eight epochs, with a hard cap of 32.
 
@@ -1500,7 +1511,7 @@ Both precision and recall are one half on the first three windows. In the second
 The theoretical chapters link to primary references at the point of use. They describe the scope of reported results and selected constructions. The numerical claims use local aggregate training and evaluation receipts. This edition has no private quote rows, weights or model-service credentials. The documented implementation reader contains selected source functions from the research checkout.
 
 \section*{Evidence for the results}
-The campaign aggregate contains 26 unique configurations and checkpoint digests, five coordinate-check widths and 12 selected-checkpoint holdout entries. The phase aggregate contains 12 unique configurations and 36 holdout entries. Both identify the same frozen data-manifest digest. The companion source directory retains these aggregate JSON records and the measured convergence summaries available at compilation.
+The campaign aggregate contains 26 unique configurations and checkpoint digests, five coordinate-check widths and 12 selected-checkpoint holdout entries. The phase aggregate contains 12 configurations and 36 holdout entries. The matched circuit-rule aggregate adds six configurations and 18 holdout entries. All three identify the same frozen data-manifest digest. The companion source directory retains these aggregate JSON records and the measured convergence summaries available at compilation.
 
 A public tree inventory recorded 6,535 source blobs and 119 PDF objects. Counts include multiple source editions and generated files. The underlying review covered atlas pages, immediate mathematical constructions and selected predecessor interfaces. This book does not claim a proof audit of every file. The figure code and phase tables can be regenerated from the bundled aggregates without weights or raw data.
 
@@ -1524,4 +1535,111 @@ The plot data come from the model summary receipts and epoch-level validation ag
 Required Notice: Copyright 2026 Amelie Schreiber. The project applies the PolyForm Noncommercial License 1.0.0 to its original software and documentation. Separately identified third-party materials, provider data and model weights retain their accompanying terms. The source bundle includes the project license and notice.
 
 {\small\sffamily\href{https://polyformproject.org/licenses/noncommercial/1.0.0/}{PolyForm Noncommercial License 1.0.0}\par}
+\appendix\renewcommand{\bookdivision}{Appendix}
+\chapter{Observed executions and conserved density}
+The FX pilot labels a route by multiplying quoted rates. Gate’s trade archive supplies a different observation: an execution that the exchange actually reported in a particular instrument. Even when three instruments trade during one minute, the records do not identify one participant filling all three legs. The two datasets therefore support different questions.
+
+\section*{Seven instruments around two policy releases}
+Ten spot archives contain 20,652,098 executions across BTC/USDT, ETH/USDT, ETH/BTC, XRP/USDT and XRP/BTC during September and October 2026. Two October futures archives add 50,797,238 BTC and ETH USDT perpetual executions. In total there are 71,449,336 trades. Spot quantity is measured in base-asset units, while perpetual quantity counts contracts. The instrument node carries the market type so a futures quantity cannot silently enter a spot depth estimate.
+
+At each anchor a minute feature uses exchange timestamps in the interval from 60 seconds before the anchor up to, but excluding, the anchor. Compute count, summed quantity, signed quantity, arithmetic mean price and volume-weighted average price within one instrument. An empty minute has zero count and undefined price. A volume-weighted average of executions describes the prices paid by that minute’s trades. The price of an additional hypothetical order would depend on a different book and queue position.
+
+\begin{center}\begin{adjustbox}{max width=\linewidth}$\displaystyle \operatorname{VWAP}_j(t)=\frac{\sum_{i\in I_j(t)}q_i p_i}{\sum_{i\in I_j(t)}q_i},\qquad I_j(t)=\{i:t-60\,\mathrm{s}\le t_i<t\}.$\end{adjustbox}\end{center}
+The Federal Reserve policy statements were released at 18:00 UTC on September 16 and October 28. For each release the replay samples 76 anchors from minute \ensuremath{-}30 through +45. Five September and seven October instrument series give 912 instrument-minutes. The context graph contains four official documents, 320 deduplicated GDELT metadata records and 66,026 instrument-minute/document edges. Minutes of meetings become eligible only at their own publication time. Media metadata becomes eligible one minute after the later of its archive bucket and recorded HTTP modification time. Each link requires availability strictly earlier than its anchor.
+
+\begin{center}\footnotesize\sffamily\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{1.2}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}lrrr@{}}\toprule
+Release and market & Trades at 0 & Trades at +1 & VWAP change at +1 \\ \midrule
+Sep 16 · BTC spot & 327 & 2,244 & \ensuremath{-}0.0655\% \\
+Oct 28 · BTC spot & 137 & 1,544 & +0.0325\% \\
+Oct 28 · BTC perpetual & 927 & 7,461 & +0.0465\% \\
+\bottomrule\end{tabular}\end{adjustbox}\end{center}
+Minute zero aggregates trades immediately preceding release. The +1 anchor measures the first minute beginning at release. The displayed price change uses each series’ latest nonempty pre-release/reference minute. For the October ETH/BTC spot series, minute zero contains no execution, so the reference falls back to an earlier observed minute. Interpreting that missing price as numerical zero would make the relative price calculation meaningless.
+
+The event browser plots these aggregates and the article-level coverage statistic. A GDELT tone value describes language in coverage, not the direction of an investor’s position. These two event windows permit a dated descriptive comparison. They supply neither a causal estimate of the announcement effect nor a component of the frozen FX model.
+
+{\small\sffamily\href{https://amelie-iska.github.io/phaseweave-lab/events.html}{Replay two documented releases}\par}
+{\small\sffamily\href{https://www.federalreserve.gov/monetarypolicy/materials/}{Federal Reserve primary materials}\par}
+{\small\sffamily\href{https://www.gate.com/uk/announcements/article/21688/}{Gate historical source schema}\par}
+\section*{A unitary diagnostic on a quote window}
+Attach a three-component complex vector to each of the three observed asset sites. For an available pair, take half the difference of its two gauge-fixed directed log-bps values as the angle a. Take their negative half-sum as a spread proxy s. The chosen matrix is a determinant-one clock times a real rotation by 0.3 tanh(s) in the second and third components. The map from these economic features to angles is a modeling convention. The resulting state density has a defined probability normalization and carries no physical charge units.
+
+\begin{center}\begin{adjustbox}{max width=\linewidth}$\displaystyle U=\operatorname{diag}(e^{ia},e^{-ia},1)R_{23}(0.3\tanh s),\qquad \rho_v=\psi_v^\dagger\psi_v.$\end{adjustbox}\end{center}
+On a pair of sites u and v build the Hermitian block with U above the diagonal, its adjoint below and zeros on the diagonal. Since U is unitary, squaring this block gives identity. The exponential therefore reduces exactly to cos(theta) times identity minus i sin(theta) times the block. Skip any pair for which one direction is unavailable. Apply the remaining updates in fixed pair order. A receiving site’s change in squared norm defines its signed inflow; the sending site has equal opposite change.
+
+If the site vectors transform by independent local unitaries, transform each link by its receiving frame on the left and its sending frame’s adjoint on the right, using the same matrix convention as the state update. Squared norms, edge transfers and the normalized trace around a closed triangle stay invariant. Individual complex components can change. When the triangle lacks a complete cycle, its trace is unavailable even though some pair updates can proceed.
+
+For the first CHF example at width 200, the forecast-conditioned coupling angle was 0.275547 radians. Across 16 frames the largest error in total unit mass was 6.66 \ensuremath{\times} 10\textsuperscript{-}\textsuperscript{1}\textsuperscript{6} and the largest discrete continuity residual was 1.67 \ensuremath{\times} 10\textsuperscript{-}\textsuperscript{1}\textsuperscript{6}. The final three site densities were 0.194223, 0.387028 and 0.418749. The terminal normalized loop trace was approximately 0.972858 \ensuremath{-} 0.000794i. This calculation checks conservation for one observed trajectory; it contributes no fitted parameter or improved forecast to the reported checkpoint.
+
+{\small\sffamily\href{https://amelie-iska.github.io/phaseweave-lab/density.html}{Inspect the density and flow}\par}
+\chapter{Matched targets and verified answers}
+A model comparison starts with its denominator. The compact CPU controls see the same 65,536 training windows, current margins and eighteen time-series channels as the larger forecast. In contrast the knowledge-memory experiment starts with a named entity and a typed path query, and scores verified witnesses. Each following table has its own unit and evaluation population.
+
+\section*{Small forecasters on the same split}
+The ten adapted time-series backbones use 16 historical ticks, a shared two-output residual design, three shuffled epochs and batch size 256. Each sees 768 optimizer steps. Seed 20261122 sets initialization. AdamW uses learning rate 0.001, zero weight decay, smooth L1 with threshold 0.25 bps and gradient clipping at one. The full validation split selects the earliest epoch attaining minimum MAE. Nine of ten choose epoch three. Histogram gradient boosting fits two separate residual regressors with 64 iterations, 31 leaves at most, absolute-error loss and learning rate 0.1.
+
+\begin{center}\footnotesize\sffamily\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{1.2}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}lrrrr@{}}\toprule
+Forecast & Validation & October & CHF & Stress \\ \midrule
+HistGradientBoosting & 0.18431 & 0.16614 & 0.20838 & 0.17316 \\
+TimeMixer & 0.18439 & 0.16721 & 0.18499 & 0.17243 \\
+TimesNet & 0.18606 & 0.16742 & 0.18695 & 0.16994 \\
+SegRNN & 0.18608 & 0.16676 & 0.19156 & 0.17384 \\
+TimeXer & 0.18686 & 0.16873 & 0.18932 & 0.17458 \\
+iTransformer & 0.18757 & 0.16843 & 0.19375 & 0.17630 \\
+TSMixer & 0.18768 & 0.16928 & 0.19690 & 0.17662 \\
+PatchTST & 0.19218 & 0.17362 & 0.20806 & 0.17933 \\
+LightTS & 0.19426 & 0.17485 & 0.21545 & 0.17927 \\
+DLinear & 0.19905 & 0.18104 & 0.21705 & 0.18204 \\
+TiDE & 0.20457 & 0.18693 & 0.23903 & 0.19116 \\
+Persistence & 0.22792 & 0.20767 & 0.22015 & 0.20701 \\
+PhaseWeave, width 200 & 0.17514 & 0.15583 & 0.17582 & 0.15955 \\
+\bottomrule\end{tabular}\end{adjustbox}\end{center}
+Scores are mean absolute errors in log bps across both route directions. Boosting wins among these controls on validation and October; TimeMixer wins on CHF and TimesNet on stress. Width 200 achieves a lower error across all three held-out populations with 2,020,265 parameters, 23 epochs and 23,552 updates. Its validation MAE after three epochs was 0.178836, which still reflects its greater parameter count and smaller batch size. Any architecture-only conclusion would need a capacity and compute comparison that this study does not supply. The roster measures named compact adaptations, independently of literature results for larger pretrained models.
+
+A longer run gave TimeMixer the same 23 passes as width 200. Its MAE reached 0.179770 on validation, 0.161962 on October, 0.180925 on CHF and 0.166233 on stress. TimeMixer used 4,572 parameters and 5,888 updates. The six-decimal results establish the ordering for these checkpoints under equal passes. Batch size, step count, model capacity and training hardware still differ.
+
+{\small\sffamily\href{https://amelie-iska.github.io/phaseweave-lab/results.html}{Compare the per-model measurements}\par}
+{\small\sffamily\href{https://github.com/thuml/Time-Series-Library/tree/4e938a1767106324dd753b2a44832bf870a0252e}{Original time-series model implementations}\par}
+\section*{Recovering a supported answer from memory}
+A separate fixture freezes 48 Wikidata statements across 16 countries, currencies, capitals and issuers. There are 64 nodes and 96 directed traversal tokens when each real statement can be followed forward or in reverse. Each statement has a persistent ID and a revision. The snapshot was collected November 20, 2026 and supplies no contemporaneous evidence to the historical FX experiment.
+
+Ten country groups supply 60 single-hop demonstrations for a ridge projection (penalty 0.001). It maps property, reversal flag and ordered endpoint roles into 512-component operator codes. Country groups share no entity between training and test. All 18 positive tests use previously unseen multistep query families on six held-out owners. The inference graph openly supplies their individual atomic facts. The task is composing evidence already present in a small graph. Its uniform three-edge owner structure makes exact lookup an especially strong comparator.
+
+The explicit memory stores one key for each directed fact. An HRR compresses their associations into the sum of circular convolutions of source-role code, operator code and destination-role code. Separate endpoint namespaces preserve direction. At inference, correlate memory with a source/operator cue and score candidate destination vectors. Retain at most four branches per step. The exact verifier then checks every claimed edge of each completed path.
+
+\begin{center}\footnotesize\sffamily\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{1.2}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}lrr@{}}\toprule
+Generator & First exact path / 18 & Exact path in four / 18 \\ \midrule
+Train-only frequency prior & 0 & 0 \\
+Explicit cosine memory & 18 & 18 \\
+Holographic memory & 8 & 12 \\
+\bottomrule\end{tabular}\end{adjustbox}\end{center}
+With the default seed 20261120, the holographic model recovers four of six supported paths in its beam for each family: country to issuer, capital to currency and issuer to capital. With seeds 20261121 and 20261122 the total in-beam counts are 12 and 14. Each negative query removes the terminal supporting fact in both traversal directions. On all 18 negative queries the verifier abstains for every method. This result measures symbolic checking; the ranking models do not estimate confidence.
+
+For Iceland, the accepted path goes from the country via the Icelandic króna to the Central Bank of Iceland. Another proposed path ends at the correct bank through an unsupported currency. Only the first retains both statement IDs. An accompanying correspondence matches the ordered Icelandic roles to a Brazilian training exemplar after retrieval. It demonstrates a typed analogy without assigning it credit for ranking the candidates.
+
+{\small\sffamily\href{https://amelie-iska.github.io/phaseweave-lab/memory.html}{Explore the verified memory paths}\par}
+{\small\sffamily\href{https://www.wikidata.org/wiki/Special:EntityData/Q189.json?revision=2569305992}{Iceland and its currency at the frozen revision}\par}
+\section*{Changing arithmetic inside the same circuit}
+The four-qutrit pilot starts with uniform amplitudes and ends with normalized local Fourier mixing. If every input is measured in the basis before those final gates, all output probabilities become equal. The max-product path rule also assigns equal output scores because all path magnitudes match. Both direct controls would return zero on every real clock readout. That degeneracy motivates the nonuniform preparation and trainable mixers in the matched follow-up.
+
+For each input x and output y, write p(x) for the product of four local preparation probabilities, U(y,x) for the product of four data-conditioned local gate elements, and phi(x) for the learned diagonal phase. Coherent propagation adds complex paths then squares their magnitude. Dephased propagation sums ordinary probabilities. The max-product arm selects the largest individual probability path into each y and normalizes only the final output scores.
+
+\begin{center}\begin{adjustbox}{max width=\linewidth}$\displaystyle w^{\rm coh}_y=\left|\sum_x\sqrt{p(x)}e^{i\phi(x)}U(y,x)\right|^2,\quad w^{\rm dep}_y=\sum_x p(x)|U(y,x)|^2.$\end{adjustbox}\end{center}
+\begin{center}\begin{adjustbox}{max width=\linewidth}$\displaystyle w^{\max}_y=\max_x p(x)|U(y,x)|^2,\qquad P(y)=w_y/\sum_z w_z.$\end{adjustbox}\end{center}
+All three arms share softmax graph attention, four local readouts, width 200, batch 64 and 640 optimizer updates. The two seeds match across all three rules. The circuit comparison changes the inner path-arithmetic rule; replacing the network’s outer attention would be a different comparison.
+
+\begin{center}\footnotesize\sffamily\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{1.2}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}lrrrr@{}}\toprule
+Circuit and seed & Validation & October & CHF & Stress \\ \midrule
+Coherent 20 & 0.19219 & 0.17268 & 0.19125 & 0.17382 \\
+Coherent 21 & 0.19108 & 0.17064 & 0.19793 & 0.17188 \\
+Dephased 20 & 0.19281 & 0.17357 & 0.19395 & 0.17518 \\
+Dephased 21 & 0.19438 & 0.17444 & 0.20756 & 0.17634 \\
+Maxplus 20 & 0.19321 & 0.17415 & 0.19427 & 0.17627 \\
+Maxplus 21 & 0.19180 & 0.17186 & 0.19515 & 0.17315 \\
+\bottomrule\end{tabular}\end{adjustbox}\end{center}
+Each entry is MAE in log bps. Across the two matched seeds, coherent, dephased and max-product averaged 0.171657, 0.174005 and 0.173008 on October. On CHF the corresponding means were 0.194590, 0.200753 and 0.194708. The coherent/max-product CHF separation is about 0.000118 bps. Individual checkpoint intervals against persistence do not supply an interval for this small difference between learned rules. Six short simulated fits give a bounded comparison of these encoders; they do not establish a computational advantage or an execution outcome.
+
 \end{document}

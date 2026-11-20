@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Knowledge graph memory · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="memory.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-theme="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme="light" aria-pressed="false">Light</button>
+      </div>
+      <a class="button" href="./">Market lab</a>
+    </nav>
+  </header>
+  <main class="results">
+    <h1>Knowledge graph memory</h1>
+    <p class="standfirst">Explore candidate paths in a currency graph, their source statements, and a structurally matched training example.</p>
+    <section class="result-panel" aria-labelledby="path-title">
+      <h2 id="path-title">Candidate paths</h2>
+      <div class="assumptions">
+        <label>Query <select id="query"></select></label>
+        <label>Retriever <select id="method"><option value="hrr">Holographic memory</option><option value="cosine">Explicit cosine</option><option value="no_memory">Training prior</option></select></label>
+        <label><input type="checkbox" id="withhold"> Withhold the last supporting fact</label>
+      </div>
+      <p id="query-detail"></p>
+      <div id="candidates"></div>
+      <p id="verified-answer" role="status"></p>
+      <div id="analogy"></div>
+    </section>
+    <section class="result-panel" aria-labelledby="summary-title">
+      <h2 id="summary-title">Held-out owner paths</h2>
+      <div id="summary-table"></div>
+      <p>The exact verifier checks each link of a proposed path against pinned Wikidata statements.</p>
+      <p><a href="memory-data.json">Download the verified run</a> · <a href="https://www.wikidata.org/wiki/Wikidata:Licensing">Wikidata structured-data license</a> · <a href="https://doi.org/10.1109/72.377968">Holographic reduced representations</a></p>
+    </section>
+  </main>
+</body>
+</html>
