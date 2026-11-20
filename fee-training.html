@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script>
+ <title>Fee-aware training · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Related tools">
+  <a class="button" href="market-modalities.html">Market research</a><a class="button" href="paper-tournament.html">Paper tournament</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Fee-aware route training</h1><p class="arch-lead">Replay real Gate depth and train on the net outcome of later, sequential paper fills.</p></header>
+  <section class="arch-panel"><h2>Held-out comparison</h2>
+   <p>The train period contained 138 distinct origin times. The held-out period contained 68. Both orientations, three trade sizes, and the two published fee scenarios use the same underlying books. Each anchor and all of its scenarios belong to one split.</p>
+   <div class="arch-scroll"><table><thead><tr><th scope="col">Forecast</th><th scope="col">MAE (log bps)</th></tr></thead><tbody>
+    <tr><th scope="row">Executable depth at origin with fees</th><td>2.35976</td></tr>
+    <tr><th scope="row">Depth baseline plus fitted ridge residual</th><td>5.04740</td></tr>
+   </tbody></table></div>
+   <p>On routes that completed all three simulated legs within 15 seconds, the mean held-out margin was −37.41593 log bps at 9 bps per leg and −40.41874 at 10. Across both tariffs, zero of 816 completed scenarios were positive. Incomplete routes are tracked separately. The control remains preferred.</p>
+  </section>
+  <section class="arch-panel"><h2>Costs in the model and in the ledger</h2>
+   <p>A fixed fractional charge multiplies the received amount by one minus that charge. When execution prices are fixed, the exact three-leg log cost is the sum of three log terms. The depth simulator repeats the walk at each fee because the received amount changes the next leg’s depth consumption.</p>
+   <p>Future returns use only admissible later quotes. Trade sizes and fees are input scenarios, and the input depth and quote age come from the origin. The ledger debits the charge in the asset received. Published VIP rates are scenario assumptions and account rates may differ.</p>
+   <p><a href="fee-training-v1.json">Measured training and holdout receipt</a> · <a href="https://www.gate.com/en-eu/fee">Gate fee schedule</a> · <a href="https://www.gate.com/docs/developers/apiv4/ws/">Order-book source</a></p>
+  </section>
+ </main>
+</body>
+</html>
