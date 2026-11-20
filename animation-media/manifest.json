@@ -1,0 +1,498 @@
+[
+  {
+    "group": "markets",
+    "class": "QuoteToGraph",
+    "slug": "quote-to-graph",
+    "title": "From quotes to a directed graph",
+    "link": "data.html#inputs",
+    "link_label": "Explore the observed inputs",
+    "summary": "Turn bid and ask observations into reciprocal directed conversions and compare the two oriented loops.",
+    "transcript": [
+      "A market triangle has three currency vertices.",
+      "Each quoted pair supplies a bid edge and a reciprocal-ask edge in the opposite direction.",
+      "A directed three-edge circuit adds log conversion rates. The score depends on the orientation and the per-leg cost."
+    ],
+    "duration": 14.6,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "quote-to-graph.mp4": {
+        "sha256": "fcb5feea3df6be62e3d7b7e340549ac41872bfbee7b3840ba605b0a977c16aad",
+        "bytes": 239611
+      },
+      "quote-to-graph.webp": {
+        "sha256": "dda52acfb44e43c6cfae82dfe59af309c13a62b26288a32b0e51028698120c67",
+        "bytes": 19912
+      },
+      "quote-to-graph.vtt": {
+        "sha256": "78bf8939370cd3fb5a1ca1dc58bd5893bd6bab7a2c223274152fa89008237ffd",
+        "bytes": 353
+      }
+    }
+  },
+  {
+    "group": "markets",
+    "class": "ExecutionsAndBooks",
+    "slug": "executions-and-books",
+    "title": "Executions, books, and visible depth",
+    "link": "events.html",
+    "link_label": "Open trade replay",
+    "summary": "Compare a reported execution with a bid and ask ladder, then see which information depth makes possible.",
+    "transcript": [
+      "An execution is a reported trade with a time, price, and quantity.",
+      "A book records visible quantities at bid and ask price levels. Its state changes with ordered updates.",
+      "The reconstructed book supports depth-aware replay. An archived book shows visible liquidity, and subscriber receipt timing remains unobserved."
+    ],
+    "duration": 14.033333,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "executions-and-books.mp4": {
+        "sha256": "635cd0420c3bbc8c94d13639c1a1f92a828f179369fa8881be6417bf0ff7fcdc",
+        "bytes": 221565
+      },
+      "executions-and-books.webp": {
+        "sha256": "6959f73904425274e0e87ffbec740204338d87dd524a0eb0b8cd29deae2fc8ee",
+        "bytes": 23168
+      },
+      "executions-and-books.vtt": {
+        "sha256": "0966d5285a5d326c68a0c58bd675a9c7a6eb5cc90ba13ce8a4e5ddaec9880d3e",
+        "bytes": 414
+      }
+    }
+  },
+  {
+    "group": "markets",
+    "class": "DataClock",
+    "slug": "data-clock",
+    "title": "The forecast data clock",
+    "link": "data.html",
+    "link_label": "Inspect sources and splits",
+    "summary": "Put quote events, release availability, and the future target on a timeline.",
+    "transcript": [
+      "Find the last eligible observation at the forecast anchor.",
+      "Different sources use different clocks. A report must be released before it can enter the input.",
+      "The later one-second observation is the target. Training, validation, stress, and test folds keep their chronological boundaries."
+    ],
+    "duration": 13.833333,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "data-clock.mp4": {
+        "sha256": "143ae9be12b71acc5c1a682292dc824061783520609b301e11820c3a8183030b",
+        "bytes": 411503
+      },
+      "data-clock.webp": {
+        "sha256": "0e64157473fbcded95303813354a311a498a37e23bd61442c2842a1ea5a5989a",
+        "bytes": 17524
+      },
+      "data-clock.vtt": {
+        "sha256": "104b181c3ada8ab133c7965b3d76c82d2d9e91f1d75f923ea6f4c86e37483188",
+        "bytes": 386
+      }
+    }
+  },
+  {
+    "group": "physics",
+    "class": "CellularDessin",
+    "slug": "cellular-dessin",
+    "title": "How a graph cellulates the torus",
+    "link": "./",
+    "link_label": "Rotate the live surface diagram",
+    "summary": "Follow two marked loops on a rotating torus, then count faces, edges, and vertices.",
+    "transcript": [
+      "Two generator loops mark the torus. They share a vertex and cut out a single disk.",
+      "Darts and a rotation system specify how edges meet and boundaries close.",
+      "The Euler characteristic counts vertices minus edges plus faces. A connected closed orientable surface with Euler characteristic zero has genus one."
+    ],
+    "duration": 14.9,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "cellular-dessin.mp4": {
+        "sha256": "cd655c06891c14e4a141e4d9757bd56ffe91a014e9045e9a3bade859412dd3bf",
+        "bytes": 392638
+      },
+      "cellular-dessin.webp": {
+        "sha256": "9362b8e72fcd32dbfc10341f5ae1ef20316f12e17437561cf8496e117ca86834",
+        "bytes": 13688
+      },
+      "cellular-dessin.vtt": {
+        "sha256": "6c72607d90ba777680f1a1efe9775e7a46a35c56c48b5308a07b6cdb9726ae64",
+        "bytes": 405
+      }
+    }
+  },
+  {
+    "group": "physics",
+    "class": "GaugeHolonomy",
+    "slug": "gauge-holonomy",
+    "title": "Gauge changes and loop holonomy",
+    "link": "density.html",
+    "link_label": "Explore gauge transport",
+    "summary": "Watch local link coordinates change as their loop product stays fixed.",
+    "transcript": [
+      "A local gauge change alters the phases on individual directed links.",
+      "Matching vertex factors cancel in the product around a closed loop.",
+      "On a torus, face loops and the two independent handle cycles carry distinct information."
+    ],
+    "duration": 15.5,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "gauge-holonomy.mp4": {
+        "sha256": "65dde77aaba8660c68a9bc315fbc467e97ae172b376bc1d231242414bae06475",
+        "bytes": 227006
+      },
+      "gauge-holonomy.webp": {
+        "sha256": "2b54dd20b070f604649a5117c8a5649d823f66f8a46c0717c860a82fa2b9ecd7",
+        "bytes": 14518
+      },
+      "gauge-holonomy.vtt": {
+        "sha256": "14311ef46996468030f13a9c4591b83c2261eea9fe67bacf5511b0eb2d7ea52b",
+        "bytes": 326
+      }
+    }
+  },
+  {
+    "group": "physics",
+    "class": "CyclicWeyl",
+    "slug": "cyclic-weyl",
+    "title": "The cyclic qudit clock and shift",
+    "link": "./#research",
+    "link_label": "Open the network and research tools",
+    "summary": "Track basis states and phase as a clock and shift are applied in different orders.",
+    "transcript": [
+      "A cyclic qudit has q basis states.",
+      "The clock multiplies a basis state by a phase. The shift moves it around a cycle.",
+      "With the displayed convention the two orders differ by a root-of-unity phase. An interference measurement can reveal relative phase."
+    ],
+    "duration": 15.633333,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "cyclic-weyl.mp4": {
+        "sha256": "4f27abdf03899d946f5cbfff599ee30ae5c92fb5f8603edf25dd0bb3a510ee11",
+        "bytes": 408987
+      },
+      "cyclic-weyl.webp": {
+        "sha256": "6938f0ca7fc6becc66271cb8e9d37837c6fb2aefb9dabf98371466ad2190c353",
+        "bytes": 24066
+      },
+      "cyclic-weyl.vtt": {
+        "sha256": "fc35a94fff667b1517f68735faa87a85ccaaa9bda7236707a0b07ce814f459a2",
+        "bytes": 350
+      }
+    }
+  },
+  {
+    "group": "physics",
+    "class": "ColorTransport",
+    "slug": "color-transport",
+    "title": "Gauge transport and density",
+    "link": "density.html",
+    "link_label": "Run the gauge density example",
+    "summary": "Follow unitary transport and see why density can survive a basis change.",
+    "transcript": [
+      "A node carries a vector with color components. Link maps transport these amplitudes.",
+      "Changing an internal color basis changes individual components.",
+      "Summing squared component magnitudes gives a local density unchanged by a unitary basis transformation."
+    ],
+    "duration": 15.633333,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "color-transport.mp4": {
+        "sha256": "c865b447c9bb6958449e0f47a1d159c5e17c5b38d62afbe0e13db3de874916ad",
+        "bytes": 317398
+      },
+      "color-transport.webp": {
+        "sha256": "bf1de0ecdfe7a13676e23ef80266d94e9e3ae943b9d9c755ef4fccbfc708cc20",
+        "bytes": 19492
+      },
+      "color-transport.vtt": {
+        "sha256": "e4de362b0dfef812797badd8906d2b62b18e723069315572982258b09b8435a2",
+        "bytes": 353
+      }
+    }
+  },
+  {
+    "group": "physics",
+    "class": "AdvectionDensity",
+    "slug": "advection-density",
+    "title": "A conserved density in motion",
+    "link": "density.html",
+    "link_label": "Compare with graph transport",
+    "summary": "Watch a three-dimensional density packet move along a plane while its integral stays fixed.",
+    "transcript": [
+      "The height of the surface is an idealized positive density on a plane.",
+      "The packet moves at fixed velocity. Its value at position x and time t equals the initial density at x minus velocity times t.",
+      "The integral over the whole plane stays one. PhaseWeave’s unitary graph transport uses a related conservation principle with node and edge states."
+    ],
+    "duration": 13.233333,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "advection-density.mp4": {
+        "sha256": "859bdff2702c74a18a93a8e544345a53dae1300264bf2eaa3494f3383145a697",
+        "bytes": 389060
+      },
+      "advection-density.webp": {
+        "sha256": "66d5c131171d884eca26f8ff3ad12f98731adf018f58da92dd9adc3a9961255c",
+        "bytes": 20878
+      },
+      "advection-density.vtt": {
+        "sha256": "eabeb84827665263627d617385b7cb1e08b526fa92327aed9a6a02b59e3a6b34",
+        "bytes": 447
+      }
+    }
+  },
+  {
+    "group": "reasoning",
+    "class": "ContinuousForest",
+    "slug": "continuous-forest",
+    "title": "Forest of Thought in a continuous space",
+    "link": "reasoning.html?mode=forest",
+    "link_label": "Try the Forest of Thought controls",
+    "summary": "Six continuous paths branch after shared updates and compete in the same density landscape.",
+    "transcript": [
+      "Embed the observed graph into a real-valued state.",
+      "Three candidate contexts guide continuous updates. Each candidate splits after the shared initial updates.",
+      "Score all six endpoints under the same reward field. The highlighted path is the highest-scoring candidate under the displayed rule."
+    ],
+    "duration": 14.933333,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "continuous-forest.mp4": {
+        "sha256": "4df50ef2bf4c1c25743532c30de43a390243bea00acd237c6bce34ec12c756ff",
+        "bytes": 280922
+      },
+      "continuous-forest.webp": {
+        "sha256": "40942a6c499211a0d265ba3bf9743bf2257a92778e50b4b89294ab789ed5915e",
+        "bytes": 20896
+      },
+      "continuous-forest.vtt": {
+        "sha256": "053db93575e6b3fbcc5e27831d5890fcc76d5fc1b5ae21e34275d2f9b9e6da7b",
+        "bytes": 391
+      }
+    }
+  },
+  {
+    "group": "reasoning",
+    "class": "AnalogicalTransport",
+    "slug": "analogical-transport",
+    "title": "Analogical transport",
+    "link": "reasoning.html?mode=analogy",
+    "link_label": "Transfer an earlier observation",
+    "summary": "Move a reference displacement to a new query and vary the strength of the transfer.",
+    "transcript": [
+      "A past example moves from an earlier embedding to a later embedding.",
+      "Take its displacement and attach the same vector to the query point.",
+      "A real-valued coefficient scales the transfer. Choosing an earlier source preserves the demonstration’s time boundary."
+    ],
+    "duration": 14.766667,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "analogical-transport.mp4": {
+        "sha256": "920104cf1af7a412c19b178173eef6e7279ccb272cd50345a5f0e70c92e1e939",
+        "bytes": 285553
+      },
+      "analogical-transport.webp": {
+        "sha256": "7fd4b5e1c6e63a15bbf574155fc3e6220b22d63e1c92b6b8caf351dda8ed0344",
+        "bytes": 15076
+      },
+      "analogical-transport.vtt": {
+        "sha256": "929fe06438254cce7487a26f1d9c64cb8268dd5da8accbde9e882bc16c7a77ae",
+        "bytes": 359
+      }
+    }
+  },
+  {
+    "group": "reasoning",
+    "class": "ConceptSteering",
+    "slug": "concept-steering",
+    "title": "Steering a frozen graph encoder",
+    "link": "reasoning.html?mode=steering",
+    "link_label": "Move along the example basis",
+    "summary": "Change a real latent coefficient and see the measured shift in two October route forecasts.",
+    "transcript": [
+      "Fit concept directions using frozen graph activations from the training cut.",
+      "Add a controlled displacement before the unchanged forecast readout.",
+      "The two margin outputs shift by different amounts. The measured response is a property of this model and this intervention."
+    ],
+    "duration": 14.466667,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "concept-steering.mp4": {
+        "sha256": "222fc65c451dd7598c70a8032b82e919cf7499ca379ee3ac279f45267cebf484",
+        "bytes": 257082
+      },
+      "concept-steering.webp": {
+        "sha256": "0a5daff052906bf369265c946933e6d7fa804c8c22acf93ce3ab976fa481bf2d",
+        "bytes": 21752
+      },
+      "concept-steering.vtt": {
+        "sha256": "2f79167afaa29d191c50d01f8267c0b3f3853d3e25bbd9156a4cde6daa069132",
+        "bytes": 370
+      }
+    }
+  },
+  {
+    "group": "reasoning",
+    "class": "ContinuousFlow",
+    "slug": "continuous-flow",
+    "title": "Continuous GFlowNet trajectories",
+    "link": "reasoning.html?mode=flow",
+    "link_label": "Resample the reference flow",
+    "summary": "Follow continuous Gaussian transitions and compare two trained seeds with an unconditional reference.",
+    "transcript": [
+      "A positive reward gives the desired terminal density over real-valued states.",
+      "Draw an intermediate embedding and a terminal embedding from forward kernels. Backward densities enter the trajectory balance check.",
+      "Measured October terminal KL compares the learned conditional sampler with an unconditional Gaussian. The target density also admits direct Gaussian sampling."
+    ],
+    "duration": 14.766667,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "continuous-flow.mp4": {
+        "sha256": "dec655717f078c896a7db4abfbd8a29ade25fcc9bc92b6717c6f93589a15bcf6",
+        "bytes": 375938
+      },
+      "continuous-flow.webp": {
+        "sha256": "bff75c14da30e01b2ef898b410ea0cfa580593b202f68967b16fc3a2a4ed2474",
+        "bytes": 21988
+      },
+      "continuous-flow.vtt": {
+        "sha256": "89039a4f3d415ad69ebcf32496819286fca5a9117aea1fcdd22a0c64a4ee70a1",
+        "bytes": 470
+      }
+    }
+  },
+  {
+    "group": "models",
+    "class": "GraphNetworks",
+    "slug": "graph-networks",
+    "title": "How the graph network reads a market",
+    "link": "./#inference",
+    "link_label": "Open the model inspector",
+    "summary": "Trace a market graph through typed local messages, attention, a phase patch, and the two-margin readout.",
+    "transcript": [
+      "Each directed edge carries its endpoints, log quote, age and availability.",
+      "Local graph layers pass real vectors along the permitted edges.",
+      "Token attention can join global graph context. A cyclic-qutrit patch adds phase features, and temporal layers pool the observed frames for the output."
+    ],
+    "duration": 12.7,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "graph-networks.mp4": {
+        "sha256": "ef2823172b21359b60fa138713737ec2a40350315c5ff2f742e2433dc81b53ff",
+        "bytes": 442993
+      },
+      "graph-networks.webp": {
+        "sha256": "42537775649bd00bc77d6c7ae82a50629225b4fb7be34344b0e0a41513bf93df",
+        "bytes": 25448
+      },
+      "graph-networks.vtt": {
+        "sha256": "407a49a6e1dfe8b357c286089c0141afc989cb9da4a29ae0cc1883a80db925a5",
+        "bytes": 390
+      }
+    }
+  },
+  {
+    "group": "models",
+    "class": "TropicalAttention",
+    "slug": "tropical-attention",
+    "title": "Softmax and max-plus attention",
+    "link": "results.html",
+    "link_label": "Compare the measured ablations",
+    "summary": "Work through an attention example with a weighted average and a componentwise maximum.",
+    "transcript": [
+      "The schematic compares the same three example neighbor scores and values.",
+      "Softmax normalizes weights and averages all values.",
+      "Max-plus adds each score to its value and selects the componentwise maximum. The controlled benchmark compares the two rules on real forecasting windows."
+    ],
+    "duration": 12.533333,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "tropical-attention.mp4": {
+        "sha256": "9d4db21353d90e2a4e614134ea6609f913fc1de6211988fc7fcb4acbaa824cfa",
+        "bytes": 229966
+      },
+      "tropical-attention.webp": {
+        "sha256": "8bb9121b81eff16c7bc70dd640ec2bbea4c6514460b24545a805545e2bae69bf",
+        "bytes": 20804
+      },
+      "tropical-attention.vtt": {
+        "sha256": "c9e47b05cb96500a9304977952f6f236a0b654779d47089a777737fcf8cf2730",
+        "bytes": 380
+      }
+    }
+  },
+  {
+    "group": "models",
+    "class": "WidthTransfer",
+    "slug": "width-transfer",
+    "title": "What changed at larger model widths",
+    "link": "results.html",
+    "link_label": "Inspect all checkpoint comparisons",
+    "summary": "Watch the recorded validation measurements build and find the selected epoch for each of the three widths.",
+    "transcript": [
+      "A proxy sweep fixes the shared recipe before transferring it to larger widths.",
+      "Points show actual validation errors across all full-pass convergence epochs.",
+      "The lowest validation MAE selects each width’s checkpoint. The October and CHF holdouts have separate results."
+    ],
+    "duration": 14.966667,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "width-transfer.mp4": {
+        "sha256": "fb4cc336c8def7b1dc4207f362b0c385012bed3297496d0a19842fff1937f535",
+        "bytes": 295483
+      },
+      "width-transfer.webp": {
+        "sha256": "33d8db7935c5bcff6a1f17aef4f92ef83399e030407c4df21a898280a3e90c50",
+        "bytes": 21128
+      },
+      "width-transfer.vtt": {
+        "sha256": "907fa79839dbf8d20cd30ce95bd53b681fcd59dc8120c34768ce4ba1b4ab01f7",
+        "bytes": 370
+      }
+    }
+  },
+  {
+    "group": "models",
+    "class": "InferenceWorkbench",
+    "slug": "inference-workbench",
+    "title": "Run a forecast on observed evidence",
+    "link": "https://huggingface.co/spaces/AmelieSchreiber/PhaseWeave-Lab",
+    "link_label": "Open hosted inference",
+    "summary": "Inspect a recorded quote window, verify its availability, and compare the forecast with persistence and its recorded outcome.",
+    "transcript": [
+      "Select an observed market window such as the October London session.",
+      "Check available edges, quote age, and cost assumptions.",
+      "Run a frozen checkpoint for next-second margins, then compare the prediction, persisted anchor margin, and later recorded margin."
+    ],
+    "duration": 14.033333,
+    "width": 1280,
+    "height": 720,
+    "media": {
+      "inference-workbench.mp4": {
+        "sha256": "9e40a51f29aedf4545ed5fbffe8bad0ca4e252d2c1b74c0ac53da2f846fc35af",
+        "bytes": 461028
+      },
+      "inference-workbench.webp": {
+        "sha256": "865b452f1392ca066216e15271e3f9329f5c53845c9bedff70ac2e43625f1c21",
+        "bytes": 20010
+      },
+      "inference-workbench.vtt": {
+        "sha256": "0e6a9ddcc2f5189a50eac4fceb53d8fc83465ad95c4fff486bcc95b63cea7b9c",
+        "bytes": 355
+      }
+    }
+  }
+]

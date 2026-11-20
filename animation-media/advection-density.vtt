@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.411
+The height of the surface is an idealized positive density on a plane.
+
+00:00:04.411 --> 00:00:08.822
+The packet moves at fixed velocity. Its value at position x and time t equals the initial density at x minus velocity times t.
+
+00:00:08.822 --> 00:00:13.233
+The integral over the whole plane stays one. PhaseWeave’s unitary graph transport uses a related conservation principle with node and edge states.

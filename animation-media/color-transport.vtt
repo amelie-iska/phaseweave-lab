@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.211
+A node carries a vector with color components. Link maps transport these amplitudes.
+
+00:00:05.211 --> 00:00:10.422
+Changing an internal color basis changes individual components.
+
+00:00:10.422 --> 00:00:15.633
+Summing squared component magnitudes gives a local density unchanged by a unitary basis transformation.

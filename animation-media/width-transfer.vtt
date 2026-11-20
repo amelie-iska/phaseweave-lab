@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.989
+A proxy sweep fixes the shared recipe before transferring it to larger widths.
+
+00:00:04.989 --> 00:00:09.978
+Points show actual validation errors across all full-pass convergence epochs.
+
+00:00:09.978 --> 00:00:14.967
+The lowest validation MAE selects each width’s checkpoint. The October and CHF holdouts have separate results.

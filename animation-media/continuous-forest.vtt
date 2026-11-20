@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.978
+Embed the observed graph into a real-valued state.
+
+00:00:04.978 --> 00:00:09.956
+Three candidate contexts guide continuous updates. Each candidate splits after the shared initial updates.
+
+00:00:09.956 --> 00:00:14.933
+Score all six endpoints under the same reward field. The highlighted path is the highest-scoring candidate under the displayed rule.

@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.211
+A cyclic qudit has q basis states.
+
+00:00:05.211 --> 00:00:10.422
+The clock multiplies a basis state by a phase. The shift moves it around a cycle.
+
+00:00:10.422 --> 00:00:15.633
+With the displayed convention the two orders differ by a root-of-unity phase. An interference measurement can reveal relative phase.

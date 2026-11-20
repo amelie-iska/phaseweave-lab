@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.867
+A market triangle has three currency vertices.
+
+00:00:04.867 --> 00:00:09.733
+Each quoted pair supplies a bid edge and a reciprocal-ask edge in the opposite direction.
+
+00:00:09.733 --> 00:00:14.600
+A directed three-edge circuit adds log conversion rates. The score depends on the orientation and the per-leg cost.

@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.611
+Find the last eligible observation at the forecast anchor.
+
+00:00:04.611 --> 00:00:09.222
+Different sources use different clocks. A report must be released before it can enter the input.
+
+00:00:09.222 --> 00:00:13.833
+The later one-second observation is the target. Training, validation, stress, and test folds keep their chronological boundaries.

@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.967
+Two generator loops mark the torus. They share a vertex and cut out a single disk.
+
+00:00:04.967 --> 00:00:09.933
+Darts and a rotation system specify how edges meet and boundaries close.
+
+00:00:09.933 --> 00:00:14.900
+The Euler characteristic counts vertices minus edges plus faces. A connected closed orientable surface with Euler characteristic zero has genus one.

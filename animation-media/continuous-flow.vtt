@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.922
+A positive reward gives the desired terminal density over real-valued states.
+
+00:00:04.922 --> 00:00:09.844
+Draw an intermediate embedding and a terminal embedding from forward kernels. Backward densities enter the trajectory balance check.
+
+00:00:09.844 --> 00:00:14.767
+Measured October terminal KL compares the learned conditional sampler with an unconditional Gaussian. The target density also admits direct Gaussian sampling.

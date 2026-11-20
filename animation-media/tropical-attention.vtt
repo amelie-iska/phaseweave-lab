@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.178
+The schematic compares the same three example neighbor scores and values.
+
+00:00:04.178 --> 00:00:08.356
+Softmax normalizes weights and averages all values.
+
+00:00:08.356 --> 00:00:12.533
+Max-plus adds each score to its value and selects the componentwise maximum. The controlled benchmark compares the two rules on real forecasting windows.

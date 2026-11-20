@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.678
+Select an observed market window such as the October London session.
+
+00:00:04.678 --> 00:00:09.356
+Check available edges, quote age, and cost assumptions.
+
+00:00:09.356 --> 00:00:14.033
+Run a frozen checkpoint for next-second margins, then compare the prediction, persisted anchor margin, and later recorded margin.

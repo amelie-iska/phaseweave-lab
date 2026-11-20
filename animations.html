@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Animation catalogue · PhaseWeave</title>
+  <meta name="description" content="Short Manim animations on financial graphs, gauge physics, continuous reasoning, and model design.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animation-catalogue.css">
+  <script defer src="animation-catalogue.js"></script>
+</head>
+<body>
+  <header class="top animation-header">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Project pages">
+      <a href="data.html">Data</a>
+      <a href="reasoning.html">Reasoning</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-animation-theme="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-animation-theme="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="animation-page">
+    <div class="animation-intro">
+      <h1>Animation catalogue</h1>
+      <p>Watch how market observations become directed graphs, how gauge transport works, and how continuous reasoning acts on learned representations. Each clip includes a written explanation and a link to the corresponding example or experiment.</p>
+      <nav aria-label="Animation topics"><a href="#markets">Market data</a> <a href="#physics">Geometry and gauge physics</a> <a href="#reasoning">Continuous reasoning</a> <a href="#models">Models and experiments</a></nav>
+    </div>
+    <section class="animation-group" id="markets" aria-labelledby="markets-title">
+      <h2 id="markets-title">Market data</h2>
+      <div class="animation-grid">
+        <article class="animation-card" id="quote-to-graph">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="From quotes to a directed graph" poster="animation-media/quote-to-graph.webp">
+            <source src="animation-media/quote-to-graph.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/quote-to-graph.vtt" srclang="en" label="English description">
+            <a href="animation-media/quote-to-graph.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>From quotes to a directed graph <span>15 s</span></h3>
+            <p>Turn bid and ask observations into reciprocal directed conversions and compare the two oriented loops.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>A market triangle has three currency vertices.</li>
+              <li>Each quoted pair supplies a bid edge and a reciprocal-ask edge in the opposite direction.</li>
+              <li>A directed three-edge circuit adds log conversion rates. The score depends on the orientation and the per-leg cost.</li>
+              </ol>
+            </details>
+            <a href="data.html#inputs">Explore the observed inputs</a>
+          </div>
+        </article>
+        <article class="animation-card" id="executions-and-books">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="Executions, books, and visible depth" poster="animation-media/executions-and-books.webp">
+            <source src="animation-media/executions-and-books.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/executions-and-books.vtt" srclang="en" label="English description">
+            <a href="animation-media/executions-and-books.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>Executions, books, and visible depth <span>14 s</span></h3>
+            <p>Compare a reported execution with a bid and ask ladder, then see which information depth makes possible.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>An execution is a reported trade with a time, price, and quantity.</li>
+              <li>A book records visible quantities at bid and ask price levels. Its state changes with ordered updates.</li>
+              <li>The reconstructed book supports depth-aware replay. An archived book shows visible liquidity, and subscriber receipt timing remains unobserved.</li>
+              </ol>
+            </details>
+            <a href="events.html">Open trade replay</a>
+          </div>
+        </article>
+        <article class="animation-card" id="data-clock">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="The forecast data clock" poster="animation-media/data-clock.webp">
+            <source src="animation-media/data-clock.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/data-clock.vtt" srclang="en" label="English description">
+            <a href="animation-media/data-clock.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>The forecast data clock <span>14 s</span></h3>
+            <p>Put quote events, release availability, and the future target on a timeline.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>Find the last eligible observation at the forecast anchor.</li>
+              <li>Different sources use different clocks. A report must be released before it can enter the input.</li>
+              <li>The later one-second observation is the target. Training, validation, stress, and test folds keep their chronological boundaries.</li>
+              </ol>
+            </details>
+            <a href="data.html">Inspect sources and splits</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="animation-group" id="physics" aria-labelledby="physics-title">
+      <h2 id="physics-title">Geometry and gauge physics</h2>
+      <div class="animation-grid">
+        <article class="animation-card" id="cellular-dessin">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="How a graph cellulates the torus" poster="animation-media/cellular-dessin.webp">
+            <source src="animation-media/cellular-dessin.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/cellular-dessin.vtt" srclang="en" label="English description">
+            <a href="animation-media/cellular-dessin.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>How a graph cellulates the torus <span>15 s</span></h3>
+            <p>Follow two marked loops on a rotating torus, then count faces, edges, and vertices.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>Two generator loops mark the torus. They share a vertex and cut out a single disk.</li>
+              <li>Darts and a rotation system specify how edges meet and boundaries close.</li>
+              <li>The Euler characteristic counts vertices minus edges plus faces. A connected closed orientable surface with Euler characteristic zero has genus one.</li>
+              </ol>
+            </details>
+            <a href="./">Rotate the live surface diagram</a>
+          </div>
+        </article>
+        <article class="animation-card" id="gauge-holonomy">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="Gauge changes and loop holonomy" poster="animation-media/gauge-holonomy.webp">
+            <source src="animation-media/gauge-holonomy.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/gauge-holonomy.vtt" srclang="en" label="English description">
+            <a href="animation-media/gauge-holonomy.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>Gauge changes and loop holonomy <span>16 s</span></h3>
+            <p>Watch local link coordinates change as their loop product stays fixed.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>A local gauge change alters the phases on individual directed links.</li>
+              <li>Matching vertex factors cancel in the product around a closed loop.</li>
+              <li>On a torus, face loops and the two independent handle cycles carry distinct information.</li>
+              </ol>
+            </details>
+            <a href="density.html">Explore gauge transport</a>
+          </div>
+        </article>
+        <article class="animation-card" id="cyclic-weyl">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="The cyclic qudit clock and shift" poster="animation-media/cyclic-weyl.webp">
+            <source src="animation-media/cyclic-weyl.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/cyclic-weyl.vtt" srclang="en" label="English description">
+            <a href="animation-media/cyclic-weyl.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>The cyclic qudit clock and shift <span>16 s</span></h3>
+            <p>Track basis states and phase as a clock and shift are applied in different orders.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>A cyclic qudit has q basis states.</li>
+              <li>The clock multiplies a basis state by a phase. The shift moves it around a cycle.</li>
+              <li>With the displayed convention the two orders differ by a root-of-unity phase. An interference measurement can reveal relative phase.</li>
+              </ol>
+            </details>
+            <a href="./#research">Open the network and research tools</a>
+          </div>
+        </article>
+        <article class="animation-card" id="color-transport">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="Gauge transport and density" poster="animation-media/color-transport.webp">
+            <source src="animation-media/color-transport.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/color-transport.vtt" srclang="en" label="English description">
+            <a href="animation-media/color-transport.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>Gauge transport and density <span>16 s</span></h3>
+            <p>Follow unitary transport and see why density can survive a basis change.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>A node carries a vector with color components. Link maps transport these amplitudes.</li>
+              <li>Changing an internal color basis changes individual components.</li>
+              <li>Summing squared component magnitudes gives a local density unchanged by a unitary basis transformation.</li>
+              </ol>
+            </details>
+            <a href="density.html">Run the gauge density example</a>
+          </div>
+        </article>
+        <article class="animation-card" id="advection-density">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="A conserved density in motion" poster="animation-media/advection-density.webp">
+            <source src="animation-media/advection-density.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/advection-density.vtt" srclang="en" label="English description">
+            <a href="animation-media/advection-density.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>A conserved density in motion <span>13 s</span></h3>
+            <p>Watch a three-dimensional density packet move along a plane while its integral stays fixed.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>The height of the surface is an idealized positive density on a plane.</li>
+              <li>The packet moves at fixed velocity. Its value at position x and time t equals the initial density at x minus velocity times t.</li>
+              <li>The integral over the whole plane stays one. PhaseWeave’s unitary graph transport uses a related conservation principle with node and edge states.</li>
+              </ol>
+            </details>
+            <a href="density.html">Compare with graph transport</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="animation-group" id="reasoning" aria-labelledby="reasoning-title">
+      <h2 id="reasoning-title">Continuous reasoning</h2>
+      <div class="animation-grid">
+        <article class="animation-card" id="continuous-forest">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="Forest of Thought in a continuous space" poster="animation-media/continuous-forest.webp">
+            <source src="animation-media/continuous-forest.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/continuous-forest.vtt" srclang="en" label="English description">
+            <a href="animation-media/continuous-forest.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>Forest of Thought in a continuous space <span>15 s</span></h3>
+            <p>Six continuous paths branch after shared updates and compete in the same density landscape.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>Embed the observed graph into a real-valued state.</li>
+              <li>Three candidate contexts guide continuous updates. Each candidate splits after the shared initial updates.</li>
+              <li>Score all six endpoints under the same reward field. The highlighted path is the highest-scoring candidate under the displayed rule.</li>
+              </ol>
+            </details>
+            <a href="reasoning.html?mode=forest">Try the Forest of Thought controls</a>
+          </div>
+        </article>
+        <article class="animation-card" id="analogical-transport">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="Analogical transport" poster="animation-media/analogical-transport.webp">
+            <source src="animation-media/analogical-transport.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/analogical-transport.vtt" srclang="en" label="English description">
+            <a href="animation-media/analogical-transport.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>Analogical transport <span>15 s</span></h3>
+            <p>Move a reference displacement to a new query and vary the strength of the transfer.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>A past example moves from an earlier embedding to a later embedding.</li>
+              <li>Take its displacement and attach the same vector to the query point.</li>
+              <li>A real-valued coefficient scales the transfer. Choosing an earlier source preserves the demonstration’s time boundary.</li>
+              </ol>
+            </details>
+            <a href="reasoning.html?mode=analogy">Transfer an earlier observation</a>
+          </div>
+        </article>
+        <article class="animation-card" id="concept-steering">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="Steering a frozen graph encoder" poster="animation-media/concept-steering.webp">
+            <source src="animation-media/concept-steering.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/concept-steering.vtt" srclang="en" label="English description">
+            <a href="animation-media/concept-steering.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>Steering a frozen graph encoder <span>14 s</span></h3>
+            <p>Change a real latent coefficient and see the measured shift in two October route forecasts.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>Fit concept directions using frozen graph activations from the training cut.</li>
+              <li>Add a controlled displacement before the unchanged forecast readout.</li>
+              <li>The two margin outputs shift by different amounts. The measured response is a property of this model and this intervention.</li>
+              </ol>
+            </details>
+            <a href="reasoning.html?mode=steering">Move along the example basis</a>
+          </div>
+        </article>
+        <article class="animation-card" id="continuous-flow">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="Continuous GFlowNet trajectories" poster="animation-media/continuous-flow.webp">
+            <source src="animation-media/continuous-flow.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/continuous-flow.vtt" srclang="en" label="English description">
+            <a href="animation-media/continuous-flow.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>Continuous GFlowNet trajectories <span>15 s</span></h3>
+            <p>Follow continuous Gaussian transitions and compare two trained seeds with an unconditional reference.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>A positive reward gives the desired terminal density over real-valued states.</li>
+              <li>Draw an intermediate embedding and a terminal embedding from forward kernels. Backward densities enter the trajectory balance check.</li>
+              <li>Measured October terminal KL compares the learned conditional sampler with an unconditional Gaussian. The target density also admits direct Gaussian sampling.</li>
+              </ol>
+            </details>
+            <a href="reasoning.html?mode=flow">Resample the reference flow</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="animation-group" id="models" aria-labelledby="models-title">
+      <h2 id="models-title">Models and experiments</h2>
+      <div class="animation-grid">
+        <article class="animation-card" id="graph-networks">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="How the graph network reads a market" poster="animation-media/graph-networks.webp">
+            <source src="animation-media/graph-networks.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/graph-networks.vtt" srclang="en" label="English description">
+            <a href="animation-media/graph-networks.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>How the graph network reads a market <span>13 s</span></h3>
+            <p>Trace a market graph through typed local messages, attention, a phase patch, and the two-margin readout.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>Each directed edge carries its endpoints, log quote, age and availability.</li>
+              <li>Local graph layers pass real vectors along the permitted edges.</li>
+              <li>Token attention can join global graph context. A cyclic-qutrit patch adds phase features, and temporal layers pool the observed frames for the output.</li>
+              </ol>
+            </details>
+            <a href="./#inference">Open the model inspector</a>
+          </div>
+        </article>
+        <article class="animation-card" id="tropical-attention">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="Softmax and max-plus attention" poster="animation-media/tropical-attention.webp">
+            <source src="animation-media/tropical-attention.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/tropical-attention.vtt" srclang="en" label="English description">
+            <a href="animation-media/tropical-attention.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>Softmax and max-plus attention <span>13 s</span></h3>
+            <p>Work through an attention example with a weighted average and a componentwise maximum.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>The schematic compares the same three example neighbor scores and values.</li>
+              <li>Softmax normalizes weights and averages all values.</li>
+              <li>Max-plus adds each score to its value and selects the componentwise maximum. The controlled benchmark compares the two rules on real forecasting windows.</li>
+              </ol>
+            </details>
+            <a href="results.html">Compare the measured ablations</a>
+          </div>
+        </article>
+        <article class="animation-card" id="width-transfer">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="What changed at larger model widths" poster="animation-media/width-transfer.webp">
+            <source src="animation-media/width-transfer.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/width-transfer.vtt" srclang="en" label="English description">
+            <a href="animation-media/width-transfer.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>What changed at larger model widths <span>15 s</span></h3>
+            <p>Watch the recorded validation measurements build and find the selected epoch for each of the three widths.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>A proxy sweep fixes the shared recipe before transferring it to larger widths.</li>
+              <li>Points show actual validation errors across all full-pass convergence epochs.</li>
+              <li>The lowest validation MAE selects each width’s checkpoint. The October and CHF holdouts have separate results.</li>
+              </ol>
+            </details>
+            <a href="results.html">Inspect all checkpoint comparisons</a>
+          </div>
+        </article>
+        <article class="animation-card" id="inference-workbench">
+          <video controls playsinline preload="none" width="1280" height="720"
+                 aria-label="Run a forecast on observed evidence" poster="animation-media/inference-workbench.webp">
+            <source src="animation-media/inference-workbench.mp4" type="video/mp4">
+            <track kind="captions" src="animation-media/inference-workbench.vtt" srclang="en" label="English description">
+            <a href="animation-media/inference-workbench.mp4">Download this animation</a>
+          </video>
+          <div class="animation-text">
+            <h3>Run a forecast on observed evidence <span>14 s</span></h3>
+            <p>Inspect a recorded quote window, verify its availability, and compare the forecast with persistence and its recorded outcome.</p>
+            <details>
+              <summary>Read the explanation</summary>
+              <ol>
+              <li>Select an observed market window such as the October London session.</li>
+              <li>Check available edges, quote age, and cost assumptions.</li>
+              <li>Run a frozen checkpoint for next-second margins, then compare the prediction, persisted anchor margin, and later recorded margin.</li>
+              </ol>
+            </details>
+            <a href="https://huggingface.co/spaces/AmelieSchreiber/PhaseWeave-Lab">Open hosted inference</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <footer class="animation-footer">
+      <p>Rendered on iska-linux with Manim Community 0.22.1.</p>
+      <a href="animation-media/manifest.json">Media manifest</a>
+    </footer>
+  </main>
+</body>
+</html>

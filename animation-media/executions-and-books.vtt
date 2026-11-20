@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.678
+An execution is a reported trade with a time, price, and quantity.
+
+00:00:04.678 --> 00:00:09.356
+A book records visible quantities at bid and ask price levels. Its state changes with ordered updates.
+
+00:00:09.356 --> 00:00:14.033
+The reconstructed book supports depth-aware replay. An archived book shows visible liquidity, and subscriber receipt timing remains unobserved.

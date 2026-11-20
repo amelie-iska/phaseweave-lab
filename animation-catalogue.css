@@ -1,0 +1,24 @@
+.animation-page { max-width: 1220px; padding-top: clamp(24px, 4vw, 54px); }
+.animation-intro p { color: var(--muted); max-width: 74ch; margin: 9px 0 19px; }
+.animation-intro nav { display: flex; flex-wrap: wrap; gap: 8px 17px; }
+.animation-intro nav a { text-decoration: underline; text-underline-offset: 4px; }
+.animation-group { margin-block: 31px 39px; scroll-margin-top: 14px; }
+.animation-group h2 { padding-bottom: 10px; }
+.animation-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+.animation-card { min-width: 0; border: 1px solid var(--faint); background: var(--surface); }
+.animation-card video { width: 100%; height: auto; display: block; aspect-ratio: 16/9; background: #09131e; }
+.animation-card :focus-visible { outline: 2px solid var(--jade); outline-offset: -2px; }
+.animation-text { padding: 12px 14px 15px; }
+.animation-text h3 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 3px 9px; font-size: 22px; line-height: 1.19; font-weight: 500; }
+.animation-text h3 span { font: 12px var(--mono); color: var(--muted); white-space: nowrap; }
+.animation-text p, .animation-text ol, .animation-footer p { color: var(--muted); margin: 6px 0; }
+.animation-text summary { cursor: pointer; margin-block: 7px; }
+.animation-text ol { padding-inline-start: 22px; }
+.animation-text li { margin-block: 5px; }
+.animation-footer { border-top: 1px solid var(--faint); padding-block: 10px; display: flex; gap: 12px 25px; flex-wrap: wrap; align-items: baseline; }
+@media (max-width: 700px) {
+  .animation-grid { grid-template-columns: minmax(0,1fr); }
+  .animation-page { padding-inline: 10px; }
+  .animation-header nav { gap: 5px 9px; flex-wrap: wrap; justify-content: end; }
+  .animation-header .themes button { min-height: 30px; padding-inline: 7px; }
+}
