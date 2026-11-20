@@ -69,6 +69,17 @@
       <p id="baseline-note">Ten published backbone adaptations, persistence, and histogram boosting on the same frozen FX windows. The model sizes and optimization budgets differ.</p>
       <div id="baseline-table"></div>
     </section>
+    <section class="result-panel" id="continuous-forecast" aria-labelledby="continuous-title">
+      <div class="result-title">
+        <h2 id="continuous-title">Continuous retrieval and forecast search</h2>
+        <label>Split <select id="continuous-split"><option value="test">October holdout</option><option value="new_asset">Unseen CHF</option><option value="stress">September stress</option></select></label>
+      </div>
+      <p>September validation chose zero weight for all four historical retrieval methods. Branching improved on equal-budget independent paths, while the same verifier’s direct median had lower error still.</p>
+      <canvas id="continuous-chart" aria-label="One-second quote-margin forecast MAE, indexed by the rank in the table below"></canvas>
+      <div id="continuous-table"></div>
+      <p id="continuous-note"></p>
+      <p><a href="continuous-forecast-data.json">Download aggregate metrics</a> · <a href="reasoning.html">Walk through continuous reasoning</a> · <a href="animations.html">Watch the method animations</a></p>
+    </section>
     <section class="research">
       <h2>Measurement scope</h2>
       <p>The pilot uses 16 seconds of observed quote features to forecast both cycle margins one second ahead. Each estimate requires all three pairs to refresh. Held-out score intervals resample UTC-day blocks. A smaller reported error supports a forecasting comparison under these assumptions. The measurements concern quote margins and contain no confirmed trading fills.</p>

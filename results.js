@@ -4,6 +4,7 @@ let records;
 let convergence;
 let baselines;
 let semiring;
+let continuous;
 const item = (id) => document.getElementById(id);
 const number = (value, digits = 5) => value == null ? "—" : value.toFixed(digits);
 const formatCount = new Intl.NumberFormat("en", {notation:"compact", maximumFractionDigits:2});
@@ -179,6 +180,32 @@ function renderBaselines() {
     "The ten compact backbone adaptations saw three full passes and PhaseWeave saw 23. Persistence and histogram boosting are fixed controls.";
 }
 
+function renderContinuous() {
+  if (!continuous) return;
+  const {analogy, forest, forest_fallback_rows, forest_intervals} = continuous.holdouts[item("continuous-split").value];
+  const methods = [
+    ["Frozen PhaseWeave / validation-selected blend", analogy.frozen_mae_bps, true],
+    ["Direct verifier median", forest.median],
+    ["Forecast forest", forest.forest, true],
+    ["Independent paths", forest.independent],
+    ["Latent retrieval", analogy.methods.latent.standalone_mae_bps],
+    ["Cross-triangle retrieval", analogy.methods.cross_triangle.standalone_mae_bps],
+    ["Input feature retrieval", analogy.methods.input_features.standalone_mae_bps],
+    ["Shuffled response retrieval", analogy.methods.shuffled_response.standalone_mae_bps],
+    ["Persistence", analogy.persistence_mae_bps]
+  ].sort((a, b) => a[1] - b[1]);
+  drawBars(item("continuous-chart"), methods.map(([, value, transfer], index) =>
+    ({label:String(index + 1), value, transfer})), analogy.persistence_mae_bps);
+  table(item("continuous-table"), ["Rank", "Forecast", "MAE (log bps)"],
+    methods.map(([name, score], index) => [index + 1, name, number(score)]));
+  const [low, high] = forest_intervals.independent.paired_day_95_percentile;
+  item("continuous-note").textContent =
+    `${analogy.rows.toLocaleString()} quote windows. Forest minus independent MAE, paired 95% UTC-day interval ` +
+    `${number(low)} to ${number(high)} log bps. The two searches scored 48 proposals per eligible row. ` +
+    `They used persistence on ${forest_fallback_rows.toLocaleString()} windows with incomplete earlier inputs. ` +
+    `Historical retrieval used ${continuous.neighbors} neighbours from ${continuous.library_rows.toLocaleString()} August windows.`;
+}
+
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   document.querySelectorAll("[data-theme-choice]").forEach((button) =>
@@ -187,6 +214,7 @@ function applyTheme(theme) {
   renderCampaign();
   renderConvergence();
   renderBaselines();
+  renderContinuous();
 }
 
 document.querySelectorAll("[data-theme-choice]").forEach((button) =>
@@ -197,7 +225,8 @@ item("semiring-split").addEventListener("change",renderSemiring);
 item("convergence-width").addEventListener("change",renderConvergence);
 item("baseline-split").addEventListener("change",renderBaselines);
 item("baseline-budget").addEventListener("change",renderBaselines);
-window.addEventListener("resize",() => { renderCampaign(); renderConvergence(); renderBaselines(); });
+item("continuous-split").addEventListener("change",renderContinuous);
+window.addEventListener("resize",() => { renderCampaign(); renderConvergence(); renderBaselines(); renderContinuous(); });
 applyTheme(readTheme());
 fetch("experiment-data.json").then((response) => {
   if (!response.ok) throw new Error("result export unavailable");
@@ -237,3 +266,10 @@ Promise.all(["baseline-data.json","baseline-23-data.json"].map((file) => fetch(f
   baselines = {"3":short.roster, "23":[...extended.roster, ...fixed]};
   renderBaselines();
 }).catch(() => { item("baseline-note").textContent = "The baseline data could not load."; });
+fetch("continuous-forecast-data.json").then((response) => {
+  if (!response.ok) throw new Error("continuous forecast export unavailable");
+  return response.json();
+}).then((data) => {
+  continuous = data;
+  renderContinuous();
+}).catch(() => { item("continuous-note").textContent = "The continuous forecast results could not load."; });
