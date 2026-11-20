@@ -69,6 +69,23 @@
       <p id="baseline-note">Ten published backbone adaptations, persistence, and histogram boosting on the same frozen FX windows. The model sizes and optimization budgets differ.</p>
       <div id="baseline-table"></div>
     </section>
+    <section class="result-panel" id="joint-reference" aria-labelledby="reference-title">
+      <div class="result-title">
+        <h2 id="reference-title">Currency, pair and funding reference inputs</h2>
+        <label>Arm <select id="reference-arm"><option value="with_reference">With reference data</option><option value="no_reference">Without reference data</option></select></label>
+      </div>
+      <p>Both models use the same FX graphs, trade and document inputs, initialization and learning-rate schedule. The reference arm also receives BIS turnover, SDR membership and five New York Fed rates.</p>
+      <canvas id="reference-chart" aria-label="Validation MAE by epoch, with exact values in the table below"></canvas>
+      <p id="reference-note"></p>
+      <details><summary>Every epoch for both arms</summary><div id="reference-epochs"></div></details>
+      <div class="result-title">
+        <h3>Source masks and matched controls</h3>
+        <label>Split <select id="reference-split"><option value="test">October holdout</option><option value="new_asset">Unseen CHF</option><option value="stress">September stress</option></select></label>
+      </div>
+      <div id="reference-comparisons"></div>
+      <p id="reference-comparison-note"></p>
+      <p><a href="joint-reference-data.json">Download aggregate metrics</a> · <a href="data.html">Inspect source provenance</a></p>
+    </section>
     <section class="result-panel" id="continuous-forecast" aria-labelledby="continuous-title">
       <div class="result-title">
         <h2 id="continuous-title">Continuous retrieval and forecast search</h2>

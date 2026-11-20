@@ -5,6 +5,7 @@ let convergence;
 let baselines;
 let semiring;
 let continuous;
+let reference;
 const item = (id) => document.getElementById(id);
 const number = (value, digits = 5) => value == null ? "—" : value.toFixed(digits);
 const formatCount = new Intl.NumberFormat("en", {notation:"compact", maximumFractionDigits:2});
@@ -206,6 +207,47 @@ function renderContinuous() {
     `Historical retrieval used ${continuous.neighbors} neighbours from ${continuous.library_rows.toLocaleString()} August windows.`;
 }
 
+function renderReference() {
+  if (!reference) return;
+  const arm = item("reference-arm").value;
+  const selected = reference.arms[arm].selected_epoch;
+  const epochs = reference.arms[arm].series;
+  const split = reference.splits[item("reference-split").value];
+  drawBars(item("reference-chart"), epochs.map((row) => ({
+    label: String(row.epoch), value: row.validation.mae_bps, transfer: row.epoch === selected
+  })), reference.validation_persistence_mae_bps);
+  const reason = reference.stop_reason === "validation_plateau" ? "validation plateau" : "maximum epochs";
+  item("reference-note").textContent =
+    `Both arms ran ${reference.epochs_per_arm} epochs (${reason}) with ` +
+    `${reference.parameters_per_arm.toLocaleString()} trainable parameters per arm. ` +
+    `Copper marks this arm’s selected epoch ${selected}. The dashed line is validation persistence.`;
+  const pairedEpochs = reference.arms.no_reference.series.map((row, i) => [
+    row.epoch, number(row.validation.mae_bps), number(reference.arms.with_reference.series[i].validation.mae_bps),
+    number(row.training.loss), number(reference.arms.with_reference.series[i].training.loss),
+    row.paired_lr_factor
+  ]);
+  table(item("reference-epochs"), ["Epoch", "No reference MAE", "With reference MAE",
+    "No reference loss", "With reference loss", "Shared LR factor"], pairedEpochs);
+  const names = {
+    with_reference: "With reference inputs", no_reference: "Trained without reference inputs",
+    mask_reference_currency: "Currency slots masked", mask_reference_pair: "Pair slots masked",
+    mask_reference_funding: "Funding slots masked", mask_all_reference: "All reference slots masked",
+    persistence: "Persistence"
+  };
+  function describe(key) {
+    const row = split.paired[key];
+    return row ? `${number(row.mean_bps)} [${number(row.lower_95)}, ${number(row.upper_95)}]` : "—";
+  }
+  table(item("reference-comparisons"), ["Forecast", "MAE (log bps)", "Paired Δ vs full model [95% CI]"],
+    Object.entries(names).map(([id, label]) => [
+      label, number(split.methods[id].metrics.mae_bps), describe(id + "_minus_with_reference")
+    ]));
+  item("reference-comparison-note").textContent =
+    `With references minus trained control: ${describe("with_reference_minus_no_reference")} log bps ` +
+    `over ${split.rows.toLocaleString()} quote windows. The interval resamples UTC days. ` +
+    "The masking contrasts keep the reference model’s weights fixed.";
+}
+
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   document.querySelectorAll("[data-theme-choice]").forEach((button) =>
@@ -215,6 +257,7 @@ function applyTheme(theme) {
   renderConvergence();
   renderBaselines();
   renderContinuous();
+  renderReference();
 }
 
 document.querySelectorAll("[data-theme-choice]").forEach((button) =>
@@ -226,7 +269,9 @@ item("convergence-width").addEventListener("change",renderConvergence);
 item("baseline-split").addEventListener("change",renderBaselines);
 item("baseline-budget").addEventListener("change",renderBaselines);
 item("continuous-split").addEventListener("change",renderContinuous);
-window.addEventListener("resize",() => { renderCampaign(); renderConvergence(); renderBaselines(); renderContinuous(); });
+item("reference-arm").addEventListener("change", renderReference);
+item("reference-split").addEventListener("change", renderReference);
+window.addEventListener("resize",() => { renderCampaign(); renderConvergence(); renderBaselines(); renderContinuous(); renderReference(); });
 applyTheme(readTheme());
 fetch("experiment-data.json").then((response) => {
   if (!response.ok) throw new Error("result export unavailable");
@@ -273,3 +318,10 @@ fetch("continuous-forecast-data.json").then((response) => {
   continuous = data;
   renderContinuous();
 }).catch(() => { item("continuous-note").textContent = "The continuous forecast results could not load."; });
+fetch("joint-reference-data.json").then((response) => {
+  if (!response.ok) throw new Error("reference export unavailable");
+  return response.json();
+}).then((data) => {
+  reference = data;
+  renderReference();
+}).catch(() => { item("reference-note").textContent = "The reference experiment data could not load."; });
