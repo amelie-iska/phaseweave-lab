@@ -4,30 +4,52 @@
   const $ = (id) => document.getElementById("latent-" + id);
   const math = LatentReasoning;
   const qs = new URLSearchParams(location.search);
+  const scenes = ReasoningScenes;
   const views = {
-    forest: ["Forest of Thought", "Candidate trajectories",
-      "Grow three continuous paths from the observed state. At step three each path forks. Compare their terminal scores under the same reward field."],
-    analogy: ["Analogical transfer", "Transport an observed displacement",
-      "Retrieve an earlier episode by the distance between its starting point and the current embedding. Carry its observed displacement to the selected market frame."],
-    steering: ["Concept basis steering", "Intervene along two directions",
-      "Move the same market representation along one or both fitted directions. The chart and table report the resulting coordinates and direction coefficients."],
-    flow: ["Continuous GFlowNet", "Reward density and sampled trajectories",
-      "Sample an intermediate embedding and then a terminal embedding. Moving the reward weight changes the normalized terminal density and the paths drawn from it."],
+    forest: ["Forest of Thought", "Four learned forecast trees",
+      "Grow the trained candidates under a shared search budget. Select a node to inspect its local filtered complex."],
+    analogy: ["Graph and forest analogy", "Directed correspondence across two graph planes",
+      "Each eligible historical source is a tree. Its six leaves score currency bijections before a forecast displacement is transported."],
+    steering: ["GraphCG-R concept steering", "Learned directions projected into three PCs",
+      "Move along a learned direction or compare it with the initial and random controls. Dose changes the latent state while the readout stays frozen."],
+    flow: ["Continuous GFlowNet", "Learned forward trajectories by stage",
+      "Follow samples from a Gaussian base through the intermediate stage to the terminal state. Shading shows the pooled target reward at the terminal plane."],
   };
   const view = qs.get("mode");
   const state = {
     mode: Object.hasOwn(views, view) ? view : "forest",
-    examples: [], example: 0, frame: 0, depth: 5, fork: 1, source: -1,
-    strength: 1, skew: 0.45, friction: -0.6, mass: 1.85, count: 28, seed: 56, timer: null,
+    examples: [], example: 0, frame: 0, depth: 3, radius: .9, node: 0,
+    expansion: true, correction: true, consensus: true,
+    source: -1, mapping: -1, strength: 1,
+    seedIndex: 0, editMethod: "trained", axis: 1, dose: 1,
+    split: "test", stage: 2, count: 28, seed: 0, timer: null,
+    forest: null, steering: null, flow: null,
   };
+  const flowSplits = {"validation":"September validation","test":"October holdout","new_asset":"Unseen CHF"};
+  const blank = () => ({axes:["X","Y","Z"],points:[],lines:[],faces:[]});
+  let lastScene;
+  const draw = Reasoning3D.bind($("chart"), $("camera"),
+    () => { if (lastScene) draw(lastScene, colors()); },
+    id => {
+      if (state.mode === "forest") state.node = Number(id);
+      if (state.mode === "analogy") {
+        const key = /^source-(\d+)-map-(\d+)$/.exec(id);
+        if (!key) return;
+        state.source = Number(key[1]);
+        state.mapping = Number(key[2]);
+      }
+      paintControls();
+      render();
+    });
   const asCoordinate = (vector) => "(" + vector.map((value) => value.toFixed(3)).join(", ") + ")";
   const utc = (value) => value.replace("T", " ").replace("+00:00", " UTC");
   const stamp = (frame) => Date.parse(frame.utc);
-  const colors = () => {
+  function colors() {
     const styles = getComputedStyle(document.documentElement);
-    return Object.fromEntries(["canvas", "faint", "line", "muted", "text", "jade", "copper"]
-      .map((name) => [name, styles.getPropertyValue("--" + name).trim()]));
-  };
+    return Object.fromEntries(["line","muted","text","jade","copper","blue","violet"].map(name => [
+      name, styles.getPropertyValue((name === "blue" || name === "violet" ? "--latent-" : "--") + name).trim()
+    ]));
+  }
 
   function cell(row, name, text) {
     const node = document.createElement(name);
@@ -65,6 +87,13 @@
     const update = () => { value.textContent = state[key].toFixed(digits); };
     input.addEventListener("input", () => {
       state[key] = Number(input.value);
+      if (key === "depth" && state.forest) {
+        const nodes = state.forest.nodes.filter(node=>node.depth <= state.depth);
+        if (!nodes.some(node=>node.id === state.node)) state.node = nodes[0].id;
+        const select = document.getElementById("latent-setting-node");
+        select.replaceChildren(...nodes.map(node=>new Option(nodeLabel(node),node.id)));
+        select.value = String(state.node);
+      }
       update();
       render();
     });
@@ -81,233 +110,151 @@
     return button;
   }
 
-  function selectAnalysisSource(target) {
-    return state.examples.map((episode, index) => ({
-      episode, index,
-      distance: math.norm(math.sub(target.point, episode.states[0].point)),
-    })).filter(({episode, index}) => index !== state.example &&
-      stamp(episode.frames.at(-1)) < stamp(state.examples[state.example].frames[state.frame]))
-      .sort((a, b) => a.distance - b.distance);
+  function pick(key, label, rows) {
+    const field = document.createElement("label");
+    const selector = document.createElement("select");
+    field.append(label, selector);
+    selector.id = "latent-setting-" + key;
+    for (const [value, name] of rows) selector.append(new Option(name, value));
+    selector.value = String(state[key]);
+    selector.addEventListener("change", () => {
+      state[key] = typeof state[key] === "number" ? Number(selector.value) : selector.value;
+      if (key === "source") state.mapping = -1;
+      paintControls();
+      render();
+      document.getElementById(selector.id)?.focus();
+    });
+    return field;
   }
+
+  function toggle(key, label) {
+    const field = document.createElement("label");
+    const box = document.createElement("input");
+    box.type = "checkbox";
+    box.checked = state[key];
+    box.addEventListener("change", () => { state[key] = box.checked; render(); });
+    field.append(label, box);
+    return field;
+  }
+
+  function sourceMaps() {
+    const episode = state.examples[state.example];
+    return scenes.earlierMaps(episode.states[state.frame].point, episode.frames[state.frame],
+      state.examples, state.example);
+  }
+
+  function play(key, limit) {
+    if (state.timer) clearInterval(state.timer);
+    state[key] = 0;
+    paintControls();
+    render();
+    state.timer = setInterval(() => {
+      state[key]++;
+      paintControls();
+      render();
+      if (state[key] >= limit) { clearInterval(state.timer); state.timer = null; }
+    }, 550);
+  }
+
+  const nodeLabel = node => (node.tree < 0 ? "Consensus" : `Tree ${node.tree+1}`) + ` · node ${node.id} · ${node.label}`;
 
   function paintControls() {
     const panel = $("controls");
     panel.replaceChildren();
-    if (state.mode === "forest") {
-      panel.append(slider("depth", "Reasoning steps", 0, 7, 1, 0), slider("fork", "Branch diversification", 0, 2, 0.05));
-      panel.append(command("Play trajectory steps", () => {
-        if (state.timer) clearInterval(state.timer);
-        state.depth = 0;
-        paintControls();
-        render();
-        state.timer = setInterval(() => {
-          state.depth++;
-          render();
-          const control = document.getElementById("latent-setting-depth");
-          control.value = String(state.depth);
-          control.closest("label").querySelector("output").textContent = String(state.depth);
-          if (state.depth >= 7) {
-            clearInterval(state.timer);
-            state.timer = null;
-          }
-        }, 340);
-      }));
-    } else if (state.mode === "analogy") {
-      const query = state.examples[state.example].states[state.frame];
-      const neighbors = selectAnalysisSource(query);
-      if (!neighbors.length) return;
-      const label = document.createElement("label");
-      label.append("Earlier episode");
-      const select = document.createElement("select");
-      select.append(new Option("Nearest eligible episode", "-1"));
-      neighbors.forEach(({episode, index}) => select.append(new Option(episode.label, index)));
-      select.value = neighbors.some(({index}) => index === state.source) ? String(state.source) : "-1";
-      select.addEventListener("change", () => { state.source = Number(select.value); render(); });
-      label.append(select);
-      panel.append(label, slider("strength", "Transfer strength λ", 0, 1.75, 0.05));
-    } else if (state.mode === "steering") {
-      panel.append(slider("skew", "Loop imbalance α", -1.6, 1.6, 0.05),
-        slider("friction", "Spread direction β", -1.6, 1.6, 0.05));
-      panel.append(command("Reset intervention", () => {
-        state.skew = 0;
-        state.friction = 0;
-        paintControls();
-        render();
-        panel.querySelector("button").focus();
-      }));
-    } else {
-      panel.append(slider("mass", "Selected episode reward mass", 0.2, 4, 0.05),
-        slider("count", "Sampled trajectories", 8, 76, 4, 0));
-      panel.append(command("Draw another sample", () => { state.seed++; render(); }));
+    if (state.mode === "forest" && state.forest) {
+      const limit = Math.max(...state.forest.nodes.map(node => node.depth));
+      const nodes = state.forest.nodes.filter(node => node.depth <= state.depth);
+      if (!nodes.some(node => node.id === state.node)) state.node = nodes[0].id;
+      panel.append(slider("depth","Search budget",0,limit,1,0), slider("radius","Simplex radius",0,2.5,.025),
+        pick("node","Inspect generated node",nodes.map(node=>[node.id,nodeLabel(node)])),
+        toggle("expansion","Show expansions"),toggle("correction","Show corrections"),toggle("consensus","Show consensus"),
+        command("Play search growth",()=>play("depth",limit)));
+    } else if (state.mode === "analogy" && state.examples.length) {
+      const sources = sourceMaps();
+      if (!sources.length) return;
+      if (!sources.some(item=>item.index===state.source)) state.source = -1;
+      const source = sources.find(item=>item.index===state.source) || sources[0];
+      panel.append(pick("source","Earlier source",[[-1,"Best eligible source"],...sources.map(s=>[s.index,s.item.label])]),
+        pick("mapping","Currency correspondence",[[-1,"Lowest distortion"],...source.ranked.map(c=>[
+          c.order,`${c.map.map(v=>["EUR","USD","JPY"][v]).join(" / ")} · cost ${c.distortion.toFixed(3)}`
+        ])]),slider("strength","Transfer strength λ",0,1.75,.05));
+    } else if (state.mode === "steering" && state.steering) {
+      panel.append(pick("seedIndex","Training seed",state.steering.runs.map((run,index)=>[index,run.seed])),
+        pick("editMethod","Editor",[["trained","GraphCG-R trained"],["initial","Initial axes"],["random","Equal-norm random"]]),
+        pick("axis","Direction",[1,2,3,4].map(axis=>[axis,`Axis ${axis}`])),slider("dose","Embedding dose",-2,2,.05),
+        command("Reset dose",()=>{state.dose=0;paintControls();render();}));
+    } else if (state.mode === "flow" && state.flow) {
+      panel.append(pick("split","Data split",Object.entries(flowSplits)),slider("stage","Flow stage",0,2,1,0),
+        slider("count","Sampled trajectories",8,76,4,0),
+        command("Play flow stages",()=>play("stage",2)),
+        command("Show other sampled paths",()=>{state.seed++;render();}));
     }
   }
 
-  function scene(current, components) {
+  function scene(current) {
     const panel = $("readout");
     panel.replaceChildren();
-    panel.append(textBlock("Observed embedding  " + asCoordinate(current.point), "latent-metrics"));
-    const layers = {points: [], lines: [], field: false};
-    if (state.mode === "forest") {
-      const paths = math.forest(current.point, components, state.fork, state.depth);
-      const best = paths.reduce((a, b) => b.reward > a.reward ? b : a);
-      paths.forEach((path) => {
-        const highlight = path === best;
-        layers.lines.push({coords: path.points, color: highlight ? "copper" : "jade", width: highlight ? 3 : 1.7, alpha: highlight ? 1 : 0.7});
-        path.points.slice(1).forEach((point) => layers.points.push({point, color: highlight ? "copper" : "jade", radius: 3}));
-      });
-      panel.append(table("Continuous FoT path scores", ["Destination context", "R(z)"], paths.map((path) =>
-        [state.examples[path.index].label.replace("FX · ", "") +
-          (path.branch ? (path.branch < 0 ? " · A" : " · B") : "") +
-          (path === best && state.depth > 0 ? "  ✓" : ""), path.reward.toFixed(4)])));
-      panel.append(textBlock(state.depth > 0 ? "Highest-score endpoint  " + asCoordinate(best.points.at(-1))
-        : "All paths start from the same observed state.", "latent-metrics"));
-    } else if (state.mode === "analogy") {
-      const candidates = selectAnalysisSource(current);
-      const found = candidates.find(({index}) => index === state.source) ?? candidates[0];
-      if (!found) {
-        panel.append(textBlock("No earlier recorded episode is available for this frame. Select the September or London episode to see a time-eligible transfer."));
-        return layers;
+    if (state.mode === "forest" && state.forest) {
+      const source = state.forest;
+      const shown = source.nodes.filter(node=>node.depth<=state.depth);
+      const pivot = shown.find(node=>node.id===state.node) || shown[0];
+      const edges = source.edges.filter(edge => edge.kind === "expansion" ? state.expansion :
+        edge.kind.includes("consensus") ? state.consensus : state.correction);
+      const result = Reasoning3D.forestScene(source.nodes,edges,state.depth,0,pivot.id,
+        ["Forward Δ","Reverse Δ","Log move"]);
+      const coords = new Map(shown.map(n=>[n.id,n.point]));
+      let cells=0;
+      for (const simplex of source.local_complexes[pivot.id]?.simplices || []) {
+        if (simplex.birth > state.radius || !simplex.vertices.every(id=>coords.has(id))) continue;
+        const vertices = simplex.vertices.map(id=>coords.get(id));
+        if (vertices.length===2) result.lines.push({coords:vertices,color:"violet",dash:[2,3],alpha:.75});
+        else if (vertices.length===3) result.faces.push({coords:vertices,color:"violet",alpha:.15});
+        cells++;
       }
-      const {episode, distance} = found;
-      const before = episode.states[0].point;
-      const after = episode.states.at(-1).point;
-      const {displacement, prediction} = math.analogy(current.point, before, after, state.strength);
-      layers.lines.push({coords: [before, after], color: "jade", width: 2, arrow: true, dash: [5, 4]},
-        {coords: [current.point, prediction], color: "copper", width: 2.8, arrow: true});
-      layers.points.push({point: before, color: "jade", radius: 4}, {point: prediction, color: "copper", radius: 5});
-      panel.append(table("Analogy source and transformed query", ["Step", "Value"], [
-        ["Earlier source", episode.label], ["Earlier start", utc(episode.frames[0].utc)],
-        ["Earlier end", utc(episode.frames.at(-1).utc)], ["Start distance", distance.toFixed(3)],
-        ["Source displacement Δ", asCoordinate(displacement)], ["Transferred embedding", asCoordinate(prediction)],
+      panel.append(table("Selected learned forest node",["Property","Value"],[
+        ["Origin","Historical validation context"],["Tree",pivot.tree<0 ? "Consensus" : pivot.tree+1],
+        ["Node and role",`${pivot.id} · ${pivot.label}`],["Status",pivot.status],
+        ["Standardized coordinates",asCoordinate(pivot.point)],["Verifier score",Number(pivot.score).toFixed(5)],
+        ["Visible candidate states",shown.length],["Local simplices at radius",cells]
       ]));
-    } else if (state.mode === "steering") {
-      const [skew, friction] = state.basis;
-      const first = math.add(current.point, math.scale(skew, state.skew));
-      const next = math.add(first, math.scale(friction, state.friction));
-      layers.lines.push({coords: [current.point, first], color: "jade", width: 2.6, arrow: true},
-        {coords: [first, next], color: "copper", width: 2.6, arrow: true, dash: [6, 4]});
-      layers.points.push({point: next, color: "copper", radius: 6});
-      panel.append(table("Steering directions and result", ["Quantity", "Coordinates"], [
-        ["Loop imbalance basis v₁", asCoordinate(skew)], ["Orthogonal spread basis v₂", asCoordinate(friction)],
-        ["Basis inner product", Math.abs(math.dot(skew, friction)).toExponential(1)], ["Steered embedding", asCoordinate(next)],
+      return result;
+    }
+    if (state.mode === "analogy" && current) {
+      const {result,source,candidate,prediction} = scenes.analogy(sourceMaps(),state.source,state.mapping,state.strength,current.point);
+      if (!source) {
+        panel.append(textBlock("Choose a later episode to reveal a mature source and its correspondence branches."));
+        return result;
+      }
+      panel.append(table("Directed historical correspondence",["Property","Value"],[
+        ["Earlier episode",source.item.label],["Evidence closed",utc(source.item.frames.at(-1).utc)],
+        ["Mapped source order",candidate.map.map(i=>["EUR","USD","JPY"][i]).join(" / ")],
+        ["Orientation",candidate.swap?"Reversed":"Kept"],["Relational distortion",candidate.distortion.toFixed(5)],
+        ["Embedding displacement",asCoordinate(candidate.delta)],["Transported query",asCoordinate(prediction)],
       ]));
-    } else {
-      const kernel = math.bridge(current.point, components);
-      const random = math.rng(state.seed + state.frame * 23 + state.example * 541);
-      const counts = components.map(() => 0);
-      let max = 0;
-      for (let i = 0; i < state.count; i++) {
-        const drawing = kernel.sample(random);
-        counts[drawing.component]++;
-        max = Math.max(max, Math.abs(drawing.residual));
-        layers.lines.push({coords: [current.point, drawing.z, drawing.x], color: "jade", width: 0.8, alpha: 0.31});
-        layers.points.push({point: drawing.x, color: "copper", radius: 2.5});
-      }
-      layers.field = true;
-      panel.append(table("Continuous reward mixture", ["Reward component", "Mass share", "Drawn"], components.map((component, i) =>
-        [state.examples[i].label.replace("FX · ", ""), (100 * component.mass / kernel.total).toFixed(1) + "%", String(counts[i])])));
-      panel.append(textBlock("Z = " + kernel.total.toFixed(3) + " · max |balance residual| = " + max.toExponential(1), "latent-metrics"));
+      return result;
     }
-    return layers;
-  }
-
-  function renderChart(layers, current, components) {
-    const canvas = $("chart");
-    const rect = canvas.getBoundingClientRect();
-    const width = Math.round(rect.width), height = Math.round(rect.height);
-    if (width < 10 || height < 10) return;
-    const ratio = Math.min(2, window.devicePixelRatio || 1);
-    canvas.width = Math.round(width * ratio);
-    canvas.height = Math.round(height * ratio);
-    const context = canvas.getContext("2d");
-    if (!context) {
-      $("error").textContent = "Canvas is unavailable. The observed input and method values remain in the tables.";
-      return;
+    if (state.mode === "steering" && state.steering) {
+      const {result,active,method} = scenes.steering(state.steering,state.seedIndex,state.editMethod,state.axis,state.dose);
+      panel.append(table("Projected concept intervention",["Property","Value"],[
+        ["Editor",method.id],["Training origin","August latent centroid"],
+        ["Axis projection",asCoordinate(active.axis.unit_vector_pca3)],["Edited position",asCoordinate(active.point)],
+        ["Forecast change, log bps",asCoordinate(active.outcome)],
+        ["State variance in 3 PCs",(100*state.steering.explained_variance_fraction.reduce((a,b)=>a+b,0)).toFixed(2)+"%"],
+      ]));
+      return result;
     }
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const palette = colors();
-    const points = [...layers.points.map((item) => item.point), current.point];
-    const range = Math.max(2.8, ...points.map((point) => Math.max(Math.abs(point[0]), Math.abs(point[1])) + 0.2));
-    const box = {x: 54, y: 14, w: width - 72, h: height - 57};
-    const map = ([x, y]) => [box.x + (x + range) / (2 * range) * box.w,
-      box.y + (range - y) / (2 * range) * box.h];
-
-    if (layers.field) {
-      const step = 7, max = Math.max(...components.map((part) => math.reward(part.center, components)));
-      context.fillStyle = palette.jade;
-      for (let px = 0; px < box.w; px += step) {
-        for (let py = 0; py < box.h; py += step) {
-          const value = [(px + step / 2) / box.w * 2 * range - range, range - (py + step / 2) / box.h * 2 * range];
-          context.globalAlpha = Math.min(0.46, Math.sqrt(math.reward(value, components) / max) * 0.46);
-          context.fillRect(box.x + px, box.y + py, Math.min(step, box.w - px), Math.min(step, box.h - py));
-        }
-      }
-      context.globalAlpha = 1;
+    if (state.mode === "flow" && state.flow) {
+      const {result,report} = scenes.flow(state.flow,state.split,state.count,state.seed,state.stage);
+      panel.append(table("Learned continuous sampler",["Property","Value"],[
+        ["Stage",["Base sample z₀","Intermediate z₁","Terminal y"][state.stage]],
+        ["Selection step",state.flow.step],["Conditioning windows",report.number_of_conditioning_windows],
+        ["Target-to-model terminal KL",report.heldout_terminal_kl_nats.toFixed(5)+" nats"],
+        ["Displayed bank balance RMSE",report.display_balance_rmse.toFixed(5)],
+      ]));
+      return result;
     }
-    const axis = Math.floor(range);
-    context.font = "10px ui-monospace, monospace";
-    context.fillStyle = palette.muted;
-    for (let tick = -axis; tick <= axis; tick++) {
-      const [x, y] = map([tick, tick]);
-      context.strokeStyle = tick === 0 ? palette.line : palette.faint;
-      context.beginPath();
-      context.moveTo(x, box.y);
-      context.lineTo(x, box.y + box.h);
-      context.moveTo(box.x, y);
-      context.lineTo(box.x + box.w, y);
-      context.stroke();
-      context.textAlign = "center";
-      context.fillText(String(tick), x, box.y + box.h + 13);
-      context.textAlign = "right";
-      context.fillText(String(tick), box.x - 6, y + 3);
-    }
-    context.textAlign = "center";
-    context.fillText("Cycle imbalance  z₁", box.x + box.w / 2, height - 9);
-    context.save();
-    context.translate(14, box.y + box.h / 2);
-    context.rotate(-Math.PI / 2);
-    context.fillText("Quote friction  z₂", 0, 0);
-    context.restore();
-
-    function mark(point, size, color, square = false) {
-      const [x, y] = map(point);
-      context.fillStyle = palette[color];
-      if (square) context.fillRect(x - size, y - size, size * 2, size * 2);
-      else {
-        context.beginPath();
-        context.arc(x, y, size, 0, Math.PI * 2);
-        context.fill();
-      }
-    }
-    context.globalAlpha = 0.48;
-    state.examples.forEach((episode) => episode.states.forEach(({point}) => mark(point, 2, "muted")));
-    context.globalAlpha = 1;
-
-    layers.lines.forEach((line) => {
-      const coordinates = line.coords.map(map);
-      context.lineWidth = line.width;
-      context.globalAlpha = line.alpha ?? 1;
-      context.strokeStyle = palette[line.color];
-      context.setLineDash(line.dash ?? []);
-      context.beginPath();
-      coordinates.forEach(([x, y], index) => index === 0 ? context.moveTo(x, y) : context.lineTo(x, y));
-      context.stroke();
-      context.setLineDash([]);
-      if (line.arrow && coordinates.length > 1) {
-        const [a, b] = coordinates.slice(-2);
-        if (math.norm(math.sub(a, b)) > 4) {
-          const theta = Math.atan2(b[1] - a[1], b[0] - a[0]);
-          context.beginPath();
-          context.moveTo(b[0] - 9 * Math.cos(theta - 0.5), b[1] - 9 * Math.sin(theta - 0.5));
-          context.lineTo(...b);
-          context.lineTo(b[0] - 9 * Math.cos(theta + 0.5), b[1] - 9 * Math.sin(theta + 0.5));
-          context.stroke();
-        }
-      }
-    });
-    context.globalAlpha = 1;
-    layers.points.forEach(({point, color, radius}) => mark(point, radius, color));
-    mark(current.point, 5, "text", true);
+    panel.append(textBlock("Loading the measured trace."));
+    return blank();
   }
 
   function render() {
@@ -323,11 +270,8 @@
       [edge.from + " → " + edge.to, edge.side.replace("_", " "), edge.bps.toFixed(3),
         Number(edge.age).toLocaleString() + " ms"].forEach((value) => cell(row, "td", value));
     });
-    const components = state.examples.map((item, index) => ({
-      center: item.center, variance: index === 2 ? 0.13 : 0.18, mass: index === state.example ? state.mass : 1,
-    }));
-    const layers = scene(current, components);
-    renderChart(layers, current, components);
+    lastScene = scene(current);
+    draw(lastScene, colors());
     const locationState = new URLSearchParams({mode: state.mode, example: episode.id, frame: state.frame});
     history.replaceState(null, "", "?" + locationState);
   }
@@ -342,13 +286,15 @@
     $("title").textContent = title;
     $("chart-label").textContent = chart;
     $("explainer").textContent = explanation;
-    const markKey = {
-      forest: "Square: observed state. Solid paths: alternatives. Copper: highest current score.",
-      analogy: "Square: current state. Dashed arrow: earlier displacement. Solid arrow: transferred displacement.",
-      steering: "Square: observed state. Solid arrow: loop basis. Dashed arrow: spread basis.",
-      flow: "Square: observed state. Shading: reward density. Lines: trajectories. Copper dots: terminal states.",
+    const key = {
+      forest: "Colored branches identify the four trees. Dashed links are learned corrections. White edges cast votes into consensus. Violet links and faces show the selected local complex.",
+      analogy: "Arrows show the source and query cycles. Dashed cross-links match their vertices. Select a forest leaf to inspect a competing map.",
+      steering: "The four colors distinguish edit directions. The white point is the selected dose. Axis lengths preserve the original PCA projection.",
+      flow: "Blue dots are base samples, violet dots are intermediate states, and copper dots are terminal states. The third axis is stage.",
     };
-    $("description").textContent = markKey[mode] + " Gray points are the 93 observed frame embeddings.";
+    $("description").textContent = key[mode];
+    $("inputs").hidden = mode !== "analogy";
+
 
     document.querySelectorAll("[data-latent-mode]").forEach((button) =>
       button.setAttribute("aria-pressed", String(button.dataset.latentMode === mode)));
@@ -373,11 +319,14 @@
     state.frame = 0;
     $("frame").value = "0";
     state.source = -1;
+    state.mapping = -1;
     paintControls();
     render();
   });
   $("frame").addEventListener("input", () => {
     state.frame = Number($("frame").value);
+    state.mapping = -1;
+    paintControls();
     render();
   });
   new ResizeObserver(render).observe($("chart"));
@@ -389,9 +338,8 @@
   }).then((examples) => {
     state.examples = examples.map((item) => {
       const states = item.frames.map(math.marketState);
-      return {...item, states, center: math.mean(states.map((sample) => sample.point))};
+      return {...item, states};
     });
-    state.basis = math.conceptBasis(state.examples.flatMap((item) => item.states));
     state.example = Math.max(0, state.examples.findIndex(({id}) => id === qs.get("example")));
     state.examples.forEach((item, index) => $("example").append(new Option(item.label, index)));
     $("example").value = String(state.example);
@@ -406,4 +354,14 @@
   }).catch(() => {
     $("error").textContent = "The recorded market data could not be loaded. Reload this page or open the archived replay JSON below.";
   });
+  for (const [key,file] of Object.entries({
+    forest:"forest-view-v1.json",steering:"steering-projection-v1.json",flow:"flow-view-v1.json"
+  })) fetch(file).then(response => {
+    if (!response.ok) throw new Error("trace unavailable");
+    return response.json();
+  }).then(data => {
+    state[key] = data;
+    if (key === "forest") state.depth = Math.max(...data.nodes.map(node=>node.depth));
+    if (state.mode === key) { paintControls(); render(); }
+  }).catch(() => { $("error").textContent = "A measured reasoning trace could not load."; });
 })();

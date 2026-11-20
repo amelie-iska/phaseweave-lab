@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="reasoning.css">
   <script defer src="reasoning-core.js"></script>
+  <script defer src="reasoning-3d.js"></script>
+  <script defer src="reasoning-scenes.js"></script>
   <script defer src="reasoning.js"></script>
 </head>
 <body>
@@ -31,7 +33,7 @@
       </div>
       <a class="button" href="./">Open the market replay</a>
     </div>
-    <section class="latent-inputs" aria-label="Observed market input">
+    <section class="latent-inputs" id="latent-inputs" aria-label="Observed market input">
       <label>Recorded episode <select id="latent-example" disabled></select></label>
       <label class="latent-time">Recorded second
         <input id="latent-frame" type="range" min="0" max="30" step="1" value="0" disabled>
@@ -48,12 +50,18 @@
       <div class="latent-grid">
         <figure class="latent-figure">
           <div class="latent-chart-header">
-            <strong id="latent-chart-label">Trajectories in the embedding plane</strong>
-            <span>Continuous coordinates</span>
+            <strong id="latent-chart-label">Trajectories in three dimensions</strong>
+            <span>3D coordinates</span>
           </div>
           <canvas id="latent-chart" role="img" aria-labelledby="latent-chart-label" aria-describedby="latent-description">
             The data and the current trajectory values are available alongside the chart.
           </canvas>
+          <div class="latent-camera" id="latent-camera" aria-label="3D camera">
+            <label>Yaw <input type="range" name="yaw" min="-180" max="180" value="-32"></label>
+            <label>Pitch <input type="range" name="pitch" min="-85" max="85" value="24"></label>
+            <label>Zoom <input type="range" name="zoom" min=".65" max="1.45" step=".05" value="1"></label>
+            <button type="button">Reset view</button>
+          </div>
           <figcaption id="latent-description">The horizontal coordinate encodes directional cycle imbalance. The vertical coordinate combines observed spreads and the oldest quote age.</figcaption>
         </figure>
         <div class="latent-panel">
@@ -67,7 +75,7 @@
     <div class="latent-provenance">
       <section aria-labelledby="latent-source-title">
         <h2 id="latent-source-title">Inspect the market input</h2>
-        <p>Each row below is an observed directional quote edge. Both oriented triangles use the same three physical markets. The scenario controls move their two-dimensional reference representation.</p>
+        <p>Each row below is an observed directional quote edge. Both oriented triangles use the same three physical markets. Use the controls to inspect model states, correspondence candidates, and time-ordered flow stages.</p>
         <div class="latent-table-wrap">
           <table aria-label="Selected real FX quote edges">
             <thead><tr><th scope="col">Conversion</th><th scope="col">Side</th><th scope="col">Log bps</th><th scope="col">Age</th></tr></thead>
@@ -78,14 +86,14 @@
       </section>
       <section aria-labelledby="latent-method-title">
         <h2 id="latent-method-title">From graph to embedding</h2>
-        <p>The reference encoder uses the two oriented cycle sums, mean pair spread, and maximum quote age. All four controls act on points and displacements in ℝ². The page computes these demonstrations locally. Trained forecast results and the actual knowledge graph retrieval evaluation are available separately.</p>
+        <p>The reference encoder uses the two oriented cycle sums, mean pair spread, and maximum quote age. The 3D view displays embedding coordinates, search geometry, or flow stage as labeled. The page computes the reference demonstrations locally. Trained forecast results and the actual knowledge graph retrieval evaluation are available separately.</p>
         <details>
           <summary>Equations and what transfers from the reviewed projects</summary>
           <dl>
-            <dt>Graph encoding</dt><dd>Following TokenGT and ToricGT, the input keeps directed edges and endpoints identifiable. The display maps half the cycle-sum difference through tanh along one axis and log spread and quote age along the other. LigandMPNN motivates keeping edge-local context separate from global controls.</dd>
-            <dt>Forest and analogy</dt><dd>FoT motivates several continuous candidate updates with a common score. The analogy uses <var>z′ = z + λ(z<sub>after</sub> − z<sub>before</sub>)</var> on an earlier observed episode where available. Search and transfer stay in embedding coordinates. A short edit to an embedding does not place a trade.</dd>
-            <dt>Concept basis</dt><dd>Inspired by GraphCG, directions are differences of upper and lower quartile centers in the browser records, followed by orthogonalization. The two sliders set coefficients in <var>z′ = z + αv₁ + βv₂</var>. These are supervised contrasts on the displayed sample.</dd>
-            <dt>Continuous flow</dt><dd>Reward is a Gaussian mixture centered on the real episode embeddings. A backward Gaussian bridge gives analytic forward densities via conditioning. The display evaluates <var>log[Z p(z) p(x|z)] − log[R(x) p(z|x)]</var>. InfGCN inspires viewing values as a continuous field. ADFLIP motivates conditioned trajectories. The browser uses a solved continuous density model.</dd>
+            <dt>Graph encoding</dt><dd>The forest reads trained forecast coordinates. The analogy compares market-pair spreads and ages across directed cycle graphs. Its transport uses a separate two-coordinate summary.</dd>
+            <dt>Forest and analogy</dt><dd>The trained FoT trace retains parents, proposals, repairs and consensus votes. The directed graph reference analogy uses <var>z′ = z + λ(z<sub>after</sub> − z<sub>before</sub>)</var> on an earlier observed episode where available. Search and transfer stay in embedding coordinates. A short edit to an embedding does not place a trade.</dd>
+            <dt>Concept basis</dt><dd>GraphCG-R learns edit directions from paired latent views with contrastive supervision. The dose slider follows <var>z′ = z + αv</var> with the graph readout fixed.</dd>
+            <dt>Continuous flow</dt><dd>The forward model samples a normalized Gaussian transition at each stage. The training objective balances forward and backward path densities against an unnormalized context-dependent terminal reward. The visual display pools the conditional rewards over the selected split.</dd>
           </dl>
           <p class="latent-resources"><a href="https://arxiv.org/abs/2207.02505">TokenGT</a> <a href="https://github.com/amelie-iska/ToricGT">ToricGT</a> <a href="https://proceedings.mlr.press/v267/bi25a.html">Forest of Thought</a> <a href="https://arxiv.org/abs/2401.17123">GraphCG</a> <a href="https://proceedings.mlr.press/v202/lahlou23a.html">Continuous GFlowNets</a> <a href="https://proceedings.mlr.press/v267/yi25a.html">ADFLIP</a> <a href="https://arxiv.org/abs/2311.10908">InfGCN</a> <a href="https://github.com/dauparas/LigandMPNN">LigandMPNN</a></p>
         </details>
