@@ -1,0 +1,59 @@
+{
+  "format": "phaseweave.finqa-ministral-matched-fit.v1",
+  "scope": "training and checkpoint-selection validation",
+  "base_repository": "unsloth/Ministral-3-8B-Reasoning-2512-bnb-4bit",
+  "revision": "9b63df6976d77db506d60c5835d2775aeaf068e6",
+  "base_sha256": "505a4757cd2ecc5a58b6e0820ae494795ceeb6517fb538e62f2f22b7d7e438c7",
+  "base_bytes": 6830968107,
+  "model_type": "mistral3",
+  "corpus_sha256": "d58fd406df9881e6963db13ad318b48414b74ecec91cc0fecd77da29ce96e15a",
+  "plan_sha256": "37e401f119a3485a60f2462634e526f776a7dbe48f910267cdc2858bc6175c7d",
+  "prompt_policy": "answer-only",
+  "epochs": 2,
+  "seed": 20261122,
+  "rank": 16,
+  "learning_rate": 0.0002,
+  "gradient_accumulation": 8,
+  "max_tokens": 2048,
+  "selected": {
+    "train": {
+      "rows": 244,
+      "indices_sha256": "c07fca55c435d14a38b2b50fef561b0749e8b4be41967bd46ee0a7a5a510cdde",
+      "token_ids_and_completion_masks_sha256": "1330be8010885d06bee5659abf6b306af4d0ccc2a993ad78603a79d665b95f9e"
+    },
+    "validation": {
+      "rows": 3,
+      "indices_sha256": "c2edf77f4c1cd1104b96bd9bd879956705c438a598af2d6e260f58ea8cfeb1b0",
+      "token_ids_and_completion_masks_sha256": "f18e7deed1a4e429895eb236761f013642f94839a8abb59ab54a91d83100d79e"
+    }
+  },
+  "packages": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.15.1",
+    "peft": "0.21.3",
+    "bitsandbytes": "0.50.2",
+    "trl": "0.22.2",
+    "unsloth": "2026.11.5"
+  },
+  "architecture": "ministral",
+  "registration_sha256": "00482ac2047155509903cbe4c3f2cda9336869949b415eb2499e4bdceedb33fa",
+  "steps": 62,
+  "selected_checkpoint": "checkpoint-62",
+  "selected_epoch": 2.0,
+  "adapter_sha256": "01f2fc7fbb9b75f2c5fd3f595e35ddd91820373f38ad033471e0c9a0c187e2e4",
+  "trainable_parameters": 44564480,
+  "trainable_tensors": 476,
+  "validation_loss_by_epoch": [
+    0.16869352757930756,
+    0.15768979489803314
+  ],
+  "base_completion_loss": 1.368104338645935,
+  "adapted_completion_loss": 0.15768979489803314,
+  "peak_gpu_mib": 7040.515625,
+  "summary_sha256": "c33d703c4e9ad4b43cdf520f3e13d2e6cb3e1b336622b1b0c9805e7263bf8110",
+  "checkpoint_sha256": {
+    "checkpoint-31": "9470a79da74d101b6e80fdf551ecf87c8f7f5a82c86611308c24c8e408b49cdb",
+    "checkpoint-62": "01f2fc7fbb9b75f2c5fd3f595e35ddd91820373f38ad033471e0c9a0c187e2e4",
+    "adapter": "01f2fc7fbb9b75f2c5fd3f595e35ddd91820373f38ad033471e0c9a0c187e2e4"
+  }
+}
