@@ -1,12 +1,28 @@
 <!doctype html><html lang="en" data-theme="dark"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light">
-<title>Live paper tournament · PhaseWeave</title><link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="paper-tournament.css"><script defer src="paper-tournament.js"></script></head>
-<body><header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span>PhaseWeave</a><nav aria-label="Related pages"><a href="desk.html">Trading desk</a> <a href="fee-training.html">Fees and training</a> <a href="http://127.0.0.1:8143/live-fee-ladder.html">Live fee tiers</a><div class="themes" aria-label="Color theme"><button data-choice="dark" aria-pressed="true">Dark</button><button data-choice="light" aria-pressed="false">Light</button></div></nav></header>
+<title>Live paper tournament · PhaseWeave</title><link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="paper-tournament.css"><script defer src="paper-tournament.js"></script><script defer src="paper-interactions.js"></script></head>
+<body><header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span>PhaseWeave</a><nav aria-label="Related pages"><a href="desk.html">Trading desk</a> <a href="http://127.0.0.1:8144/paper-tournament.html">Configurable paper desk</a> <a href="fee-training.html">Fees and training</a> <a href="http://127.0.0.1:8143/live-fee-ladder.html">Live fee tiers</a><div class="themes" aria-label="Color theme"><button data-choice="dark" aria-pressed="true">Dark</button><button data-choice="light" aria-pressed="false">Light</button></div></nav></header>
 <main id="tourney"><div class="t-heading"><div><h1>Live paper tournament</h1><p id="subtitle">Forecasts, simulated fills and outcomes from the local paper engine.</p></div><div class="session-indicator"><span class="led" id="led"></span><strong id="phase" role="status">Connecting</strong><small id="freshness">Waiting for first status</small></div></div>
  <div id="run-policy" aria-label="Paper policy and source" hidden><span class="state-badge" id="policy-badge"></span><span id="policy-explainer"></span></div>
  <div id="notice" role="status" hidden></div>
  <section class="capture" aria-label="Capture status"><div><span>Session</span><strong id="session">—</strong></div><div><span>Elapsed</span><strong id="elapsed">—</strong></div><div><span>Capture</span><strong id="ingest">—</strong></div><div><span>Latest observation</span><strong id="latest">—</strong></div></section>
  <section aria-label="Model standings" id="models"><p class="empty">Waiting for model records.</p></section>
+
+ <section class="panel" id="paper-controls" hidden>
+  <div class="panel-heading"><h2>Model settings</h2><span>Paper portfolios · changes take effect at the next forecast</span></div>
+  <p>All three rank both routes one second ahead from 16 one-second frames. Decision resolution sets how often each model runs. Search width and confirmations set its execution search.</p>
+  <div id="profile-forms" class="profile-grid"></div>
+ </section>
+ <section class="panel action-panel" aria-labelledby="actions-title">
+  <div class="panel-heading"><h2 id="actions-title">Trading interactions</h2>
+   <div class="action-options"><label>Window <select id="action-window"><option value="60">1 min</option><option value="300" selected>5 min</option><option value="900">15 min</option></select></label>
+   <label>Plot resolution <select id="action-bin"><option value="1">1 s</option><option value="5">5 s</option><option value="15">15 s</option><option value="60">60 s</option></select></label></div>
+  </div>
+  <canvas id="action-chart" role="img" aria-label="Timeline of paper actions and settings changes for the three models"></canvas>
+  <div class="t-legend" id="action-legend"></div>
+  <label class="action-focus">Inspect action <select id="action-focus"><option>No paper actions yet</option></select></label>
+  <div id="action-detail" aria-live="polite"><p>Proposals, simulated fills, exits and settings changes appear here as they are recorded.</p></div>
+ </section>
  <section class="performance"><div class="panel-heading"><h2>Paper PnL</h2><span id="plot-caption">Since this window opened</span></div><canvas id="chart" role="img" aria-label="Paper PnL for the selected models as received by this window"></canvas><div id="legend" class="t-legend"></div></section>
  <div class="detail-layout">
   <section class="panel decisions"><div class="panel-heading"><h2>Decisions and fills</h2><label>Model <select id="event-model"><option value="">All models</option></select></label></div><p id="event-count"></p>

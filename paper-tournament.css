@@ -60,3 +60,25 @@
 #tourney dd[data-tone="fill"] {color:var(--state-fill)}
 #tourney dd[data-tone="caution"] {color:var(--state-caution)}
 #tourney dd[data-tone="loss"] {color:var(--state-loss)}
+#paper-controls[hidden] {display:none}
+#paper-controls,.action-panel {margin:12px 0}
+.profile-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:15px}
+.profile-entry {min-width:0;border:1px solid var(--line);border-radius:5px;padding:12px;display:grid;align-content:start;gap:9px}
+.profile-entry h3 {font-size:15px;margin:0;color:var(--text)}
+.profile-entry .profile-inputs {display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.profile-entry label {display:grid;gap:3px;color:var(--muted);font-size:13px}
+.profile-entry select,.action-options select,.action-focus select {min-width:0;max-width:100%;width:auto;color:var(--text);background:var(--surface);padding:5px 7px;border:1px solid var(--line);border-radius:4px}
+.profile-entry button {justify-self:start;font-size:14px}
+.profile-entry .profile-status {font:12px/1.5 var(--mono);min-height:3em;margin:0}
+.profile-entry .route-summary {font:12px/1.7 var(--mono);min-height:4.5em;margin:0;white-space:pre-line;overflow-wrap:anywhere}
+.action-options {display:flex;gap:8px 14px;flex-wrap:wrap}
+.action-options label,.action-focus {font:12px/1.5 var(--mono);color:var(--muted)}
+#action-chart {width:100%;height:178px;min-height:0;display:block;cursor:crosshair;touch-action:auto}
+#action-legend {margin:5px 0 12px}
+#action-legend i {width:8px;height:8px;border-radius:50%}
+.action-focus {display:flex;align-items:center;flex-wrap:wrap;gap:9px}
+#action-focus {flex:0 1 440px;min-width:160px}
+.action-detail-route {display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:7px 0 4px;padding:0;list-style:none}
+.action-detail-route li {font:12px/1.4 var(--mono);padding:4px 8px;border:1px solid var(--line);border-radius:4px}
+.action-detail-route li[data-active="true"] {border-color:var(--jade);color:var(--jade)}
+@media(max-width:830px){.profile-grid{grid-template-columns:1fr}.profile-entry .profile-status,.profile-entry .route-summary{min-height:0}}

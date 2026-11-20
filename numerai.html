@@ -31,6 +31,18 @@
   <section class="arch-panel"><h2>Outperform the leading models</h2>
    <p>This registered follow-on first tests four fixed nonlinear challengers versus the published benchmark on untouched dates using official neutral CORR. A separate prospective comparison requires all ten leading peers and PhaseWeave on the same twelve resolved rounds with matching metric versions and targets.</p>
    <p>The first nonlinear development fit improved the eight-feature ridge slightly to −0.00750 mean CORR on the same 26 dates. The published LightGBM benchmark achieved 0.03684 and won all 26. Those dates are reserved for development diagnostics.</p>
+   <p>All four registered fits were compared on 105 development dates and 699,389 common stock/date rows. Their terminal outcomes remain sealed.</p>
+   <div class="arch-scroll"><table><caption>Equal-date validation on the development period</caption>
+    <thead><tr><th scope="col">Model</th><th scope="col">Mean neutral CORR</th></tr></thead>
+    <tbody>
+     <tr><th scope="row">Official LightGBM benchmark</th><td>0.045970</td></tr>
+     <tr><th scope="row">HGB · 128 features · 31 leaves</th><td>0.018147</td></tr>
+     <tr><th scope="row">HGB · 128 features · 7 leaves</th><td>0.017213</td></tr>
+     <tr><th scope="row">Existing ridge · 8 features</th><td>0.008770</td></tr>
+     <tr><th scope="row">HGB · 8 features · 7 leaves</th><td>0.003496</td></tr>
+     <tr><th scope="row">HGB · 8 features · 31 leaves</th><td>0.002872</td></tr>
+    </tbody></table></div>
+   <p>The selected HGB led the published benchmark on 3 of 105 dates. All comparisons used the same dates, targets and 300 neutralizer columns. <a href="numerai-registered-development-v1.json">Verified development receipt</a></p>
    <p><a href="downloads/numerai-outperformance-v1.md">Registered task and exact success criteria</a> · <a href="numerai-hgb-development-v1.json">Exact nonlinear development scores</a></p>
   </section>
   <section class="arch-panel"><h2>Public model leaderboard</h2>

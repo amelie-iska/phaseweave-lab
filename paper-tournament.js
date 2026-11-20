@@ -48,6 +48,7 @@
     for(const b of document.querySelectorAll("[data-choice]"))b.setAttribute("aria-pressed",String(b.dataset.choice===t));
     try{localStorage.setItem("phaseweave-theme",t);}catch{}
     if(memory.latest){draw();renderLegend(memory.latest.models);}
+    document.dispatchEvent(new Event("paper-theme"));
   }
   function renderLegend(models) {
     const box=$("legend");box.replaceChildren();
@@ -230,8 +231,9 @@
     const started=performance.now(),controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),2500);
     try{
       const response=await fetch("/api/paper-tournament/status",{method:"GET",cache:"no-store",credentials:"same-origin",signal:controller.signal});
-      if(!response.ok)throw Error("status unavailable");const current=adapt(await response.json());
+      if(!response.ok)throw Error("status unavailable");const raw=await response.json(),current=adapt(raw);
       render(current);memory.received=Date.now();memory.offline=false;
+      document.dispatchEvent(new CustomEvent("paper-status", {detail:raw}));
     }catch{memory.offline=true;}
     finally{clearTimeout(timeout);freshness();memory.timer=setTimeout(poll,Math.max(0,1000-(performance.now()-started)));}
   }

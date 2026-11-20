@@ -1,0 +1,56 @@
+{
+  "format": "phaseweave.numerai-registered-development.v1",
+  "scope": "105 registered development dates; terminal untouched by this work",
+  "registration_sha256": "8efbec1aef4e670ea2461d3f1de50ab412ff6fbeda7cd6bc83c91e4b095d5efa",
+  "plan_sha256": "166c19ae26553b6f818f03eb2abf41e3c0b4daea5bb5434c8722983543aa8c2e",
+  "source_acquisition_sha256": "511b38118324297a6ed40a5ed373a95cf3e6c8e29a4b1bc410688a35a875835d",
+  "acquired_development_bytes": 1484412002,
+  "terminal_bytes_acquired": 0,
+  "input_audit": {
+    "training_total_rows": 4329443,
+    "training_dates": 835,
+    "training_target_missing_rows": 0,
+    "training_eligible_rows": 4329443,
+    "development_complete_stock_date_keys": 699389,
+    "development_distinct_dates": 105,
+    "development_neutralizer_count": 300,
+    "development_nonfinite_score_inputs": 0,
+    "terminal_payload_accessed": false
+  },
+  "scorer_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+  "score_sha256": "2bc7763cc082909cca05d7bbb6d53eee86ce479c82109346b92d75cf577bc734",
+  "selection_sha256": "5c5586682be2b508d9f33a211273906fda5e5d9079c4aa87f7aedd6f098e89fa",
+  "mean_development_neutral_corr": {
+    "lgbm_jupiter_60": 0.04596967115599025,
+    "existing_ridge": 0.00876968820110915,
+    "hgb-f8-l7": 0.0034960333638989413,
+    "hgb-f8-l31": 0.002871977536908019,
+    "hgb-f128-l7": 0.017212927669715664,
+    "hgb-f128-l31": 0.01814713719962493
+  },
+  "mean_development_raw_corr": {
+    "lgbm_jupiter_60": 0.038557663469785584,
+    "existing_ridge": 0.00327860596317307,
+    "hgb-f8-l7": 0.0022626975511227596,
+    "hgb-f8-l31": 0.0013319808026735977,
+    "hgb-f128-l7": 0.013725013708588378,
+    "hgb-f128-l31": 0.015403519001432475
+  },
+  "winner": "hgb-f128-l31",
+  "winner_sha256": "43886adb679e22534a8ec9944e7740f74203bc701c322a881a9d314442e00649",
+  "winner_minus_benchmark_mean_development_neutral_corr": -0.027822533956365334,
+  "winner_neutral_corr_development_dates_above_benchmark": 3,
+  "scored_per_date_panel": {
+    "first": "2020-01-03",
+    "last": "2021-12-31",
+    "dates": 105
+  },
+  "candidate_fit_sha256": {
+    "hgb-f8-l7": "f09b5c1d1e8896eff5728a9fe433abe9639bf7134c2f99b753950396e27500f6",
+    "hgb-f8-l31": "4ddf5efbfa5923279e9ff1b6091f44692a0e1e0299c76899ae49f8a800e75194",
+    "hgb-f128-l7": "e66aef537bae64adc5cf13739bbb38b5c4c818a34188b47359f2205956215d04",
+    "hgb-f128-l31": "43886adb679e22534a8ec9944e7740f74203bc701c322a881a9d314442e00649"
+  },
+  "terminal_eligible_to_score": false,
+  "submission": false
+}
