@@ -162,7 +162,7 @@
     const step = Number($("action-bin").value) * 1000;
     const end = Math.max(latest, Math.ceil(latest / step) * step);
     const start = end - Number($("action-window").value) * 1000;
-    visible = (state.action_feed || state.recent).filter(e => Object.hasOwn(actions,e.type) && e.model)
+    visible = (state.action_feed || state.recent).slice().reverse().filter(e => Object.hasOwn(actions,e.type) && e.model)
       .map(e => ({...e, t: Date.parse(e.utc)})).filter(e => e.t >= start && e.t <= end).sort((a,b)=>a.t-b.t);
     const labels = state.models.map((model, i) => width < 540 ? "Model " + (i+1) :
       model.name.split(" · ")[0] + " / " + (model.name.includes("cosine") ? "cosine" : "max-plus"));
