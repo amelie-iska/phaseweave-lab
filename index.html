@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Market topology lab · PhaseWeave</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="core.js"></script>
+  <script defer src="gate.js"></script>
+  <script defer src="lab.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <div class="themes" aria-label="Color theme">
+        <button type="button" id="dark" aria-pressed="true">Dark</button>
+        <button type="button" id="light" aria-pressed="false">Light</button>
+      </div>
+      <a class="button" href="#research">Research</a>
+    </nav>
+  </header>
+  <main>
+    <div class="heading">
+      <div><h1>Market topology lab</h1><p>Explore how observed prices move through a cellular graph.</p></div>
+      <div class="selectors">
+        <label>Example <select id="example" aria-label="Historical example"></select></label>
+        <label>Surface <select id="surface"><option value="torus">Torus</option><option value="sphere">Sphere</option></select></label>
+      </div>
+    </div>
+    <div class="workspace">
+      <section class="visual" aria-label="Three-dimensional graph">
+        <canvas id="scene" tabindex="0" aria-label="Rotatable cellular graph or network. Arrow keys rotate the view.">
+          A circuit or market graph rendered in three dimensions.
+        </canvas>
+        <div class="canvas-controls">
+          <button id="view" type="button">Show network</button>
+          <button id="reset" type="button">Reset view</button>
+        </div>
+        <footer><span class="legend clockwise">Clockwise</span><span class="legend counter">Counterclockwise</span>
+          <span id="topology" class="topology"></span></footer>
+      </section>
+      <section class="inspector" aria-labelledby="inspect-title">
+        <h2 id="inspect-title">Network inspector</h2>
+        <label class="model">Model <select id="model">
+          <option>TokenGT</option><option>GCN</option><option>GAT</option><option>MPNN</option>
+          <option>GCN + TokenGT</option><option>GAT + TokenGT</option><option>MPNN + TokenGT</option>
+          <option>TokenGT + cyclic qutrit</option>
+        </select></label>
+        <div class="tabs" aria-label="Inspection step">
+          <button type="button" data-step="0" aria-pressed="false">Input</button>
+          <button type="button" data-step="1" aria-pressed="true">Tokens</button>
+          <button type="button" data-step="2" aria-pressed="false">Compute</button>
+          <button type="button" data-step="3" aria-pressed="false">Output</button>
+        </div>
+        <div id="inspector"></div>
+        <div class="inspector-footer">
+          <label><input type="checkbox" id="tropical"> Tropical attention</label>
+          <button id="advance" type="button">Next computation <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+    </div>
+    <section class="playback" aria-label="Market replay">
+      <button type="button" id="play" aria-label="Play replay">▶</button>
+      <button type="button" id="previous" aria-label="Previous timestamp">❮</button>
+      <button type="button" id="next" aria-label="Next timestamp">❯</button>
+      <span id="feed-state" hidden></span>
+      <input type="range" id="timeline" min="0" max="30" value="0" aria-label="Replay time">
+      <time id="time"></time>
+    </section>
+    <section class="routes" aria-labelledby="routes-title">
+      <div><h2 id="routes-title">Route scores</h2><p>Best observed quote margin at this timestamp.</p></div>
+      <div>
+        <div class="assumptions">
+          <label>Max quote age <select id="age"><option value="250">250 ms</option><option value="1000">1,000 ms</option></select></label>
+          <label>Cost per leg <select id="fee"><option value="0.1">0.1 bps</option><option value="0">0 bps</option><option value="0.5">0.5 bps</option></select></label>
+        </div>
+        <table aria-label="Verified historical route scores">
+          <thead><tr><th>Route</th><th>Quote status</th><th>Net log bps</th></tr></thead>
+          <tbody id="routes"></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="research" class="research">
+      <h2>Research</h2>
+      <p>The FX archives record quotes and timestamps. The replay tests indicative margins with a specified maximum quote age and per-leg cost. The browser network uses deterministic reference operators, with no trained weights loaded.</p>
+      <div class="reference">
+        <button id="reference" type="button">Fetch current FX and Treasury references</button>
+        <div id="reference-values" aria-live="polite"></div>
+      </div>
+      <p>The clean dessin inserts a white vertex at each physical edge midpoint. On the sphere the market triangle bounds two disks. On the torus the market longitude and an auxiliary non-market meridian cut out one disk. Orange and jade arrows mark the two quote orientations.</p>
+      <div><a href="https://github.com/amelie-iska/PhaseWeave">Repository</a><a href="https://www.histdata.com/f-a-q/data-files-detailed-specification/">Quote source and format</a></div>
+    </section>
+    <p id="status" role="status"></p>
+  </main>
+</body>
+</html>
