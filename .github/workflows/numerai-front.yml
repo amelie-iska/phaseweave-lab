@@ -1,0 +1,33 @@
+name: Refresh Numerai assessment
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: numerai-assessment
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+      - name: Verify anonymous Classic data and publish the compact assessment
+        run: |
+          python3 -B .github/scripts/numerai_front_status.py --output numerai-front-status.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- numerai-front-status.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Refresh public Numerai Classic assessment"
+          git pull --rebase origin main
+          git push origin HEAD:main
