@@ -1,0 +1,227 @@
+{
+  "manifest": "89177f9ca8eb968e50ee763bda01850af603ac663268db94a2015c01007aabff",
+  "train": {
+    "duplicate": 0,
+    "purged": 0,
+    "eligible": 65536
+  },
+  "validation": {
+    "duplicate": 0,
+    "purged": 0,
+    "eligible": 65536
+  },
+  "subset_seed": 20261126,
+  "bootstrap_seed": 20261128,
+  "validation_days": 14,
+  "results": [
+    {
+      "unique": 256,
+      "epochs": 16,
+      "updates": 64,
+      "init_sha256": "64992a237256258755c2437074c4631177259f7e9164c25d2064564baa445005",
+      "subset_sha256": "37107b3ecab21927136c6d7e9aefbcc6d85a31521be61e65fb025e5683d1e39b",
+      "allocated_positions": 589824,
+      "active_spatial_tokens": 370592,
+      "fit_seed": 20261125,
+      "parameters": 211329,
+      "mae_bps": 0.24570825695991516,
+      "rmse_bps": 0.38525012135505676,
+      "persistence_mae_bps": 0.24249525368213654,
+      "rows": 1024
+    },
+    {
+      "unique": 1024,
+      "epochs": 4,
+      "updates": 64,
+      "init_sha256": "64992a237256258755c2437074c4631177259f7e9164c25d2064564baa445005",
+      "subset_sha256": "5a6cd9b6fdc366bf7aa9f6680eb1b9c21fb136a11b991ccbceb1844c644fa00e",
+      "allocated_positions": 589824,
+      "active_spatial_tokens": 369296,
+      "fit_seed": 20261125,
+      "parameters": 211329,
+      "mae_bps": 0.24193175137043,
+      "rmse_bps": 0.3840053975582123,
+      "persistence_mae_bps": 0.24249525368213654,
+      "rows": 1024
+    },
+    {
+      "unique": 4096,
+      "epochs": 1,
+      "updates": 64,
+      "init_sha256": "64992a237256258755c2437074c4631177259f7e9164c25d2064564baa445005",
+      "subset_sha256": "fc2ff112213fd0432bc382340188c22fe04fa871f9698bd2618194cc30201366",
+      "allocated_positions": 589824,
+      "active_spatial_tokens": 375198,
+      "fit_seed": 20261125,
+      "parameters": 211329,
+      "mae_bps": 0.24189746379852295,
+      "rmse_bps": 0.3839861750602722,
+      "persistence_mae_bps": 0.24249525368213654,
+      "rows": 1024
+    },
+    {
+      "unique": 256,
+      "epochs": 16,
+      "updates": 64,
+      "init_sha256": "40f07f60ef4db1f93f933fa5c4b6c16932f6ed215789a91df7f09a60a4de1111",
+      "subset_sha256": "37107b3ecab21927136c6d7e9aefbcc6d85a31521be61e65fb025e5683d1e39b",
+      "allocated_positions": 589824,
+      "active_spatial_tokens": 370592,
+      "fit_seed": 20261126,
+      "parameters": 211329,
+      "mae_bps": 0.23808342218399048,
+      "rmse_bps": 0.3761681914329529,
+      "persistence_mae_bps": 0.24249525368213654,
+      "rows": 1024
+    },
+    {
+      "unique": 1024,
+      "epochs": 4,
+      "updates": 64,
+      "init_sha256": "40f07f60ef4db1f93f933fa5c4b6c16932f6ed215789a91df7f09a60a4de1111",
+      "subset_sha256": "5a6cd9b6fdc366bf7aa9f6680eb1b9c21fb136a11b991ccbceb1844c644fa00e",
+      "allocated_positions": 589824,
+      "active_spatial_tokens": 369296,
+      "fit_seed": 20261126,
+      "parameters": 211329,
+      "mae_bps": 0.23728206753730774,
+      "rmse_bps": 0.3766838014125824,
+      "persistence_mae_bps": 0.24249525368213654,
+      "rows": 1024
+    },
+    {
+      "unique": 4096,
+      "epochs": 1,
+      "updates": 64,
+      "init_sha256": "40f07f60ef4db1f93f933fa5c4b6c16932f6ed215789a91df7f09a60a4de1111",
+      "subset_sha256": "fc2ff112213fd0432bc382340188c22fe04fa871f9698bd2618194cc30201366",
+      "allocated_positions": 589824,
+      "active_spatial_tokens": 375198,
+      "fit_seed": 20261126,
+      "parameters": 211329,
+      "mae_bps": 0.23958225548267365,
+      "rmse_bps": 0.37981876730918884,
+      "persistence_mae_bps": 0.24249525368213654,
+      "rows": 1024
+    },
+    {
+      "unique": 256,
+      "epochs": 16,
+      "updates": 64,
+      "init_sha256": "a21fd07f5c372ac9d94fe11dfa4ae81a7ec617e6d628ba09eb6704a01c89ac18",
+      "subset_sha256": "37107b3ecab21927136c6d7e9aefbcc6d85a31521be61e65fb025e5683d1e39b",
+      "allocated_positions": 589824,
+      "active_spatial_tokens": 370592,
+      "fit_seed": 20261127,
+      "parameters": 211329,
+      "mae_bps": 0.24012526869773865,
+      "rmse_bps": 0.3820212781429291,
+      "persistence_mae_bps": 0.24249525368213654,
+      "rows": 1024
+    },
+    {
+      "unique": 1024,
+      "epochs": 4,
+      "updates": 64,
+      "init_sha256": "a21fd07f5c372ac9d94fe11dfa4ae81a7ec617e6d628ba09eb6704a01c89ac18",
+      "subset_sha256": "5a6cd9b6fdc366bf7aa9f6680eb1b9c21fb136a11b991ccbceb1844c644fa00e",
+      "allocated_positions": 589824,
+      "active_spatial_tokens": 369296,
+      "fit_seed": 20261127,
+      "parameters": 211329,
+      "mae_bps": 0.24201777577400208,
+      "rmse_bps": 0.3843173384666443,
+      "persistence_mae_bps": 0.24249525368213654,
+      "rows": 1024
+    },
+    {
+      "unique": 4096,
+      "epochs": 1,
+      "updates": 64,
+      "init_sha256": "a21fd07f5c372ac9d94fe11dfa4ae81a7ec617e6d628ba09eb6704a01c89ac18",
+      "subset_sha256": "fc2ff112213fd0432bc382340188c22fe04fa871f9698bd2618194cc30201366",
+      "allocated_positions": 589824,
+      "active_spatial_tokens": 375198,
+      "fit_seed": 20261127,
+      "parameters": 211329,
+      "mae_bps": 0.24180105328559875,
+      "rmse_bps": 0.38416585326194763,
+      "persistence_mae_bps": 0.24249525368213654,
+      "rows": 1024
+    }
+  ],
+  "paired_day_intervals": [
+    {
+      "seed": 20261125,
+      "more_minus_less": [
+        1024,
+        256
+      ],
+      "delta": -0.003776492550969124,
+      "interval": [
+        -0.006654768821701565,
+        -0.0006017511921269758
+      ]
+    },
+    {
+      "seed": 20261125,
+      "more_minus_less": [
+        4096,
+        1024
+      ],
+      "delta": -3.430400101933628e-05,
+      "interval": [
+        -0.00010242479352555083,
+        3.446090058551862e-05
+      ]
+    },
+    {
+      "seed": 20261126,
+      "more_minus_less": [
+        1024,
+        256
+      ],
+      "delta": -0.0008013308397494256,
+      "interval": [
+        -0.0022297691729402523,
+        0.0007109708860672851
+      ]
+    },
+    {
+      "seed": 20261126,
+      "more_minus_less": [
+        4096,
+        1024
+      ],
+      "delta": 0.0023001779336482286,
+      "interval": [
+        0.0011589898250323738,
+        0.0034540919423573448
+      ]
+    },
+    {
+      "seed": 20261127,
+      "more_minus_less": [
+        1024,
+        256
+      ],
+      "delta": 0.0018924928735941648,
+      "interval": [
+        0.0008190922355424029,
+        0.0029895490336237654
+      ]
+    },
+    {
+      "seed": 20261127,
+      "more_minus_less": [
+        4096,
+        1024
+      ],
+      "delta": -0.0002167205384466797,
+      "interval": [
+        -0.00042027296952654674,
+        3.5986373965559313e-06
+      ]
+    }
+  ]
+}

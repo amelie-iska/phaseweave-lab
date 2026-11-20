@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Model and data scaling · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="scaling.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="results.html">Model results</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="results">
+    <h1>Model width and unique data</h1>
+    <p class="standfirst">Compare distinct FX windows, repeated presentations, and forecast error at matched training exposures.</p>
+    <section class="result-panel" aria-labelledby="calibration-title">
+      <div class="result-title">
+        <h2 id="calibration-title">Matched data-reuse calibration</h2>
+      </div>
+      <p>Each of the nine measured fits used 211,329 parameters, 4,096 window presentations and 64 updates. The three corpus sizes use 16, four and one passes, respectively.</p>
+      <div id="scaling-calibration"></div>
+      <p>Different corpus sizes had the lowest validation MAE for the three seeds. The validation subset contains 1,024 windows. The persistence baseline is 0.242495 log bps.</p>
+      <p><a href="scaling-calibration-v1.json">Download exact measurements and paired intervals</a></p>
+    </section>
+    <section class="result-panel" aria-labelledby="width-data-title">
+      <div class="result-title">
+        <h2 id="width-data-title">Width transfer and corpus expansion</h2>
+        <label>Width <select id="scale-width"><option>200</option><option>448</option><option>832</option></select></label>
+      </div>
+      <p>The original August corpus has 65,536 window keys. The expanded corpus has 131,072. Both use the same early-September validation, stress, October and unseen-CHF splits.</p>
+      <canvas id="scale-chart" aria-label="Validation forecast error at matched presentations"></canvas>
+      <div id="scale-grid"></div>
+      <p id="scale-status" role="status">Loading the six-arm results.</p>
+      <p><a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/SCALING_GRID.md">Configuration and run commands</a></p>
+    </section>
+    <section class="research">
+      <h2>Counting graph inputs</h2>
+      <p><a href="manuscripts/scaling-calibration-v2/compact.pdf">Compact manuscript</a> · <a href="manuscripts/scaling-calibration-v2/extended.pdf">Extended manuscript</a> · <a href="manuscripts/scaling-calibration-v2/source.zip">TeX source</a></p>
+      <p>Each window allocates 144 spatial positions and yields 16 derived temporal positions. Some edges are masked. The runs report unique windows, total presentations, updates and model parameters separately.</p>
+      <p><a href="https://arxiv.org/abs/2203.15556">Chinchilla</a> · <a href="https://arxiv.org/abs/2305.16264">Data-constrained training</a> · <a href="https://arxiv.org/abs/2203.03466">μTransfer</a></p>
+    </section>
+  </main>
+</body>
+</html>
