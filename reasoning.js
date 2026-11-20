@@ -472,6 +472,10 @@
     const episode = state.examples[state.example];
     const frame = episode?.frames[state.frame];
     const current = episode?.states[state.frame];
+    $("source-title").textContent = state.mode === "forest" ? "Reference quote graph" : "Inspect the market input";
+    $("source-description").textContent = state.mode === "forest"
+      ? "This recorded frame illustrates the quote encoding. The measured forest above uses its separately pinned validation window."
+      : "Each row is an observed directional quote edge. Both oriented triangles use the same three physical markets.";
     if (frame) {
       $("clock").dateTime = frame.utc;
       $("clock").textContent = utc(frame.utc);
