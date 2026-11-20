@@ -1,0 +1,310 @@
+{
+  "schema": "phaseweave.bls-release-graph.v1",
+  "schedule": "https://www.bls.gov/schedule/2026/",
+  "modeled_guard_seconds": 60,
+  "maximum_release_age_seconds": 86400,
+  "fx_manifest_sha256": "89177f9ca8eb968e50ee763bda01850af603ac663268db94a2015c01007aabff",
+  "clock_model": "Official embargo plus conservative lag, with strict earlier-than decisions. Historical subscriber receipt times are unavailable.",
+  "series": {
+    "cpi_u_sa_mom": {
+      "label": "CPI-U, seasonally adjusted month-over-month change",
+      "unit": "percent"
+    },
+    "payroll_sa_mom": {
+      "label": "Nonfarm payroll employment change",
+      "unit": "jobs"
+    },
+    "unemployment_sa_rate": {
+      "label": "Unemployment rate",
+      "unit": "percent"
+    }
+  },
+  "release_graph": {
+    "nodes": [
+      {
+        "id": "publisher:bls",
+        "node_type": "publisher",
+        "label": "U.S. Bureau of Labor Statistics"
+      },
+      {
+        "id": "bls:empsit_08072026",
+        "node_type": "release",
+        "label": "EMPSIT 2026-07"
+      },
+      {
+        "id": "bls:cpi_08122026",
+        "node_type": "release",
+        "label": "CPI 2026-07"
+      },
+      {
+        "id": "bls:empsit_09042026",
+        "node_type": "release",
+        "label": "EMPSIT 2026-08"
+      },
+      {
+        "id": "bls:cpi_09112026",
+        "node_type": "release",
+        "label": "CPI 2026-08"
+      },
+      {
+        "id": "bls:empsit_10022026",
+        "node_type": "release",
+        "label": "EMPSIT 2026-09"
+      },
+      {
+        "id": "bls:cpi_10142026",
+        "node_type": "release",
+        "label": "CPI 2026-09"
+      },
+      {
+        "id": "measure:cpi_u_sa_mom",
+        "node_type": "indicator",
+        "label": "CPI-U, seasonally adjusted month-over-month change"
+      },
+      {
+        "id": "measure:payroll_sa_mom",
+        "node_type": "indicator",
+        "label": "Nonfarm payroll employment change"
+      },
+      {
+        "id": "measure:unemployment_sa_rate",
+        "node_type": "indicator",
+        "label": "Unemployment rate"
+      }
+    ],
+    "edges": [
+      {
+        "source": "publisher:bls",
+        "target": "bls:empsit_08072026",
+        "edge_type": "published",
+        "value": null,
+        "unit": null
+      },
+      {
+        "source": "bls:empsit_08072026",
+        "target": "measure:payroll_sa_mom",
+        "edge_type": "reported",
+        "value": -23000.0,
+        "unit": "jobs"
+      },
+      {
+        "source": "bls:empsit_08072026",
+        "target": "measure:unemployment_sa_rate",
+        "edge_type": "reported",
+        "value": 4.1,
+        "unit": "percent"
+      },
+      {
+        "source": "publisher:bls",
+        "target": "bls:cpi_08122026",
+        "edge_type": "published",
+        "value": null,
+        "unit": null
+      },
+      {
+        "source": "bls:cpi_08122026",
+        "target": "measure:cpi_u_sa_mom",
+        "edge_type": "reported",
+        "value": 0.1,
+        "unit": "percent"
+      },
+      {
+        "source": "publisher:bls",
+        "target": "bls:empsit_09042026",
+        "edge_type": "published",
+        "value": null,
+        "unit": null
+      },
+      {
+        "source": "bls:empsit_09042026",
+        "target": "measure:payroll_sa_mom",
+        "edge_type": "reported",
+        "value": 162000.0,
+        "unit": "jobs"
+      },
+      {
+        "source": "bls:empsit_09042026",
+        "target": "measure:unemployment_sa_rate",
+        "edge_type": "reported",
+        "value": 4.1,
+        "unit": "percent"
+      },
+      {
+        "source": "publisher:bls",
+        "target": "bls:cpi_09112026",
+        "edge_type": "published",
+        "value": null,
+        "unit": null
+      },
+      {
+        "source": "bls:cpi_09112026",
+        "target": "measure:cpi_u_sa_mom",
+        "edge_type": "reported",
+        "value": 0.4,
+        "unit": "percent"
+      },
+      {
+        "source": "publisher:bls",
+        "target": "bls:empsit_10022026",
+        "edge_type": "published",
+        "value": null,
+        "unit": null
+      },
+      {
+        "source": "bls:empsit_10022026",
+        "target": "measure:payroll_sa_mom",
+        "edge_type": "reported",
+        "value": 29000.0,
+        "unit": "jobs"
+      },
+      {
+        "source": "bls:empsit_10022026",
+        "target": "measure:unemployment_sa_rate",
+        "edge_type": "reported",
+        "value": 4.2,
+        "unit": "percent"
+      },
+      {
+        "source": "publisher:bls",
+        "target": "bls:cpi_10142026",
+        "edge_type": "published",
+        "value": null,
+        "unit": null
+      },
+      {
+        "source": "bls:cpi_10142026",
+        "target": "measure:cpi_u_sa_mom",
+        "edge_type": "reported",
+        "value": 0.6,
+        "unit": "percent"
+      }
+    ]
+  },
+  "releases": [
+    {
+      "id": "bls:empsit_08072026",
+      "document_id": "USDL-26-1291",
+      "reference_month": "2026-07",
+      "family": "empsit",
+      "embargo_utc": "2026-08-07T12:30:00+00:00",
+      "modeled_available_utc": "2026-08-07T12:31:00+00:00",
+      "source": "https://www.dol.gov/newsroom/economicdata/empsit_08072026.pdf",
+      "pdf_sha256": "8908749d30eccb48cae9adc25f48974c8adee17876f1b69e30fe5e2fd0048cf9",
+      "measures": {
+        "payroll_sa_mom": -23000,
+        "unemployment_sa_rate": 4.1
+      }
+    },
+    {
+      "id": "bls:cpi_08122026",
+      "document_id": "USDL-26-1378",
+      "reference_month": "2026-07",
+      "family": "cpi",
+      "embargo_utc": "2026-08-12T12:30:00+00:00",
+      "modeled_available_utc": "2026-08-12T12:31:00+00:00",
+      "source": "https://www.dol.gov/newsroom/economicdata/cpi_08122026.pdf",
+      "pdf_sha256": "6b22335813df900e7c379e8db8d2459463744d6530f28626dfd377a314c0c0ab",
+      "measures": {
+        "cpi_u_sa_mom": 0.1
+      }
+    },
+    {
+      "id": "bls:empsit_09042026",
+      "document_id": "USDL-26-1435",
+      "reference_month": "2026-08",
+      "family": "empsit",
+      "embargo_utc": "2026-09-04T12:30:00+00:00",
+      "modeled_available_utc": "2026-09-04T12:31:00+00:00",
+      "source": "https://www.dol.gov/newsroom/economicdata/empsit_09042026.pdf",
+      "pdf_sha256": "3307e36fa600e4f9ade4eb61d60b34814d6547d3e5c7533cda7221babb7ae10c",
+      "measures": {
+        "payroll_sa_mom": 162000,
+        "unemployment_sa_rate": 4.1
+      }
+    },
+    {
+      "id": "bls:cpi_09112026",
+      "document_id": "USDL-26-1496",
+      "reference_month": "2026-08",
+      "family": "cpi",
+      "embargo_utc": "2026-09-11T12:30:00+00:00",
+      "modeled_available_utc": "2026-09-11T12:31:00+00:00",
+      "source": "https://www.dol.gov/newsroom/economicdata/cpi_09112026.pdf",
+      "pdf_sha256": "658d7de6366114cb1638af490e14fe03cd1fab8faa8c9ce9aeba95c5b9a65e52",
+      "measures": {
+        "cpi_u_sa_mom": 0.4
+      }
+    },
+    {
+      "id": "bls:empsit_10022026",
+      "document_id": "USDL-26-1549",
+      "reference_month": "2026-09",
+      "family": "empsit",
+      "embargo_utc": "2026-10-02T12:30:00+00:00",
+      "modeled_available_utc": "2026-10-02T12:31:00+00:00",
+      "source": "https://www.dol.gov/newsroom/economicdata/empsit_10022026.pdf",
+      "pdf_sha256": "7e727c826f2373094af125d8e6206b64c7c63e8955cbd2eb2217e3db2976cb5b",
+      "measures": {
+        "payroll_sa_mom": 29000,
+        "unemployment_sa_rate": 4.2
+      }
+    },
+    {
+      "id": "bls:cpi_10142026",
+      "document_id": "USDL-26-1574",
+      "reference_month": "2026-09",
+      "family": "cpi",
+      "embargo_utc": "2026-10-14T12:30:00+00:00",
+      "modeled_available_utc": "2026-10-14T12:31:00+00:00",
+      "source": "https://www.dol.gov/newsroom/economicdata/cpi_10142026.pdf",
+      "pdf_sha256": "d2fe7deb0ae83a869a37553c9d3934d3d5be4969cd3ca9763a4881df878bf66a",
+      "measures": {
+        "cpi_u_sa_mom": 0.6
+      }
+    }
+  ],
+  "coverage": {
+    "train": {
+      "rows": 65536,
+      "after_guard_within_5m": 10,
+      "after_guard_within_24h": 6595,
+      "release_ids": [
+        "bls:cpi_08122026",
+        "bls:empsit_08072026"
+      ]
+    },
+    "validation": {
+      "rows": 65536,
+      "after_guard_within_5m": 33,
+      "after_guard_within_24h": 8956,
+      "release_ids": [
+        "bls:cpi_09112026",
+        "bls:empsit_09042026"
+      ]
+    },
+    "stress": {
+      "rows": 65536,
+      "after_guard_within_5m": 0,
+      "after_guard_within_24h": 0,
+      "release_ids": []
+    },
+    "test": {
+      "rows": 65536,
+      "after_guard_within_5m": 15,
+      "after_guard_within_24h": 7307,
+      "release_ids": [
+        "bls:cpi_10142026",
+        "bls:empsit_10022026"
+      ]
+    },
+    "new_asset": {
+      "rows": 32768,
+      "after_guard_within_5m": 7,
+      "after_guard_within_24h": 3348,
+      "release_ids": [
+        "bls:cpi_10142026",
+        "bls:empsit_10022026"
+      ]
+    }
+  }
+}

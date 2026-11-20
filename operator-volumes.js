@@ -59,7 +59,7 @@ const TensorVolumes=(()=>{
     if(!products.length)return out;
     const count=Math.min(12,products.length),start=Math.max(0,Math.min(products.length-count,index-Math.floor(count/2)));
     const groups=[sample.left,sample.right,products];
-    const names=["Left factors","Right factors","Pairwise products"];
+    const names=["Left factors","Right factors",sample.reducer==="max"?"Additive path scores":"Pairwise products"];
     const colors=["jade","violet","copper"];
     const levels=[.82,.24,-.34];
     const p=(j,level)=>[(j-(count-1)/2)*.21,levels[level],level===1?-.18:.04];

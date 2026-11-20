@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light">
+ <link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="architecture.css">
+ <script defer src="reasoning-3d.js"></script>
+ <script defer src="macro-releases.js"></script>
+ <title>Macro release clocks · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+  <nav aria-label="Related tools">
+   <a class="button" href="events.html">Trade and event replay</a>
+   <a class="button" href="market-regimes.html">Market regimes</a>
+   <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+  </nav>
+ </header>
+ <main class="architecture">
+  <header><h1>Macro release clocks</h1><p class="arch-lead">See when original BLS measurements become eligible as market graph inputs.</p></header>
+  <p id="macro-status" role="status">Loading original-vintage evidence.</p>
+  <div class="arch-grid">
+   <section class="arch-panel">
+    <div class="arch-camera">
+     <label>Release <select id="macro-release"></select></label>
+     <label>Decision time <input type="range" id="macro-offset" min="-120" max="300" value="0" aria-label="Decision time relative to embargo in seconds"></label>
+    </div>
+    <canvas id="macro-graph" aria-label="Rotatable publisher, release, indicator and decision nodes" tabindex="0"></canvas>
+    <div class="arch-camera" id="macro-camera">
+     <label>Yaw <input type="range" name="yaw" min="-180" max="180" value="-32"></label>
+     <label>Pitch <input type="range" name="pitch" min="-85" max="85" value="24"></label>
+     <label>Zoom <input type="range" name="zoom" min=".55" max="1.60" step=".05" value="1"></label>
+     <button type="button">Reset view</button>
+    </div>
+   </section>
+   <section class="arch-panel">
+    <h2>Decision information</h2><dl class="arch-details" id="macro-details"></dl>
+    <p>The graph applies a 60-second publication allowance, then requires publication plus allowance to be strictly earlier than the decision. The window expires 24 hours after the embargo lifts.</p>
+    <p><a id="macro-source" href="https://www.bls.gov/schedule/2026/">Original release</a> · <a href="https://www.bls.gov/schedule/2026/">Official schedule</a></p>
+   </section>
+  </div>
+  <section class="arch-panel">
+   <h2>Eligible inputs in the frozen FX corpus</h2>
+   <p>Counting windows measures coverage. October and CHF share the same two release events.</p>
+   <div class="arch-scroll"><table id="macro-coverage"><thead><tr><th scope="col">Fold</th><th scope="col">All anchors</th><th scope="col">Within five minutes</th><th scope="col">Within 24 hours</th><th scope="col">Distinct releases</th></tr></thead><tbody></tbody></table></div>
+   <p><a href="bls-release-graph-v1.json">Evidence graph and release digests</a></p>
+  </section>
+ </main>
+</body>
+</html>

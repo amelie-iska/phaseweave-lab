@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market regimes · PhaseWeave</title><link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="market-regimes.css">
+<script defer src="market-regimes.js"></script>
+</head>
+<body>
+<header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span>PhaseWeave</a>
+<nav aria-label="Page navigation"><a class="button" href="#cohorts">Compare periods</a><a class="button" href="./">Market lab</a></nav></header>
+<main class="regimes">
+<header class="regime-title"><p class="eyebrow">EUR / USD · One-minute observations</p><h1>Which regime comes next?</h1>
+<p>After a minute of moderate activity, will the quote range reach its highest fifth before its lowest? Explore a five-state model fitted to August 2026 quotes.</p></header>
+<p id="notice" role="status">Loading the measured transitions…</p>
+<div id="lab" hidden>
+<section class="regime-card" aria-labelledby="network-title">
+<header class="section-head"><div><p class="eyebrow">August transition model</p><h2 id="network-title">From one observed minute to the next</h2></div><p class="stat"><strong id="fit-total"></strong> fitted transitions</p></header>
+<div class="regime-grid"><div class="map-panel">
+<p class="map-instruction">Select the starting state. Arc width shows the chance of each destination.</p>
+<div class="map"><svg id="network" viewBox="0 0 600 245" preserveAspectRatio="none" aria-hidden="true"></svg><div class="nodes" id="nodes" role="group" aria-label="Starting state"></div></div>
+<div class="range-caption"><span>Small midpoint range</span><span>Large midpoint range</span></div>
+<section class="state-stats" aria-label="Selected starting state"><div><p class="eyebrow">Selected range</p><strong id="range"></strong></div><div><p class="eyebrow">High before low</p><strong id="q"></strong></div></section>
+</div><aside class="next-panel"><h3>Next-minute destinations</h3><p id="trans-origin"></p><ol id="prob-bars" aria-label="Inspect a destination"></ol><p id="edge-detail" class="edge-detail" aria-live="polite"></p></aside></div>
+</section>
+<section class="regime-card" id="cohorts" aria-labelledby="cohort-title">
+<header class="section-head"><div><p class="eyebrow">Chronological comparison</p><h2 id="cohort-title">How the August model travels</h2></div><label class="period-label">Observation period <select id="period"></select></label></header>
+<div class="regime-grid"><div class="period-main"><h3 id="period-title"></h3><p id="period-evidence"></p>
+<div class="calibration" aria-live="polite"><strong id="selected-evidence"></strong><p id="selected-explanation"></p></div>
+<h3>Two-minute transition discrepancy</h3><p>Average distance between observed two-minute destinations and two applications of the August transition matrix. Zero means agreement.</p><ol id="shift-bars"></ol>
+</div><aside class="period-aside"><h3>First-passage forecast error</h3><p>Lower Brier scores indicate more accurate probabilities across resolved interior starts.</p><div id="brier-detail"></div><p class="interval" id="interval"></p></aside></div>
+<div class="comparison"><h3>All periods and controls</h3><div class="table-scroll" tabindex="0" role="region" aria-label="Brier scores by period; scroll horizontally if needed"><table><thead><tr><th scope="col">Period</th><th scope="col">Fitted</th><th scope="col">Reversible</th><th scope="col">Fixed rank</th><th scope="col">August base</th><th scope="col">Resolved</th><th scope="col">Censored</th></tr></thead><tbody id="full-table"></tbody></table></div></div>
+</section>
+<section class="footnotes"><div><h2>What the model observes</h2><p>HistData EUR/USD tick quotes supply the bid and ask. Each eligible minute contains at least two distinct quote timestamps. Its range is 10,000 times the log ratio of the highest to lowest midpoint. August quintiles define the states for every period. A path stops at a gap, UTC midnight or the end of its split.</p></div>
+<div><h2>What the comparison measures</h2><p>The committor gives the chance of reaching the active endpoint before the quiet one. The reversible model balances paired transition counts. Fixed rank assigns 0.25, 0.50 and 0.75 to the interior states. The base uses August’s pooled first-hit frequency. These forecasts concern quote activity. They do not estimate returns or losses.</p></div></section>
+<footer class="sources"><a href="market-committor-v1.json">Measured results (JSON)</a><a href="https://www.histdata.com/download-free-forex-historical-data/">HistData quote source</a><a href="https://doi.org/10.1137/070699500">Transition path theory</a><a href="https://doi.org/10.1063/1.3565032">Kinetic model validation</a><a href="https://arxiv.org/abs/1004.2831">Time-reversal asymmetry</a></footer>
+</div>
+</main></body></html>

@@ -1,0 +1,417 @@
+{
+  "archive_sha256": {
+    "2026-08": "09f1c164d36433e4a73958d0dcf153f9654488122ac397e2350f6c48b9df7b7a",
+    "2026-09": "8e78067d18012478815e9beff3a2c3caa68782b3416cc623113a629ce97045df",
+    "2026-10": "27c2a6612ac230086ccbc40fe8127db036f93eed0831f84559463c63aa8268f0"
+  },
+  "bar_minutes": 1,
+  "bootstrap_replicates": 2000,
+  "code_sha256": "05f1f1569e85c1ee4aa9ff15d71f286cd8876fa23a85d6b71c392a91232567cd",
+  "counts": [
+    [
+      2730,
+      1438,
+      803,
+      465,
+      203
+    ],
+    [
+      1526,
+      1634,
+      1324,
+      919,
+      489
+    ],
+    [
+      843,
+      1342,
+      1489,
+      1368,
+      883
+    ],
+    [
+      439,
+      1001,
+      1378,
+      1642,
+      1483
+    ],
+    [
+      129,
+      463,
+      928,
+      1542,
+      2885
+    ]
+  ],
+  "diagnostics": {
+    "backward_committor_A": [
+      1.0,
+      0.5814110731247691,
+      0.47547454230500996,
+      0.38497384951700087,
+      0.0
+    ],
+    "detailed_balance_max_absolute_current": 0.0027686062619400667,
+    "forward_committor": [
+      0.0,
+      0.4016434070067989,
+      0.5056833970386946,
+      0.6002968545764071,
+      1.0
+    ],
+    "harmonic_max_residual": 0.0,
+    "pair_kl_nats_per_step": 0.0018854420446128915,
+    "positive_flux_edges_without_reverse": 0,
+    "probability_current": [
+      [
+        0.0,
+        -0.0025183445022423923,
+        -0.0011164664738903853,
+        0.0010472054730992029,
+        0.0025876055030336154
+      ],
+      [
+        0.0025183445022423923,
+        0.0,
+        -0.0006459240152527149,
+        -0.0027686062619400667,
+        0.0008961857749503893
+      ],
+      [
+        0.0011164664738903853,
+        0.0006459240152527149,
+        0.0,
+        -0.0002772846827423514,
+        -0.0014851058064007626
+      ],
+      [
+        -0.0010472054730992029,
+        0.0027686062619400667,
+        0.0002772846827423514,
+        0.0,
+        -0.001998685471583203
+      ],
+      [
+        -0.0025876055030336154,
+        -0.0008961857749503893,
+        0.0014851058064007626,
+        0.001998685471583203,
+        0.0
+      ]
+    ],
+    "reactive_rate_A_to_B_per_step": 0.05034523800521164,
+    "reactive_source_sink_residual": 6.938893903907228e-18,
+    "stationary": [
+      0.19368506709518674,
+      0.20042810113892617,
+      0.20169908792560776,
+      0.20203955467966328,
+      0.2021481891606161
+    ],
+    "stationary_max_residual": 5.551115123125783e-17
+  },
+  "forecast_values_by_state": {
+    "committor": [
+      0.0,
+      0.4016434070067989,
+      0.5056833970386946,
+      0.6002968545764071,
+      1.0
+    ],
+    "rank": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "reversible": [
+      0.0,
+      0.41137551529601984,
+      0.5163520508958217,
+      0.6088125329992187,
+      1.0
+    ],
+    "train_base_rate": [
+      0.5201923076923077,
+      0.5201923076923077,
+      0.5201923076923077,
+      0.5201923076923077,
+      0.5201923076923077
+    ]
+  },
+  "format": "phaseweave-eurusd-committor-v1",
+  "manifest_sha256": "ba1bb040547961ffd5043841675287b9c508acca1fece3d4b92f9c0119b31f88",
+  "model": "August quintiles of within-minute observed midquote range (log bp); low/high are first/last state",
+  "paired_bootstrap_seed": 20261120,
+  "parser_sha256": "8d976606723041f49aa22fc3b0f931019f2333185287c6d672384553602f2e07",
+  "periods_UTC": {
+    "stress": [
+      "2026-09-17",
+      "2026-10-01"
+    ],
+    "test": [
+      "2026-10-01",
+      "2026-11-01"
+    ],
+    "train": [
+      "2026-08-01",
+      "2026-09-01"
+    ],
+    "validation": [
+      "2026-09-01",
+      "2026-09-17"
+    ]
+  },
+  "range_cutoffs_log_bps": [
+    0.34267699285070097,
+    0.5199311265751672,
+    0.7713556236181798,
+    1.1137030905820504
+  ],
+  "results": {
+    "stress": {
+      "censored_by_state": [
+        0,
+        45,
+        31,
+        15,
+        0
+      ],
+      "censored_interior_origins": 91,
+      "contiguous_day_segments": 150,
+      "eligible_minutes": 14207,
+      "high_before_low": 4566,
+      "observed_high_before_low_by_state": [
+        0,
+        566,
+        1720,
+        2280,
+        0
+      ],
+      "one_minute_pairs": 14057,
+      "performance": {
+        "UTC_day_clusters": 12,
+        "brier": {
+          "committor": 0.22622301819725765,
+          "rank": 0.21427246878476944,
+          "reversible": 0.22546147211592896,
+          "train_base_rate": 0.2478041223022938
+        },
+        "committor_minus_base": -0.021581104105036136,
+        "paired_UTC_day_bootstrap_95": [
+          -0.02418170543614132,
+          -0.01929841313156826
+        ]
+      },
+      "resolved_by_state": [
+        0,
+        1999,
+        3073,
+        3017,
+        0
+      ],
+      "resolved_interior_origins": 8089,
+      "two_minute_pairs": 13926,
+      "two_step_total_variation_weighted_by_origins": 0.13536678100715938
+    },
+    "test": {
+      "censored_by_state": [
+        0,
+        58,
+        52,
+        25,
+        0
+      ],
+      "censored_interior_origins": 135,
+      "contiguous_day_segments": 200,
+      "eligible_minutes": 31309,
+      "high_before_low": 9769,
+      "observed_high_before_low_by_state": [
+        0,
+        1348,
+        3457,
+        4964,
+        0
+      ],
+      "one_minute_pairs": 31109,
+      "performance": {
+        "UTC_day_clusters": 26,
+        "brier": {
+          "committor": 0.22564909051274162,
+          "rank": 0.21413179365706014,
+          "reversible": 0.22348069858665576,
+          "train_base_rate": 0.2446415353575408
+        },
+        "committor_minus_base": -0.018992444844799172,
+        "paired_UTC_day_bootstrap_95": [
+          -0.020619154889952314,
+          -0.017463203146215543
+        ]
+      },
+      "resolved_by_state": [
+        0,
+        3478,
+        5592,
+        6128,
+        0
+      ],
+      "resolved_interior_origins": 15198,
+      "two_minute_pairs": 30930,
+      "two_step_total_variation_weighted_by_origins": 0.20518948760113584
+    },
+    "train": {
+      "censored_by_state": [
+        0,
+        99,
+        65,
+        26,
+        0
+      ],
+      "censored_interior_origins": 190,
+      "contiguous_day_segments": 438,
+      "eligible_minutes": 29784,
+      "high_before_low": 9197,
+      "observed_high_before_low_by_state": [
+        0,
+        1931,
+        3106,
+        4160,
+        0
+      ],
+      "one_minute_pairs": 29346,
+      "performance": {
+        "UTC_day_clusters": 26,
+        "brier": {
+          "committor": 0.23183088386130601,
+          "rank": 0.2296698246606335,
+          "reversible": 0.23165798011998642,
+          "train_base_rate": 0.24959227071005913
+        },
+        "committor_minus_base": -0.017761386848753113,
+        "paired_UTC_day_bootstrap_95": [
+          -0.019423530178029294,
+          -0.016124868238582012
+        ]
+      },
+      "resolved_by_state": [
+        0,
+        5858,
+        5891,
+        5931,
+        0
+      ],
+      "resolved_interior_origins": 17680,
+      "two_minute_pairs": 28963,
+      "two_step_total_variation_weighted_by_origins": 0.10379396214103448
+    },
+    "validation": {
+      "censored_by_state": [
+        0,
+        62,
+        27,
+        21,
+        0
+      ],
+      "censored_interior_origins": 110,
+      "contiguous_day_segments": 244,
+      "eligible_minutes": 16939,
+      "high_before_low": 5297,
+      "observed_high_before_low_by_state": [
+        0,
+        1190,
+        1744,
+        2363,
+        0
+      ],
+      "one_minute_pairs": 16695,
+      "performance": {
+        "UTC_day_clusters": 14,
+        "brier": {
+          "committor": 0.23276294764269564,
+          "rank": 0.23261505365947985,
+          "reversible": 0.23269363479906877,
+          "train_base_rate": 0.24991771002756344
+        },
+        "committor_minus_base": -0.017154762384867794,
+        "paired_UTC_day_bootstrap_95": [
+          -0.019908514224082595,
+          -0.01397413110341079
+        ]
+      },
+      "resolved_by_state": [
+        0,
+        3601,
+        3280,
+        3462,
+        0
+      ],
+      "resolved_interior_origins": 10343,
+      "two_minute_pairs": 16503,
+      "two_step_total_variation_weighted_by_origins": 0.10236486127301496
+    }
+  },
+  "reversible_detailed_balance_residual": 2.0816681711721685e-17,
+  "source": "HistData ASCII EUR/USD bid/ask ticks",
+  "source_order_audit": {
+    "2026-08": {
+      "adjacent_timestamp_regressions": 58,
+      "cross_minute_regressions": 0,
+      "observed_minutes": 30497,
+      "single_timestamp_minutes": 415,
+      "ticks": 1052845
+    },
+    "2026-09": {
+      "adjacent_timestamp_regressions": 81,
+      "cross_minute_regressions": 1,
+      "observed_minutes": 31505,
+      "single_timestamp_minutes": 362,
+      "ticks": 1389506
+    },
+    "2026-10": {
+      "adjacent_timestamp_regressions": 111,
+      "cross_minute_regressions": 1,
+      "observed_minutes": 31169,
+      "single_timestamp_minutes": 155,
+      "ticks": 1805682
+    }
+  },
+  "transition_matrix": [
+    [
+      0.484128391558787,
+      0.255009753502394,
+      0.14240113495300585,
+      0.08246142933144175,
+      0.035999290654371345
+    ],
+    [
+      0.2589952477936185,
+      0.2773251866938221,
+      0.22471147318397827,
+      0.15597420230821452,
+      0.0829938900203666
+    ],
+    [
+      0.14227848101265822,
+      0.22649789029535866,
+      0.25130801687763715,
+      0.23088607594936708,
+      0.1490295358649789
+    ],
+    [
+      0.07386841662460036,
+      0.1684334511189635,
+      0.23186942621571596,
+      0.276291435302036,
+      0.24953727073868417
+    ],
+    [
+      0.021691609214730116,
+      0.0778543803598453,
+      0.15604506473852361,
+      0.2592903985202623,
+      0.48511854716663866
+    ]
+  ]
+}

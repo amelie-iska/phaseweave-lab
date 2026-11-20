@@ -1,0 +1,31 @@
+<!doctype html><html lang="en" data-theme="dark"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light">
+<link rel="icon" href="data:,"><title>Liquidity and response · PhaseWeave</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="liquidity-response.css"><script defer src="liquidity-response.js"></script></head>
+<body><header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span>PhaseWeave</a>
+<nav aria-label="Related pages"><a href="short-mechanics.html">Short replay</a><div class="themes"><button id="dark" aria-pressed="true">Dark</button><button id="light" aria-pressed="false">Light</button></div></nav></header>
+<main id="liq">
+ <h1>Liquidity and response</h1><p class="intro">Seventeen consecutive observations of how a BTC perpetual book moved after a measured depth imbalance.</p>
+ <div class="workspace-liq">
+  <section class="panel"><h2>Depth versus the next move</h2>
+   <div class="filters"><label>Origin measure <select id="measure"><option value="weighted">Weighted depth · 10 levels</option><option value="depth_1">Best-level imbalance</option><option value="depth_5">Five-level imbalance</option><option value="depth_10">Ten-level imbalance</option><option value="mid_minus_mark">Mid minus mark</option></select></label>
+    <label>Next observation <select id="target"><option value="next_mid_bps">Mid-price change</option><option value="next_mark_bps">Mark-price change</option></select></label></div>
+   <canvas id="scatter" role="img" aria-describedby="scatter-desc"></canvas>
+   <p id="scatter-desc" class="legend-liq"></p>
+   <div class="controls"><button id="back" aria-label="Previous transition">←</button><button id="forward" aria-label="Next transition">→</button><label for="interval">Transition <output id="pos"></output></label><input id="interval" type="range" value="0" min="0" max="16"></div>
+  </section>
+  <aside class="panel"><h2>Observed transition</h2><p id="time-witness"></p>
+   <div class="response-val"><small>Next observed change</small><strong id="move">—</strong><span>log bps</span></div>
+   <dl id="witness"></dl></aside>
+ </div>
+ <div class="workspace-liq lower">
+ <section class="panel"><h2>Directional census</h2><p id="census" aria-live="polite"></p>
+ <table><caption class="screen-only">Origin groups and next observed price</caption><thead><tr><th>Origin</th><th>Cases</th><th>Mean log bps</th><th>Median log bps</th></tr></thead><tbody id="groups"></tbody></table>
+ <p>Each response refers to the next snapshot in this tape. Unequal sampling gaps and shared endpoints limit generalization.</p></section>
+ <section class="panel"><div class="title-row"><h2>State transitions</h2><label>Display <select id="matrix-view"><option value="counts">Counts</option><option value="net_counts">Net counts</option></select></label></div><div id="matrix"></div><p id="states"></p></section></div>
+ <section class="panel notes"><details><summary>Methods, state definitions and provenance</summary><p>Depth is displayed in contracts. The weighted measure uses all ten levels, with weight 1/rank on each side. The signed imbalance is (weighted bids − weighted asks) divided by their sum. Bid- and ask-side basis use ten-contract depth-walk VWAP, measured against the observed mark in log basis points.</p>
+ <p>The four states combine weighted imbalance and mid-minus-mark signs. A is ask-heavy, mid below mark; B is ask-heavy, mid at or above mark; C is bid-heavy or tied, mid below mark; D is bid-heavy or tied, mid at or above mark. Net count is forward count minus reverse count. One count around a coarse cycle in a short path cannot establish stationary circulation or dissipation.</p>
+ <p>The chart uses public book and mark snapshots. The response uses later receipts and later exchange events than the originating observation. The final book has no later response. There are no fitted coefficients, trades or causal impact estimates.</p>
+ <p><a href="https://arxiv.org/abs/1512.03492">Gould and Bonart</a> · <a href="https://arxiv.org/abs/1011.6402">Cont, Kukanov and Stoikov</a> · <a href="https://doi.org/10.1103/RevModPhys.48.571">Schnakenberg</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/27126047/">Battle and colleagues</a></p></details>
+ <p id="coverage" role="status">Loading immutable measures.</p><a href="liquidity-response-v1.json" download>Download measurements</a> · <a href="short-mechanics-v1.json">Source tape</a></section>
+</main></body></html>

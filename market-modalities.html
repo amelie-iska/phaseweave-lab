@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light">
+ <link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script>
+ <title>Market modalities and strategy research · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+  <nav aria-label="Research tools"><a class="button" href="model-comparisons.html">Comparisons</a><a class="button" href="desk.html">Trading desk</a>
+   <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+  </nav>
+ </header>
+ <main class="architecture">
+  <header><h1>Market modalities and strategy research</h1>
+   <p class="arch-lead">Compare liquidity, first-passage risk and macro context at the times they become observable.</p></header>
+  <div class="arch-grid">
+   <section class="arch-panel">
+    <h2>Liquidity and executable basis</h2>
+    <p>Across 18 BTC perpetual books, depth measured at one, five and ten levels changes how the same book is classified. Weighted imbalance agreed with the next midpoint direction in 10 of 17 transitions. An always-down control also agreed in 10.</p>
+    <p><a href="liquidity-response.html">Inspect the observed books and responses</a> · <a href="short-mechanics.html">Replay a paper short with fees and depth</a></p>
+   </section>
+   <section class="arch-panel">
+    <h2>Transitions between activity states</h2>
+    <p>Five ranges from August EUR/USD quotes define a transition graph. October’s high-before-low Brier loss was 0.22565 for the fitted committor, 0.24464 for the pooled base rate, and 0.21413 for fixed ordinal interpolation.</p>
+    <p><a href="market-regimes.html">Explore the transitions and control models</a> · <a href="https://epubs.siam.org/doi/10.1137/070699500">Transition-path theory</a></p>
+   </section>
+  </div>
+  <section class="arch-panel">
+   <h2>Original-vintage public releases</h2>
+   <p>Six labor and inflation releases now have source hashes, release clocks and typed graph edges. Only 15 October FX anchors meet the first-five-minute timing rule, across two distinct events. Use withheld release dates as the independent units in a larger test.</p>
+   <p><a href="macro-releases.html">Inspect the release clocks and graph</a> · <a href="events.html">Compare executed trades and policy coverage</a></p>
+  </section>
+  <section class="arch-panel">
+   <h2>Planned matched experiments</h2>
+   <div class="arch-scroll">
+    <table>
+     <thead><tr><th scope="col">Hypothesis to test</th><th scope="col">Required measurements</th><th scope="col">Control</th></tr></thead>
+     <tbody>
+      <tr><th scope="row">Liquidity and mark basis improve execution decisions</th><td>Venue clocks, order-book updates, trades, funding, execution latency</td><td>Quote-only, top-of-book, and abstention rules</td></tr>
+      <tr><th scope="row">Kinetic coarse-graining improves risk estimates</th><td>Regime paths with gap masks, exposure, fees and realized volatility</td><td>Ordinal, persistence, reversible transition and direct classifiers</td></tr>
+      <tr><th scope="row">Cross-asset macro responses transfer between releases</th><td>Original release vintages, filings, rates, and tradable cash and derivatives histories</td><td>Lead placebos, held-out release families, shuffled exposure edges</td></tr>
+      <tr><th scope="row">Analogical retrieval improves forecast ranking</th><td>Point-in-time issuer and graph memory with horizon, direction and mechanism labels</td><td>Degree counts, text only, direction shuffle, and metadata-only retrieval</td></tr>
+      <tr><th scope="row">Carry, hedging and convexity add complementary options</th><td>Timestamped borrowing, funding settlements, option surfaces, corporate actions and executable quotes</td><td>Borrow- and cost-aware single-signal rules under the same exposure limits</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <p>Kinetic models from chemistry and biophysics motivate first-passage questions. The market tests use quote sequences and separate traded outcomes from modeled prices and risk.</p>
+  </section>
+ </main>
+</body>
+</html>

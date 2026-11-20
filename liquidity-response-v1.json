@@ -1,0 +1,1184 @@
+{
+  "btc_per_contract": 0.0001,
+  "census": {
+    "next_mark_bps": {
+      "depth_1": {
+        "direction_matches": 10,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": -0.26368575138633404,
+            "median_response_bps": -0.6040654637182437,
+            "n": 11
+          },
+          "positive": {
+            "mean_response_bps": 0.44940233412756003,
+            "median_response_bps": -0.33200494193351965,
+            "n": 6
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 12,
+          "flat": 0,
+          "up": 5
+        }
+      },
+      "depth_10": {
+        "direction_matches": 8,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": 0.2458359316568022,
+            "median_response_bps": -0.14069828214468913,
+            "n": 13
+          },
+          "positive": {
+            "mean_response_bps": -0.8499990930056858,
+            "median_response_bps": -0.806194318591654,
+            "n": 4
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 12,
+          "flat": 0,
+          "up": 5
+        }
+      },
+      "depth_5": {
+        "direction_matches": 10,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": -0.14319007601897618,
+            "median_response_bps": -0.5831743898908955,
+            "n": 13
+          },
+          "positive": {
+            "mean_response_bps": 0.41433543194059397,
+            "median_response_bps": -0.8938038674197177,
+            "n": 4
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 12,
+          "flat": 0,
+          "up": 5
+        }
+      },
+      "mid_minus_mark": {
+        "direction_matches": 12,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": -0.061140878154317714,
+            "median_response_bps": -0.6673795105814403,
+            "n": 11
+          },
+          "positive": {
+            "mean_response_bps": 0.07807006653553006,
+            "median_response_bps": 0.1629646529813254,
+            "n": 6
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 12,
+          "flat": 0,
+          "up": 5
+        }
+      },
+      "weighted": {
+        "direction_matches": 10,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": -0.2296206799399297,
+            "median_response_bps": -0.6040654637182437,
+            "n": 13
+          },
+          "positive": {
+            "mean_response_bps": 0.6952348946836929,
+            "median_response_bps": -0.33200494193351965,
+            "n": 4
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 12,
+          "flat": 0,
+          "up": 5
+        }
+      }
+    },
+    "next_mid_bps": {
+      "depth_1": {
+        "direction_matches": 10,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": -0.23239772763768565,
+            "median_response_bps": -0.24014031056298135,
+            "n": 11
+          },
+          "positive": {
+            "mean_response_bps": 0.5890326052201409,
+            "median_response_bps": -0.18859057947969277,
+            "n": 6
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 10,
+          "flat": 0,
+          "up": 7
+        }
+      },
+      "depth_10": {
+        "direction_matches": 8,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": 0.4830614177366846,
+            "median_response_bps": -0.24014031056298135,
+            "n": 13
+          },
+          "positive": {
+            "mean_response_bps": -1.325494450817649,
+            "median_response_bps": -1.2524714203573935,
+            "n": 4
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 10,
+          "flat": 0,
+          "up": 7
+        }
+      },
+      "depth_5": {
+        "direction_matches": 10,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": -0.14650144977232296,
+            "median_response_bps": -0.24014031056298135,
+            "n": 13
+          },
+          "positive": {
+            "mean_response_bps": 0.7205848685866254,
+            "median_response_bps": -0.6175041500482431,
+            "n": 4
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 10,
+          "flat": 0,
+          "up": 7
+        }
+      },
+      "mid_minus_mark": {
+        "direction_matches": 4,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": 0.544357566887631,
+            "median_response_bps": 0.10295665782089179,
+            "n": 11
+          },
+          "positive": {
+            "mean_response_bps": -0.835018768076273,
+            "median_response_bps": -0.5403060719142587,
+            "n": 6
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 10,
+          "flat": 0,
+          "up": 7
+        }
+      },
+      "weighted": {
+        "direction_matches": 10,
+        "eligible": 17,
+        "groups": {
+          "negative": {
+            "mean_response_bps": -0.22565816638260983,
+            "median_response_bps": -0.24014031056298135,
+            "n": 13
+          },
+          "positive": {
+            "mean_response_bps": 0.9778441975700578,
+            "median_response_bps": -0.10298549208137853,
+            "n": 4
+          },
+          "zero": {
+            "mean_response_bps": null,
+            "median_response_bps": null,
+            "n": 0
+          }
+        },
+        "nonzero_signal_and_outcome": 17,
+        "outcomes": {
+          "down": 10,
+          "flat": 0,
+          "up": 7
+        }
+      }
+    }
+  },
+  "contract": "BTC_USDT",
+  "format": "phaseweave.liquidity-response.v1",
+  "method": "Equal-rank K=1,5,10 and fixed inverse-rank weights 1/r at K=10; signed 10000 ln(price/mark) basis.",
+  "observations": [
+    {
+      "available_ms": 1795209131027,
+      "book_id": 133491810181,
+      "book_ms": 1795209130967,
+      "buy_mark_basis_bps": -1.1819490490796356,
+      "buy_vwap": 58290.1,
+      "depth": {
+        "1": {
+          "ask_contracts": 25795.0,
+          "bid_contracts": 24692.0,
+          "imbalance": -0.021847208192207895
+        },
+        "10": {
+          "ask_contracts": 27567.0,
+          "bid_contracts": 30222.0,
+          "imbalance": 0.04594299953278306
+        },
+        "5": {
+          "ask_contracts": 27391.0,
+          "bid_contracts": 29927.0,
+          "imbalance": 0.044244390941763495
+        }
+      },
+      "mark": 58296.99,
+      "mark_age_ms": 454,
+      "mark_available_ms": 1795209130698,
+      "mark_ms": 1795209130513,
+      "mid": 58290.05,
+      "mid_mark_basis_bps": -1.190526838693957,
+      "original_book_sha256": "44ccc33586d8e5b624331a95162a8c4ab83a097d6b16429b51ae9b322ae88ab1",
+      "original_mark_sha256": "cec92609b0dba92c46b9bd8d6bfec904de8a6dcd91f23eb1c1d8f745a0cce8ba",
+      "sell_mark_basis_bps": -1.1991046356672426,
+      "sell_vwap": 58290.0,
+      "spread_bps": 0.01715558658828154,
+      "state": 0,
+      "weighted_ask_btc": 2.6190571825396827,
+      "weighted_bid_btc": 2.6186256746031744,
+      "weighted_imbalance": -8.238527384671072e-05
+    },
+    {
+      "available_ms": 1795209133184,
+      "book_id": 133491817608,
+      "book_ms": 1795209133124,
+      "buy_mark_basis_bps": -2.216763822158264,
+      "buy_vwap": 58276.7,
+      "depth": {
+        "1": {
+          "ask_contracts": 28620.0,
+          "bid_contracts": 16209.0,
+          "imbalance": -0.27685203774342504
+        },
+        "10": {
+          "ask_contracts": 53136.0,
+          "bid_contracts": 17826.0,
+          "imbalance": -0.4975902595755475
+        },
+        "5": {
+          "ask_contracts": 52770.0,
+          "bid_contracts": 17187.0,
+          "imbalance": -0.508641022342296
+        }
+      },
+      "mark": 58289.62,
+      "mark_age_ms": 679,
+      "mark_available_ms": 1795209132695,
+      "mark_ms": 1795209132445,
+      "mid": 58276.65,
+      "mid_mark_basis_bps": -2.225343584130689,
+      "original_book_sha256": "ca27c0adcce8a506e6f176af57ce7d14c5785fefc9d2c739a8f8fcaf0df857be",
+      "original_mark_sha256": "1be746a807484591966e35bfc0064c5bd2da00f382861bd89365bb4a96c8853c",
+      "sell_mark_basis_bps": -2.2339233534632403,
+      "sell_vwap": 58276.6,
+      "spread_bps": 0.01715953130383993,
+      "state": 0,
+      "weighted_ask_btc": 3.390356785714286,
+      "weighted_bid_btc": 1.6749045634920634,
+      "weighted_imbalance": -0.33867003180221056
+    },
+    {
+      "available_ms": 1795209135293,
+      "book_id": 133491823418,
+      "book_ms": 1795209135235,
+      "buy_mark_basis_bps": -1.4464277420884954,
+      "buy_vwap": 58277.3,
+      "depth": {
+        "1": {
+          "ask_contracts": 15907.0,
+          "bid_contracts": 7456.0,
+          "imbalance": -0.3617258057612464
+        },
+        "10": {
+          "ask_contracts": 92540.0,
+          "bid_contracts": 24683.0,
+          "imbalance": -0.5788710406660809
+        },
+        "5": {
+          "ask_contracts": 47052.0,
+          "bid_contracts": 8365.0,
+          "imbalance": -0.6981070790551636
+        }
+      },
+      "mark": 58285.73,
+      "mark_age_ms": 1135,
+      "mark_available_ms": 1795209134696,
+      "mark_ms": 1795209134100,
+      "mid": 58277.25,
+      "mid_mark_basis_bps": -1.4550074157269883,
+      "original_book_sha256": "1e56a2d281ed471e32a9cd4f67a0bbb804588b89eaac81fd7d0b700b17879280",
+      "original_mark_sha256": "f45b458e370f0181ef22652eaa113e9c5aedfcce248b1781ad79212293b5837c",
+      "sell_mark_basis_bps": -1.4635870967254572,
+      "sell_vwap": 58277.2,
+      "spread_bps": 0.01715935463657362,
+      "state": 0,
+      "weighted_ask_btc": 3.1487976984126984,
+      "weighted_bid_btc": 0.9520797222222223,
+      "weighted_imbalance": -0.5356702361150723
+    },
+    {
+      "available_ms": 1795209137953,
+      "book_id": 133491833786,
+      "book_ms": 1795209137892,
+      "buy_mark_basis_bps": -3.046087324415548,
+      "buy_vwap": 58262.6,
+      "depth": {
+        "1": {
+          "ask_contracts": 20914.0,
+          "bid_contracts": 8248.0,
+          "imbalance": -0.43433235031890816
+        },
+        "10": {
+          "ask_contracts": 97904.0,
+          "bid_contracts": 9128.0,
+          "imbalance": -0.8294341879064205
+        },
+        "5": {
+          "ask_contracts": 50767.0,
+          "bid_contracts": 9003.0,
+          "imbalance": -0.698745189894596
+        }
+      },
+      "mark": 58280.35,
+      "mark_age_ms": 661,
+      "mark_available_ms": 1795209137696,
+      "mark_ms": 1795209137231,
+      "mid": 58262.55,
+      "mid_mark_basis_bps": -3.0546691627563867,
+      "original_book_sha256": "2c86f3d94786b315677f408252af37a77f9bf65a365f66c184a568a5d1272de0",
+      "original_mark_sha256": "c9a5acc1658002f9a604bf89989feda9cb273da1ab2fb6391ce521a71f4172f0",
+      "sell_mark_basis_bps": -3.063251008462026,
+      "sell_vwap": 58262.5,
+      "spread_bps": 0.017163684048189177,
+      "state": 0,
+      "weighted_ask_btc": 4.053509682539683,
+      "weighted_bid_btc": 0.8439462301587302,
+      "weighted_imbalance": -0.6553532098285983
+    },
+    {
+      "available_ms": 1795209140125,
+      "book_id": 133491840772,
+      "book_ms": 1795209140066,
+      "buy_mark_basis_bps": -3.276463240885529,
+      "buy_vwap": 58254.5,
+      "depth": {
+        "1": {
+          "ask_contracts": 14378.0,
+          "bid_contracts": 12705.0,
+          "imbalance": -0.061773067976221244
+        },
+        "10": {
+          "ask_contracts": 97223.0,
+          "bid_contracts": 14360.0,
+          "imbalance": -0.7426131220705663
+        },
+        "5": {
+          "ask_contracts": 55981.0,
+          "bid_contracts": 13755.0,
+          "imbalance": -0.6055122175060227
+        }
+      },
+      "mark": 58273.59,
+      "mark_age_ms": 701,
+      "mark_available_ms": 1795209139695,
+      "mark_ms": 1795209139365,
+      "mid": 58254.45,
+      "mid_mark_basis_bps": -3.285046272488951,
+      "original_book_sha256": "61e6ae5ada7f789b51c6fce3b3d9f8391ad4def46cbe97734a8cd2ca744f1404",
+      "original_mark_sha256": "c24fe8a8918370056de18f9b70b13e86d8ce471b8c9b04b6cdd139b0f74916b9",
+      "sell_mark_basis_bps": -3.2936293114603337,
+      "sell_vwap": 58254.4,
+      "spread_bps": 0.01716607057506557,
+      "state": 0,
+      "weighted_ask_btc": 2.859625952380952,
+      "weighted_bid_btc": 1.3086498412698413,
+      "weighted_imbalance": -0.3720905688327032
+    },
+    {
+      "available_ms": 1795209142367,
+      "book_id": 133491849655,
+      "book_ms": 1795209142299,
+      "buy_mark_basis_bps": -0.8529613854789649,
+      "buy_vwap": 58265.1,
+      "depth": {
+        "1": {
+          "ask_contracts": 33140.0,
+          "bid_contracts": 17243.0,
+          "imbalance": -0.3155230931068019
+        },
+        "10": {
+          "ask_contracts": 58110.0,
+          "bid_contracts": 23598.0,
+          "imbalance": -0.42238214128359525
+        },
+        "5": {
+          "ask_contracts": 34676.0,
+          "bid_contracts": 19954.0,
+          "imbalance": -0.2694856306058942
+        }
+      },
+      "mark": 58270.07,
+      "mark_age_ms": 779,
+      "mark_available_ms": 1795209141695,
+      "mark_ms": 1795209141520,
+      "mid": 58265.05,
+      "mid_mark_basis_bps": -0.8615428555964977,
+      "original_book_sha256": "6796efd481cd01ea9045f77671cc99daa77871b744e279c9fcd45d531840d226",
+      "original_mark_sha256": "78441258d6ec2ee33e2e386e32e08effde848ae5b83235d0715469d6c0a00688",
+      "sell_mark_basis_bps": -0.8701243330781996,
+      "sell_vwap": 58265.0,
+      "spread_bps": 0.017162947598552903,
+      "state": 0,
+      "weighted_ask_btc": 3.7704371825396827,
+      "weighted_bid_btc": 1.8746664682539682,
+      "weighted_imbalance": -0.3358256697411014
+    },
+    {
+      "available_ms": 1795209144591,
+      "book_id": 133491862587,
+      "book_ms": 1795209144533,
+      "buy_mark_basis_bps": 0.034314558122254445,
+      "buy_vwap": 58284.4,
+      "depth": {
+        "1": {
+          "ask_contracts": 3584.0,
+          "bid_contracts": 29356.0,
+          "imbalance": 0.7823922282938677
+        },
+        "10": {
+          "ask_contracts": 7950.0,
+          "bid_contracts": 33077.0,
+          "imbalance": 0.6124503375825676
+        },
+        "5": {
+          "ask_contracts": 4019.0,
+          "bid_contracts": 31545.0,
+          "imbalance": 0.7739849285794623
+        }
+      },
+      "mark": 58284.2,
+      "mark_age_ms": 904,
+      "mark_available_ms": 1795209143698,
+      "mark_ms": 1795209143629,
+      "mid": 58284.35,
+      "mid_mark_basis_bps": 0.025735929630642952,
+      "original_book_sha256": "6213f7d3442754db178468dec0c97b81bbed7a2b44de3dc6c0d356070545089a",
+      "original_mark_sha256": "6a935a4092cb7cbb947bf3e6374c8d4486eb9e5f42cae5a2949c7c6bc12aa7a8",
+      "sell_mark_basis_bps": 0.017157293779738462,
+      "sell_vwap": 58284.3,
+      "spread_bps": 0.01715726434333569,
+      "state": 3,
+      "weighted_ask_btc": 0.4205062301587302,
+      "weighted_bid_btc": 3.0322113492063494,
+      "weighted_imbalance": 0.756420141240711
+    },
+    {
+      "available_ms": 1795209146795,
+      "book_id": 133491873998,
+      "book_ms": 1795209146736,
+      "buy_mark_basis_bps": -2.256558723216721,
+      "buy_vwap": 58268.0,
+      "depth": {
+        "1": {
+          "ask_contracts": 8644.0,
+          "bid_contracts": 23258.0,
+          "imbalance": 0.458090401855683
+        },
+        "10": {
+          "ask_contracts": 53414.0,
+          "bid_contracts": 25239.0,
+          "imbalance": -0.3582190126250747
+        },
+        "5": {
+          "ask_contracts": 53225.0,
+          "bid_contracts": 24047.0,
+          "imbalance": -0.37760120095247957
+        }
+      },
+      "mark": 58281.15,
+      "mark_age_ms": 109,
+      "mark_available_ms": 1795209146699,
+      "mark_ms": 1795209146627,
+      "mid": 58267.95,
+      "mid_mark_basis_bps": -2.265139766234189,
+      "original_book_sha256": "437b23bc6d53b11d7acaaba1f38baa7774ee191d94ef3580acdc63f849cbca51",
+      "original_mark_sha256": "211bcf3761cff119429be7138908831b3df150fe24e51cc4b4de59b2fa39c25d",
+      "sell_mark_basis_bps": -2.273720816615093,
+      "sell_vwap": 58267.9,
+      "spread_bps": 0.017162093398864674,
+      "state": 2,
+      "weighted_ask_btc": 1.9054880158730159,
+      "weighted_bid_btc": 2.376661349206349,
+      "weighted_imbalance": 0.11003197066774914
+    },
+    {
+      "available_ms": 1795209148940,
+      "book_id": 133491884613,
+      "book_ms": 1795209148879,
+      "buy_mark_basis_bps": -3.3859349137677954,
+      "buy_vwap": 58260.6,
+      "depth": {
+        "1": {
+          "ask_contracts": 15008.0,
+          "bid_contracts": 20615.0,
+          "imbalance": 0.15739831008056593
+        },
+        "10": {
+          "ask_contracts": 63367.0,
+          "bid_contracts": 24631.0,
+          "imbalance": -0.4401918225414214
+        },
+        "5": {
+          "ask_contracts": 40468.0,
+          "bid_contracts": 24064.0,
+          "imbalance": -0.25419946693113493
+        }
+      },
+      "mark": 58280.33,
+      "mark_age_ms": 507,
+      "mark_available_ms": 1795209148695,
+      "mark_ms": 1795209148372,
+      "mid": 58260.55,
+      "mid_mark_basis_bps": -3.3945170467107326,
+      "original_book_sha256": "37fbaa4db52293d33c9ff7073f5f1f152b348fa9db6bd4f53c4133fa0508ae75",
+      "original_mark_sha256": "2ec1ad54db2e0589d07b846c70a9553441e04d8679175a4a9d2c9a14ce92a595",
+      "sell_mark_basis_bps": -3.4030991870189773,
+      "sell_vwap": 58260.5,
+      "spread_bps": 0.01716427325141882,
+      "state": 0,
+      "weighted_ask_btc": 2.4218899206349205,
+      "weighted_bid_btc": 2.2274045634920636,
+      "weighted_imbalance": -0.04183115477129782
+    },
+    {
+      "available_ms": 1795209151097,
+      "book_id": 133491891050,
+      "book_ms": 1795209151037,
+      "buy_mark_basis_bps": -1.9633546104589492,
+      "buy_vwap": 58261.9,
+      "depth": {
+        "1": {
+          "ask_contracts": 8560.0,
+          "bid_contracts": 17859.0,
+          "imbalance": 0.351981528445437
+        },
+        "10": {
+          "ask_contracts": 35702.0,
+          "bid_contracts": 18966.0,
+          "imbalance": -0.3061388746615936
+        },
+        "5": {
+          "ask_contracts": 13235.0,
+          "bid_contracts": 18674.0,
+          "imbalance": 0.17045347707543326
+        }
+      },
+      "mark": 58273.34,
+      "mark_age_ms": 914,
+      "mark_available_ms": 1795209150711,
+      "mark_ms": 1795209150123,
+      "mid": 58261.85,
+      "mid_mark_basis_bps": -1.9719365519084084,
+      "original_book_sha256": "636017e49e7cc82b670c7795affe0e7fd8d185341fe1458b39eb11ab4ae58484",
+      "original_mark_sha256": "97d60b2932b216201209edffa6262c7430b8a96838edab36268861358e8a19fd",
+      "sell_mark_basis_bps": -1.9805185007239559,
+      "sell_vwap": 58261.8,
+      "spread_bps": 0.017163890265100713,
+      "state": 2,
+      "weighted_ask_btc": 1.3533456746031747,
+      "weighted_bid_btc": 1.8110438492063492,
+      "weighted_imbalance": 0.14464027616049116
+    },
+    {
+      "available_ms": 1795209153345,
+      "book_id": 133491899877,
+      "book_ms": 1795209153276,
+      "buy_mark_basis_bps": 0.5972571482128632,
+      "buy_vwap": 58268.1,
+      "depth": {
+        "1": {
+          "ask_contracts": 33141.0,
+          "bid_contracts": 12629.0,
+          "imbalance": -0.4481538125409657
+        },
+        "10": {
+          "ask_contracts": 78952.0,
+          "bid_contracts": 65779.0,
+          "imbalance": -0.09101712832772522
+        },
+        "5": {
+          "ask_contracts": 73544.0,
+          "bid_contracts": 40541.0,
+          "imbalance": -0.28928430556164264
+        }
+      },
+      "mark": 58264.62,
+      "mark_age_ms": 688,
+      "mark_available_ms": 1795209152694,
+      "mark_ms": 1795209152588,
+      "mid": 58268.05,
+      "mid_mark_basis_bps": 0.5886761199222829,
+      "original_book_sha256": "b4183fedf1ae0e06db784323c0da1bae221dfa40222e9fcd6cca8e3778fd441b",
+      "original_mark_sha256": "27d9e99181093b3a19abbce55e61723d25bc31e4073b41c9d76f407e4d9ad329",
+      "sell_mark_basis_bps": 0.5800950842682915,
+      "sell_vwap": 58268.0,
+      "spread_bps": 0.01716206394469838,
+      "state": 1,
+      "weighted_ask_btc": 5.082631865079365,
+      "weighted_bid_btc": 2.2827171825396824,
+      "weighted_imbalance": -0.38014691013792407
+    },
+    {
+      "available_ms": 1795209155559,
+      "book_id": 133491907972,
+      "book_ms": 1795209155499,
+      "buy_mark_basis_bps": -0.6521802559889911,
+      "buy_vwap": 58264.2,
+      "depth": {
+        "1": {
+          "ask_contracts": 6976.0,
+          "bid_contracts": 14907.0,
+          "imbalance": 0.3624274551021341
+        },
+        "10": {
+          "ask_contracts": 49358.0,
+          "bid_contracts": 17697.0,
+          "imbalance": -0.4721646409663709
+        },
+        "5": {
+          "ask_contracts": 7609.0,
+          "bid_contracts": 16287.0,
+          "imbalance": 0.3631570137261466
+        }
+      },
+      "mark": 58268.0,
+      "mark_age_ms": 893,
+      "mark_available_ms": 1795209154696,
+      "mark_ms": 1795209154606,
+      "mid": 58264.15,
+      "mid_mark_basis_bps": -0.6607618586636425,
+      "original_book_sha256": "9ed6b87bcb95855452f231d39b63182e567f3067e2c4f9a494d92a8fdea6d581",
+      "original_mark_sha256": "14c80a9818d8af7f735a0fb1cebcb0e73b710afcebd12dc1f4d3602738947713",
+      "sell_mark_basis_bps": -0.6693434687015801,
+      "sell_vwap": 58264.1,
+      "spread_bps": 0.017163212712694827,
+      "state": 2,
+      "weighted_ask_btc": 1.2205117857142858,
+      "weighted_bid_btc": 1.5807419444444444,
+      "weighted_imbalance": 0.1285960478523831
+    },
+    {
+      "available_ms": 1795209157974,
+      "book_id": 133491928711,
+      "book_ms": 1795209157914,
+      "buy_mark_basis_bps": 1.3378913137648083,
+      "buy_vwap": 58304.6,
+      "depth": {
+        "1": {
+          "ask_contracts": 14815.0,
+          "bid_contracts": 17350.0,
+          "imbalance": 0.07881237369811907
+        },
+        "10": {
+          "ask_contracts": 95824.0,
+          "bid_contracts": 21697.0,
+          "imbalance": -0.6307553543621991
+        },
+        "5": {
+          "ask_contracts": 42190.0,
+          "bid_contracts": 17355.0,
+          "imbalance": -0.41707951969099
+        }
+      },
+      "mark": 58296.8,
+      "mark_age_ms": 284,
+      "mark_available_ms": 1795209157699,
+      "mark_ms": 1795209157630,
+      "mid": 58304.55,
+      "mid_mark_basis_bps": 1.3293156573945686,
+      "original_book_sha256": "c732e423cbbad34f6a5f338fd520153024e42afc04509bd1c3d416aefb630c66",
+      "original_mark_sha256": "7e591c9e5db04edb89f3f428e9d02dba7b01dde5c1c1a5fc0fcc15c7ad3957ce",
+      "sell_mark_basis_bps": 1.3207399936701345,
+      "sell_vwap": 58304.5,
+      "spread_bps": 0.017151320095113817,
+      "state": 1,
+      "weighted_ask_btc": 2.6557185714285714,
+      "weighted_bid_btc": 1.7964035714285713,
+      "weighted_imbalance": -0.19301244944024287
+    },
+    {
+      "available_ms": 1795209161408,
+      "book_id": 133491950898,
+      "book_ms": 1795209161347,
+      "buy_mark_basis_bps": -0.3773442512051476,
+      "buy_vwap": 58301.1,
+      "depth": {
+        "1": {
+          "ask_contracts": 26454.0,
+          "bid_contracts": 19310.0,
+          "imbalance": -0.1561052355563325
+        },
+        "10": {
+          "ask_contracts": 46781.0,
+          "bid_contracts": 46821.0,
+          "imbalance": 0.00042734129612615113
+        },
+        "5": {
+          "ask_contracts": 46480.0,
+          "bid_contracts": 22685.0,
+          "imbalance": -0.344032386322562
+        }
+      },
+      "mark": 58303.3,
+      "mark_age_ms": 1340,
+      "mark_available_ms": 1795209160695,
+      "mark_ms": 1795209160007,
+      "mid": 58301.05,
+      "mid_mark_basis_bps": -0.3859204223994498,
+      "original_book_sha256": "b0885626edd581388123b9d3090a2a13d60ceaa11fc6d63e732a39f0f6bde7f9",
+      "original_mark_sha256": "762ee823d7722ebfc6119c524a6b435e5c5591405fd2081ec78d87ead4823e10",
+      "sell_mark_basis_bps": -0.3944966009488295,
+      "sell_vwap": 58301.0,
+      "spread_bps": 0.017152349743046615,
+      "state": 0,
+      "weighted_ask_btc": 3.6198475793650795,
+      "weighted_bid_btc": 2.3509890476190476,
+      "weighted_imbalance": -0.21250933680075132
+    },
+    {
+      "available_ms": 1795209164902,
+      "book_id": 133491972898,
+      "book_ms": 1795209164841,
+      "buy_mark_basis_bps": 0.22298245900899452,
+      "buy_vwap": 58301.2,
+      "depth": {
+        "1": {
+          "ask_contracts": 34072.0,
+          "bid_contracts": 15633.0,
+          "imbalance": -0.3709687154209838
+        },
+        "10": {
+          "ask_contracts": 89032.0,
+          "bid_contracts": 95566.0,
+          "imbalance": 0.03539583310761763
+        },
+        "5": {
+          "ask_contracts": 54298.0,
+          "bid_contracts": 33051.0,
+          "imbalance": -0.24324262441470423
+        }
+      },
+      "mark": 58299.9,
+      "mark_age_ms": 218,
+      "mark_available_ms": 1795209164696,
+      "mark_ms": 1795209164623,
+      "mid": 58301.15,
+      "mid_mark_basis_bps": 0.21440630252515794,
+      "original_book_sha256": "691096e4b1bef7f4ba0f645b046a2de020c113fa8fc7804e4925dfb4b3e0f197",
+      "original_mark_sha256": "ef33b9b9aba0bed1e323d9454165ec55155ba930107fd278055a9ea760a599a5",
+      "sell_mark_basis_bps": 0.205830138686269,
+      "sell_vwap": 58301.1,
+      "spread_bps": 0.01715232032218693,
+      "state": 1,
+      "weighted_ask_btc": 4.457295,
+      "weighted_bid_btc": 2.65537873015873,
+      "weighted_imbalance": -0.2533388059402884
+    },
+    {
+      "available_ms": 1795209167653,
+      "book_id": 133491984116,
+      "book_ms": 1795209167593,
+      "buy_mark_basis_bps": 1.04636692066551,
+      "buy_vwap": 58300.0,
+      "depth": {
+        "1": {
+          "ask_contracts": 59215.0,
+          "bid_contracts": 1719.0,
+          "imbalance": -0.9435782978304394
+        },
+        "10": {
+          "ask_contracts": 111357.0,
+          "bid_contracts": 6342.0,
+          "imbalance": -0.8922335788749267
+        },
+        "5": {
+          "ask_contracts": 78961.0,
+          "bid_contracts": 4351.0,
+          "imbalance": -0.8955492606107164
+        }
+      },
+      "mark": 58293.9,
+      "mark_age_ms": 1113,
+      "mark_available_ms": 1795209166702,
+      "mark_ms": 1795209166480,
+      "mid": 58299.95,
+      "mid_mark_basis_bps": 1.0377905876558027,
+      "original_book_sha256": "c81db43d5c7a8345f8ce8c44c186c76fc31c0879d3b635431cc6dcc8ea23413f",
+      "original_mark_sha256": "3ea0ee6ca9b467989c35aaa935a7c0334d75e9cec18f6fb10e75732ee5d8b238",
+      "sell_mark_basis_bps": 1.0292142472929606,
+      "sell_vwap": 58299.9,
+      "spread_bps": 0.017152673372503188,
+      "state": 1,
+      "weighted_ask_btc": 6.989569126984127,
+      "weighted_bid_btc": 0.27577345238095236,
+      "weighted_imbalance": -0.9240852170786275
+    },
+    {
+      "available_ms": 1795209170140,
+      "book_id": 133491995942,
+      "book_ms": 1795209170080,
+      "buy_mark_basis_bps": 0.3773746730584931,
+      "buy_vwap": 58298.6,
+      "depth": {
+        "1": {
+          "ask_contracts": 42164.0,
+          "bid_contracts": 17459.0,
+          "imbalance": -0.41435352129211883
+        },
+        "10": {
+          "ask_contracts": 88012.0,
+          "bid_contracts": 19537.0,
+          "imbalance": -0.6366865335800426
+        },
+        "5": {
+          "ask_contracts": 86432.0,
+          "bid_contracts": 19276.0,
+          "imbalance": -0.6352972338895826
+        }
+      },
+      "mark": 58296.4,
+      "mark_age_ms": 971,
+      "mark_available_ms": 1795209169695,
+      "mark_ms": 1795209169109,
+      "mid": 58298.55,
+      "mid_mark_basis_bps": 0.3687981340937431,
+      "original_book_sha256": "608c5a8e8cdb6679fb5e05e4e54bc74de7dbce293ea6cb95637d4f8ac6ea2e9c",
+      "original_mark_sha256": "2e4959b112c674eda708b5fd4484a26ce12586a7407c77c337f9f301f92a5855",
+      "sell_mark_basis_bps": 0.36022158777550517,
+      "sell_vwap": 58298.5,
+      "spread_bps": 0.017153085282302347,
+      "state": 1,
+      "weighted_ask_btc": 5.679595238095238,
+      "weighted_bid_btc": 1.7889712301587302,
+      "weighted_imbalance": -0.5209331703043776
+    },
+    {
+      "available_ms": 1795209172455,
+      "book_id": 133492005588,
+      "book_ms": 1795209172394,
+      "buy_mark_basis_bps": 0.0,
+      "buy_vwap": 58295.8,
+      "depth": {
+        "1": {
+          "ask_contracts": 68515.0,
+          "bid_contracts": 3169.0,
+          "imbalance": -0.9115841749902349
+        },
+        "10": {
+          "ask_contracts": 125500.0,
+          "bid_contracts": 64925.0,
+          "imbalance": -0.3181042405146383
+        },
+        "5": {
+          "ask_contracts": 114352.0,
+          "bid_contracts": 46189.0,
+          "imbalance": -0.42458312829744427
+        }
+      },
+      "mark": 58295.8,
+      "mark_age_ms": 1193,
+      "mark_available_ms": 1795209171694,
+      "mark_ms": 1795209171201,
+      "mid": 58295.75,
+      "mid_mark_basis_bps": -0.00857695090287324,
+      "original_book_sha256": "75df48d86e829fb10aa8d18b6997271b18e1f197915f7fe3680d097929fd898a",
+      "original_mark_sha256": "278e5d81f97b8e5cb483dd44bbf35890cdfe01c4a73b89bf8fe2e22124f7f177",
+      "sell_mark_basis_bps": -0.017153909161051244,
+      "sell_vwap": 58295.7,
+      "spread_bps": 0.017153909161852558,
+      "state": 0,
+      "weighted_ask_btc": 8.542506785714286,
+      "weighted_bid_btc": 1.6816659126984126,
+      "weighted_imbalance": -0.6710411761805449
+    }
+  ],
+  "pairs": [
+    {
+      "destination": 1,
+      "dt_ms": 2157,
+      "next_mark_bps": -1.2642961331170852,
+      "next_mid_bps": -2.299112878554083,
+      "origin": 0
+    },
+    {
+      "destination": 2,
+      "dt_ms": 2111,
+      "next_mark_bps": -0.6673795105814403,
+      "next_mid_bps": 0.10295665782089179,
+      "origin": 1
+    },
+    {
+      "destination": 3,
+      "dt_ms": 2657,
+      "next_mark_bps": -0.9230815694963228,
+      "next_mid_bps": -2.5227433165251494,
+      "origin": 2
+    },
+    {
+      "destination": 4,
+      "dt_ms": 2174,
+      "next_mark_bps": -1.1599779479926313,
+      "next_mid_bps": -1.3903550577262547,
+      "origin": 3
+    },
+    {
+      "destination": 5,
+      "dt_ms": 2233,
+      "next_mark_bps": -0.6040654637182437,
+      "next_mid_bps": 1.8194379531749785,
+      "origin": 4
+    },
+    {
+      "destination": 6,
+      "dt_ms": 2234,
+      "next_mark_bps": 2.4246216066084143,
+      "next_mid_bps": 3.3119003918359406,
+      "origin": 5
+    },
+    {
+      "destination": 7,
+      "dt_ms": 2203,
+      "next_mark_bps": -0.5233116017223501,
+      "next_mid_bps": -2.814187297588426,
+      "origin": 6
+    },
+    {
+      "destination": 8,
+      "dt_ms": 2143,
+      "next_mark_bps": -0.14069828214468913,
+      "next_mid_bps": -1.2700755626203537,
+      "origin": 7
+    },
+    {
+      "destination": 9,
+      "dt_ms": 2158,
+      "next_mark_bps": -1.1994474319664123,
+      "next_mid_bps": 0.22313306283634368,
+      "origin": 8
+    },
+    {
+      "destination": 10,
+      "dt_ms": 2239,
+      "next_mark_bps": -1.4965080933740016,
+      "next_mid_bps": 1.0641045784575967,
+      "origin": 9
+    },
+    {
+      "destination": 11,
+      "dt_ms": 2223,
+      "next_mark_bps": 0.5800950842682915,
+      "next_mid_bps": -0.6693428943170092,
+      "origin": 10
+    },
+    {
+      "destination": 12,
+      "dt_ms": 2415,
+      "next_mark_bps": 4.941457555975813,
+      "next_mid_bps": 6.931535072031414,
+      "origin": 11
+    },
+    {
+      "destination": 13,
+      "dt_ms": 3433,
+      "next_mark_bps": 1.1149218579970006,
+      "next_mid_bps": -0.6003142217957292,
+      "origin": 12
+    },
+    {
+      "destination": 14,
+      "dt_ms": 3494,
+      "next_mark_bps": -0.5831743898908955,
+      "next_mid_bps": 0.01715233503261677,
+      "origin": 13
+    },
+    {
+      "destination": 15,
+      "dt_ms": 2752,
+      "next_mark_bps": -1.0292142472924124,
+      "next_mid_bps": -0.2058299621607041,
+      "origin": 14
+    },
+    {
+      "destination": 16,
+      "dt_ms": 2487,
+      "next_mark_bps": 0.4288521429975342,
+      "next_mid_bps": -0.24014031056298135,
+      "origin": 15
+    },
+    {
+      "destination": 17,
+      "dt_ms": 2314,
+      "next_mark_bps": -0.1029228370348834,
+      "next_mid_bps": -0.48029792203278815,
+      "origin": 16
+    }
+  ],
+  "reference_contracts": 10.0,
+  "source_file": "short-mechanics-v1.json",
+  "source_sha256": "00b7bf66a64386e21eb94943b131fdcc8f05809d17368403b6d8f307049c0fc4",
+  "transitions": {
+    "counts": [
+      [
+        5,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        2,
+        1,
+        0
+      ],
+      [
+        1,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ]
+    ],
+    "first": 0,
+    "labels": [
+      "ask heavy / mid below mark",
+      "ask heavy / mid at or above mark",
+      "bid heavy or tied / mid below mark",
+      "bid heavy or tied / mid at or above mark"
+    ],
+    "last": 0,
+    "net_counts": [
+      [
+        0,
+        -1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        -1
+      ],
+      [
+        -1,
+        0,
+        1,
+        0
+      ]
+    ],
+    "occupancy": [
+      9,
+      5,
+      3,
+      1
+    ],
+    "out_minus_in": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
