@@ -76,7 +76,7 @@ const ReasoningScenes = (() => {
       axis.points.forEach(row => result.points.push({point:row.point,color,radius:chosen?3.5:2.3,alpha:chosen?1:.46}));
       if (chosen) {
         const point = math.scale(axis.unit_vector_pca3,dose);
-        const outcome = math.scale(axis.points.find(row => row.dose === 1).margin_delta_bps,dose);
+        const outcome = axis.points.find(row => Math.abs(row.dose - dose) < 1e-9)?.margin_delta_bps;
         active = {point,outcome,axis};
         result.points.push({point,color:"text",radius:7,label:`Dose ${dose.toFixed(2)}`});
       }

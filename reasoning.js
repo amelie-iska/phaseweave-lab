@@ -238,7 +238,7 @@
       panel.append(table("Projected concept intervention",["Property","Value"],[
         ["Editor",method.id],["Training origin","August latent centroid"],
         ["Axis projection",asCoordinate(active.axis.unit_vector_pca3)],["Edited position",asCoordinate(active.point)],
-        ["Forecast change, log bps",asCoordinate(active.outcome)],
+        ["Mean forecast change, log bps",active.outcome ? asCoordinate(active.outcome) : "Measured at integer doses −2 through 2"],
         ["State variance in 3 PCs",(100*state.steering.explained_variance_fraction.reduce((a,b)=>a+b,0)).toFixed(2)+"%"],
       ]));
       return result;
@@ -355,7 +355,7 @@
     $("error").textContent = "The recorded market data could not be loaded. Reload this page or open the archived replay JSON below.";
   });
   for (const [key,file] of Object.entries({
-    forest:"forest-view-v1.json",steering:"steering-projection-v1.json",flow:"flow-view-v1.json"
+    forest:"forest-view-v1.json",steering:"steering-projection-v2.json",flow:"flow-view-v1.json"
   })) fetch(file).then(response => {
     if (!response.ok) throw new Error("trace unavailable");
     return response.json();
