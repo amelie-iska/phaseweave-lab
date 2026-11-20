@@ -319,7 +319,7 @@ function drawCurrent(wallPhase = 0) {
   if (current) draw(current.frame, current.pipeline, current.result, wallPhase);
 }
 
-function render() {
+function render(refreshLive = false) {
   if (state.examples.length === 0) return;
   const age = +element("age").value, cost = +element("fee").value;
   const selection = state.examples.find((example) => example.id === element("example").value);
@@ -347,7 +347,9 @@ function render() {
     addCell(row, "td", index === 2 ? "Available" : route.fresh ? "Fresh" : "Missing / stale");
     addCell(row, "td", format(route.score, 4));
   });
-  inspector(frame, result, pipeline);
+  if (refreshLive !== true || !element("inspector").contains(document.activeElement)) {
+    inspector(frame, result, pipeline);
+  }
   drawCurrent((Date.now() % 1000) / 1000);
 }
 
@@ -387,11 +389,12 @@ function theme(value) {
 element("dark").addEventListener("click", () => theme("dark"));
 element("light").addEventListener("click", () => theme("light"));
 element("example").addEventListener("change", chooseExample);
-["surface", "model", "age", "fee", "tropical"].forEach((id) => element(id).addEventListener("change", () => {
+element("model").addEventListener("change", () => {
   state.layer = 0;
   state.query = 0;
   render();
-}));
+});
+["surface", "age", "fee", "tropical"].forEach((id) => element(id).addEventListener("change", render));
 document.querySelectorAll("[data-step]").forEach((button) => button.addEventListener("click", () => {
   state.step = +button.dataset.step;
   render();
@@ -450,7 +453,7 @@ canvas.addEventListener("keydown", (event) => {
   drawCurrent();
 });
 new ResizeObserver(() => drawCurrent()).observe(canvas);
-setInterval(() => { if (live()) render(); }, 400);
+setInterval(() => { if (live()) render(true); }, 400);
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   setInterval(() => { if (state.playback) drawCurrent((Date.now() % 1000) / 1000); }, 70);
 }
@@ -490,19 +493,26 @@ const referenceProviders = [
 element("reference").addEventListener("click", async () => {
   const output = element("reference-values");
   output.replaceChildren();
-  note(output, "Fetching official observations…");
   element("reference").disabled = true;
-  const results = await Promise.allSettled(referenceProviders.map(async (provider) => {
-    const response = await fetch(provider.url, {signal: AbortSignal.timeout(9000)});
-    if (!response.ok) throw new Error("HTTP " + response.status);
-    return provider.parse(response);
-  }));
-  output.replaceChildren();
-  results.forEach((result, index) => {
-    const provider = referenceProviders[index];
-    if (result.status === "fulfilled") table(output, ["Series", "Observation date", "Reference value"], result.value, provider.name);
-    else note(output, provider.name + " · currently unavailable.");
+  const panels = referenceProviders.map((provider) => {
+    const panel = document.createElement("div");
+    note(panel, "Fetching " + provider.name + "…");
+    output.append(panel);
+    return panel;
   });
+  await Promise.all(referenceProviders.map(async (provider, index) => {
+    const panel = panels[index];
+    try {
+      const response = await fetch(provider.url, {signal: AbortSignal.timeout(22000)});
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      const rows = await provider.parse(response);
+      panel.replaceChildren();
+      table(panel, ["Series", "Observation date", "Reference value"], rows, provider.name);
+    } catch {
+      panel.replaceChildren();
+      note(panel, provider.name + " · currently unavailable.");
+    }
+  }));
   note(output, "Reference series are excluded from quote-cycle scores.");
   element("reference").disabled = false;
 });
