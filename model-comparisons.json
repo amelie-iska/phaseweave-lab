@@ -1,0 +1,5769 @@
+{
+  "version": 1,
+  "partitions": [
+    {
+      "id": "fx-compact-23",
+      "family": "FX architectures",
+      "label": "Compact forecasting backbones · 23 training passes",
+      "scope": "Frozen one-second FX v2 and common inputs. September selects checkpoints. The two fixed controls were scored once.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "DLinear",
+          "values": {
+            "validation": 0.1959402859210968,
+            "test": 0.17726600170135498,
+            "new_asset": 0.22542451322078705,
+            "stress": 0.18281994760036469
+          },
+          "note": "72 parameters · epoch 19",
+          "status": "measured",
+          "variant": {
+            "backbone": "DLinear",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "LightTS",
+          "values": {
+            "validation": 0.1858963668346405,
+            "test": 0.16698844730854034,
+            "new_asset": 0.19669179618358612,
+            "stress": 0.17421594262123108
+          },
+          "note": "666 parameters · epoch 22",
+          "status": "measured",
+          "variant": {
+            "backbone": "LightTS",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "SegRNN",
+          "values": {
+            "validation": 0.18244093656539917,
+            "test": 0.16338977217674255,
+            "new_asset": 0.1917094886302948,
+            "stress": 0.1712527871131897
+          },
+          "note": "1,970 parameters · epoch 23",
+          "status": "measured",
+          "variant": {
+            "backbone": "SegRNN",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "TSMixer",
+          "values": {
+            "validation": 0.18124595284461975,
+            "test": 0.1628715544939041,
+            "new_asset": 0.1922059804201126,
+            "stress": 0.17486198246479034
+          },
+          "note": "1,209 parameters · epoch 22",
+          "status": "measured",
+          "variant": {
+            "backbone": "TSMixer",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "TiDE",
+          "values": {
+            "validation": 0.19454769790172577,
+            "test": 0.17477121949195862,
+            "new_asset": 0.22397135198116302,
+            "stress": 0.18464931845664978
+          },
+          "note": "3,803 parameters · epoch 23",
+          "status": "measured",
+          "variant": {
+            "backbone": "TiDE",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "TimeMixer",
+          "values": {
+            "validation": 0.17977020144462585,
+            "test": 0.16196173429489136,
+            "new_asset": 0.1809249371290207,
+            "stress": 0.16623333096504211
+          },
+          "note": "4,572 parameters · epoch 23",
+          "status": "measured",
+          "variant": {
+            "backbone": "TimeMixer",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "TimesNet",
+          "values": {
+            "validation": 0.1813812404870987,
+            "test": 0.16258446872234344,
+            "new_asset": 0.1841440200805664,
+            "stress": 0.1676388680934906
+          },
+          "note": "11,961 parameters · epoch 23",
+          "status": "measured",
+          "variant": {
+            "backbone": "TimesNet",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "PatchTST",
+          "values": {
+            "validation": 0.186161071062088,
+            "test": 0.16717642545700073,
+            "new_asset": 0.19891493022441864,
+            "stress": 0.1735113561153412
+          },
+          "note": "2,439 parameters · epoch 20",
+          "status": "measured",
+          "variant": {
+            "backbone": "PatchTST",
+            "feature": "Classical",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "iTransformer",
+          "values": {
+            "validation": 0.18194197118282318,
+            "test": 0.1627880036830902,
+            "new_asset": 0.18956129252910614,
+            "stress": 0.16728167235851288
+          },
+          "note": "2,583 parameters · epoch 21",
+          "status": "measured",
+          "variant": {
+            "backbone": "iTransformer",
+            "feature": "Classical",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "TimeXer",
+          "values": {
+            "validation": 0.18205010890960693,
+            "test": 0.16347165405750275,
+            "new_asset": 0.18855687975883484,
+            "stress": 0.16706019639968872
+          },
+          "note": "4,119 parameters · epoch 20",
+          "status": "measured",
+          "variant": {
+            "backbone": "TimeXer",
+            "feature": "Classical",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.22791646420955658,
+            "test": 0.20767411589622498,
+            "new_asset": 0.22015342116355896,
+            "stress": 0.2070128619670868
+          },
+          "note": "Fixed control",
+          "status": "measured",
+          "variant": {
+            "backbone": "Persistence",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "Histogram gradient boosting",
+          "values": {
+            "validation": 0.18431471906482,
+            "test": 0.16614144862912883,
+            "new_asset": 0.20838127892470648,
+            "stress": 0.17316021732635445
+          },
+          "note": "Two 64-round absolute-error regressors",
+          "status": "measured",
+          "variant": {
+            "backbone": "Histogram gradient boosting",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "name": "baseline-23-data.json",
+          "href": "baseline-23-data.json",
+          "sha256": "aac5996170a3cb08dcf02ffc300db92c17373830458f3dd2ce114356ff4a7fd1"
+        },
+        {
+          "name": "BASELINES_EVALUATED.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/BASELINES_EVALUATED.md",
+          "sha256": "3968a018e6aeb17d027b49ad6f0f75ae76490a6a385c0cc899eac07d57d60734"
+        }
+      ]
+    },
+    {
+      "id": "fx-compact-3",
+      "family": "FX architectures",
+      "label": "Compact forecasting backbones · 3 training passes",
+      "scope": "Frozen one-second FX v2 and common inputs. September selects checkpoints. The two fixed controls were scored once.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "DLinear",
+          "values": {
+            "validation": 0.19905081391334534,
+            "test": 0.18104350566864014,
+            "new_asset": 0.21704807877540588,
+            "stress": 0.18203575909137726
+          },
+          "note": "72 parameters · epoch 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "DLinear",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "LightTS",
+          "values": {
+            "validation": 0.19425547122955322,
+            "test": 0.17484739422798157,
+            "new_asset": 0.21545368432998657,
+            "stress": 0.17926636338233948
+          },
+          "note": "666 parameters · epoch 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "LightTS",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "SegRNN",
+          "values": {
+            "validation": 0.18607857823371887,
+            "test": 0.16675934195518494,
+            "new_asset": 0.19155734777450562,
+            "stress": 0.1738426685333252
+          },
+          "note": "1,970 parameters · epoch 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "SegRNN",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "TSMixer",
+          "values": {
+            "validation": 0.18767790496349335,
+            "test": 0.16928283870220184,
+            "new_asset": 0.19690439105033875,
+            "stress": 0.1766175627708435
+          },
+          "note": "1,209 parameters · epoch 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "TSMixer",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "TiDE",
+          "values": {
+            "validation": 0.2045738697052002,
+            "test": 0.18693146109580994,
+            "new_asset": 0.23902693390846252,
+            "stress": 0.19115543365478516
+          },
+          "note": "3,803 parameters · epoch 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "TiDE",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "TimeMixer",
+          "values": {
+            "validation": 0.18439039587974548,
+            "test": 0.16720937192440033,
+            "new_asset": 0.18498650193214417,
+            "stress": 0.17243307828903198
+          },
+          "note": "4,572 parameters · epoch 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "TimeMixer",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "TimesNet",
+          "values": {
+            "validation": 0.18606096506118774,
+            "test": 0.16742470860481262,
+            "new_asset": 0.18694782257080078,
+            "stress": 0.169938862323761
+          },
+          "note": "11,961 parameters · epoch 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "TimesNet",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "PatchTST",
+          "values": {
+            "validation": 0.19218239188194275,
+            "test": 0.17361588776111603,
+            "new_asset": 0.2080639749765396,
+            "stress": 0.17933133244514465
+          },
+          "note": "2,439 parameters · epoch 2",
+          "status": "measured",
+          "variant": {
+            "backbone": "PatchTST",
+            "feature": "Classical",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "iTransformer",
+          "values": {
+            "validation": 0.18756651878356934,
+            "test": 0.1684339940547943,
+            "new_asset": 0.19375137984752655,
+            "stress": 0.1762983500957489
+          },
+          "note": "2,583 parameters · epoch 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "iTransformer",
+            "feature": "Classical",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "TimeXer",
+          "values": {
+            "validation": 0.18686063587665558,
+            "test": 0.16872596740722656,
+            "new_asset": 0.1893204003572464,
+            "stress": 0.174578458070755
+          },
+          "note": "4,119 parameters · epoch 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "TimeXer",
+            "feature": "Classical",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.22791646420955658,
+            "test": 0.20767411589622498,
+            "new_asset": 0.22015342116355896,
+            "stress": 0.2070128619670868
+          },
+          "note": "Fixed control",
+          "status": "measured",
+          "variant": {
+            "backbone": "Persistence",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        },
+        {
+          "name": "Histogram gradient boosting",
+          "values": {
+            "validation": 0.18431471906482,
+            "test": 0.16614144862912883,
+            "new_asset": 0.20838127892470648,
+            "stress": 0.17316021732635445
+          },
+          "note": "Two 64-round absolute-error regressors",
+          "status": "measured",
+          "variant": {
+            "backbone": "Histogram gradient boosting",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "name": "baseline-data.json",
+          "href": "baseline-data.json",
+          "sha256": "78d93b7b6ad97e60f9b1cf6d03883d644d3afb4822085d958a50ad532f93cce7"
+        },
+        {
+          "name": "BASELINES_EVALUATED.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/BASELINES_EVALUATED.md",
+          "sha256": "3968a018e6aeb17d027b49ad6f0f75ae76490a6a385c0cc899eac07d57d60734"
+        }
+      ]
+    },
+    {
+      "id": "fx-widths",
+      "family": "FX architectures",
+      "label": "PhaseWeave convergence widths",
+      "scope": "Frozen one-second FX v2. Widths have separate optimization and early stopping; each uses one final seed.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "PhaseWeave width 200",
+          "values": {
+            "validation": 0.17513629794120789,
+            "test": 0.15582868456840515,
+            "new_asset": 0.1758217215538025,
+            "stress": 0.15954601764678955
+          },
+          "note": "Selected epoch 22 of 23",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical phase patch",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "PhaseWeave width 448",
+          "values": {
+            "validation": 0.17562076449394226,
+            "test": 0.15630823373794556,
+            "new_asset": 0.1771298348903656,
+            "stress": 0.15975314378738403
+          },
+          "note": "Selected epoch 17 of 18",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical phase patch",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "PhaseWeave width 832",
+          "values": {
+            "validation": 0.17513054609298706,
+            "test": 0.15596093237400055,
+            "new_asset": 0.17691358923912048,
+            "stress": 0.15929880738258362
+          },
+          "note": "Selected epoch 20 of 21",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical phase patch",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.22791646420955658,
+            "test": 0.20767411589622498,
+            "new_asset": 0.22015342116355896,
+            "stress": 0.2070128619670868
+          },
+          "note": "Fixed control",
+          "status": "measured",
+          "variant": {
+            "backbone": "Persistence",
+            "feature": "Classical",
+            "attention": "No attention ablation"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "name": "convergence-data.json",
+          "href": "convergence-data.json",
+          "sha256": "79f1344a9d00e77048e85f4e70a4224e68a1710179203a74c9a309a8d3a84894"
+        },
+        {
+          "name": "CONVERGENCE.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/CONVERGENCE.md",
+          "sha256": "fc6653c23daf5a32da3e750fe7f4a6b53c4599614e0e3dfb91e8c668284445a3"
+        }
+      ]
+    },
+    {
+      "id": "fx-spatial",
+      "family": "FX architectures",
+      "label": "Spatial encoders and hybrids",
+      "scope": "Frozen one-second FX v2. Same history, masks, temporal path and readout. Mean across two seeds.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "GCN",
+          "values": {
+            "test": 0.17167479544878006,
+            "new_asset": 0.19278744608163834,
+            "stress": 0.17336223274469376,
+            "validation": 0.19179057329893112
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN",
+            "feature": "Classical phase patch",
+            "attention": "Softmax",
+            "spatial": "Message passing"
+          }
+        },
+        {
+          "name": "GCN + TokenGT",
+          "values": {
+            "test": 0.17146821320056915,
+            "new_asset": 0.19395116716623306,
+            "stress": 0.17338807880878448,
+            "validation": 0.1916520595550537
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN + TokenGT",
+            "feature": "Classical phase patch",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "GAT",
+          "values": {
+            "test": 0.17203016579151154,
+            "new_asset": 0.19101011008024216,
+            "stress": 0.17354700714349747,
+            "validation": 0.19201882928609848
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT",
+            "feature": "Classical phase patch",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "GAT + TokenGT",
+          "values": {
+            "test": 0.17148393392562866,
+            "new_asset": 0.1939024105668068,
+            "stress": 0.17338040471076965,
+            "validation": 0.19167129695415497
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT + TokenGT",
+            "feature": "Classical phase patch",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Typed MPNN",
+          "values": {
+            "test": 0.1715390831232071,
+            "new_asset": 0.19203763455152512,
+            "stress": 0.1732039451599121,
+            "validation": 0.19166606664657593
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "Typed MPNN",
+            "feature": "Classical phase patch",
+            "attention": "Softmax",
+            "spatial": "Message passing"
+          }
+        },
+        {
+          "name": "Typed MPNN + TokenGT",
+          "values": {
+            "test": 0.17121891677379608,
+            "new_asset": 0.1925421580672264,
+            "stress": 0.1730877310037613,
+            "validation": 0.19140522927045822
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "Typed MPNN + TokenGT",
+            "feature": "Classical phase patch",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Classical-patch TokenGT",
+          "values": {
+            "test": 0.17202293872833252,
+            "new_asset": 0.1999148353934288,
+            "stress": 0.17469840496778488,
+            "validation": 0.19185374677181244
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical phase patch",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "name": "spatial-pilot-v1-evaluation.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/spatial-pilot-v1-evaluation.json",
+          "sha256": "70f3564047f4a3419abeba35cc5aaf6bd3c1011e181484a6d910cccb7b91ecb3"
+        },
+        {
+          "name": "experiment-data.json",
+          "href": "experiment-data.json",
+          "sha256": "d8b9a54061298c650698a588d030c8ce1993781da7f8e1ac2e1cb9213d972467"
+        },
+        {
+          "name": "SPATIAL_PILOT.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/SPATIAL_PILOT.md",
+          "sha256": "1e8feaac00c0a78a9f85a87c6af9ee48fa66aa4f82efd66d686a377d09bb2fca"
+        }
+      ]
+    },
+    {
+      "id": "fx-outer",
+      "family": "FX architectures",
+      "label": "Cyclic patch × outer attention",
+      "scope": "Frozen one-second FX v2. Matched two-seed means across three patch choices and two attention operators.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Classical patch · softmax",
+          "values": {
+            "test": 0.17202293872833252,
+            "new_asset": 0.1999148353934288,
+            "stress": 0.17469840496778488,
+            "validation": 0.19185374677181244
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical phase patch",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Classical patch · tropical",
+          "values": {
+            "test": 0.17618388682603836,
+            "new_asset": 0.2194482833147049,
+            "stress": 0.1777353435754776,
+            "validation": 0.19517314434051514
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical phase patch",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus"
+          }
+        },
+        {
+          "name": "Learned cyclic qutrit · softmax",
+          "values": {
+            "test": 0.17341671884059906,
+            "new_asset": 0.19546141475439072,
+            "stress": 0.17490793764591217,
+            "validation": 0.1927315965294838
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Quantum-derived learned qutrit",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Learned cyclic qutrit · tropical",
+          "values": {
+            "test": 0.17346306145191193,
+            "new_asset": 0.18767113983631134,
+            "stress": 0.17384205758571625,
+            "validation": 0.192560076713562
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Quantum-derived learned qutrit",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus"
+          }
+        },
+        {
+          "name": "Frozen cyclic qutrit · softmax",
+          "values": {
+            "test": 0.18218979239463806,
+            "new_asset": 0.2021629512310028,
+            "stress": 0.18422500044107437,
+            "validation": 0.20125824958086014
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Quantum-derived frozen qutrit",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Frozen cyclic qutrit · tropical",
+          "values": {
+            "test": 0.1890854686498642,
+            "new_asset": 0.2181277647614479,
+            "stress": 0.19082453846931458,
+            "validation": 0.20832829922437668
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Quantum-derived frozen qutrit",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "name": "experiment-data.json",
+          "href": "experiment-data.json",
+          "sha256": "d8b9a54061298c650698a588d030c8ce1993781da7f8e1ac2e1cb9213d972467"
+        },
+        {
+          "name": "TRAINING.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/TRAINING.md",
+          "sha256": "679c71067bfbef54aa95f0933ece5dce400a60f6be75cd6096ebc769641ea03b"
+        }
+      ]
+    },
+    {
+      "id": "fx-circuits",
+      "family": "FX architectures",
+      "label": "Circuit propagation rules",
+      "scope": "Frozen one-second FX v2. Small four-qutrit circuit, nonuniform prep, outer softmax and matched capacity. Mean across two seeds.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Coherent amplitude",
+          "values": {
+            "test": 0.17165671288967133,
+            "new_asset": 0.19459034502506256,
+            "stress": 0.1728477105498314,
+            "validation": 0.1916377916932106
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Simulated qutrit · Coherent amplitude",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Dephased probability sum",
+          "values": {
+            "test": 0.17400512099266052,
+            "new_asset": 0.20075268298387527,
+            "stress": 0.17575719952583313,
+            "validation": 0.19359511137008667
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Simulated qutrit · Dephased probability sum",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Inner log max-plus",
+          "values": {
+            "test": 0.1730084791779518,
+            "new_asset": 0.1947081834077835,
+            "stress": 0.17471067607402802,
+            "validation": 0.1925019845366478
+          },
+          "note": "2 seeds · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Simulated qutrit · Inner log max-plus",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "name": "semiring-data.json",
+          "href": "semiring-data.json",
+          "sha256": "994163d6adbf6b8b118e1741022cd0e2014b6b651e71d5dd8940b5cbc0d2aa55"
+        },
+        {
+          "name": "CIRCUIT_SEMIRING.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/CIRCUIT_SEMIRING.md",
+          "sha256": "1cc7930c81bdb384b29c97b019a007ef4d7ae93376393d84f13fcd3b2c772656"
+        }
+      ]
+    },
+    {
+      "id": "fx-proxies",
+      "family": "FX architectures",
+      "label": "Selected proxy and transfer pilots",
+      "scope": "Frozen one-second FX v2. These four selected low-budget checkpoints have holdout scores. The full proxy roster has validation only.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "proxy-11",
+          "values": {
+            "test": 0.20736661553382874,
+            "new_asset": 0.22024321556091309,
+            "stress": 0.2068045735359192
+          },
+          "note": "1 seed · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-12",
+          "values": {
+            "test": 0.17708823084831238,
+            "new_asset": 0.20183810591697693,
+            "stress": 0.18038341403007507
+          },
+          "note": "1 seed · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "transfer-448",
+          "values": {
+            "test": 0.20769816637039185,
+            "new_asset": 0.21854552626609802,
+            "stress": 0.20674923062324524
+          },
+          "note": "1 seed · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "transfer-832",
+          "values": {
+            "test": 0.2074650228023529,
+            "new_asset": 0.21927675604820251,
+            "stress": 0.20669059455394745
+          },
+          "note": "1 seed · 640 updates per fit",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "name": "experiment-data.json",
+          "href": "experiment-data.json",
+          "sha256": "d8b9a54061298c650698a588d030c8ce1993781da7f8e1ac2e1cb9213d972467"
+        },
+        {
+          "name": "TRAINING.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/TRAINING.md",
+          "sha256": "679c71067bfbef54aa95f0933ece5dce400a60f6be75cd6096ebc769641ea03b"
+        }
+      ]
+    },
+    {
+      "id": "fx-proxy-validation",
+      "family": "FX architectures",
+      "label": "Proxy search and transfers · validation",
+      "scope": "Widths and budgets vary across this tuning roster. These validation-selected fits include runs without published holdout scores.",
+      "metric": "Best observed September validation MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "Validation",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "parameters",
+          "name": "Parameters",
+          "places": 0,
+          "suffix": "",
+          "order": "none"
+        }
+      ],
+      "rows": [
+        {
+          "name": "proxy-01",
+          "values": {
+            "validation": 0.2254149615764618,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-02",
+          "values": {
+            "validation": 0.22519631683826447,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-03",
+          "values": {
+            "validation": 0.22477245330810547,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-04",
+          "values": {
+            "validation": 0.22373831272125244,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-05",
+          "values": {
+            "validation": 0.21733009815216064,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-06",
+          "values": {
+            "validation": 0.21117821335792542,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-07",
+          "values": {
+            "validation": 0.21736440062522888,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-08",
+          "values": {
+            "validation": 0.21293401718139648,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-09",
+          "values": {
+            "validation": 0.2275075763463974,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-10",
+          "values": {
+            "validation": 0.20351949334144592,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-11",
+          "values": {
+            "validation": 0.227518230676651,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-12",
+          "values": {
+            "validation": 0.19756852090358734,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-13",
+          "values": {
+            "validation": 0.22695837914943695,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-14",
+          "values": {
+            "validation": 0.21686804294586182,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-15",
+          "values": {
+            "validation": 0.22691917419433594,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-16",
+          "values": {
+            "validation": 0.21545352041721344,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-17",
+          "values": {
+            "validation": 0.22781948745250702,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-18",
+          "values": {
+            "validation": 0.22774162888526917,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-19",
+          "values": {
+            "validation": 0.22781193256378174,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-20",
+          "values": {
+            "validation": 0.22774213552474976,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-21",
+          "values": {
+            "validation": 0.2276788204908371,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-22",
+          "values": {
+            "validation": 0.2279946208000183,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-23",
+          "values": {
+            "validation": 0.22767604887485504,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "proxy-24",
+          "values": {
+            "validation": 0.22799590229988098,
+            "parameters": 2019234
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "transfer-448",
+          "values": {
+            "validation": 0.22763869166374207,
+            "parameters": 10078242
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        },
+        {
+          "name": "transfer-832",
+          "values": {
+            "validation": 0.22757071256637573,
+            "parameters": 34691106
+          },
+          "note": "640 updates · validation window cap none",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical unpatched tokens",
+            "attention": "Softmax"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "name": "experiment-data.json",
+          "href": "experiment-data.json",
+          "sha256": "d8b9a54061298c650698a588d030c8ce1993781da7f8e1ac2e1cb9213d972467"
+        },
+        {
+          "name": "TRAINING.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/TRAINING.md",
+          "sha256": "679c71067bfbef54aa95f0933ece5dce400a60f6be75cd6096ebc769641ea03b"
+        }
+      ]
+    },
+    {
+      "id": "fx-quantum-matrix",
+      "family": "FX architectures",
+      "label": "Quantum-feature × backbone × attention pilot",
+      "scope": "56 width-32 fits · 512 training windows · 64 updates per arm · one seed. All workloads ran on classical hardware. Every October arm had higher MAE than persistence on this small cohort.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=256",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=256",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=256",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=256",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "GCN · classical · Softmax",
+          "values": {
+            "validation": 0.20116019248962402,
+            "test": 0.19950617849826813,
+            "new_asset": 0.24497339129447937,
+            "stress": 0.21990461647510529
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN",
+            "feature": "Classical cosine",
+            "attention": "Softmax",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "GCN · coherent · Softmax",
+          "values": {
+            "validation": 0.2010824829339981,
+            "test": 0.19950011372566223,
+            "new_asset": 0.24503113329410553,
+            "stress": 0.21983100473880768
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Softmax",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "GCN · dephased · Softmax",
+          "values": {
+            "validation": 0.20103834569454193,
+            "test": 0.1994115263223648,
+            "new_asset": 0.24503903090953827,
+            "stress": 0.2199084758758545
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN",
+            "feature": "Dephased probability simulation",
+            "attention": "Softmax",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "GCN · maxplus · Softmax",
+          "values": {
+            "validation": 0.20090770721435547,
+            "test": 0.19929710030555725,
+            "new_asset": 0.24498003721237183,
+            "stress": 0.21978545188903809
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Softmax",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "GCN · classical · Tropical max-plus",
+          "values": {
+            "validation": 0.2011142373085022,
+            "test": 0.19948846101760864,
+            "new_asset": 0.24498900771141052,
+            "stress": 0.21987327933311462
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN",
+            "feature": "Classical cosine",
+            "attention": "Tropical max-plus",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "GCN · coherent · Tropical max-plus",
+          "values": {
+            "validation": 0.2011197805404663,
+            "test": 0.19952090084552765,
+            "new_asset": 0.24500852823257446,
+            "stress": 0.2198435515165329
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "GCN · dephased · Tropical max-plus",
+          "values": {
+            "validation": 0.2011035978794098,
+            "test": 0.19950538873672485,
+            "new_asset": 0.2450508326292038,
+            "stress": 0.21988697350025177
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN",
+            "feature": "Dephased probability simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "GCN · maxplus · Tropical max-plus",
+          "values": {
+            "validation": 0.20104965567588806,
+            "test": 0.19944100081920624,
+            "new_asset": 0.2449846863746643,
+            "stress": 0.21982385218143463
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Tropical max-plus",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "GAT · classical · Softmax",
+          "values": {
+            "validation": 0.20105040073394775,
+            "test": 0.1994224339723587,
+            "new_asset": 0.24499283730983734,
+            "stress": 0.2198585420846939
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT",
+            "feature": "Classical cosine",
+            "attention": "Softmax",
+            "spatial": "GAT softmax"
+          }
+        },
+        {
+          "name": "GAT · coherent · Softmax",
+          "values": {
+            "validation": 0.201033353805542,
+            "test": 0.19945332407951355,
+            "new_asset": 0.24504849314689636,
+            "stress": 0.2198307365179062
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Softmax",
+            "spatial": "GAT softmax"
+          }
+        },
+        {
+          "name": "GAT · dephased · Softmax",
+          "values": {
+            "validation": 0.20109295845031738,
+            "test": 0.19949769973754883,
+            "new_asset": 0.2450520098209381,
+            "stress": 0.2198835015296936
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT",
+            "feature": "Dephased probability simulation",
+            "attention": "Softmax",
+            "spatial": "GAT softmax"
+          }
+        },
+        {
+          "name": "GAT · maxplus · Softmax",
+          "values": {
+            "validation": 0.2009854018688202,
+            "test": 0.19938845932483673,
+            "new_asset": 0.24500185251235962,
+            "stress": 0.2198083996772766
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Softmax",
+            "spatial": "GAT softmax"
+          }
+        },
+        {
+          "name": "GAT · classical · Tropical max-plus",
+          "values": {
+            "validation": 0.20097917318344116,
+            "test": 0.19937247037887573,
+            "new_asset": 0.2450067698955536,
+            "stress": 0.21982476115226746
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT",
+            "feature": "Classical cosine",
+            "attention": "Tropical max-plus",
+            "spatial": "GAT softmax"
+          }
+        },
+        {
+          "name": "GAT · coherent · Tropical max-plus",
+          "values": {
+            "validation": 0.20107391476631165,
+            "test": 0.19949020445346832,
+            "new_asset": 0.24503584206104279,
+            "stress": 0.21983353793621063
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "GAT softmax"
+          }
+        },
+        {
+          "name": "GAT · dephased · Tropical max-plus",
+          "values": {
+            "validation": 0.20109179615974426,
+            "test": 0.19951333105564117,
+            "new_asset": 0.24505747854709625,
+            "stress": 0.21986380219459534
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT",
+            "feature": "Dephased probability simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "GAT softmax"
+          }
+        },
+        {
+          "name": "GAT · maxplus · Tropical max-plus",
+          "values": {
+            "validation": 0.20099204778671265,
+            "test": 0.19940339028835297,
+            "new_asset": 0.2450014352798462,
+            "stress": 0.21979811787605286
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Tropical max-plus",
+            "spatial": "GAT softmax"
+          }
+        },
+        {
+          "name": "MPNN · classical · Softmax",
+          "values": {
+            "validation": 0.20115357637405396,
+            "test": 0.19952744245529175,
+            "new_asset": 0.2449917048215866,
+            "stress": 0.21987856924533844
+          },
+          "note": "42,169 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Classical cosine",
+            "attention": "Softmax",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "MPNN · coherent · Softmax",
+          "values": {
+            "validation": 0.20108142495155334,
+            "test": 0.19949877262115479,
+            "new_asset": 0.24503296613693237,
+            "stress": 0.2198340743780136
+          },
+          "note": "42,169 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Softmax",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "MPNN · dephased · Softmax",
+          "values": {
+            "validation": 0.2010423094034195,
+            "test": 0.1994161605834961,
+            "new_asset": 0.24504101276397705,
+            "stress": 0.21991004049777985
+          },
+          "note": "42,169 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Dephased probability simulation",
+            "attention": "Softmax",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "MPNN · maxplus · Softmax",
+          "values": {
+            "validation": 0.20094728469848633,
+            "test": 0.19935163855552673,
+            "new_asset": 0.24499616026878357,
+            "stress": 0.21978643536567688
+          },
+          "note": "42,169 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Softmax",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "MPNN · classical · Tropical max-plus",
+          "values": {
+            "validation": 0.2011169195175171,
+            "test": 0.1994902491569519,
+            "new_asset": 0.24499231576919556,
+            "stress": 0.21987779438495636
+          },
+          "note": "42,169 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Classical cosine",
+            "attention": "Tropical max-plus",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "MPNN · coherent · Tropical max-plus",
+          "values": {
+            "validation": 0.20112863183021545,
+            "test": 0.19952191412448883,
+            "new_asset": 0.24500754475593567,
+            "stress": 0.2198576033115387
+          },
+          "note": "42,169 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "MPNN · dephased · Tropical max-plus",
+          "values": {
+            "validation": 0.20110084116458893,
+            "test": 0.1994968205690384,
+            "new_asset": 0.24505215883255005,
+            "stress": 0.2198973149061203
+          },
+          "note": "42,169 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Dephased probability simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "MPNN · maxplus · Tropical max-plus",
+          "values": {
+            "validation": 0.20105472207069397,
+            "test": 0.19945427775382996,
+            "new_asset": 0.24498917162418365,
+            "stress": 0.219818115234375
+          },
+          "note": "42,169 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Tropical max-plus",
+            "spatial": "No attention"
+          }
+        },
+        {
+          "name": "TokenGT · classical · Softmax",
+          "values": {
+            "validation": 0.20104341208934784,
+            "test": 0.19946831464767456,
+            "new_asset": 0.24503648281097412,
+            "stress": 0.21983134746551514
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical cosine",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT · coherent · Softmax",
+          "values": {
+            "validation": 0.2011803388595581,
+            "test": 0.19955569505691528,
+            "new_asset": 0.24506467580795288,
+            "stress": 0.21996665000915527
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT · dephased · Softmax",
+          "values": {
+            "validation": 0.20124366879463196,
+            "test": 0.19959375262260437,
+            "new_asset": 0.24506419897079468,
+            "stress": 0.22000743448734283
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Dephased probability simulation",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT · maxplus · Softmax",
+          "values": {
+            "validation": 0.2011900544166565,
+            "test": 0.19958563148975372,
+            "new_asset": 0.24508234858512878,
+            "stress": 0.21994419395923615
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT · classical · Tropical max-plus",
+          "values": {
+            "validation": 0.20111095905303955,
+            "test": 0.19951097667217255,
+            "new_asset": 0.2450287789106369,
+            "stress": 0.21987983584403992
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical cosine",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus"
+          }
+        },
+        {
+          "name": "TokenGT · coherent · Tropical max-plus",
+          "values": {
+            "validation": 0.20119908452033997,
+            "test": 0.19960874319076538,
+            "new_asset": 0.2450796365737915,
+            "stress": 0.21993333101272583
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus"
+          }
+        },
+        {
+          "name": "TokenGT · dephased · Tropical max-plus",
+          "values": {
+            "validation": 0.20121608674526215,
+            "test": 0.1996103823184967,
+            "new_asset": 0.24508151412010193,
+            "stress": 0.21995104849338531
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Dephased probability simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus"
+          }
+        },
+        {
+          "name": "TokenGT · maxplus · Tropical max-plus",
+          "values": {
+            "validation": 0.20122987031936646,
+            "test": 0.1996217966079712,
+            "new_asset": 0.2450774610042572,
+            "stress": 0.21995365619659424
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus"
+          }
+        },
+        {
+          "name": "GCN + TokenGT · classical · Softmax",
+          "values": {
+            "validation": 0.20104938745498657,
+            "test": 0.199479341506958,
+            "new_asset": 0.24505388736724854,
+            "stress": 0.2198236882686615
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN + TokenGT",
+            "feature": "Classical cosine",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "GCN + TokenGT · coherent · Softmax",
+          "values": {
+            "validation": 0.20103590190410614,
+            "test": 0.19949284195899963,
+            "new_asset": 0.2450697422027588,
+            "stress": 0.21979311108589172
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN + TokenGT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "GCN + TokenGT · dephased · Softmax",
+          "values": {
+            "validation": 0.20107091963291168,
+            "test": 0.1995149552822113,
+            "new_asset": 0.24508801102638245,
+            "stress": 0.21984446048736572
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN + TokenGT",
+            "feature": "Dephased probability simulation",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "GCN + TokenGT · maxplus · Softmax",
+          "values": {
+            "validation": 0.2010643184185028,
+            "test": 0.19947463274002075,
+            "new_asset": 0.24504894018173218,
+            "stress": 0.21984535455703735
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN + TokenGT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "GCN + TokenGT · classical · Tropical max-plus",
+          "values": {
+            "validation": 0.20107795298099518,
+            "test": 0.19948910176753998,
+            "new_asset": 0.24505874514579773,
+            "stress": 0.21986952424049377
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN + TokenGT",
+            "feature": "Classical cosine",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "GCN + TokenGT · coherent · Tropical max-plus",
+          "values": {
+            "validation": 0.2010415494441986,
+            "test": 0.19952088594436646,
+            "new_asset": 0.2450886070728302,
+            "stress": 0.21978101134300232
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN + TokenGT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "GCN + TokenGT · dephased · Tropical max-plus",
+          "values": {
+            "validation": 0.20109257102012634,
+            "test": 0.19955401122570038,
+            "new_asset": 0.24509716033935547,
+            "stress": 0.21983188390731812
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN + TokenGT",
+            "feature": "Dephased probability simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "GCN + TokenGT · maxplus · Tropical max-plus",
+          "values": {
+            "validation": 0.20108191668987274,
+            "test": 0.19953475892543793,
+            "new_asset": 0.245070680975914,
+            "stress": 0.21981243789196014
+          },
+          "note": "41,785 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GCN + TokenGT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "GAT + TokenGT · classical · Softmax",
+          "values": {
+            "validation": 0.2010495513677597,
+            "test": 0.19947956502437592,
+            "new_asset": 0.24505417048931122,
+            "stress": 0.219823956489563
+          },
+          "note": "41,881 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT + TokenGT",
+            "feature": "Classical cosine",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "GAT + TokenGT · coherent · Softmax",
+          "values": {
+            "validation": 0.20103546977043152,
+            "test": 0.19949302077293396,
+            "new_asset": 0.24507033824920654,
+            "stress": 0.21979258954524994
+          },
+          "note": "41,881 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT + TokenGT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "GAT + TokenGT · dephased · Softmax",
+          "values": {
+            "validation": 0.20106984674930573,
+            "test": 0.19951462745666504,
+            "new_asset": 0.2450886070728302,
+            "stress": 0.21984361112117767
+          },
+          "note": "41,881 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT + TokenGT",
+            "feature": "Dephased probability simulation",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "GAT + TokenGT · maxplus · Softmax",
+          "values": {
+            "validation": 0.20104056596755981,
+            "test": 0.1994798183441162,
+            "new_asset": 0.2450619786977768,
+            "stress": 0.21980944275856018
+          },
+          "note": "41,881 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT + TokenGT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "GAT + TokenGT · classical · Tropical max-plus",
+          "values": {
+            "validation": 0.20107725262641907,
+            "test": 0.19948826730251312,
+            "new_asset": 0.24505570530891418,
+            "stress": 0.21986660361289978
+          },
+          "note": "41,881 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT + TokenGT",
+            "feature": "Classical cosine",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "GAT + TokenGT · coherent · Tropical max-plus",
+          "values": {
+            "validation": 0.20104174315929413,
+            "test": 0.1995214819908142,
+            "new_asset": 0.24508899450302124,
+            "stress": 0.2197808474302292
+          },
+          "note": "41,881 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT + TokenGT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "GAT + TokenGT · dephased · Tropical max-plus",
+          "values": {
+            "validation": 0.20109310746192932,
+            "test": 0.19955530762672424,
+            "new_asset": 0.245097815990448,
+            "stress": 0.21983107924461365
+          },
+          "note": "41,881 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT + TokenGT",
+            "feature": "Dephased probability simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "GAT + TokenGT · maxplus · Tropical max-plus",
+          "values": {
+            "validation": 0.20108109712600708,
+            "test": 0.19953389465808868,
+            "new_asset": 0.24507063627243042,
+            "stress": 0.2198123037815094
+          },
+          "note": "41,881 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "GAT + TokenGT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "MPNN + TokenGT · classical · Softmax",
+          "values": {
+            "validation": 0.20105412602424622,
+            "test": 0.19948680698871613,
+            "new_asset": 0.24505434930324554,
+            "stress": 0.2198217511177063
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN + TokenGT",
+            "feature": "Classical cosine",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "MPNN + TokenGT · coherent · Softmax",
+          "values": {
+            "validation": 0.2010420262813568,
+            "test": 0.19949375092983246,
+            "new_asset": 0.2450668215751648,
+            "stress": 0.21980002522468567
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN + TokenGT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "MPNN + TokenGT · dephased · Softmax",
+          "values": {
+            "validation": 0.20109456777572632,
+            "test": 0.1995205283164978,
+            "new_asset": 0.24507641792297363,
+            "stress": 0.21986830234527588
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN + TokenGT",
+            "feature": "Dephased probability simulation",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "MPNN + TokenGT · maxplus · Softmax",
+          "values": {
+            "validation": 0.20106500387191772,
+            "test": 0.19948352873325348,
+            "new_asset": 0.24505023658275604,
+            "stress": 0.21984145045280457
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN + TokenGT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Softmax",
+            "spatial": "Softmax · TokenGT Softmax"
+          }
+        },
+        {
+          "name": "MPNN + TokenGT · classical · Tropical max-plus",
+          "values": {
+            "validation": 0.2010752260684967,
+            "test": 0.19948691129684448,
+            "new_asset": 0.24505652487277985,
+            "stress": 0.2198665887117386
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN + TokenGT",
+            "feature": "Classical cosine",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "MPNN + TokenGT · coherent · Tropical max-plus",
+          "values": {
+            "validation": 0.2010456919670105,
+            "test": 0.19952292740345,
+            "new_asset": 0.24508686363697052,
+            "stress": 0.2197837233543396
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN + TokenGT",
+            "feature": "Quantum-derived coherent simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "MPNN + TokenGT · dephased · Tropical max-plus",
+          "values": {
+            "validation": 0.20109620690345764,
+            "test": 0.19955381751060486,
+            "new_asset": 0.24509568512439728,
+            "stress": 0.21983802318572998
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN + TokenGT",
+            "feature": "Dephased probability simulation",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "MPNN + TokenGT · maxplus · Tropical max-plus",
+          "values": {
+            "validation": 0.20108531415462494,
+            "test": 0.1995358169078827,
+            "new_asset": 0.24506807327270508,
+            "stress": 0.21981485188007355
+          },
+          "note": "41,977 parameters · 191 patch · epoch 1",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN + TokenGT",
+            "feature": "Tropical max-plus patch surrogate",
+            "attention": "Tropical max-plus",
+            "spatial": "Tropical max-plus · TokenGT Tropical max-plus"
+          }
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.20071133971214294,
+            "test": 0.19872531294822693,
+            "new_asset": 0.2455148994922638,
+            "stress": 0.22061681747436523
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "quantum-backbones-w32-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/quantum-backbones-w32-v1.json",
+          "sha256": "92c51dd5018caec19ad650677c2652cc4250f93b39812b187e483baf1150c676"
+        }
+      ]
+    },
+    {
+      "id": "fx-directed-ph",
+      "family": "Topology and context",
+      "label": "Directed persistence and matched controls",
+      "scope": "Frozen one-second FX v2. Equal-width ridge forecasters vary only appended topology or scalar-grade features.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Directed H₀/H₁ landscapes + ridge",
+          "values": {
+            "test": 0.1667337380261481,
+            "new_asset": 0.20663400625900225,
+            "stress": 0.17989899033028356
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "No topology + ridge",
+          "values": {
+            "test": 0.16808239089107796,
+            "new_asset": 0.20638119758409307,
+            "stress": 0.17411440281357127
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "test": 0.20767411589622498,
+            "new_asset": 0.22015340626239777,
+            "stress": 0.20701287686824799
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Simultaneously reversed directed flags + ridge",
+          "values": {
+            "test": 0.1667337380261481,
+            "new_asset": 0.20663400625900225,
+            "stress": 0.17989899033028356
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Scalar grade tents + ridge",
+          "values": {
+            "test": 0.16730909171036928,
+            "new_asset": 0.20726022905341565,
+            "stress": 0.18768769045226524
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Undirected flag + ridge",
+          "values": {
+            "test": 0.16694807852391258,
+            "new_asset": 0.20557820665751741,
+            "stress": 0.17391092770508387
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "directed-persistence-fx-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/directed-persistence-fx-v1.json",
+          "sha256": "413e38338aa8e9834d09f17b46ba46b023d732338d4c2d715561905c02224ed7"
+        },
+        {
+          "name": "DIRECTED_PERSISTENCE_FX.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/DIRECTED_PERSISTENCE_FX.md",
+          "sha256": "f4421827d4c11f65a4ed69748fe93ff4681f94ac8763f93aee9f997a013e064e"
+        }
+      ]
+    },
+    {
+      "id": "fx-reference",
+      "family": "Topology and context",
+      "label": "Joint reference context and masks",
+      "scope": "Frozen one-second FX v2. Two paired training arms, plus fixed-checkpoint reference sensitivity interventions. Same holdout rows.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Fixed checkpoint · mask all reference",
+          "values": {
+            "test": 0.16786892712116241,
+            "new_asset": 0.1818121373653412,
+            "stress": 0.1704956293106079
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Fixed checkpoint · mask currency reference",
+          "values": {
+            "test": 0.15651729702949524,
+            "new_asset": 0.177625834941864,
+            "stress": 0.1608579158782959
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Fixed checkpoint · mask funding",
+          "values": {
+            "test": 0.15519994497299194,
+            "new_asset": 0.17674410343170166,
+            "stress": 0.1590995490550995
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Fixed checkpoint · mask pair reference",
+          "values": {
+            "test": 0.16344039142131805,
+            "new_asset": 0.17879675328731537,
+            "stress": 0.1674516797065735
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Trade/text with reference masked",
+          "values": {
+            "test": 0.15639737248420715,
+            "new_asset": 0.17724812030792236,
+            "stress": 0.15980134904384613
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "test": 0.20767411589622498,
+            "new_asset": 0.22015342116355896,
+            "stress": 0.2070128619670868
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Trade/text and reference context",
+          "values": {
+            "test": 0.1558825820684433,
+            "new_asset": 0.1766909956932068,
+            "stress": 0.16003087162971497
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "joint-reference-data.json",
+          "href": "joint-reference-data.json",
+          "sha256": "c6895dc72dcb72362e6aca0a1cac9b25fcced768867e3eafbbaeb40d95773d1f"
+        },
+        {
+          "name": "joint-reference-v2-evaluation.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/joint-reference-v2-evaluation.json",
+          "sha256": "2c1b0b09db78bf271ae6154e5327c0b50b6ea38cb6da42bb01f3745789ffb7e1"
+        },
+        {
+          "name": "JOINT_REFERENCE_EXPERIMENT.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/JOINT_REFERENCE_EXPERIMENT.md",
+          "sha256": "d2ba956f34d1eba7593043926bed47ef41ca5fedede6ede7b549fcc9ebb824be"
+        }
+      ]
+    },
+    {
+      "id": "fx-early-context",
+      "family": "Topology and context",
+      "label": "Early trade and event context",
+      "scope": "Matched nine-slot context pilot. Entries are jointly trained context arm minus matched masked arm, with complete frozen FX holdout folds.",
+      "metric": "MAE delta · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Trade and event context − matched mask",
+          "values": {
+            "test": 3.120533801848069e-05,
+            "new_asset": 0.004249516874551773,
+            "stress": -0.00013608935114461929
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "joint-context-v1-evaluation.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/joint-context-v1-evaluation.json",
+          "sha256": "76530a0f2dd75d1b7c21dba4a79e29f3a795166747b275c32ccf73bd7cd42713"
+        },
+        {
+          "name": "JOINT_CONTEXT.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/JOINT_CONTEXT.md",
+          "sha256": "8e5eba415082c3a0467707a991cb86367a7e3140d18170b46e37a9c072c94f94"
+        }
+      ]
+    },
+    {
+      "id": "fx-timesfm",
+      "family": "Foundation pilot",
+      "label": "TimesFM 2.5 on selected FX windows",
+      "scope": "Paired one-second FX subsets with 64 complete contexts per triangle. Frozen zero-shot TimesFM sees two separate margin histories; PhaseWeave sees the original graph tensor.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=256",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=256",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=128",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=256",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.40506294928491116,
+            "test": 0.28563868650235236,
+            "new_asset": 0.3174256996717304,
+            "stress": 0.2898885350150522
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "PhaseWeave 2M",
+          "values": {
+            "validation": 0.31007266393862665,
+            "test": 0.22380861639976501,
+            "new_asset": 0.2394023595843464,
+            "stress": 0.2233317750506103
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "TimesFM 2.5",
+          "values": {
+            "validation": 0.31557440862525254,
+            "test": 0.23591289552859962,
+            "new_asset": 0.23192001949064434,
+            "stress": 0.21632674665306695
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "baseline-roster-v2.json",
+          "href": "baseline-roster-v2.json",
+          "sha256": "766a7d3ea242aabd8f5174135c23df8ec3952fb9297b16087fbd7569b04bd38b"
+        },
+        {
+          "name": "baseline-roster-v2.py",
+          "href": "baseline-roster-v2.py",
+          "sha256": "2a93186ebe97fb1dd2cdf441aab9472f66fa915f7294c3ef242ca52e38946091"
+        }
+      ]
+    },
+    {
+      "id": "continuous-beam",
+      "family": "Continuous reasoning",
+      "label": "Continuous graph forecast search",
+      "scope": "Full frozen FX folds and one-second margin MAE. The two-dimensional search uses the same candidate budget for forest and independent proposals.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Gaussian beam forest",
+          "values": {
+            "validation": 0.18555416946206232,
+            "test": 0.16609374906241725,
+            "new_asset": 0.19662251066827724,
+            "stress": 0.16908819336708936
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Independent proposals",
+          "values": {
+            "validation": 0.19685098363110365,
+            "test": 0.1772071609403925,
+            "new_asset": 0.20745720124491174,
+            "stress": 0.1793845257903393
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Direct median",
+          "values": {
+            "validation": 0.18360463786485437,
+            "test": 0.16434866929788397,
+            "new_asset": 0.194686662341504,
+            "stress": 0.16719513189346805
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.2279164640576412,
+            "test": 0.2076741207194459,
+            "new_asset": 0.22015341216638262,
+            "stress": 0.20701287305633576
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "continuous-forecast-forest-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/continuous-forecast-forest-v1.json",
+          "sha256": "7ecbeae8ac1fda4456d99f740b527664b3560e000739306467838be9d61cd0a0"
+        },
+        {
+          "name": "CONTINUOUS_FORECAST_FOREST.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/CONTINUOUS_FORECAST_FOREST.md",
+          "sha256": "7b56cdcaf089e1b65a93762c88af44c438e55461d0a39300e9ed38b6ca7359f0"
+        }
+      ]
+    },
+    {
+      "id": "continuous-fot",
+      "family": "Continuous reasoning",
+      "label": "3D forecast forest and repair controls",
+      "scope": "Full frozen FX folds and one-second margin MAE. Four distinct learned roots, expansion, terminal repair and coordinatewise consensus.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Blind parent",
+          "values": {
+            "validation": 0.18562702499957595,
+            "test": 0.16635335312327015,
+            "new_asset": 0.1920382270218397,
+            "stress": 0.1716888926870439
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Direct verifier",
+          "values": {
+            "validation": 0.1843689251413707,
+            "test": 0.16505922514556914,
+            "new_asset": 0.1968835437673988,
+            "stress": 0.1689056061703269
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Four-root forest",
+          "values": {
+            "validation": 0.1855429602192089,
+            "test": 0.1663202328336979,
+            "new_asset": 0.19191659050284215,
+            "stress": 0.17146740896799884
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "No repair",
+          "values": {
+            "validation": 0.19328695557271658,
+            "test": 0.17483582030496336,
+            "new_asset": 0.2037314128124308,
+            "stress": 0.17890290977132395
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.22791646409757504,
+            "test": 0.20767412072660818,
+            "new_asset": 0.22015341216729212,
+            "stress": 0.2070128730483276
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Four copies of one root",
+          "values": {
+            "validation": 0.1855898828662248,
+            "test": 0.1664402241008247,
+            "new_asset": 0.19147874159216371,
+            "stress": 0.1715479267386968
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "graph-forest-3d-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/graph-forest-3d-v1.json",
+          "sha256": "12a80543b8f8374dc34409daa933bf3ac5ca7771770bbfb8e4fd2d9b6bfc1c30"
+        },
+        {
+          "name": "GRAPH_FOREST_3D.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/GRAPH_FOREST_3D.md",
+          "sha256": "5afb6e16c3d9180f06ca01db553e1749622696c2f2b31f5fabe392248e3c10a3"
+        }
+      ]
+    },
+    {
+      "id": "continuous-depth",
+      "family": "Continuous reasoning",
+      "label": "Recurrent forest depth and width",
+      "scope": "Capped deterministic cohorts, separate from the full-fold forest. Variant IDs identify root count, unroll depth and training step where recorded.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=1,572",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=762",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=727",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Direct verifier",
+          "values": {
+            "test": 0.18868588684624388,
+            "new_asset": 0.20926759487844201,
+            "stress": 0.1929611062869286
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-branches6",
+          "values": {
+            "test": 0.18868245665012426,
+            "new_asset": 0.20871250659931362,
+            "stress": 0.19309050064057398
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-r16-d2",
+          "values": {
+            "test": 0.1888306342994287,
+            "new_asset": 0.2087577637724989,
+            "stress": 0.19261658913680088
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-r16-d4",
+          "values": {
+            "test": 0.18866395533236535,
+            "new_asset": 0.20908373656861112,
+            "stress": 0.19278003608979583
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-r16-d8",
+          "values": {
+            "test": 0.18889173353446348,
+            "new_asset": 0.20915657489162104,
+            "stress": 0.19325403750270728
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-r4-d2",
+          "values": {
+            "test": 0.18876713056486982,
+            "new_asset": 0.20880444160127265,
+            "stress": 0.19315994598555597
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-r4-d4",
+          "values": {
+            "test": 0.1888525389305508,
+            "new_asset": 0.20900021724187795,
+            "stress": 0.19235806619592186
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-r4-d8",
+          "values": {
+            "test": 0.18894842122953964,
+            "new_asset": 0.20927671497575254,
+            "stress": 0.1931944968796334
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-r8-d2",
+          "values": {
+            "test": 0.18859990489960626,
+            "new_asset": 0.20912475864405394,
+            "stress": 0.19323846371908462
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-r8-d4",
+          "values": {
+            "test": 0.1887469215569757,
+            "new_asset": 0.2087194046636266,
+            "stress": 0.19338665362524363
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed16x8-r8-d8",
+          "values": {
+            "test": 0.18887996233753274,
+            "new_asset": 0.2090065217237147,
+            "stress": 0.1930662562155986
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "test": 0.22758557306218694,
+            "new_asset": 0.22743190437789976,
+            "stress": 0.22723758525049834
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r16-d8-blind",
+          "values": {
+            "test": 0.18889873572471183,
+            "new_asset": 0.20918267793229872,
+            "stress": 0.19358039907649918
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r16-d8-step2048",
+          "values": {
+            "test": 0.19016952035384627,
+            "new_asset": 0.2057580798473258,
+            "stress": 0.19701597250311378
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r16-d8-step4096",
+          "values": {
+            "test": 0.18889173353446348,
+            "new_asset": 0.20915657489162104,
+            "stress": 0.19325403750270728
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r16-d8-step512",
+          "values": {
+            "test": 0.19021589067259817,
+            "new_asset": 0.2068038671974122,
+            "stress": 0.20096851259142037
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r4-d2-blind",
+          "values": {
+            "test": 0.18932359020104844,
+            "new_asset": 0.2042265262190751,
+            "stress": 0.19765880021383214
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r4-d2-step2048",
+          "values": {
+            "test": 0.18922836666230028,
+            "new_asset": 0.2046277779997803,
+            "stress": 0.19775793813117762
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r4-d2-step4096",
+          "values": {
+            "test": 0.19041342256974628,
+            "new_asset": 0.20813576814540102,
+            "stress": 0.19647533241710644
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r4-d2-step512",
+          "values": {
+            "test": 0.1907201751630573,
+            "new_asset": 0.2027598711371109,
+            "stress": 0.2014639268551109
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r8-d4-blind",
+          "values": {
+            "test": 0.1890262640614546,
+            "new_asset": 0.20333433495418918,
+            "stress": 0.19426923566478646
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r8-d4-step2048",
+          "values": {
+            "test": 0.19041873919410257,
+            "new_asset": 0.20515591430226024,
+            "stress": 0.19700407796376673
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r8-d4-step4096",
+          "values": {
+            "test": 0.18895045853677295,
+            "new_asset": 0.20310686196242106,
+            "stress": 0.1938631069914347
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "r8-d4-step512",
+          "values": {
+            "test": 0.19047330742649754,
+            "new_asset": 0.20383121307909957,
+            "stress": 0.19887320675273545
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "deep-forest-scale-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/deep-forest-scale-v1.json",
+          "sha256": "2f5e3ef329f5a55fdef2cd806f3b6d9e98c530d2cfd45653a05955bed147a0e8"
+        },
+        {
+          "name": "FOREST_SCALING.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FOREST_SCALING.md",
+          "sha256": "2365f2e48caf9a6d324b6bb49bb80d2423e477faff047f279a3c549f0c0b1406"
+        }
+      ]
+    },
+    {
+      "id": "continuous-analogy",
+      "family": "Continuous reasoning",
+      "label": "Analogical forecasting with a fitted blend",
+      "scope": "Full folds. Standalone analogue scores. Validation selected blend weight zero for every analogue arm, so blended forecasts reproduced the frozen model.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Cross-triangle analogies",
+          "values": {
+            "test": 0.17738030850887299,
+            "new_asset": 0.19976019859313965,
+            "stress": 0.1792687475681305
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Input-feature neighbors",
+          "values": {
+            "test": 0.20581141114234924,
+            "new_asset": 0.2746599316596985,
+            "stress": 0.20766516029834747
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Frozen latent-space neighbors",
+          "values": {
+            "test": 0.17323243618011475,
+            "new_asset": 0.19976019859313965,
+            "stress": 0.1754862666130066
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Shuffled-response neighbor control",
+          "values": {
+            "test": 0.23712971806526184,
+            "new_asset": 0.24866200983524323,
+            "stress": 0.23492468893527985
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Frozen PhaseWeave",
+          "values": {
+            "test": 0.15582868456840515,
+            "new_asset": 0.1758217215538025,
+            "stress": 0.15954601764678955
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "test": 0.20767411589622498,
+            "new_asset": 0.22015342116355896,
+            "stress": 0.2070128619670868
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "continuous-analogy-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/continuous-analogy-v1.json",
+          "sha256": "33aecbc7aabeb9cd1c5d39d2fe7fcfc1c05a19bc801413e8a43f809f437fde8f"
+        },
+        {
+          "name": "CONTINUOUS_ANALOGY.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/CONTINUOUS_ANALOGY.md",
+          "sha256": "154adf06284447b361ad75b8753fbb590640f18620fc0ece06d334498e14352c"
+        }
+      ]
+    },
+    {
+      "id": "continuous-graph-map",
+      "family": "Continuous reasoning",
+      "label": "Directed graph correspondence and search",
+      "scope": "Triangle/day-capped observations. Four roots and 24 verifications for the two matched search arms.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=637",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=1,194",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=578",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=558",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Coarse nearest neighbors",
+          "values": {
+            "validation": 0.277177669727821,
+            "test": 0.2602669488407759,
+            "new_asset": 0.2629363498163883,
+            "stress": 0.24205360382354707
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Fixed index",
+          "values": {
+            "validation": 0.26938906896806775,
+            "test": 0.2538467609515442,
+            "new_asset": 0.25659810223175167,
+            "stress": 0.24120003385903266
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Mapped correspondence forest",
+          "values": {
+            "validation": 0.26590653435214534,
+            "test": 0.24695738408109252,
+            "new_asset": 0.25432755908957816,
+            "stress": 0.24044579222437837
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Independent paths",
+          "values": {
+            "validation": 0.26673199910103246,
+            "test": 0.2464083718132833,
+            "new_asset": 0.24991973198202655,
+            "stress": 0.24276233540587527
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Mapped neighbors",
+          "values": {
+            "validation": 0.2708994309232224,
+            "test": 0.25110606039239336,
+            "new_asset": 0.2600388500620337,
+            "stress": 0.2379951481657323
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.2639012146548162,
+            "test": 0.24338541292839713,
+            "new_asset": 0.23643615192195536,
+            "stress": 0.23228266232189684
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "directed-graph-forest-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/directed-graph-forest-v1.json",
+          "sha256": "d7091802f16308d4e285c1048915738e88c843a0ddd80a500b5aa8e24f7706f3"
+        },
+        {
+          "name": "DIRECTED_GRAPH_ANALOGY_FOREST.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/DIRECTED_GRAPH_ANALOGY_FOREST.md",
+          "sha256": "067269e73adf05c3370784efbd493a8dd91124486562e14f768b48c624bb3d25"
+        }
+      ]
+    },
+    {
+      "id": "continuous-graphcg",
+      "family": "Continuous reasoning",
+      "label": "GraphCG-R concept editor",
+      "scope": "Contrastive intervention objective. Frozen forecast head and two training seeds. The objective does not denote forecast error.",
+      "metric": "Contrastive loss",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=1,024",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=1,024",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=1,024",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=1,024",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Trained · seed 20261123",
+          "values": {
+            "validation": 1.6915040016174316,
+            "test": 1.6485666036605835,
+            "new_asset": 1.815222978591919,
+            "stress": 1.734517216682434
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Initial · seed 20261123",
+          "values": {
+            "validation": 1.8252969980239868,
+            "test": 1.7783997058868408,
+            "new_asset": 1.9765994548797607,
+            "stress": 1.8684204816818237
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Random · seed 20261123",
+          "values": {
+            "validation": 1.82743239402771,
+            "test": 1.7791472673416138,
+            "new_asset": 1.9822163581848145,
+            "stress": 1.8711755275726318
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Trained · seed 20261124",
+          "values": {
+            "validation": 1.6900781393051147,
+            "test": 1.6470417976379395,
+            "new_asset": 1.8143670558929443,
+            "stress": 1.7345563173294067
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Initial · seed 20261124",
+          "values": {
+            "validation": 1.8275566101074219,
+            "test": 1.7791469097137451,
+            "new_asset": 1.9762212038040161,
+            "stress": 1.8672206401824951
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Random · seed 20261124",
+          "values": {
+            "validation": 1.8236212730407715,
+            "test": 1.7774057388305664,
+            "new_asset": 1.978407621383667,
+            "stress": 1.8663501739501953
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "graphcg-fx-r-v2.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/graphcg-fx-r-v2.json",
+          "sha256": "3751341fe63237d609125fdef76a97d0ceee070685f5a111813577f8798b2c6e"
+        },
+        {
+          "name": "STEERING_CONCEPT_EXPLORER.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/STEERING_CONCEPT_EXPLORER.md",
+          "sha256": "442d18bde71f6a6c8c3b819f3cee92d1c42e515bc9ccf2d61cc40d3a11e3663d"
+        }
+      ]
+    },
+    {
+      "id": "continuous-gfn",
+      "family": "Continuous reasoning",
+      "label": "Continuous GFlowNet and unconditional Gaussian",
+      "scope": "Prescribed conditional terminal density. Target-to-model KL at sampled real FX contexts, with a shared unconditional Gaussian baseline.",
+      "metric": "Target-to-model KL · nats",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=512",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=512",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=256",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Continuous GFlowNet · seed 20261120",
+          "values": {
+            "validation": 0.021212892374023795,
+            "test": 0.023480134434066713,
+            "new_asset": 0.02997759380377829
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Continuous GFlowNet · seed 20261121",
+          "values": {
+            "validation": 0.017559710890054703,
+            "test": 0.0196945903589949,
+            "new_asset": 0.0363544465508312
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Unconditional Gaussian",
+          "values": {
+            "validation": 0.33132722962182015,
+            "test": 0.3290591073455289,
+            "new_asset": 0.9394362715538591
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "continuous-gflownet-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/continuous-gflownet-v1.json",
+          "sha256": "1f4cbae466731601ad2750ea3f21fa63ae4302ac16fbae805aebb877c5c7442b"
+        },
+        {
+          "name": "CONTINUOUS_GFLOWNET.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/CONTINUOUS_GFLOWNET.md",
+          "sha256": "16947aa9359253991c1f4729eb820b090eee25d622821b74ad7b28870285cbbe"
+        }
+      ]
+    },
+    {
+      "id": "continuous-edited",
+      "family": "Continuous reasoning",
+      "label": "Edited path GFlowNet",
+      "scope": "FX-conditioned target components on retained teacher paths. Numerical comparisons concern terminal sampling, including edited and unedited states.",
+      "metric": "Target-to-policy KL · nats",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=377",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=378",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=381",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=379",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Empirical teacher path control",
+          "values": {
+            "validation": 33.5479597281187,
+            "test": 28.92154546315918,
+            "new_asset": 27.149907188674177,
+            "stress": 40.71909707349544
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Standard path control",
+          "values": {
+            "validation": 38.67877499979223,
+            "test": 36.07616673827802,
+            "new_asset": 35.623222266803786,
+            "stress": 42.808477707357916
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "trained-20261204",
+          "values": {
+            "validation": 10.381058011418101,
+            "test": 9.449018083552204,
+            "new_asset": 10.299019976290088,
+            "stress": 11.540518024141786
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "trained-20261205",
+          "values": {
+            "validation": 10.799654178973535,
+            "test": 9.899010942739679,
+            "new_asset": 10.739578670417126,
+            "stress": 11.63152985183052
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "edited-path-gflownet-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/edited-path-gflownet-v1.json",
+          "sha256": "df01ffbfe19946c649f1e2d929762568e1cddee35883185fdee880e76aec5918"
+        },
+        {
+          "name": "EDITED_PATH_GFLOWNET.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/EDITED_PATH_GFLOWNET.md",
+          "sha256": "ed893f6aeadaebe3c3658f7d310303c3eeb682b029b91a22c06da427040610ca"
+        }
+      ]
+    },
+    {
+      "id": "continuous-rough",
+      "family": "Continuous reasoning",
+      "label": "Rough forest generation",
+      "scope": "One 377-context validation subset. Flow matching and DDPM model teacher trajectory residuals across matched seeds.",
+      "metric": "Energy score and terminal forecast error",
+      "columns": [
+        {
+          "key": "energy_score",
+          "name": "Energy score",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "sample_mean_rmse",
+          "name": "Path sample-mean RMSE",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "terminal_sample_mean_mae",
+          "name": "Terminal sample-mean MAE · log bps",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "august_mean_residual",
+          "values": {
+            "energy_score": 0.23282486200332642,
+            "sample_mean_rmse": 0.23282486200332642,
+            "terminal_sample_mean_mae": 0.12910932302474976
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "ddpm-20261210",
+          "values": {
+            "energy_score": 0.15267352759838104,
+            "sample_mean_rmse": 0.2380489706993103,
+            "terminal_sample_mean_mae": 0.12454517185688019
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "ddpm-20261211",
+          "values": {
+            "energy_score": 0.16140618920326233,
+            "sample_mean_rmse": 0.24876922369003296,
+            "terminal_sample_mean_mae": 0.13426367938518524
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261210",
+          "values": {
+            "energy_score": 0.151044100522995,
+            "sample_mean_rmse": 0.24226349592208862,
+            "terminal_sample_mean_mae": 0.12047388404607773
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261211",
+          "values": {
+            "energy_score": 0.15012922883033752,
+            "sample_mean_rmse": 0.24127091467380524,
+            "terminal_sample_mean_mae": 0.11770129203796387
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "rough-forest-cpu-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/rough-forest-cpu-v1.json",
+          "sha256": "1596fc8f22c53621a73002d49928f27f4bce66debfae4087863648c9dbafcf2c"
+        },
+        {
+          "name": "ROUGH_FOREST_RESULTS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/ROUGH_FOREST_RESULTS.md",
+          "sha256": "e7a809c67a26ac9012993d57d6450c6902d84bbae02934c15284b2067980b9d7"
+        }
+      ]
+    },
+    {
+      "id": "continuous-rough-editor",
+      "family": "Continuous reasoning",
+      "label": "Rough forest repair proposals",
+      "scope": "Same 377-context validation task per arm. The direct verifier is a distinct cheaper comparison.",
+      "metric": "Margin MAE · log bps and accepted proposal fraction",
+      "columns": [
+        {
+          "key": "mae",
+          "name": "Margin MAE",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "accepted",
+          "name": "Accepted fraction",
+          "places": 4,
+          "suffix": "",
+          "order": "higher"
+        }
+      ],
+      "rows": [
+        {
+          "name": "ddpm-20261210 · fixed",
+          "values": {
+            "mae": 0.18345586955547333,
+            "accepted": 0.530559241771698
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "ddpm-20261210 · gaussian",
+          "values": {
+            "mae": 0.18224847316741943,
+            "accepted": 0.2805039882659912
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "ddpm-20261210 · no_edit",
+          "values": {
+            "mae": 0.18254390358924866,
+            "accepted": 0.0
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "ddpm-20261210 · random",
+          "values": {
+            "mae": 0.18344303965568542,
+            "accepted": 0.5306144952774048
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "ddpm-20261211 · fixed",
+          "values": {
+            "mae": 0.18456736207008362,
+            "accepted": 0.556310772895813
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "ddpm-20261211 · gaussian",
+          "values": {
+            "mae": 0.18625399470329285,
+            "accepted": 0.2884615361690521
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "ddpm-20261211 · no_edit",
+          "values": {
+            "mae": 0.1870463639497757,
+            "accepted": 0.0
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "ddpm-20261211 · random",
+          "values": {
+            "mae": 0.18453344702720642,
+            "accepted": 0.5562555193901062
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261210 · fixed",
+          "values": {
+            "mae": 0.1833593100309372,
+            "accepted": 0.5406719446182251
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261210 · gaussian",
+          "values": {
+            "mae": 0.18399105966091156,
+            "accepted": 0.27939876914024353
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261210 · no_edit",
+          "values": {
+            "mae": 0.1845742017030716,
+            "accepted": 0.0
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261210 · random",
+          "values": {
+            "mae": 0.18343381583690643,
+            "accepted": 0.5409482717514038
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261211 · fixed",
+          "values": {
+            "mae": 0.18396010994911194,
+            "accepted": 0.5172966122627258
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261211 · gaussian",
+          "values": {
+            "mae": 0.1839970499277115,
+            "accepted": 0.2757515609264374
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261211 · no_edit",
+          "values": {
+            "mae": 0.18482904136180878,
+            "accepted": 0.0
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fm-20261211 · random",
+          "values": {
+            "mae": 0.18397805094718933,
+            "accepted": 0.5175729393959045
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Direct verifier",
+          "values": {
+            "mae": 0.18627427518367767
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "mae": 0.24340373277664185
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "rough-forest-editor-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/rough-forest-editor-v1.json",
+          "sha256": "d1e972597f5213836aec0187e398756fb19a96a81f9bafaec053effcc2cb6bd3"
+        },
+        {
+          "name": "ROUGH_FOREST_RESULTS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/ROUGH_FOREST_RESULTS.md",
+          "sha256": "e7a809c67a26ac9012993d57d6450c6902d84bbae02934c15284b2067980b9d7"
+        }
+      ]
+    },
+    {
+      "id": "knowledge-paths",
+      "family": "Knowledge retrieval",
+      "label": "Open-book Wikidata path retrieval",
+      "scope": "Six entity-disjoint held-out owners, 72 supported programs and 72 missing-fact cases. All components share the same role structure.",
+      "metric": "Exact path counts, verified by signed statements",
+      "columns": [
+        {
+          "key": "exact_path_at_1",
+          "name": "Exact @1",
+          "places": 0,
+          "suffix": " / 72",
+          "order": "higher"
+        },
+        {
+          "key": "exact_path_at_4",
+          "name": "Exact @4",
+          "places": 0,
+          "suffix": " / 72",
+          "order": "higher"
+        },
+        {
+          "key": "verified_abstentions_on_missing_evidence",
+          "name": "Missing-fact abstentions",
+          "places": 0,
+          "suffix": " / 72",
+          "order": "higher"
+        }
+      ],
+      "rows": [
+        {
+          "name": "learned",
+          "values": {
+            "exact_path_at_1": 72,
+            "exact_path_at_4": 72,
+            "verified_abstentions_on_missing_evidence": 72
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "fixed sketch",
+          "values": {
+            "exact_path_at_1": 72,
+            "exact_path_at_4": 72,
+            "verified_abstentions_on_missing_evidence": 72
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "cosine",
+          "values": {
+            "exact_path_at_1": 72,
+            "exact_path_at_4": 72,
+            "verified_abstentions_on_missing_evidence": 72
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "hrr",
+          "values": {
+            "exact_path_at_1": 38,
+            "exact_path_at_4": 59,
+            "verified_abstentions_on_missing_evidence": 72
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "no memory",
+          "values": {
+            "exact_path_at_1": 0,
+            "exact_path_at_4": 0,
+            "verified_abstentions_on_missing_evidence": 72
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "typed graph",
+          "values": {
+            "exact_path_at_1": 72,
+            "exact_path_at_4": 72,
+            "verified_abstentions_on_missing_evidence": 72
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "kg-analogy-retrieval-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/kg-analogy-retrieval-v1.json",
+          "sha256": "b42034d4bf7ca19ae37130ea6be2967f614d3dac46e9cc7f88c421857ef37ade"
+        },
+        {
+          "name": "KG_ANALOGY_RETRIEVAL.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/KG_ANALOGY_RETRIEVAL.md",
+          "sha256": "37f81192f5cd2f837422d05bcedfef145f0408aaa2b96b3cca2bc4fa2f70e136"
+        }
+      ]
+    },
+    {
+      "id": "finqa-matched",
+      "family": "Financial reasoning",
+      "label": "Issuer-held-out FinQA pairing",
+      "scope": "42 report questions from 13 excluded issuers and 13 complete-report removals. The pretrained base may have seen historical FinQA material.",
+      "metric": "Exact counts after fixed numeric tolerance and evidence verification",
+      "columns": [
+        {
+          "key": "numeric",
+          "name": "Numeric",
+          "places": 0,
+          "suffix": " / 42",
+          "order": "higher"
+        },
+        {
+          "key": "evidence",
+          "name": "Exact evidence",
+          "places": 0,
+          "suffix": " / 42",
+          "order": "higher"
+        },
+        {
+          "key": "joint",
+          "name": "Numeric and evidence",
+          "places": 0,
+          "suffix": " / 42",
+          "order": "higher"
+        },
+        {
+          "key": "abstain",
+          "name": "Report removed",
+          "places": 0,
+          "suffix": " / 13",
+          "order": "higher"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Qwen3.8-27B four-bit base",
+          "values": {
+            "numeric": 27,
+            "evidence": 33,
+            "joint": 25,
+            "abstain": 13
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Qwen3.8-27B + FinQA LoRA",
+          "values": {
+            "numeric": 31,
+            "evidence": 34,
+            "joint": 28,
+            "abstain": 13
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Structured arithmetic specialist",
+          "values": {
+            "numeric": 5,
+            "evidence": 22,
+            "joint": 5,
+            "abstain": 13
+          },
+          "note": "Same evidence and cases. Joint and abstention counts from the paired protocol.",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "finqa-matched-reasoners-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/finqa-matched-reasoners-v1.json",
+          "sha256": "1bd006934fbacbaf93d564dddce4a232b76f5bc6b2be74599deaf8b59108926f"
+        },
+        {
+          "name": "finqa-structured-specialist-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/finqa-structured-specialist-v1.json",
+          "sha256": "5244999fe5379743d2678e0252c59bdcfe2220719ebdc1a820838dca04bcee6d"
+        },
+        {
+          "name": "FINQA_MATCHED_REASONERS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FINQA_MATCHED_REASONERS.md",
+          "sha256": "7067fd82caf3e1b1f91ca57af67303e3d037ffc8f33f1f1534685f82311e1ca9"
+        }
+      ]
+    },
+    {
+      "id": "finqa-later",
+      "family": "Financial reasoning",
+      "label": "Later releases and withheld cells",
+      "scope": "30 answerable later-release questions and 11 cases with a necessary cell withheld. This denominator and strict unit check differ from issuer-held-out FinQA.",
+      "metric": "Exact answer, unit and evidence counts",
+      "columns": [
+        {
+          "key": "answer",
+          "name": "Numeric",
+          "places": 0,
+          "suffix": " / 30",
+          "order": "higher"
+        },
+        {
+          "key": "evidence",
+          "name": "Evidence",
+          "places": 0,
+          "suffix": " / 30",
+          "order": "higher"
+        },
+        {
+          "key": "joint",
+          "name": "Joint",
+          "places": 0,
+          "suffix": " / 30",
+          "order": "higher"
+        },
+        {
+          "key": "abstain",
+          "name": "Withheld-cell joint abstention",
+          "places": 0,
+          "suffix": " / 11",
+          "order": "higher"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Qwen3.8-27B four-bit base",
+          "values": {
+            "answer": 16,
+            "evidence": 21,
+            "joint": 16,
+            "abstain": 5
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Qwen3.8-27B + FinQA LoRA",
+          "values": {
+            "answer": 18,
+            "evidence": 27,
+            "joint": 18,
+            "abstain": 5
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "finqa-post-checkpoint-v1.json",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/evaluations/finqa-post-checkpoint-v1.json",
+          "sha256": "6671c28316e7a6efa6b532ef277c9cd6600cf159dd845e97b2f22bbcf3cb7f0b"
+        },
+        {
+          "name": "FINQA_TASK_EVAL.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FINQA_TASK_EVAL.md",
+          "sha256": "4e610cabec1aca9a342d48a779056d4a506c5cf703a1a3ab6e1916103ec1ac0a"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-1",
+      "family": "Forecast horizons",
+      "label": "FX margin forecast · 1 seconds",
+      "scope": "Expanded August graph corpus and strict fold bounds. Both directional margins. Counts include only windows with an eligible future quote for this horizon.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=65,533",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "MPNN · 1 spatial + 1 temporal",
+          "values": {
+            "validation": 0.17848928272724152,
+            "test": 0.15901289880275726,
+            "new_asset": 0.1820605844259262,
+            "stress": 0.1746705323457718
+          },
+          "note": "29,338 parameters · validation-selected epoch 3 of 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Message passing"
+          }
+        },
+        {
+          "name": "TokenGT · 2 spatial + 2 temporal",
+          "values": {
+            "validation": 0.17638830840587616,
+            "test": 0.15661048889160156,
+            "new_asset": 0.17175960540771484,
+            "stress": 0.16011197865009308
+          },
+          "note": "2,020,842 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT · 4 spatial + 4 temporal",
+          "values": {
+            "validation": 0.17594313621520996,
+            "test": 0.15641696751117706,
+            "new_asset": 0.1711321771144867,
+            "stress": 0.16017837822437286
+          },
+          "note": "3,951,274 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT + fine/coarse torus",
+          "values": {
+            "validation": 0.17573849856853485,
+            "test": 0.15643413364887238,
+            "new_asset": 0.17368093132972717,
+            "stress": 0.16049641370773315
+          },
+          "note": "4,007,698 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical surface features",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Train-only ridge",
+          "values": {
+            "validation": 0.20275168120861053,
+            "test": 0.18722444772720337,
+            "new_asset": 0.21238020062446594,
+            "stress": 0.19262991845607758
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.22791603207588196,
+            "test": 0.20767411589622498,
+            "new_asset": 0.22015342116355896,
+            "stress": 0.2070128619670868
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-paired-1",
+      "family": "Forecast horizons",
+      "label": "Paired depth contrasts · 1 seconds",
+      "scope": "Differences use the same held-out windows and UTC-day bootstrap. Negative differences favor the first named configuration.",
+      "metric": "Paired MAE delta · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=32,768",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=65,536",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Deeper TokenGT − shallower TokenGT",
+          "values": {
+            "test": -0.00019351745140738785,
+            "new_asset": -0.0006274351617321372,
+            "stress": 6.640717037953436e-05
+          },
+          "note": "95% paired UTC-day intervals · October test [-0.00030, -0.00010] · Unseen CHF [-0.00167, +0.00022] · September stress [-0.00040, +0.00067]",
+          "status": "measured"
+        },
+        {
+          "name": "Surface TokenGT − deeper TokenGT",
+          "values": {
+            "test": 1.7166283214464784e-05,
+            "new_asset": 0.002548743272200227,
+            "stress": 0.0003180302446708083
+          },
+          "note": "95% paired UTC-day intervals · October test [-0.00029, +0.00037] · Unseen CHF [+0.00134, +0.00425] · September stress [-0.00011, +0.00080]",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizon-depth-contrasts-v1.json",
+          "href": "horizon-depth-contrasts-v1.json",
+          "sha256": "368c31884867b12954755864da5c839600793d4884e4e2718a400eb0594c7ef7"
+        },
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-5",
+      "family": "Forecast horizons",
+      "label": "FX margin forecast · 5 seconds",
+      "scope": "Expanded August graph corpus and strict fold bounds. Both directional margins. Counts include only windows with an eligible future quote for this horizon.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=32,194",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=32,958",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=17,929",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=31,907",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "MPNN · 1 spatial + 1 temporal",
+          "values": {
+            "validation": 0.2068062722682953,
+            "test": 0.17274130880832672,
+            "new_asset": 0.20362472534179688,
+            "stress": 0.19299548864364624
+          },
+          "note": "29,338 parameters · validation-selected epoch 3 of 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Message passing"
+          }
+        },
+        {
+          "name": "TokenGT · 2 spatial + 2 temporal",
+          "values": {
+            "validation": 0.20294375717639923,
+            "test": 0.16883999109268188,
+            "new_asset": 0.1908344328403473,
+            "stress": 0.1762501746416092
+          },
+          "note": "2,020,842 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT · 4 spatial + 4 temporal",
+          "values": {
+            "validation": 0.2031680792570114,
+            "test": 0.16872578859329224,
+            "new_asset": 0.19052647054195404,
+            "stress": 0.176771879196167
+          },
+          "note": "3,951,274 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT + fine/coarse torus",
+          "values": {
+            "validation": 0.2025837004184723,
+            "test": 0.16916455328464508,
+            "new_asset": 0.19591784477233887,
+            "stress": 0.17726202309131622
+          },
+          "note": "4,007,698 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical surface features",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Train-only ridge",
+          "values": {
+            "validation": 0.22742301225662231,
+            "test": 0.19473165273666382,
+            "new_asset": 0.2420700341463089,
+            "stress": 0.21074575185775757
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.2742551863193512,
+            "test": 0.2297828644514084,
+            "new_asset": 0.24892646074295044,
+            "stress": 0.23791418969631195
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-paired-5",
+      "family": "Forecast horizons",
+      "label": "Paired depth contrasts · 5 seconds",
+      "scope": "Differences use the same held-out windows and UTC-day bootstrap. Negative differences favor the first named configuration.",
+      "metric": "Paired MAE delta · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=32,958",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=17,929",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=31,907",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Deeper TokenGT − shallower TokenGT",
+          "values": {
+            "test": -0.00011420552618801594,
+            "new_asset": -0.0003079450980294496,
+            "stress": 0.0005216968711465597
+          },
+          "note": "95% paired UTC-day intervals · October test [-0.00054, +0.00014] · Unseen CHF [-0.00283, +0.00141] · September stress [+0.00004, +0.00114]",
+          "status": "measured"
+        },
+        {
+          "name": "Surface TokenGT − deeper TokenGT",
+          "values": {
+            "test": 0.00043877161806449294,
+            "new_asset": 0.005391367711126804,
+            "stress": 0.0004901535576209426
+          },
+          "note": "95% paired UTC-day intervals · October test [-0.00002, +0.00096] · Unseen CHF [+0.00282, +0.00827] · September stress [-0.00044, +0.00165]",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizon-depth-contrasts-v1.json",
+          "href": "horizon-depth-contrasts-v1.json",
+          "sha256": "368c31884867b12954755864da5c839600793d4884e4e2718a400eb0594c7ef7"
+        },
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-15",
+      "family": "Forecast horizons",
+      "label": "FX margin forecast · 15 seconds",
+      "scope": "Expanded August graph corpus and strict fold bounds. Both directional margins. Counts include only windows with an eligible future quote for this horizon.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=30,946",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=31,902",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=17,501",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=30,616",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "MPNN · 1 spatial + 1 temporal",
+          "values": {
+            "validation": 0.2117636650800705,
+            "test": 0.17660151422023773,
+            "new_asset": 0.21495136618614197,
+            "stress": 0.1990097314119339
+          },
+          "note": "29,338 parameters · validation-selected epoch 3 of 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Message passing"
+          }
+        },
+        {
+          "name": "TokenGT · 2 spatial + 2 temporal",
+          "values": {
+            "validation": 0.20796340703964233,
+            "test": 0.17235824465751648,
+            "new_asset": 0.20109431445598602,
+            "stress": 0.18235734105110168
+          },
+          "note": "2,020,842 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT · 4 spatial + 4 temporal",
+          "values": {
+            "validation": 0.20868201553821564,
+            "test": 0.17235927283763885,
+            "new_asset": 0.20278459787368774,
+            "stress": 0.18270041048526764
+          },
+          "note": "3,951,274 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT + fine/coarse torus",
+          "values": {
+            "validation": 0.20796382427215576,
+            "test": 0.17253540456295013,
+            "new_asset": 0.20386821031570435,
+            "stress": 0.18436448276042938
+          },
+          "note": "4,007,698 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical surface features",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Train-only ridge",
+          "values": {
+            "validation": 0.23281972110271454,
+            "test": 0.19835196435451508,
+            "new_asset": 0.2668503224849701,
+            "stress": 0.22040635347366333
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.2837755084037781,
+            "test": 0.234946608543396,
+            "new_asset": 0.2560122609138489,
+            "stress": 0.24635326862335205
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-paired-15",
+      "family": "Forecast horizons",
+      "label": "Paired depth contrasts · 15 seconds",
+      "scope": "Differences use the same held-out windows and UTC-day bootstrap. Negative differences favor the first named configuration.",
+      "metric": "Paired MAE delta · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=31,902",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=17,501",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=30,616",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Deeper TokenGT − shallower TokenGT",
+          "values": {
+            "test": 1.0157639280805597e-06,
+            "new_asset": 0.0016902857460081577,
+            "stress": 0.00034308203612454236
+          },
+          "note": "95% paired UTC-day intervals · October test [-0.00055, +0.00034] · Unseen CHF [-0.00183, +0.00463] · September stress [-0.00008, +0.00080]",
+          "status": "measured"
+        },
+        {
+          "name": "Surface TokenGT − deeper TokenGT",
+          "values": {
+            "test": 0.0001761462917784229,
+            "new_asset": 0.0010836059227585793,
+            "stress": 0.0016640726244077086
+          },
+          "note": "95% paired UTC-day intervals · October test [-0.00051, +0.00096] · Unseen CHF [-0.00394, +0.00571] · September stress [+0.00021, +0.00337]",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizon-depth-contrasts-v1.json",
+          "href": "horizon-depth-contrasts-v1.json",
+          "sha256": "368c31884867b12954755864da5c839600793d4884e4e2718a400eb0594c7ef7"
+        },
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-60",
+      "family": "Forecast horizons",
+      "label": "FX margin forecast · 60 seconds",
+      "scope": "Expanded August graph corpus and strict fold bounds. Both directional margins. Counts include only windows with an eligible future quote for this horizon.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=29,846",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=31,231",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=17,367",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=29,341",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "MPNN · 1 spatial + 1 temporal",
+          "values": {
+            "validation": 0.22152763605117798,
+            "test": 0.18471133708953857,
+            "new_asset": 0.23654399812221527,
+            "stress": 0.20395591855049133
+          },
+          "note": "29,338 parameters · validation-selected epoch 3 of 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Message passing"
+          }
+        },
+        {
+          "name": "TokenGT · 2 spatial + 2 temporal",
+          "values": {
+            "validation": 0.2170334756374359,
+            "test": 0.18112406134605408,
+            "new_asset": 0.22329658269882202,
+            "stress": 0.18744021654129028
+          },
+          "note": "2,020,842 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT · 4 spatial + 4 temporal",
+          "values": {
+            "validation": 0.21797676384449005,
+            "test": 0.18190491199493408,
+            "new_asset": 0.22934578359127045,
+            "stress": 0.18796418607234955
+          },
+          "note": "3,951,274 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT + fine/coarse torus",
+          "values": {
+            "validation": 0.215567946434021,
+            "test": 0.18022498488426208,
+            "new_asset": 0.2318282425403595,
+            "stress": 0.18855108320713043
+          },
+          "note": "4,007,698 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical surface features",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Train-only ridge",
+          "values": {
+            "validation": 0.24263255298137665,
+            "test": 0.20512500405311584,
+            "new_asset": 0.33190643787384033,
+            "stress": 0.22498494386672974
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.29885077476501465,
+            "test": 0.2450401782989502,
+            "new_asset": 0.2676156461238861,
+            "stress": 0.2522355020046234
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-paired-60",
+      "family": "Forecast horizons",
+      "label": "Paired depth contrasts · 60 seconds",
+      "scope": "Differences use the same held-out windows and UTC-day bootstrap. Negative differences favor the first named configuration.",
+      "metric": "Paired MAE delta · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=31,231",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=17,367",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=29,341",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Deeper TokenGT − shallower TokenGT",
+          "values": {
+            "test": 0.0007808501250110567,
+            "new_asset": 0.006049203686416149,
+            "stress": 0.0005239550955593586
+          },
+          "note": "95% paired UTC-day intervals · October test [+0.00016, +0.00127] · Unseen CHF [-0.00101, +0.01184] · September stress [-0.00018, +0.00121]",
+          "status": "measured"
+        },
+        {
+          "name": "Surface TokenGT − deeper TokenGT",
+          "values": {
+            "test": -0.0016799162840470672,
+            "new_asset": 0.0024824535939842463,
+            "stress": 0.0005869047017768025
+          },
+          "note": "95% paired UTC-day intervals · October test [-0.00249, -0.00074] · Unseen CHF [-0.00541, +0.01006] · September stress [-0.00121, +0.00288]",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizon-depth-contrasts-v1.json",
+          "href": "horizon-depth-contrasts-v1.json",
+          "sha256": "368c31884867b12954755864da5c839600793d4884e4e2718a400eb0594c7ef7"
+        },
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-300",
+      "family": "Forecast horizons",
+      "label": "FX margin forecast · 300 seconds",
+      "scope": "Expanded August graph corpus and strict fold bounds. Both directional margins. Counts include only windows with an eligible future quote for this horizon.",
+      "metric": "MAE · log bps",
+      "columns": [
+        {
+          "key": "validation",
+          "name": "September validation · n=28,637",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "test",
+          "name": "October test · n=29,704",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=16,669",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=28,070",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "MPNN · 1 spatial + 1 temporal",
+          "values": {
+            "validation": 0.224249467253685,
+            "test": 0.19018124043941498,
+            "new_asset": 0.28285104036331177,
+            "stress": 0.21304172277450562
+          },
+          "note": "29,338 parameters · validation-selected epoch 3 of 3",
+          "status": "measured",
+          "variant": {
+            "backbone": "MPNN",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Message passing"
+          }
+        },
+        {
+          "name": "TokenGT · 2 spatial + 2 temporal",
+          "values": {
+            "validation": 0.22185222804546356,
+            "test": 0.1879253387451172,
+            "new_asset": 0.2634897530078888,
+            "stress": 0.1946135312318802
+          },
+          "note": "2,020,842 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT · 4 spatial + 4 temporal",
+          "values": {
+            "validation": 0.22391165792942047,
+            "test": 0.18958358466625214,
+            "new_asset": 0.2727818191051483,
+            "stress": 0.19539645314216614
+          },
+          "note": "3,951,274 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "TokenGT + fine/coarse torus",
+          "values": {
+            "validation": 0.21955323219299316,
+            "test": 0.1860070824623108,
+            "new_asset": 0.27251195907592773,
+            "stress": 0.19459602236747742
+          },
+          "note": "4,007,698 parameters · validation-selected epoch 6 of 6",
+          "status": "measured",
+          "variant": {
+            "backbone": "TokenGT",
+            "feature": "Classical surface features",
+            "attention": "Softmax",
+            "spatial": "Softmax"
+          }
+        },
+        {
+          "name": "Train-only ridge",
+          "values": {
+            "validation": 0.2464825063943863,
+            "test": 0.21074238419532776,
+            "new_asset": 0.3988383412361145,
+            "stress": 0.23312091827392578
+          },
+          "note": "",
+          "status": "measured"
+        },
+        {
+          "name": "Persistence",
+          "values": {
+            "validation": 0.31566867232322693,
+            "test": 0.2537437081336975,
+            "new_asset": 0.283447265625,
+            "stress": 0.2644485831260681
+          },
+          "note": "",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "fx-horizon-paired-300",
+      "family": "Forecast horizons",
+      "label": "Paired depth contrasts · 300 seconds",
+      "scope": "Differences use the same held-out windows and UTC-day bootstrap. Negative differences favor the first named configuration.",
+      "metric": "Paired MAE delta · log bps",
+      "columns": [
+        {
+          "key": "test",
+          "name": "October test · n=29,704",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "new_asset",
+          "name": "Unseen CHF · n=16,669",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        },
+        {
+          "key": "stress",
+          "name": "September stress · n=28,070",
+          "places": 5,
+          "suffix": "",
+          "order": "lower"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Deeper TokenGT − shallower TokenGT",
+          "values": {
+            "test": 0.0016582427779212594,
+            "new_asset": 0.009292067028582096,
+            "stress": 0.0007829114329069853
+          },
+          "note": "95% paired UTC-day intervals · October test [+0.00114, +0.00209] · Unseen CHF [-0.00162, +0.01708] · September stress [-0.00003, +0.00133]",
+          "status": "measured"
+        },
+        {
+          "name": "Surface TokenGT − deeper TokenGT",
+          "values": {
+            "test": -0.0035764994099736214,
+            "new_asset": -0.000269865122390911,
+            "stress": -0.0008003873517736793
+          },
+          "note": "95% paired UTC-day intervals · October test [-0.00452, -0.00249] · Unseen CHF [-0.01062, +0.01029] · September stress [-0.00251, +0.00123]",
+          "status": "measured"
+        }
+      ],
+      "sources": [
+        {
+          "name": "horizon-depth-contrasts-v1.json",
+          "href": "horizon-depth-contrasts-v1.json",
+          "sha256": "368c31884867b12954755864da5c839600793d4884e4e2718a400eb0594c7ef7"
+        },
+        {
+          "name": "horizons-v1.json",
+          "href": "horizons-v1.json",
+          "sha256": "7a341100067a55e80337cbfc1c162ae68ce235f9490f7e17f3225f302644dcdc"
+        },
+        {
+          "name": "FX_HORIZONS.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md",
+          "sha256": "6badf75717e554e8046ad58c5c514d10d5b803e301faa151f620fb4de7b47f7f"
+        }
+      ]
+    },
+    {
+      "id": "pending-models",
+      "family": "Pending",
+      "label": "Unmeasured matched comparisons",
+      "scope": "These planned contrasts have no score in this inventory.",
+      "metric": "",
+      "columns": [],
+      "rows": [
+        {
+          "name": "Laplacian and Hodge spectral forecasters",
+          "values": {},
+          "note": "Pair with the same graph inputs, split, optimizer, count and readout.",
+          "status": "pending"
+        },
+        {
+          "name": "Graph-Fourier and Chebyshev filter family",
+          "values": {},
+          "note": "Score directed and symmetrized operators on the same frozen folds.",
+          "status": "pending"
+        },
+        {
+          "name": "WL and graphlet kernels",
+          "values": {},
+          "note": "Select hyperparameters on September validation and report matched October/stress/CHF holdouts.",
+          "status": "pending"
+        },
+        {
+          "name": "RBF or additive graph kernel ridge",
+          "values": {},
+          "note": "Match training exposure, mask treatment and holdout windows to a fixed graph feature control.",
+          "status": "pending"
+        },
+        {
+          "name": "Additional 2025–26 forecasting foundations",
+          "values": {},
+          "note": "The local comparison includes TimesFM 2.5. Chronos-2, TimesFM-3, Timestral and other reviewed models await a common FX protocol.",
+          "status": "pending"
+        },
+        {
+          "name": "Cross-task pretrained decoder vs one-second numerical forecast",
+          "values": {},
+          "note": "Supply the same FX observation and target to both arms under a frozen I/O and tool budget.",
+          "status": "pending"
+        },
+        {
+          "name": "Structured specialist on unused later-release questions",
+          "values": {},
+          "note": "Use a separate, unopened source-disjoint paired cohort.",
+          "status": "pending"
+        },
+        {
+          "name": "Learned genus, dessin, Wilson trace and HP operators",
+          "values": {},
+          "note": "Match isolated representations and baselines on identical outcome targets.",
+          "status": "pending"
+        },
+        {
+          "name": "Full-size quantum features across every backbone",
+          "values": {},
+          "note": "The 56-cell width-32 pilot is measured. Full-data convergence, larger matched capacities, multiple seeds and hardware quantum execution remain pending.",
+          "status": "pending"
+        },
+        {
+          "name": "Outer × inner tropical and circuit controls",
+          "values": {},
+          "note": "A full factorial, phase scramble and no-entanglement fits remain open.",
+          "status": "pending"
+        },
+        {
+          "name": "Prospective execution and broader multimodal assets",
+          "values": {},
+          "note": "Use independent market receipts, real fills, permissions and matched risk accounting.",
+          "status": "pending"
+        }
+      ],
+      "sources": [
+        {
+          "name": "ARCHITECTURE_COMPARISON_AUDIT.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/ARCHITECTURE_COMPARISON_AUDIT.md",
+          "sha256": "d169a70c970a473603a0c600a7beb91e87f08991da0ede9a3025add5fb2f7dbf"
+        },
+        {
+          "name": "BASELINE_LITERATURE.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/BASELINE_LITERATURE.md",
+          "sha256": "7cadec2ba1faef9d4c0fc88c96c8c7d2f35e2591c312a56e467d16f978f9548b"
+        }
+      ]
+    },
+    {
+      "id": "runtime",
+      "family": "Runtime only",
+      "label": "Executable tools without an outcome comparison",
+      "scope": "These tools have operational checks. They do not add a numerical model rank.",
+      "metric": "",
+      "columns": [],
+      "rows": [
+        {
+          "name": "Public Gate order-book view",
+          "values": {},
+          "note": "Opt-in read-only browser depth.",
+          "status": "runtime"
+        },
+        {
+          "name": "Local trading desk",
+          "values": {},
+          "note": "Sequential paper legs and read-only external connector status.",
+          "status": "runtime"
+        },
+        {
+          "name": "Knowledge, topology and forecast trace viewers",
+          "values": {},
+          "note": "Recorded evidence and deterministic visualization.",
+          "status": "runtime"
+        },
+        {
+          "name": "Hosted reference inference",
+          "values": {},
+          "note": "Presets or user-provided local inference JSON under the documented rollout.",
+          "status": "runtime"
+        }
+      ],
+      "sources": [
+        {
+          "name": "LOCAL_TRADING_DESK.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/LOCAL_TRADING_DESK.md",
+          "sha256": "204fbaf5f7e2393e8b2ff1ad91c98ee50917e6cd672f53cdd8ef9b201ea827e1"
+        },
+        {
+          "name": "GAUGE_DENSITY.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/GAUGE_DENSITY.md",
+          "sha256": "74634098115a3bc2560efec2190b59ab0a7cf4d8befb90b02ff70d83bddb7b5b"
+        },
+        {
+          "name": "REFERENCE_INPUT_EXPORT.md",
+          "href": "https://github.com/amelie-iska/PhaseWeave/blob/main/docs/REFERENCE_INPUT_EXPORT.md",
+          "sha256": "6bbca0b3b4a0b7012cb9ba900ca1930b2ec35cde7aa89c1e3244ba09f1f7074f"
+        }
+      ]
+    },
+    {
+      "id": "related-proprietary",
+      "family": "Related external evidence",
+      "label": "Published proprietary results",
+      "scope": "Published results for related models and platforms. These studies used their own tasks, populations and protocols.",
+      "metric": "Source-reported metrics",
+      "columns": [
+        {
+          "key": "function",
+          "name": "Task",
+          "places": 5,
+          "suffix": "",
+          "order": "none"
+        },
+        {
+          "key": "metric",
+          "name": "Reported result",
+          "places": 5,
+          "suffix": "",
+          "order": "none"
+        },
+        {
+          "key": "population",
+          "name": "Population",
+          "places": 5,
+          "suffix": "",
+          "order": "none"
+        }
+      ],
+      "rows": [
+        {
+          "name": "OpenAI GPT-5.1",
+          "values": {
+            "function": "Numerical financial QA",
+            "metric": "0.723 weighted performance score",
+            "population": "248 FinQA items in the Integrated Financial Benchmark"
+          },
+          "note": "Independent 2026 study, 70% numeric match and 30% format. Uses FinQA train/development items.",
+          "status": "external",
+          "source": "https://www.mdpi.com/2674-1032/5/4/101"
+        },
+        {
+          "name": "Anthropic Claude Sonnet 4.6",
+          "values": {
+            "function": "Numerical financial QA",
+            "metric": "0.716 weighted performance score",
+            "population": "248 FinQA items in the Integrated Financial Benchmark"
+          },
+          "note": "Same independent 2026 study and composite as GPT-5.1.",
+          "status": "external",
+          "source": "https://www.mdpi.com/2674-1032/5/4/101"
+        },
+        {
+          "name": "Google Gemini 3.5 Flash",
+          "values": {
+            "function": "Numerical financial QA",
+            "metric": "0.559 weighted performance score",
+            "population": "248 FinQA items in the Integrated Financial Benchmark"
+          },
+          "note": "Same independent 2026 study and composite as GPT-5.1.",
+          "status": "external",
+          "source": "https://www.mdpi.com/2674-1032/5/4/101"
+        },
+        {
+          "name": "BloombergGPT 50B",
+          "values": {
+            "function": "Conversational financial QA",
+            "metric": "43.41% exact match",
+            "population": "ConvFinQA public development set"
+          },
+          "note": "Bloomberg paper, Table 8. One demonstration and gold previous conversation turns.",
+          "status": "external",
+          "source": "https://arxiv.org/html/2303.17564v3#S5.T8"
+        },
+        {
+          "name": "Nixtla TimeGPT-1",
+          "values": {
+            "function": "Foundation time-series inference",
+            "metric": "0.6 ms average GPU inference per series",
+            "population": "Nixtla internal zero-shot timing study"
+          },
+          "note": "Author-reported model inference timing. API transport and strategy execution are outside the reported measure.",
+          "status": "external",
+          "source": "https://arxiv.org/html/2310.03589#S6.SS3"
+        },
+        {
+          "name": "QuantConnect Cloud",
+          "values": {
+            "function": "Market-data delivery",
+            "metric": "90% of bars delivered within 250 ms",
+            "population": "Vendor market-open recording for its consolidated OPRA options feed"
+          },
+          "note": "Vendor-reported options feed delivery. PhaseWeave paper desk observes Gate spot REST responses on a different venue and clock.",
+          "status": "external",
+          "source": "https://www.quantconnect.com/announcements/21283/equity-and-index-options-datafeed/p0"
+        }
+      ],
+      "sources": [
+        {
+          "name": "proprietary-evidence-v1.json",
+          "href": "proprietary-evidence-v1.json",
+          "sha256": "06e22f184081d81d8f1d7c0d49e2bd524890e7a7e5f522084923e760c918bf90"
+        }
+      ]
+    }
+  ]
+}

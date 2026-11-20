@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="widget-icon-192.png">
+  <link rel="manifest" href="widgets.webmanifest">
+  <meta name="theme-color" content="#0b1213">
+  <title>Live market widgets · PhaseWeave</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="desk.css">
+  <script defer src="live-widgets.js"></script>
+  <style>
+  .widget-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:12px}
+  .widget dl{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:12px 0}
+  .widget dd{margin:0;text-align:right;font: .89rem var(--mono)}
+  .widget-meta{font: .76rem/1.4 var(--mono);overflow-wrap:anywhere}
+  .widget h2{font-size:23px}.widget a{display:inline-block;margin-top:9px}
+  .widget-layout:has(.widget[hidden]){max-width:580px}.widget-layout button{font: .81rem var(--mono)}
+  </style>
+</head>
+<body>
+  <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="View controls"><a class="button" href="desk.html">Trading desk</a>
+    <div class="themes" aria-label="Color theme">
+      <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
+      <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+    </div></nav>
+  </header>
+  <main class="desk widget-layout">
+    <header class="desk-heading">
+      <div><h1>Live market widgets</h1><p>Spot prints, perpetual pricing, and published FX reference rates.</p></div>
+      <div class="desk-controls">
+        <label>Market <select id="widget-market"><option value="ETH_USDT">ETH / USDT</option><option value="BTC_USDT">BTC / USDT</option><option value="XRP_USDT">XRP / USDT</option></select></label>
+        <button id="widget-connect" type="button" aria-pressed="false">Connect feeds</button>
+        <button id="widget-install" type="button" hidden>Install widgets</button>
+      </div>
+    </header>
+    <div class="widget-grid">
+      <section class="desk-panel widget" id="spot">
+        <h2>Spot executions</h2><p>Last 20 public prints returned by Gate.</p>
+        <dl></dl><p class="widget-meta" role="status">Paused.</p>
+        <a href="?widget=spot">Open this widget alone</a>
+      </section>
+      <section class="desk-panel widget" id="perpetual">
+        <h2>Perpetual pricing</h2><p>Gate mark, index, funding, and open interest.</p>
+        <dl></dl><p class="widget-meta" role="status">Paused.</p>
+        <a href="?widget=perpetual">Open this widget alone</a>
+      </section>
+      <section class="desk-panel widget" id="reference">
+        <h2>ECB FX references</h2><p>Daily rates via Frankfurter. The observation date follows the ECB release.</p>
+        <dl></dl><p class="widget-meta" role="status">Paused.</p>
+        <a href="?widget=reference">Open this widget alone</a>
+      </section>
+    </div>
+    <p><a href="https://www.gate.com/docs/developers/apiv4/en/spot/">Gate spot fields</a> · <a href="https://www.gate.com/docs/developers/apiv4/en/futures/">Gate perpetual fields</a> · <a href="https://frankfurter.dev/">Frankfurter and ECB attribution</a></p>
+  </main>
+</body>
+</html>

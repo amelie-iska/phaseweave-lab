@@ -1,0 +1,53 @@
+{
+  "scope": "Published evidence for related proprietary models and commercial platforms. None of these rows was tested on the PhaseWeave FX windows or with the PhaseWeave FinQA prompt, evidence scoring or execution protocol.",
+  "rows": [
+    {
+      "model": "OpenAI GPT-5.1",
+      "function": "Numerical financial QA",
+      "metric": "0.723 weighted performance score",
+      "population": "248 FinQA items in the Integrated Financial Benchmark",
+      "protocol": "Independent 2026 study, 70% numeric match and 30% format. Uses FinQA train/development items.",
+      "source": "https://www.mdpi.com/2674-1032/5/4/101"
+    },
+    {
+      "model": "Anthropic Claude Sonnet 4.6",
+      "function": "Numerical financial QA",
+      "metric": "0.716 weighted performance score",
+      "population": "248 FinQA items in the Integrated Financial Benchmark",
+      "protocol": "Same independent 2026 study and composite as GPT-5.1.",
+      "source": "https://www.mdpi.com/2674-1032/5/4/101"
+    },
+    {
+      "model": "Google Gemini 3.5 Flash",
+      "function": "Numerical financial QA",
+      "metric": "0.559 weighted performance score",
+      "population": "248 FinQA items in the Integrated Financial Benchmark",
+      "protocol": "Same independent 2026 study and composite as GPT-5.1.",
+      "source": "https://www.mdpi.com/2674-1032/5/4/101"
+    },
+    {
+      "model": "BloombergGPT 50B",
+      "function": "Conversational financial QA",
+      "metric": "43.41% exact match",
+      "population": "ConvFinQA public development set",
+      "protocol": "Bloomberg paper, Table 8. One demonstration and gold previous conversation turns.",
+      "source": "https://arxiv.org/html/2303.17564v3#S5.T8"
+    },
+    {
+      "model": "Nixtla TimeGPT-1",
+      "function": "Foundation time-series inference",
+      "metric": "0.6 ms average GPU inference per series",
+      "population": "Nixtla internal zero-shot timing study",
+      "protocol": "Author-reported model inference timing. API transport and strategy execution are outside the reported measure.",
+      "source": "https://arxiv.org/html/2310.03589#S6.SS3"
+    },
+    {
+      "model": "QuantConnect Cloud",
+      "function": "Market-data delivery",
+      "metric": "90% of bars delivered within 250 ms",
+      "population": "Vendor market-open recording for its consolidated OPRA options feed",
+      "protocol": "Vendor-reported options feed delivery. PhaseWeave paper desk observes Gate spot REST responses on a different venue and clock.",
+      "source": "https://www.quantconnect.com/announcements/21283/equity-and-index-options-datafeed/p0"
+    }
+  ]
+}

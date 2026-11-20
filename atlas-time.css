@@ -1,0 +1,50 @@
+.atlas-time-timeline {
+  display: grid;
+  grid-template-columns: minmax(160px,.6fr) minmax(260px,1.35fr) minmax(190px,.75fr);
+  gap: 14px 22px;
+  align-items: center;
+  padding: 12px 13px;
+  border: 1px solid var(--faint);
+  margin-bottom: 12px;
+  background: var(--surface);
+}
+.atlas-time-timeline h2 { font-size: 24px; }
+.atlas-time-timeline time { font: 12px/1.5 var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+.atlas-time-steps { display: grid; grid-template-columns: max-content minmax(0,1fr); align-items: center; gap: 4px 12px; }
+.atlas-time-steps input { width: 100%; min-width: 0; }
+.atlas-time-ticks { display: flex; grid-column: 2; gap: 6px; justify-content: space-between; }
+.atlas-time-ticks button { font: 11px var(--mono); min-height: 29px; padding: 3px 6px; }
+.atlas-time-ticks button[aria-pressed="true"] { border-color: var(--jade); color: var(--jade); }
+.atlas-time-clock { display: grid; gap: 6px; font-size: 13px; }
+.atlas-time-clock time { display: block; }
+.atlas-time-page .atlas-layout { grid-template-columns: minmax(190px,.85fr) minmax(0,2.55fr) minmax(245px,1.1fr); }
+.atlas-time-page .atlas-results button { font: 11px/1.45 var(--mono); padding-inline: 6px; }
+.atlas-time-page .atlas-results small { font: 10px/1.4 var(--mono); }
+.atlas-time-page .atlas-detail h2 { font: 600 clamp(14px,1.45vw,20px)/1.4 var(--mono); }
+.atlas-time-before { color: var(--jade); }
+.atlas-time-after { color: var(--copper); }
+.atlas-time-both { color: var(--atlas-blue); }
+#atlas-time-canvas { display: block; width: 100%; height: clamp(330px,53vh,570px); min-height: 0; background: var(--canvas); border-block: 1px solid var(--faint); touch-action: pinch-zoom; }
+#atlas-time-canvas:focus-visible { outline-offset: -4px; }
+.atlas-time-pan { display: flex; gap: 6px; padding: 6px 12px 0; }
+.atlas-time-pan button { min-width: 38px; min-height: 29px; padding: 4px 8px; }
+#atlas-time-drift { padding: 4px 0 0; min-height: 0; }
+#atlas-time-jump { margin-top: 10px; }
+#atlas-time-related summary { margin-top: 8px; cursor: pointer; }
+#atlas-time-related li button { font: 11px/1.4 var(--mono); max-width: 100%; overflow-wrap: anywhere; }
+#atlas-time-checksum { font: 11px/1.4 var(--mono); overflow-wrap: anywhere; }
+#atlas-time-error { color: var(--copper); margin: 7px 0; }
+.atlas-time-page [hidden] { display: none !important; }
+@media (max-width: 1050px) {
+  .atlas-time-page .atlas-layout { grid-template-columns: minmax(230px,1fr) minmax(0,2.3fr); }
+}
+@media (max-width: 760px) {
+  .atlas-time-timeline { grid-template-columns: minmax(0,1fr) minmax(0,1.4fr); gap: 8px 12px; }
+  .atlas-time-clock { grid-column: 1 / -1; grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 710px) {
+  .atlas-time-page .atlas-layout, .atlas-time-timeline { grid-template-columns: minmax(0,1fr); }
+  .atlas-time-page .atlas-detail h2 { font-size: 18px; }
+  .atlas-time-page .atlas-map-header h2 { flex-basis: 100%; }
+  #atlas-time-canvas { height: clamp(300px,62vw,465px); }
+}

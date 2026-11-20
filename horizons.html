@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Forecast horizons · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="horizons.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="results.html#forecast-baselines">Baseline comparisons</a>
+      <a class="button" href="desk.html">Trading desk</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="results">
+    <h1>Forecast horizons</h1>
+    <p class="standfirst">Compare directed FX quote margins from one second to five minutes.</p>
+    <section class="result-panel" aria-labelledby="horizons-title">
+      <div class="result-title">
+        <h2 id="horizons-title">Holdout forecasts</h2>
+        <label>Split <select id="horizon-split"><option value="test">October holdout</option><option value="stress">September stress</option><option value="new_asset">Unseen CHF</option><option value="validation">September validation</option></select></label>
+        <label>Rows <select id="horizon-support"><option value="eligible">Eligible at each horizon</option><option value="complete">Observed at all five horizons</option></select></label>
+      </div>
+      <p>Scores are mean absolute error in log basis points. Compare eligible rows for coverage, or use the same complete rows across horizons.</p>
+      <div id="horizon-models"></div>
+      <p id="horizon-status" role="status">Loading measured results.</p>
+    </section>
+    <section class="result-panel" aria-labelledby="horizon-contrasts-title">
+      <h2 id="horizon-contrasts-title">Paired changes from depth and surface training</h2>
+      <p>Negative differences favor the added layers or the torus branch. Intervals resample UTC days on horizon-eligible rows, with one initialization per fit.</p>
+      <div id="horizon-contrasts"></div>
+      <p><a href="horizon-depth-contrasts-v1.json">Download paired contrasts</a></p>
+    </section>
+    <section class="result-panel" aria-labelledby="horizon-corpus-title">
+      <h2 id="horizon-corpus-title">Dataset and eligibility</h2>
+      <p>The August training set contains 262,144 unique triangle and timestamp keys from measured bid/ask quotes. Every target quote is at most 250 ms old at its horizon and strictly newer than the input anchor. The 300-second target must remain inside its fold.</p>
+      <div id="horizon-corpus"></div>
+      <p><a href="horizons-v1.json">Download aggregate results</a> · <a href="https://wandb.ai/amelie-iska-math/phaseweave/groups/fx-horizons-v1">W&amp;B training group</a> · <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md">Curation and training instructions</a></p>
+    </section>
+    <section class="research">
+      <h2>Graph computation</h2>
+      <p>Each bid–ask pair becomes two directed edges. The spatial encoder pools node and edge tokens per frame. Temporal attention mixes 16 frame embeddings, then a shared head predicts two margins at each horizon as corrections to current-margin persistence.</p>
+      <p><a href="architecture.html">Step through the saved tensors</a> · <a href="reasoning.html">3D reasoning examples</a> · <a href="scaling.html">Width and corpus scaling</a></p>
+    </section>
+  </main>
+</body>
+</html>

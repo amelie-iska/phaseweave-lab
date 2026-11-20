@@ -28,7 +28,11 @@ function table(destination, columns, data) {
   const body = result.createTBody();
   for (const row of data) {
     const target = body.insertRow();
-    row.forEach((value) => { target.insertCell().textContent = value; });
+    row.forEach((value) => {
+      const cell = target.insertCell();
+      if (value instanceof Node) cell.append(value);
+      else cell.textContent = value;
+    });
   }
   box.append(result);
   destination.replaceChildren(box);
@@ -173,12 +177,35 @@ function renderBaselines() {
   }));
   series.push({label:"PhaseWeave 2M", value:phaseScore, parameters:2020265, budget:phaseweave.best_epoch, transfer:true});
   series.sort((a, b) => a.value - b.value);
-  drawBars(item("baseline-chart"), series.map((row, index) => ({...row, label:String(index + 1)})), persistence);
-  table(item("baseline-table"), ["Rank", "Forecast", "Trainable parameters", "Selected epoch", "MAE (log bps)"],
-    series.map((row, index) => [index+1, row.label, row.parameters?.toLocaleString() ?? "—", row.budget, number(row.value)]));
+  if (item("baseline-chart-details").open) {
+    drawBars(item("baseline-chart"), series.map((row, index) => ({...row, label:String(index + 1)})), persistence);
+  }
+  const primary = "https://github.com/thuml/Time-Series-Library/blob/4e938a1767106324dd753b2a44832bf870a0252e/models/";
+  const links = {
+    "PhaseWeave 2M":"https://huggingface.co/AmelieSchreiber/PhaseWeave-FX-Pilot",
+    HistGradientBoosting:"https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html",
+    Persistence:"https://github.com/amelie-iska/PhaseWeave/blob/main/research/baseline_benchmark.py",
+  };
+  const modelLink = (name) => {
+    const link = document.createElement("a");
+    link.href = links[name] || primary + name + ".py";
+    link.textContent = name;
+    return link;
+  };
+  table(item("baseline-table"), ["Rank", "Forecaster", "Parameters", "Best epoch", "MAE (log bps)"],
+    series.map((row,index)=>[index+1,modelLink(row.label),row.parameters?.toLocaleString() ?? "—",row.budget,number(row.value,6)]));
+  const rank = series.findIndex(r=>r.transfer);
+  item("baseline-table").querySelector("tbody").rows[rank].dataset.project = "phaseweave";
+  const external = series.find(r=>!r.transfer);
+  const sample = runs[0].splits[split].rows;
+  const selection = item("baseline-split").selectedOptions[0].textContent;
+  item("baseline-summary").textContent = `${selection} · PhaseWeave 2M scored ${number(phaseScore,6)} log bps over ${sample.toLocaleString()} windows. ${external.label} led the comparison models at ${number(external.value,6)}. Lower MAE is better.`;
+  item("baseline-scope").textContent = budget === "23" ?
+    "All 11 neural models saw 23 passes. Model sizes and optimizer updates differ." :
+    "The neural baselines trained for 3 passes and PhaseWeave for 23.";
   item("baseline-note").textContent = budget === "23" ?
-    "The ten backbone adaptations and PhaseWeave saw 23 full passes. They used respectively 5,888 and 23,552 updates with different parameter counts. Persistence and histogram boosting are fixed controls." :
-    "The ten compact backbone adaptations saw three full passes and PhaseWeave saw 23. Persistence and histogram boosting are fixed controls.";
+    "The ten compact backbones and PhaseWeave each saw 65,536 August windows 23 times. The backbones used 5,888 updates with batch size 256; PhaseWeave used 23,552 with batch size 64. September validation selected each checkpoint. Model sizes and compute differ." :
+    "The ten compact backbones saw three full passes (768 updates); the PhaseWeave checkpoint saw 23 (23,552 updates). All use the same held-out windows. Persistence and gradient boosting retain their original settings in both views.";
 }
 
 function renderContinuous() {
@@ -268,6 +295,7 @@ item("semiring-split").addEventListener("change",renderSemiring);
 item("convergence-width").addEventListener("change",renderConvergence);
 item("baseline-split").addEventListener("change",renderBaselines);
 item("baseline-budget").addEventListener("change",renderBaselines);
+item("baseline-chart-details").addEventListener("toggle",renderBaselines);
 item("continuous-split").addEventListener("change",renderContinuous);
 item("reference-arm").addEventListener("change", renderReference);
 item("reference-split").addEventListener("change", renderReference);
@@ -325,3 +353,21 @@ fetch("joint-reference-data.json").then((response) => {
   reference = data;
   renderReference();
 }).catch(() => { item("reference-note").textContent = "The reference experiment data could not load."; });
+
+
+fetch("baseline-roster-v2.json").then(response=>{
+  if (!response.ok) throw new Error("Unavailable zero-shot receipt");
+  return response.json();
+}).then(data=>{
+  const splits = [["validation","Validation"],["test","October holdout"],["new_asset","Unseen CHF"],["stress","September stress"]];
+  const names = ["TimesFM 2.5","PhaseWeave 2M","Persistence"];
+  table(item("timesfm-table"),["Split","Windows",...names],splits.map(([id,label])=>{
+    const row = data.splits[id];
+    return [label,row.rows,...names.map(name=>number(row.mae[name],6))];
+  }));
+  const october = data.splits.test.paired_timesfm_minus_reference["PhaseWeave 2M"];
+  const [low,high] = october.day_bootstrap_95;
+  item("timesfm-note").textContent = `On October windows, TimesFM’s MAE exceeded PhaseWeave’s by ${number(october.mean_delta,6)} log bps (paired 95% day-bootstrap interval ${number(low,6)} to ${number(high,6)}). TimesFM had lower point estimates on stress and CHF; both intervals included zero. The 16 observations fill half of one 32-step TimesFM patch.`;
+}).catch(()=>{
+  item("timesfm-note").textContent = "The measured sample could not be loaded. Open the score receipt for the original values.";
+});

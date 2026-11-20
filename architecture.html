@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Architecture microscope · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="architecture.css">
+  <script defer src="reasoning-3d.js"></script>
+  <script defer src="architecture.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="horizons.html">Forecast horizons</a>
+      <a class="button" href="surfaces.html">Higher-genus lab</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="architecture">
+    <header>
+      <h1>Inside the forecast</h1>
+      <p class="arch-lead">Step through a recorded quote window and inspect the computations from trained model weights.</p>
+    </header>
+    <p id="architecture-status" role="status">Loading the saved computation trace.</p>
+    <div class="arch-tabs" aria-label="Computation trace">
+      <button type="button" id="arch-network" aria-pressed="true">Attention network</button>
+      <button type="button" id="arch-surface" aria-pressed="false">Trained surface branch</button>
+    </div>
+    <div class="arch-grid">
+      <section class="arch-panel" aria-labelledby="arch-view-title">
+        <div class="arch-heading">
+          <div><h2 id="arch-view-title">Computation in 3D</h2><p id="arch-scene-description"></p></div>
+          <button id="arch-play" type="button" disabled>Play layers</button>
+        </div>
+        <canvas id="architecture-canvas" tabindex="0" aria-label="3D layers and connections. Camera settings are below."></canvas>
+        <div class="arch-camera" id="arch-camera" aria-label="3D camera">
+          <label>Yaw <input name="yaw" min="-180" max="180" value="-32" type="range"></label>
+          <label>Pitch <input name="pitch" min="-85" max="85" value="24" type="range"></label>
+          <label>Zoom <input name="zoom" min=".55" max="1.55" step=".05" value="1" type="range"></label>
+          <button type="button">Reset view</button>
+        </div>
+        <div class="arch-heading" id="arch-layer-bar">
+          <label>Step <input type="range" id="arch-depth" min="0" max="0" value="0" disabled></label>
+          <output id="arch-stage-label"></output>
+        </div>
+      </section>
+      <section class="arch-panel" aria-labelledby="arch-inspect-title">
+        <h2 id="arch-inspect-title">Tensor inspector</h2>
+        <div id="arch-selectors"></div>
+        <dl id="arch-details" class="arch-details"></dl>
+      </section>
+    </div>
+    <section class="arch-panel" id="arch-matrix-panel" aria-labelledby="arch-matrix-title">
+      <h2 id="arch-matrix-title">Attention matrix</h2>
+      <p id="arch-matrix-note"></p>
+      <div id="arch-matrix" class="arch-scroll"></div>
+    </section>
+    <section class="arch-panel" aria-labelledby="arch-readout-title">
+      <div class="arch-heading"><h2 id="arch-readout-title">Forecast readout</h2><label>Output <select id="arch-output"></select></label></div>
+      <p id="arch-readout-note"></p>
+      <div id="arch-readout" class="arch-scroll"></div>
+    </section>
+    <section class="arch-panel" aria-labelledby="arch-methods-title">
+      <h2 id="arch-methods-title">Reproduce this trace</h2>
+      <p id="arch-provenance"></p>
+      <p><a href="replay.json">Public quote sequence</a> · <a href="horizons-deep-trace-v1.json">Full network tensors</a> · <a href="horizons-surface-trace-v1.json">Full surface tensors</a> · <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md">Reproduction protocol</a></p>
+    </section>
+  </main>
+</body>
+</html>

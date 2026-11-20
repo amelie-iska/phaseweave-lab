@@ -1,0 +1,34 @@
+#forecast-baselines .roster-summary { color: var(--text); margin: .9rem 0 .5rem; }
+.roster-links { display: flex; flex-wrap: wrap; gap: .4rem 1.3rem; }
+#forecast-baselines .selectors { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1.2rem; }
+#forecast-baselines .selectors label { font-size: .9rem; }
+#baseline-table .table-overflow { max-height: none; }
+#baseline-table tbody tr[data-project] { color: var(--jade); }
+#baseline-table td:last-child { font-weight: 650; font-variant-numeric: tabular-nums; }
+#foundation-roster { margin-top: 1rem; }
+#foundation-roster table { table-layout: fixed; }
+#foundation-roster th, #foundation-roster td { white-space: normal; text-align: left; vertical-align: top; padding: .65rem; }
+#foundation-roster th:first-child { width: 23%; }
+#foundation-roster th:last-child { width: 24%; }
+#timesfm-pilot { margin-top: 1rem; }
+#timesfm-pilot table { width: auto; min-width: min(100%, 630px); }
+#timesfm-pilot td { font-variant-numeric: tabular-nums; }
+#forecast-baselines details { margin: .8rem 0; }
+#forecast-baselines summary { cursor: pointer; }
+@media (max-width: 620px) {
+  #forecast-baselines .selectors { width: 100%; align-items: stretch; }
+  #forecast-baselines .selectors label { flex-direction: column; align-items: start; gap: .25rem; }
+  #baseline-table table { font-size: .77rem; table-layout: fixed; min-width: 0; }
+  #baseline-table th:nth-child(1) { width: 9%; }
+  #baseline-table th:nth-child(2) { width: 33%; }
+  #baseline-table th:nth-child(3) { width: 23%; }
+  #baseline-table th:nth-child(4) { width: 13%; }
+  #baseline-table th:nth-child(5) { width: 22%; }
+  #baseline-table td:nth-child(2) { overflow-wrap: anywhere; }
+  #baseline-table td, #baseline-table th { white-space: normal; text-align: left; padding: .4rem .22rem; }
+  #foundation-roster table { font-size: .82rem; }
+  #foundation-roster th:first-child, #foundation-roster th:last-child { width: 26%; }
+  #foundation-roster th, #foundation-roster td { padding: .45rem .2rem; }
+  #timesfm-pilot table { font-size: .78rem; }
+  #timesfm-pilot th, #timesfm-pilot td { white-space: normal; padding: .4rem .23rem; }
+}

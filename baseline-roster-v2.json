@@ -1,0 +1,148 @@
+{
+  "complete_context_only": true,
+  "config_sha256": "452ecae918f67b2e7d0f2892ab424d1876939e70d077db3708a4fe8ca03a7de5",
+  "cpu_threads": 4,
+  "data_sha256": "89177f9ca8eb968e50ee763bda01850af603ac663268db94a2015c01007aabff",
+  "history_seconds": 16,
+  "horizon_seconds": 1,
+  "model": "google/timesfm-2.5-200m-transformers",
+  "phaseweave_sha256": "c22a9fe57a069766057b96b25ae2031a920e954b262a454e88036a56dc9bb967",
+  "revision": "5a9806b9b291fad9233b5249d88263f1846304d3",
+  "rows_per_triangle": 64,
+  "seed": 20261128,
+  "source_sha256": "2a93186ebe97fb1dd2cdf441aab9472f66fa915f7294c3ef242ca52e38946091",
+  "splits": {
+    "new_asset": {
+      "days": 17,
+      "ids_sha256": "2de33500a67374541addf9cdd45446f73bfdf53b4fb7f14f1846707ae29f16a6",
+      "mae": {
+        "Persistence": 0.3174256996717304,
+        "PhaseWeave 2M": 0.2394023595843464,
+        "TimesFM 2.5": 0.23192001949064434
+      },
+      "paired_timesfm_minus_reference": {
+        "Persistence": {
+          "day_bootstrap_95": [
+            -0.11691679569343591,
+            -0.0404902981847828
+          ],
+          "mean_delta": -0.08550568018108606
+        },
+        "PhaseWeave 2M": {
+          "day_bootstrap_95": [
+            -0.020861400393736844,
+            0.011022000106105077
+          ],
+          "mean_delta": -0.007482340093702078
+        }
+      },
+      "prediction_sha256": {
+        "Persistence": "57189bf564de071f79819af3882c6f127172080ffa4da0b4616eee79d99d4b7e",
+        "PhaseWeave 2M": "49cb5e4e697d1ea0d8f73fc100d52794a8290ca83af7075375f7b841db949c89",
+        "TimesFM 2.5": "c245e3a6a88fa84d802ce0492baff7346768cdfe6f90d123b504ac0731700da6"
+      },
+      "rows": 128,
+      "triangles": 2
+    },
+    "stress": {
+      "days": 9,
+      "ids_sha256": "12d2c5ca743bc831d2913ca961c6d299ec22c4ff435ef1e560a71355ce0ac897",
+      "mae": {
+        "Persistence": 0.2898885350150522,
+        "PhaseWeave 2M": 0.2233317750506103,
+        "TimesFM 2.5": 0.21632674665306695
+      },
+      "paired_timesfm_minus_reference": {
+        "Persistence": {
+          "day_bootstrap_95": [
+            -0.12147733250342083,
+            -0.044083699503874016
+          ],
+          "mean_delta": -0.0735617884201929
+        },
+        "PhaseWeave 2M": {
+          "day_bootstrap_95": [
+            -0.03279306032639156,
+            0.007286491201575289
+          ],
+          "mean_delta": -0.007005028397543356
+        }
+      },
+      "prediction_sha256": {
+        "Persistence": "8ec3a94f86a5680c00459e169dfa8daf576a8a6a4c16c310d5ea72e03d2a1401",
+        "PhaseWeave 2M": "06d914259b0506650d5ae14903ebd68dfec2d460ec28ede9bd3d121ae7e3c83d",
+        "TimesFM 2.5": "493c91b43744aed6cf3e961f76bfb7ece07cf7099085521689c08e34a098d6b1"
+      },
+      "rows": 256,
+      "triangles": 4
+    },
+    "test": {
+      "days": 21,
+      "ids_sha256": "254cff34992d9c30afa07d3eb983a5704bd24d1cee595e9585aa8470924b9320",
+      "mae": {
+        "Persistence": 0.28563868650235236,
+        "PhaseWeave 2M": 0.22380861639976501,
+        "TimesFM 2.5": 0.23591289552859962
+      },
+      "paired_timesfm_minus_reference": {
+        "Persistence": {
+          "day_bootstrap_95": [
+            -0.06836384703707682,
+            -0.033630078179430374
+          ],
+          "mean_delta": -0.04972579097375274
+        },
+        "PhaseWeave 2M": {
+          "day_bootstrap_95": [
+            0.004537728187416244,
+            0.019420588819590946
+          ],
+          "mean_delta": 0.012104279128834605
+        }
+      },
+      "prediction_sha256": {
+        "Persistence": "e4b4324bf2a90863c798124cfb05c17cc69690abbc2f2d5b03de057e8a2d7bb2",
+        "PhaseWeave 2M": "ce36f4524ae88d937021239b91acae8dbda671e37ae3fb8eb13955c4ea8887db",
+        "TimesFM 2.5": "d43e1878c15d4953de9dfe1e4aa71aed9ed32b524e5ecd1518491cb26429a824"
+      },
+      "rows": 256,
+      "triangles": 4
+    },
+    "validation": {
+      "days": 12,
+      "ids_sha256": "4e03c4610660affdb757ff7d0c411381854dab19a7aa2a6a258d2a42dfda4d82",
+      "mae": {
+        "Persistence": 0.40506294928491116,
+        "PhaseWeave 2M": 0.31007266393862665,
+        "TimesFM 2.5": 0.31557440862525254
+      },
+      "paired_timesfm_minus_reference": {
+        "Persistence": {
+          "day_bootstrap_95": [
+            -0.10988206205484177,
+            -0.06698509167896553
+          ],
+          "mean_delta": -0.08948854065965861
+        },
+        "PhaseWeave 2M": {
+          "day_bootstrap_95": [
+            -0.024566405457548787,
+            0.020208998798916557
+          ],
+          "mean_delta": 0.005501744686625898
+        }
+      },
+      "prediction_sha256": {
+        "Persistence": "b6faa4c684a149584a72f5baa1a9e7d386de6abef54b47d7d744688c631136e6",
+        "PhaseWeave 2M": "37c0a06da1a550838b777d9382a8402ec23e93974e28449b920b290e69286f59",
+        "TimesFM 2.5": "73d2da9935706fc6434e4568b93f5200dab4776f5f28b874b19e53e4c4b51241"
+      },
+      "rows": 256,
+      "triangles": 4
+    }
+  },
+  "timesfm_input": "each directional margin separately, first point forecast, official mask padding to one 32-step patch",
+  "torch": "2.8.0+cu128",
+  "transformers": "5.7.0",
+  "weights_sha256": "b53f6d52114e2ad786890f3c4637ce05f580b7800d6e24401f88b398b76035ef"
+}

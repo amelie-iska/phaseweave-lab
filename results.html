@@ -7,6 +7,7 @@
   <title>Experiment results · PhaseWeave</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="baseline-roster-v2.css">
   <script defer src="results.js"></script>
 </head>
 <body>
@@ -23,7 +24,45 @@
   <main class="results">
     <h1>Experiment results</h1>
     <p class="standfirst">Measured forecasts on timestamped FX quote graphs. Scores are in log basis points.</p>
-    <p><a href="scaling.html">Compare model widths, unique windows and data reuse</a></p>
+    <nav class="roster-links" aria-label="Forecast comparisons"><a href="#forecast-baselines">Measured FX scores</a><a href="#foundation-roster">Pretrained models</a><a href="horizons.html">Forecast horizons</a><a href="scaling.html">Model and data scaling</a></nav>
+    <section class="result-panel" id="forecast-baselines" aria-labelledby="baseline-title">
+      <div class="result-title">
+        <h2 id="baseline-title">One-second FX forecasting benchmarks</h2>
+        <div class="selectors">
+          <label>Training exposure <select id="baseline-budget"><option value="23">23 full passes</option><option value="3">3 full passes</option></select></label>
+          <label>Split <select id="baseline-split"><option value="test">October holdout</option><option value="new_asset">Unseen CHF</option><option value="stress">September stress</option><option value="validation">Validation</option></select></label>
+        </div>
+      </div>
+      <p class="roster-summary" id="baseline-summary" aria-live="polite">Compare PhaseWeave with ten published neural backbones, gradient boosting and persistence on the same FX quote windows.</p>
+      <p id="baseline-scope">The models differ in size and optimizer updates.</p>
+      <div id="baseline-table"></div>
+      <details><summary>Training exposure and model selection</summary><p id="baseline-note"></p></details>
+      <details id="baseline-chart-details"><summary>View the ranked error chart</summary>
+        <canvas id="baseline-chart" aria-label="Mean absolute errors by table rank, with matching values in the table above"></canvas>
+      </details>
+      <p class="roster-links"><a href="baseline-23-data.json">23-pass scores</a><a href="baseline-data.json">3-pass scores</a><a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/BASELINES_EVALUATED.md">Training protocol</a><a href="https://github.com/thuml/Time-Series-Library/tree/4e938a1767106324dd753b2a44832bf870a0252e">Pinned backbone implementations</a></p>
+    </section>
+    <section class="result-panel" id="foundation-roster" aria-labelledby="foundation-title">
+      <h2 id="foundation-title">Pretrained forecasting models</h2>
+      <p>These checkpoints were trained on time series from multiple domains. Their inputs, prediction targets and public benchmark protocols differ from this one-second FX task.</p>
+      <table aria-label="Foundation models and local FX evaluation status">
+        <thead><tr><th scope="col">Model and source</th><th scope="col">Forecasting capability</th><th scope="col">PhaseWeave FX test</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://huggingface.co/amazon/chronos-2">Chronos-2</a></td><td>Forecasts related series jointly and uses past or known-future covariates to predict quantiles.</td><td>Unevaluated</td></tr>
+          <tr><td><a href="https://huggingface.co/google/timesfm-2.5-200m-transformers">TimesFM 2.5</a></td><td>Produces point and quantile forecasts from a numerical series, with up to 16,384 historical observations.</td><td><a href="#timesfm-pilot">Zero-shot FX sample</a></td></tr>
+          <tr><td><a href="https://huggingface.co/google/timesfm-3.0-pytorch">TimesFM 3.0</a></td><td>Forecasts multiple targets together and accepts past-only or known-future covariates.</td><td>Unevaluated</td></tr>
+          <tr><td><a href="https://huggingface.co/Salesforce/moirai-2.0-R-small">Moirai 2.0 Small</a></td><td>Predicts multiple steps and quantiles with a decoder that embeds missing-value information.</td><td>Unevaluated</td></tr>
+          <tr><td><a href="https://github.com/DataDog/toto#toto-20">Toto 2.0</a></td><td>Predicts multivariate quantiles using attention across time and variables. Its observability models accept missing-value masks.</td><td>Unevaluated</td></tr>
+        </tbody>
+      </table>
+      <section id="timesfm-pilot" aria-labelledby="timesfm-title">
+        <h3 id="timesfm-title">TimesFM 2.5 on matching FX windows</h3>
+        <p>The official Google checkpoint predicts each route from its 16 historical margins. PhaseWeave uses the same 16 frames with all directed edge features; persistence repeats the last margin. All three use the same rows and one-second targets. This smaller sample includes 64 complete-history windows per triangle.</p>
+        <div id="timesfm-table" aria-live="polite"></div>
+        <p id="timesfm-note"></p>
+        <p class="roster-links"><a href="baseline-roster-v2.json">Sample scores and paired intervals</a><a href="baseline-roster-v2.py">Reproduce the CPU evaluation</a></p>
+      </section>
+    </section>
     <section class="result-panel" aria-labelledby="convergence-title">
       <div class="result-title">
         <h2 id="convergence-title">Full-epoch validation</h2>
@@ -57,18 +96,6 @@
       </div>
       <p>Coherent amplitudes, dephased probability sums, and tropical max-plus path scores with the same preparation, local mixers, and trainable parameter count.</p>
       <div id="semiring-table"></div>
-    </section>
-    <section class="result-panel" aria-labelledby="baseline-title">
-      <div class="result-title">
-        <h2 id="baseline-title">External backbone controls</h2>
-        <div class="selectors">
-          <label>Training exposure <select id="baseline-budget"><option value="23">23 full passes</option><option value="3">3 full passes</option></select></label>
-          <label>Split <select id="baseline-split"><option value="test">October holdout</option><option value="new_asset">Unseen CHF</option><option value="stress">September stress</option><option value="validation">Validation</option></select></label>
-        </div>
-      </div>
-      <canvas id="baseline-chart" aria-label="Control mean absolute errors ranked by the selected split"></canvas>
-      <p id="baseline-note">Ten published backbone adaptations, persistence, and histogram boosting on the same frozen FX windows. The model sizes and optimization budgets differ.</p>
-      <div id="baseline-table"></div>
     </section>
     <section class="result-panel" id="joint-reference" aria-labelledby="reference-title">
       <div class="result-title">

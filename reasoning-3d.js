@@ -58,7 +58,7 @@ const Reasoning3D = (() => {
       const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
       const coordinates = [...scene.points.map(node => node.point), ...scene.lines.flatMap(line => line.coords)];
       const range = Math.max(scene.minExtent ?? 1.2, ...coordinates.filter(p => p.length === 3).flatMap(p => p.map(Math.abs)));
-      const unit = Math.min(width, height) * 0.31 * camera.zoom / range;
+      const unit = Math.min(width, height) * (scene.framingScale ?? 0.31) * camera.zoom / range;
       function project(point) {
         const [x, y, z = 0] = point;
         const horizontal = cy * x + sy * z, radial = -sy * x + cy * z;

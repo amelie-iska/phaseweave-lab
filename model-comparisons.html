@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Measured model comparisons with matched cohorts, source receipts, and pending experiments.">
+  <title>Model comparisons · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="model-comparisons.css">
+  <script defer src="model-comparisons.js"></script>
+</head>
+<body>
+  <header class="top comparison-top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="results.html">Results</a>
+      <a class="button" href="horizons.html">Forecast horizons</a>
+      <a class="button" href="architecture.html">Architecture</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-comparison-theme="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-comparison-theme="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="comparison-page">
+    <header class="comparison-heading">
+      <div>
+        <h1>Model comparisons</h1>
+        <p>Compare models within a study. Each table carries its task, metric, evaluated cohort, and source receipts.</p>
+      </div>
+      <a class="button" href="model-comparisons.json" download>Download comparison JSON</a>
+    </header>
+    <form class="comparison-filters" aria-label="Filter model comparisons">
+      <label>Task <select id="comparison-family" disabled></select></label>
+      <label>Evidence <select id="comparison-status" disabled>
+        <option value="">All evidence</option>
+        <option value="measured">PhaseWeave measurement</option>
+        <option value="external">Published external result</option>
+        <option value="pending">Pending comparison</option>
+        <option value="runtime">Runtime only</option>
+      </select></label>
+      <label>Study <select id="comparison-study" disabled></select></label>
+      <label>Find variants <input type="search" id="comparison-search" placeholder="e.g. GAT coherent tropical" disabled></label>
+    </form>
+    <p id="comparison-summary" role="status">Loading verified comparison inventory…</p>
+    <div id="comparison-results"></div>
+  </main>
+</body>
+</html>

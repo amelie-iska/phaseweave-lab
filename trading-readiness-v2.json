@@ -1,0 +1,1454 @@
+{
+  "audited_fault_checks": 23,
+  "baseline_receipt_sha256": "6e74586018196f946f092a1dd5778d5d1d76fa902ea6d39c5c9cb9e0b0ef2080",
+  "captured_journal_sha256": "4348db8c9e025a8a41bd31bd8680fc6f7b8fdaca5ac21297e0f106c1891a58dd",
+  "clock_policy": {
+    "clock_evidence": "Receipt UTC versus venue generation UTC is observational. Clock synchronization at either endpoint is unverified. Old venue data may reflect quiet markets, publication delay, cached responses or clock offset.",
+    "scope": "Public Gate spot snapshot GET only. The venue order matching engine, production private feeds, order placement, authentication, settlement and real fills were outside the measured scope.",
+    "sequence": "Within an uninterrupted Desk instance, per-market IDs must increase and update time may not regress. An exchange ID reset needs independently confirmed venue recovery and a fresh session.",
+    "venue_lead_tolerance_ms": 250
+  },
+  "driver_sha256": "5d998f363aac0fe8283cfb02cb39a4d1f072545fab9e5961cecb4ae04325ed3a",
+  "endpoint": "https://api.gateio.ws/api/v4/spot/order_book",
+  "fault_source_attempts": [
+    1,
+    2
+  ],
+  "faults": {
+    "late_response_after_deadline": {
+      "checks": {
+        "asset_marked_stranded": true,
+        "deadline_reason": true,
+        "stopped": true,
+        "zero_additional_legs": true
+      },
+      "checks_passed": 4,
+      "checks_total": 4,
+      "passed": true,
+      "seeded_inventory": true,
+      "timeline": [
+        {
+          "action": "seed one hypothetical completed paper leg",
+          "utc": "2026-11-20T20:24:01.924+00:00"
+        },
+        {
+          "action": "deliver after deadline",
+          "utc": "2026-11-20T20:24:16.925+00:00"
+        }
+      ]
+    },
+    "outage_at_deadline": {
+      "checks": {
+        "outage_reason": true,
+        "pending_held_until_deadline": true,
+        "populated_cache_cleared": true,
+        "stranded_and_disarmed": true,
+        "two_failures_counted": true
+      },
+      "checks_passed": 5,
+      "checks_total": 5,
+      "passed": true,
+      "seeded_inventory": true,
+      "timeline": [
+        {
+          "action": "capture books and seed pending inventory",
+          "utc": "2026-11-20T20:24:01.924+00:00"
+        },
+        {
+          "action": "inject a transport timeout",
+          "utc": "2026-11-20T20:24:02.924+00:00"
+        },
+        {
+          "action": "inject a second timeout after the deadline",
+          "utc": "2026-11-20T20:24:16.925+00:00"
+        }
+      ]
+    },
+    "reader_timeout_recovery": {
+      "checks": {
+        "paper_disarmed": true,
+        "recovered_market_snapshot": true,
+        "timeout_recorded": true,
+        "two_reader_iterations": true
+      },
+      "checks_passed": 4,
+      "checks_total": 4,
+      "passed": true,
+      "seeded_inventory": false,
+      "timeline": [
+        {
+          "action": "raise timeout inside the production reader",
+          "utc": "2026-11-20T20:24:01.924+00:00"
+        },
+        {
+          "action": "return recorded books to the following poll",
+          "utc": "2026-11-20T20:24:04.505+00:00"
+        }
+      ]
+    },
+    "reconnect": {
+      "checks": {
+        "generation_advanced": true,
+        "new_generation_received": true,
+        "old_callbacks_ignored": true,
+        "still_disarmed": true
+      },
+      "checks_passed": 4,
+      "checks_total": 4,
+      "passed": true,
+      "seeded_inventory": false,
+      "timeline": [
+        {
+          "action": "observe active connection generation",
+          "utc": "2026-11-20T20:24:01.924+00:00"
+        },
+        {
+          "action": "disconnect, reconnect and deliver old callbacks",
+          "utc": "2026-11-20T20:24:01.925+00:00"
+        },
+        {
+          "action": "deliver captured books to the new connection",
+          "utc": "2026-11-20T20:24:04.505+00:00"
+        }
+      ]
+    },
+    "stale_arrival": {
+      "checks": {
+        "arrival_marked_stale": true,
+        "same_inventory": true,
+        "zero_additional_legs": true
+      },
+      "checks_passed": 3,
+      "checks_total": 3,
+      "passed": true,
+      "seeded_inventory": true,
+      "timeline": [
+        {
+          "action": "seed one hypothetical completed paper leg",
+          "utc": "2026-11-20T20:24:01.924+00:00"
+        },
+        {
+          "action": "replay old receipt at next leg",
+          "utc": "2026-11-20T20:24:03.424+00:00"
+        }
+      ]
+    },
+    "stale_entry": {
+      "checks": {
+        "decision_abstained": true,
+        "no_proposal": true,
+        "two_routes_withheld": true
+      },
+      "checks_passed": 3,
+      "checks_total": 3,
+      "passed": true,
+      "seeded_inventory": false,
+      "timeline": [
+        {
+          "action": "captured market books",
+          "utc": "2026-11-20T20:24:01.924+00:00"
+        },
+        {
+          "action": "deliver delayed capture",
+          "utc": "2026-11-20T20:24:02.087+00:00"
+        }
+      ]
+    }
+  },
+  "finished_utc": "2026-11-20T20:27:06.605+00:00",
+  "interpretation": "The natural timeline is an observed finite feed and paper ledger. Fault tests replay two captured price books with injected delays, transport failures or connection generations; three scenarios begin from explicitly seeded hypothetical inventory. Exchange execution, fills, account authentication, fees and settlement were untested.",
+  "matched_policy_replay": {
+    "v1_session": {
+      "books": 201,
+      "complete_triplets": 67,
+      "future_clock_rejected": 0,
+      "local_receipt_minus_venue_generation_ms": {
+        "BTC_USDT": {
+          "count": 67,
+          "maximum": 2922,
+          "minimum": 112,
+          "p50": 1523.0,
+          "p95": 2688.5
+        },
+        "ETH_BTC": {
+          "count": 67,
+          "maximum": 8941,
+          "minimum": 95,
+          "p50": 2643.0,
+          "p95": 5849.6
+        },
+        "ETH_USDT": {
+          "count": 67,
+          "maximum": 3067,
+          "minimum": 150,
+          "p50": 1443.0,
+          "p95": 2649.4
+        }
+      },
+      "patched_policy_admissible": 1,
+      "previous_policy_admissible": 48,
+      "previously_admissible_now_withheld": 47,
+      "previously_withheld_now_admissible": 0,
+      "receipt_skew_rejected": 0,
+      "replayed_sequence_rejected": 0,
+      "stale_rejected": 66,
+      "venue_current_inside_request_clock_interval": 27,
+      "venue_current_older_than_request_start": 174,
+      "venue_current_over_250ms_ahead_of_receipt": 0
+    },
+    "v2_session": {
+      "books": 210,
+      "complete_triplets": 70,
+      "future_clock_rejected": 0,
+      "local_receipt_minus_venue_generation_ms": {
+        "BTC_USDT": {
+          "count": 70,
+          "maximum": 2814,
+          "minimum": 75,
+          "p50": 1148.0,
+          "p95": 2472.55
+        },
+        "ETH_BTC": {
+          "count": 70,
+          "maximum": 11850,
+          "minimum": 168,
+          "p50": 2617.0,
+          "p95": 5860.05
+        },
+        "ETH_USDT": {
+          "count": 70,
+          "maximum": 2906,
+          "minimum": 138,
+          "p50": 1589.0,
+          "p95": 2698.6
+        }
+      },
+      "patched_policy_admissible": 4,
+      "previous_policy_admissible": 58,
+      "previously_admissible_now_withheld": 54,
+      "previously_withheld_now_admissible": 0,
+      "receipt_skew_rejected": 0,
+      "replayed_sequence_rejected": 0,
+      "stale_rejected": 66,
+      "venue_current_inside_request_clock_interval": 33,
+      "venue_current_older_than_request_start": 177,
+      "venue_current_over_250ms_ahead_of_receipt": 0
+    }
+  },
+  "measured_monotonic_seconds": 185.329,
+  "mode": "public spot quotes and isolated paper execution",
+  "natural": {
+    "age_rejected_triplets": 66,
+    "capture_skew_ms": {
+      "count": 70,
+      "maximum": 555,
+      "minimum": 10,
+      "p50": 67.0,
+      "p95": 206.2
+    },
+    "complete_triplets": 70,
+    "desk_time_admissible_triplets": 4,
+    "desk_time_admissible_with_outside_wall_age": 0,
+    "failed_triplets": 0,
+    "health_timeline": [
+      {
+        "attempt": 1,
+        "completed_utc": "2026-11-20T20:24:01.924+00:00",
+        "max_desk_age_ms": 3720,
+        "max_local_minus_exchange_update_ms": 3720,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 65,
+        "started_utc": "2026-11-20T20:24:01.278+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 2,
+        "completed_utc": "2026-11-20T20:24:04.505+00:00",
+        "max_desk_age_ms": 2575,
+        "max_local_minus_exchange_update_ms": 2575,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 36,
+        "started_utc": "2026-11-20T20:24:03.924+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 3,
+        "completed_utc": "2026-11-20T20:24:07.126+00:00",
+        "max_desk_age_ms": 6319,
+        "max_local_minus_exchange_update_ms": 6319,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 96,
+        "started_utc": "2026-11-20T20:24:06.506+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 4,
+        "completed_utc": "2026-11-20T20:24:10.006+00:00",
+        "max_desk_age_ms": 2065,
+        "max_local_minus_exchange_update_ms": 2065,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 23,
+        "started_utc": "2026-11-20T20:24:09.127+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 5,
+        "completed_utc": "2026-11-20T20:24:12.634+00:00",
+        "max_desk_age_ms": 2226,
+        "max_local_minus_exchange_update_ms": 2226,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 27,
+        "started_utc": "2026-11-20T20:24:12.006+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 6,
+        "completed_utc": "2026-11-20T20:24:15.186+00:00",
+        "max_desk_age_ms": 3667,
+        "max_local_minus_exchange_update_ms": 3667,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 43,
+        "started_utc": "2026-11-20T20:24:14.635+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 7,
+        "completed_utc": "2026-11-20T20:24:17.784+00:00",
+        "max_desk_age_ms": 1901,
+        "max_local_minus_exchange_update_ms": 1901,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 107,
+        "started_utc": "2026-11-20T20:24:17.188+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 8,
+        "completed_utc": "2026-11-20T20:24:20.302+00:00",
+        "max_desk_age_ms": 2395,
+        "max_local_minus_exchange_update_ms": 2395,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 20,
+        "started_utc": "2026-11-20T20:24:19.785+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 9,
+        "completed_utc": "2026-11-20T20:24:22.897+00:00",
+        "max_desk_age_ms": 2859,
+        "max_local_minus_exchange_update_ms": 2859,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 78,
+        "started_utc": "2026-11-20T20:24:22.302+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 10,
+        "completed_utc": "2026-11-20T20:24:25.863+00:00",
+        "max_desk_age_ms": 2414,
+        "max_local_minus_exchange_update_ms": 2414,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 104,
+        "started_utc": "2026-11-20T20:24:24.898+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 11,
+        "completed_utc": "2026-11-20T20:24:28.413+00:00",
+        "max_desk_age_ms": 4964,
+        "max_local_minus_exchange_update_ms": 4964,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 44,
+        "started_utc": "2026-11-20T20:24:27.864+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 12,
+        "completed_utc": "2026-11-20T20:24:31.189+00:00",
+        "max_desk_age_ms": 4946,
+        "max_local_minus_exchange_update_ms": 4946,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 204,
+        "started_utc": "2026-11-20T20:24:30.413+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 13,
+        "completed_utc": "2026-11-20T20:24:33.835+00:00",
+        "max_desk_age_ms": 2680,
+        "max_local_minus_exchange_update_ms": 2680,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 80,
+        "started_utc": "2026-11-20T20:24:33.190+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 14,
+        "completed_utc": "2026-11-20T20:24:36.447+00:00",
+        "max_desk_age_ms": 2070,
+        "max_local_minus_exchange_update_ms": 2070,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 88,
+        "started_utc": "2026-11-20T20:24:35.836+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 15,
+        "completed_utc": "2026-11-20T20:24:38.976+00:00",
+        "max_desk_age_ms": 2602,
+        "max_local_minus_exchange_update_ms": 2602,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 27,
+        "started_utc": "2026-11-20T20:24:38.448+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 16,
+        "completed_utc": "2026-11-20T20:24:41.727+00:00",
+        "max_desk_age_ms": 6475,
+        "max_local_minus_exchange_update_ms": 6475,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 11,
+        "started_utc": "2026-11-20T20:24:40.977+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 17,
+        "completed_utc": "2026-11-20T20:24:44.318+00:00",
+        "max_desk_age_ms": 2599,
+        "max_local_minus_exchange_update_ms": 2599,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 68,
+        "started_utc": "2026-11-20T20:24:43.728+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 18,
+        "completed_utc": "2026-11-20T20:24:46.895+00:00",
+        "max_desk_age_ms": 3455,
+        "max_local_minus_exchange_update_ms": 3455,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 75,
+        "started_utc": "2026-11-20T20:24:46.319+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 19,
+        "completed_utc": "2026-11-20T20:24:49.588+00:00",
+        "max_desk_age_ms": 6148,
+        "max_local_minus_exchange_update_ms": 6148,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 10,
+        "started_utc": "2026-11-20T20:24:48.896+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 20,
+        "completed_utc": "2026-11-20T20:24:52.256+00:00",
+        "max_desk_age_ms": 2339,
+        "max_local_minus_exchange_update_ms": 2339,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 31,
+        "started_utc": "2026-11-20T20:24:51.589+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 21,
+        "completed_utc": "2026-11-20T20:24:55.107+00:00",
+        "max_desk_age_ms": 2769,
+        "max_local_minus_exchange_update_ms": 2769,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 128,
+        "started_utc": "2026-11-20T20:24:54.257+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 22,
+        "completed_utc": "2026-11-20T20:24:57.668+00:00",
+        "max_desk_age_ms": 705,
+        "max_local_minus_exchange_update_ms": 705,
+        "patched_policy_admissible": true,
+        "patched_rejections": [],
+        "previous_policy_admissible": true,
+        "skew_ms": 60,
+        "started_utc": "2026-11-20T20:24:57.108+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 23,
+        "completed_utc": "2026-11-20T20:25:00.253+00:00",
+        "max_desk_age_ms": 2172,
+        "max_local_minus_exchange_update_ms": 2172,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 81,
+        "started_utc": "2026-11-20T20:24:59.669+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 24,
+        "completed_utc": "2026-11-20T20:25:02.797+00:00",
+        "max_desk_age_ms": 3173,
+        "max_local_minus_exchange_update_ms": 3173,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 45,
+        "started_utc": "2026-11-20T20:25:02.255+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 25,
+        "completed_utc": "2026-11-20T20:25:05.322+00:00",
+        "max_desk_age_ms": 3095,
+        "max_local_minus_exchange_update_ms": 3095,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 12,
+        "started_utc": "2026-11-20T20:25:04.798+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 26,
+        "completed_utc": "2026-11-20T20:25:07.986+00:00",
+        "max_desk_age_ms": 4900,
+        "max_local_minus_exchange_update_ms": 4900,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 143,
+        "started_utc": "2026-11-20T20:25:07.323+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 27,
+        "completed_utc": "2026-11-20T20:25:10.730+00:00",
+        "max_desk_age_ms": 11857,
+        "max_local_minus_exchange_update_ms": 11857,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 76,
+        "started_utc": "2026-11-20T20:25:09.987+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 28,
+        "completed_utc": "2026-11-20T20:25:13.418+00:00",
+        "max_desk_age_ms": 2909,
+        "max_local_minus_exchange_update_ms": 2909,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 85,
+        "started_utc": "2026-11-20T20:25:12.731+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 29,
+        "completed_utc": "2026-11-20T20:25:16.281+00:00",
+        "max_desk_age_ms": 4078,
+        "max_local_minus_exchange_update_ms": 4078,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 79,
+        "started_utc": "2026-11-20T20:25:15.419+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 30,
+        "completed_utc": "2026-11-20T20:25:19.183+00:00",
+        "max_desk_age_ms": 5674,
+        "max_local_minus_exchange_update_ms": 5674,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 40,
+        "started_utc": "2026-11-20T20:25:18.282+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 31,
+        "completed_utc": "2026-11-20T20:25:21.722+00:00",
+        "max_desk_age_ms": 2681,
+        "max_local_minus_exchange_update_ms": 2681,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 39,
+        "started_utc": "2026-11-20T20:25:21.184+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 32,
+        "completed_utc": "2026-11-20T20:25:24.415+00:00",
+        "max_desk_age_ms": 5159,
+        "max_local_minus_exchange_update_ms": 5159,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 173,
+        "started_utc": "2026-11-20T20:25:23.723+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 33,
+        "completed_utc": "2026-11-20T20:25:27.479+00:00",
+        "max_desk_age_ms": 2115,
+        "max_local_minus_exchange_update_ms": 2115,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 555,
+        "started_utc": "2026-11-20T20:25:26.416+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 34,
+        "completed_utc": "2026-11-20T20:25:30.034+00:00",
+        "max_desk_age_ms": 1385,
+        "max_local_minus_exchange_update_ms": 1385,
+        "patched_policy_admissible": true,
+        "patched_rejections": [],
+        "previous_policy_admissible": true,
+        "skew_ms": 41,
+        "started_utc": "2026-11-20T20:25:29.480+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 35,
+        "completed_utc": "2026-11-20T20:25:32.731+00:00",
+        "max_desk_age_ms": 4083,
+        "max_local_minus_exchange_update_ms": 4083,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 208,
+        "started_utc": "2026-11-20T20:25:32.034+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 36,
+        "completed_utc": "2026-11-20T20:25:35.290+00:00",
+        "max_desk_age_ms": 2339,
+        "max_local_minus_exchange_update_ms": 2339,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 76,
+        "started_utc": "2026-11-20T20:25:34.731+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 37,
+        "completed_utc": "2026-11-20T20:25:38.051+00:00",
+        "max_desk_age_ms": 2522,
+        "max_local_minus_exchange_update_ms": 2522,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 156,
+        "started_utc": "2026-11-20T20:25:37.292+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 38,
+        "completed_utc": "2026-11-20T20:25:40.680+00:00",
+        "max_desk_age_ms": 1767,
+        "max_local_minus_exchange_update_ms": 1767,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 130,
+        "started_utc": "2026-11-20T20:25:40.052+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 39,
+        "completed_utc": "2026-11-20T20:25:43.247+00:00",
+        "max_desk_age_ms": 1673,
+        "max_local_minus_exchange_update_ms": 1673,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 13,
+        "started_utc": "2026-11-20T20:25:42.681+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 40,
+        "completed_utc": "2026-11-20T20:25:45.922+00:00",
+        "max_desk_age_ms": 3097,
+        "max_local_minus_exchange_update_ms": 3097,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 154,
+        "started_utc": "2026-11-20T20:25:45.248+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 41,
+        "completed_utc": "2026-11-20T20:25:48.460+00:00",
+        "max_desk_age_ms": 2867,
+        "max_local_minus_exchange_update_ms": 2867,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 26,
+        "started_utc": "2026-11-20T20:25:47.924+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 42,
+        "completed_utc": "2026-11-20T20:25:51.044+00:00",
+        "max_desk_age_ms": 2231,
+        "max_local_minus_exchange_update_ms": 2231,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 20,
+        "started_utc": "2026-11-20T20:25:50.461+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 43,
+        "completed_utc": "2026-11-20T20:25:53.633+00:00",
+        "max_desk_age_ms": 4820,
+        "max_local_minus_exchange_update_ms": 4820,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 42,
+        "started_utc": "2026-11-20T20:25:53.045+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 44,
+        "completed_utc": "2026-11-20T20:25:56.225+00:00",
+        "max_desk_age_ms": 3356,
+        "max_local_minus_exchange_update_ms": 3356,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 67,
+        "started_utc": "2026-11-20T20:25:55.634+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 45,
+        "completed_utc": "2026-11-20T20:25:58.843+00:00",
+        "max_desk_age_ms": 2554,
+        "max_local_minus_exchange_update_ms": 2554,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 94,
+        "started_utc": "2026-11-20T20:25:58.225+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 46,
+        "completed_utc": "2026-11-20T20:26:01.803+00:00",
+        "max_desk_age_ms": 1655,
+        "max_local_minus_exchange_update_ms": 1655,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 55,
+        "started_utc": "2026-11-20T20:26:00.844+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 47,
+        "completed_utc": "2026-11-20T20:26:04.401+00:00",
+        "max_desk_age_ms": 3149,
+        "max_local_minus_exchange_update_ms": 3149,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 11,
+        "started_utc": "2026-11-20T20:26:03.804+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 48,
+        "completed_utc": "2026-11-20T20:26:07.092+00:00",
+        "max_desk_age_ms": 2412,
+        "max_local_minus_exchange_update_ms": 2412,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 183,
+        "started_utc": "2026-11-20T20:26:06.402+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 49,
+        "completed_utc": "2026-11-20T20:26:09.646+00:00",
+        "max_desk_age_ms": 689,
+        "max_local_minus_exchange_update_ms": 689,
+        "patched_policy_admissible": true,
+        "patched_rejections": [],
+        "previous_policy_admissible": true,
+        "skew_ms": 43,
+        "started_utc": "2026-11-20T20:26:09.093+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 50,
+        "completed_utc": "2026-11-20T20:26:12.612+00:00",
+        "max_desk_age_ms": 2851,
+        "max_local_minus_exchange_update_ms": 2851,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 452,
+        "started_utc": "2026-11-20T20:26:11.647+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 51,
+        "completed_utc": "2026-11-20T20:26:15.191+00:00",
+        "max_desk_age_ms": 4369,
+        "max_local_minus_exchange_update_ms": 4369,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 57,
+        "started_utc": "2026-11-20T20:26:14.613+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 52,
+        "completed_utc": "2026-11-20T20:26:17.929+00:00",
+        "max_desk_age_ms": 3043,
+        "max_local_minus_exchange_update_ms": 3043,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 138,
+        "started_utc": "2026-11-20T20:26:17.192+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 53,
+        "completed_utc": "2026-11-20T20:26:20.471+00:00",
+        "max_desk_age_ms": 5027,
+        "max_local_minus_exchange_update_ms": 5027,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 37,
+        "started_utc": "2026-11-20T20:26:19.930+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 54,
+        "completed_utc": "2026-11-20T20:26:22.997+00:00",
+        "max_desk_age_ms": 2320,
+        "max_local_minus_exchange_update_ms": 2320,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 25,
+        "started_utc": "2026-11-20T20:26:22.472+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 55,
+        "completed_utc": "2026-11-20T20:26:25.937+00:00",
+        "max_desk_age_ms": 4110,
+        "max_local_minus_exchange_update_ms": 4110,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 25,
+        "started_utc": "2026-11-20T20:26:24.997+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 56,
+        "completed_utc": "2026-11-20T20:26:28.656+00:00",
+        "max_desk_age_ms": 4351,
+        "max_local_minus_exchange_update_ms": 4351,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 157,
+        "started_utc": "2026-11-20T20:26:27.938+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 57,
+        "completed_utc": "2026-11-20T20:26:31.352+00:00",
+        "max_desk_age_ms": 7047,
+        "max_local_minus_exchange_update_ms": 7047,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 23,
+        "started_utc": "2026-11-20T20:26:30.656+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 58,
+        "completed_utc": "2026-11-20T20:26:33.936+00:00",
+        "max_desk_age_ms": 4362,
+        "max_local_minus_exchange_update_ms": 4362,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 67,
+        "started_utc": "2026-11-20T20:26:33.353+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 59,
+        "completed_utc": "2026-11-20T20:26:36.909+00:00",
+        "max_desk_age_ms": 7335,
+        "max_local_minus_exchange_update_ms": 7335,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 16,
+        "started_utc": "2026-11-20T20:26:35.937+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 60,
+        "completed_utc": "2026-11-20T20:26:39.443+00:00",
+        "max_desk_age_ms": 1038,
+        "max_local_minus_exchange_update_ms": 1038,
+        "patched_policy_admissible": true,
+        "patched_rejections": [],
+        "previous_policy_admissible": true,
+        "skew_ms": 25,
+        "started_utc": "2026-11-20T20:26:38.910+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 61,
+        "completed_utc": "2026-11-20T20:26:42.026+00:00",
+        "max_desk_age_ms": 3809,
+        "max_local_minus_exchange_update_ms": 3809,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 80,
+        "started_utc": "2026-11-20T20:26:41.444+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 62,
+        "completed_utc": "2026-11-20T20:26:44.621+00:00",
+        "max_desk_age_ms": 4978,
+        "max_local_minus_exchange_update_ms": 4978,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 73,
+        "started_utc": "2026-11-20T20:26:44.027+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 63,
+        "completed_utc": "2026-11-20T20:26:47.205+00:00",
+        "max_desk_age_ms": 2911,
+        "max_local_minus_exchange_update_ms": 2911,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 28,
+        "started_utc": "2026-11-20T20:26:46.621+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 64,
+        "completed_utc": "2026-11-20T20:26:49.835+00:00",
+        "max_desk_age_ms": 3675,
+        "max_local_minus_exchange_update_ms": 3675,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 75,
+        "started_utc": "2026-11-20T20:26:49.205+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 65,
+        "completed_utc": "2026-11-20T20:26:52.614+00:00",
+        "max_desk_age_ms": 3176,
+        "max_local_minus_exchange_update_ms": 3176,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 57,
+        "started_utc": "2026-11-20T20:26:51.836+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 66,
+        "completed_utc": "2026-11-20T20:26:55.754+00:00",
+        "max_desk_age_ms": 4237,
+        "max_local_minus_exchange_update_ms": 4237,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 163,
+        "started_utc": "2026-11-20T20:26:54.614+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 67,
+        "completed_utc": "2026-11-20T20:26:58.370+00:00",
+        "max_desk_age_ms": 2723,
+        "max_local_minus_exchange_update_ms": 2723,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 64,
+        "started_utc": "2026-11-20T20:26:57.755+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 68,
+        "completed_utc": "2026-11-20T20:27:01.059+00:00",
+        "max_desk_age_ms": 2592,
+        "max_local_minus_exchange_update_ms": 2592,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 171,
+        "started_utc": "2026-11-20T20:27:00.370+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 69,
+        "completed_utc": "2026-11-20T20:27:04.025+00:00",
+        "max_desk_age_ms": 5140,
+        "max_local_minus_exchange_update_ms": 5140,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": true,
+        "skew_ms": 237,
+        "started_utc": "2026-11-20T20:27:03.060+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 70,
+        "completed_utc": "2026-11-20T20:27:06.604+00:00",
+        "max_desk_age_ms": 6338,
+        "max_local_minus_exchange_update_ms": 6338,
+        "patched_policy_admissible": false,
+        "patched_rejections": [
+          "stale"
+        ],
+        "previous_policy_admissible": false,
+        "skew_ms": 69,
+        "started_utc": "2026-11-20T20:27:06.026+00:00",
+        "status": "time_rejected"
+      }
+    ],
+    "paper": {
+      "active": null,
+      "armed": false,
+      "connected": true,
+      "counts": {
+        "abstained": 70,
+        "armed": 1,
+        "paused": 1,
+        "rejected_snapshots": 66,
+        "rejected_stale": 66,
+        "snapshots": 70
+      },
+      "ended": null,
+      "max_drawdown_usdt": 0.0,
+      "mode": "paper",
+      "pnl_usdt": 0.0
+    },
+    "paper_events": [
+      {
+        "type": "armed",
+        "utc": "2026-11-20T20:24:01.276+00:00"
+      },
+      {
+        "type": "paused",
+        "utc": "2026-11-20T20:27:06.605+00:00"
+      }
+    ],
+    "per_pair": {
+      "BTC_USDT": {
+        "consecutive_comparisons": 69,
+        "desk_age_ms": {
+          "count": 70,
+          "maximum": 2872,
+          "minimum": 539,
+          "p50": 1219.0,
+          "p95": 2632.75
+        },
+        "distinct_book_ids": 70,
+        "local_minus_exchange_update_ms": {
+          "count": 70,
+          "maximum": 2872,
+          "minimum": 126,
+          "p50": 1219.0,
+          "p95": 2632.75
+        },
+        "local_minus_venue_current_ms": {
+          "count": 70,
+          "maximum": 2871,
+          "minimum": 119,
+          "p50": 1217.0,
+          "p95": 2630.3
+        },
+        "observations": 70,
+        "regressed_ids": 0,
+        "repeated_ids": 0,
+        "rtt_ms": {
+          "count": 70,
+          "maximum": 996,
+          "minimum": 499,
+          "p50": 574.0,
+          "p95": 938.75
+        }
+      },
+      "ETH_BTC": {
+        "consecutive_comparisons": 69,
+        "desk_age_ms": {
+          "count": 70,
+          "maximum": 11857,
+          "minimum": 587,
+          "p50": 2976.0,
+          "p95": 6413.35
+        },
+        "distinct_book_ids": 57,
+        "local_minus_exchange_update_ms": {
+          "count": 70,
+          "maximum": 11857,
+          "minimum": 422,
+          "p50": 2976.0,
+          "p95": 6413.35
+        },
+        "local_minus_venue_current_ms": {
+          "count": 70,
+          "maximum": 11851,
+          "minimum": 304,
+          "p50": 2673.5,
+          "p95": 5861.05
+        },
+        "observations": 70,
+        "regressed_ids": 4,
+        "repeated_ids": 11,
+        "rtt_ms": {
+          "count": 70,
+          "maximum": 975,
+          "minimum": 487,
+          "p50": 583.5,
+          "p95": 943.75
+        }
+      },
+      "ETH_USDT": {
+        "consecutive_comparisons": 69,
+        "desk_age_ms": {
+          "count": 70,
+          "maximum": 2911,
+          "minimum": 535,
+          "p50": 1623.0,
+          "p95": 2764.05
+        },
+        "distinct_book_ids": 70,
+        "local_minus_exchange_update_ms": {
+          "count": 70,
+          "maximum": 2911,
+          "minimum": 177,
+          "p50": 1623.0,
+          "p95": 2764.05
+        },
+        "local_minus_venue_current_ms": {
+          "count": 70,
+          "maximum": 2907,
+          "minimum": 138,
+          "p50": 1610.0,
+          "p95": 2760.95
+        },
+        "observations": 70,
+        "regressed_ids": 0,
+        "repeated_ids": 0,
+        "rtt_ms": {
+          "count": 70,
+          "maximum": 1138,
+          "minimum": 482,
+          "p50": 581.5,
+          "p95": 930.45
+        }
+      }
+    },
+    "poll_elapsed_ms": {
+      "count": 70,
+      "maximum": 1140,
+      "minimum": 517,
+      "p50": 619.0,
+      "p95": 965.0
+    },
+    "poll_error_types": {},
+    "scorable_two_route_triplets": 4,
+    "skew_rejected_triplets": 0,
+    "total_poll_attempts": 70,
+    "wall_update_within_age_threshold_triplets": 4
+  },
+  "pairs": [
+    "BTC_USDT",
+    "ETH_BTC",
+    "ETH_USDT"
+  ],
+  "passed_fault_checks": 23,
+  "poll_delay_seconds": 2,
+  "requested_seconds": 185,
+  "same_v1_fast_relay": {
+    "after": {
+      "candidate_quotes_scored": 0,
+      "criterion": "Withhold both candidates when unchanged venue generation and update clocks are at least 60 seconds old on the local wall clock.",
+      "injected_arrival_utc": "2026-11-20T20:19:33.898+00:00",
+      "injected_transport_rtt_ms": 5,
+      "maximum_desk_age_ms": 63561,
+      "minimum_wall_age_ms": 62305,
+      "original_arrival_utc": "2026-11-20T20:18:33.898+00:00",
+      "passed": true,
+      "source_attempt": 1
+    },
+    "before": {
+      "candidate_quotes_scored": 2,
+      "criterion": "Withhold both candidates when unchanged venue generation and update clocks are at least 60 seconds old on the local wall clock.",
+      "injected_arrival_utc": "2026-11-20T20:19:33.898+00:00",
+      "injected_transport_rtt_ms": 5,
+      "maximum_desk_age_ms": 314,
+      "minimum_wall_age_ms": 62305,
+      "original_arrival_utc": "2026-11-20T20:18:33.898+00:00",
+      "passed": false,
+      "source_attempt": 1
+    }
+  },
+  "schema": "phaseweave-paper-readiness-v2",
+  "sequence_and_clock_fault": {
+    "age_limit_ms": 1500,
+    "checks": {
+      "duplicate": true,
+      "first_fresh_book": true,
+      "fresh_after_rejections": true,
+      "future_venue_snapshot": true,
+      "regression": true,
+      "stale_high_id": true
+    },
+    "method": "Observed depth kept fixed. Simulated synchronized transport and venue clocks preserve each original venue book age. Sequence IDs deliberately repeat, regress or jump to test the guard.",
+    "passed": true,
+    "source_attempt": 1,
+    "timestamps_utc": [
+      "2026-11-20T20:24:01.924+00:00",
+      "2026-11-20T20:24:02.024+00:00",
+      "2026-11-20T20:24:02.124+00:00",
+      "2026-11-20T20:24:02.224+00:00",
+      "2026-11-20T20:24:02.324+00:00",
+      "2026-11-20T20:24:02.424+00:00"
+    ]
+  },
+  "settings": {
+    "age_ms": 1500,
+    "asset": "ETH",
+    "edge_bps": 1.0,
+    "fee_bps": 10.0,
+    "leg_delay_ms": 1500,
+    "loss_cap": 5.0,
+    "max_skew_ms": 750,
+    "notional": 100.0
+  },
+  "source_sha256": "7147f4163974d2930993fe8864cbf1e39a075db3f5d4fdffcf7fc5dc954ec409",
+  "stale_payload_fast_relay": {
+    "candidate_quotes_scored": 0,
+    "criterion": "Withhold both candidates when unchanged venue generation and update clocks are at least 60 seconds old on the local wall clock.",
+    "injected_arrival_utc": "2026-11-20T20:25:01.924+00:00",
+    "injected_transport_rtt_ms": 5,
+    "maximum_desk_age_ms": 63720,
+    "minimum_wall_age_ms": 61338,
+    "original_arrival_utc": "2026-11-20T20:24:01.924+00:00",
+    "passed": true,
+    "source_attempt": 1
+  },
+  "started_utc": "2026-11-20T20:24:01.276+00:00",
+  "supplement_sha256": "2f07ce80f8dec0fc508ae259d51247b524a08e30681fb30180de281251c7fd4d",
+  "verification": "Both journals reconciled twice. Independent formulas matched prior-policy admissions on v1 and patched admissions and every rejection reason on v2."
+}

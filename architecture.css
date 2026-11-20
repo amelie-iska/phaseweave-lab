@@ -1,0 +1,39 @@
+.architecture { display:grid; gap: 13px; max-width:1480px; padding:20px clamp(12px,2vw,28px) 35px; }
+.arch-lead { font-size:1.14rem; color:var(--muted); }
+.architecture p { color:var(--muted); margin-block:4px; }
+.arch-tabs,.arch-heading,.arch-camera,#arch-selectors { display:flex; flex-wrap:wrap; gap:7px 13px; align-items:center; }
+.arch-heading { justify-content:space-between; }
+.arch-tabs button[aria-pressed="true"] { border-color:var(--copper); color:var(--copper); }
+.architecture button,.architecture select,.architecture label, #arch-stage-label { font: .76rem/1.4 var(--mono); }
+.architecture label { display:flex; align-items:center; gap:5px; }
+.architecture label select { max-width:22ch; }
+.architecture input[type="range"] { width:82px; }
+.architecture #arch-depth { width:clamp(140px,25vw,350px); }
+.arch-grid { display:grid; grid-template-columns:minmax(0,1.67fr) minmax(300px,1fr); gap:12px; }
+.arch-panel { min-width:0; background:var(--surface); border:1px solid var(--line); padding:11px 14px; }
+.arch-panel canvas { height:clamp(265px,34vw,484px); min-height:0; background:var(--canvas); margin:6px 0; }
+.arch-camera { justify-content:flex-start; margin:8px 0; }
+#arch-layer-bar { border-top:1px solid var(--faint); padding-top:8px; }
+#arch-selectors { margin-block:8px; }
+.arch-details { display:grid; grid-template-columns:minmax(6rem,.8fr) minmax(0,1.2fr); row-gap:4px; margin:6px 0; }
+.arch-details dt,.arch-details dd { padding:4px 2px; border-bottom:1px solid var(--faint); overflow-wrap:anywhere; }
+.arch-details dt { color:var(--muted); }
+.arch-details dd { font:.79rem/1.4 var(--mono); margin:0; }
+.arch-scroll { overflow:auto; max-height:340px; }
+.arch-scroll td { font:.72rem/1.35 var(--mono); }
+.arch-scroll table { width:max-content; min-width:100%; }
+.arch-scroll th { text-align:left; }
+.arch-scroll .att-cell { padding:0; }
+.arch-scroll .att-cell button { width:100%; border:0; border-radius:0; min-width:49px; min-height:27px; padding:3px; }
+.arch-scroll .att-cell button[aria-pressed="true"] { outline:2px solid var(--copper); outline-offset:-3px; }
+.arch-scroll .pivot { color:var(--copper); }
+#architecture-status, #arch-provenance { overflow-wrap:anywhere; }
+@media(max-width:880px) {
+  .arch-grid { grid-template-columns:minmax(0,1fr); }
+}
+@media(max-width:580px) {
+  body > .top, body > .top nav { flex-wrap:wrap; }
+  .arch-panel { padding-inline:9px; }
+  .arch-camera input[type="range"] { width:58px; }
+  .architecture #arch-depth { width:145px; }
+}

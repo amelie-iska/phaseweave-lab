@@ -1,0 +1,951 @@
+{
+  "audited_fault_checks": 23,
+  "captured_journal_sha256": "f160061bfdd7e05a7b4635a331a630d6a068ac1619f7c5cac4551d5e4aabc1e9",
+  "driver_sha256": "5d998f363aac0fe8283cfb02cb39a4d1f072545fab9e5961cecb4ae04325ed3a",
+  "endpoint": "https://api.gateio.ws/api/v4/spot/order_book",
+  "fault_source_attempts": [
+    1,
+    2
+  ],
+  "faults": {
+    "late_response_after_deadline": {
+      "checks": {
+        "asset_marked_stranded": true,
+        "deadline_reason": true,
+        "stopped": true,
+        "zero_additional_legs": true
+      },
+      "checks_passed": 4,
+      "checks_total": 4,
+      "passed": true,
+      "seeded_inventory": true,
+      "timeline": [
+        {
+          "action": "seed one hypothetical completed paper leg",
+          "utc": "2026-11-20T20:18:33.898+00:00"
+        },
+        {
+          "action": "deliver after deadline",
+          "utc": "2026-11-20T20:18:48.899+00:00"
+        }
+      ]
+    },
+    "outage_at_deadline": {
+      "checks": {
+        "outage_reason": true,
+        "pending_held_until_deadline": true,
+        "populated_cache_cleared": true,
+        "stranded_and_disarmed": true,
+        "two_failures_counted": true
+      },
+      "checks_passed": 5,
+      "checks_total": 5,
+      "passed": true,
+      "seeded_inventory": true,
+      "timeline": [
+        {
+          "action": "capture books and seed pending inventory",
+          "utc": "2026-11-20T20:18:33.898+00:00"
+        },
+        {
+          "action": "inject a transport timeout",
+          "utc": "2026-11-20T20:18:34.898+00:00"
+        },
+        {
+          "action": "inject a second timeout after the deadline",
+          "utc": "2026-11-20T20:18:48.899+00:00"
+        }
+      ]
+    },
+    "reader_timeout_recovery": {
+      "checks": {
+        "paper_disarmed": true,
+        "recovered_market_snapshot": true,
+        "timeout_recorded": true,
+        "two_reader_iterations": true
+      },
+      "checks_passed": 4,
+      "checks_total": 4,
+      "passed": true,
+      "seeded_inventory": false,
+      "timeline": [
+        {
+          "action": "raise timeout inside the production reader",
+          "utc": "2026-11-20T20:18:33.898+00:00"
+        },
+        {
+          "action": "return recorded books to the following poll",
+          "utc": "2026-11-20T20:18:36.521+00:00"
+        }
+      ]
+    },
+    "reconnect": {
+      "checks": {
+        "generation_advanced": true,
+        "new_generation_received": true,
+        "old_callbacks_ignored": true,
+        "still_disarmed": true
+      },
+      "checks_passed": 4,
+      "checks_total": 4,
+      "passed": true,
+      "seeded_inventory": false,
+      "timeline": [
+        {
+          "action": "observe active connection generation",
+          "utc": "2026-11-20T20:18:33.898+00:00"
+        },
+        {
+          "action": "disconnect, reconnect and deliver old callbacks",
+          "utc": "2026-11-20T20:18:33.899+00:00"
+        },
+        {
+          "action": "deliver captured books to the new connection",
+          "utc": "2026-11-20T20:18:36.521+00:00"
+        }
+      ]
+    },
+    "stale_arrival": {
+      "checks": {
+        "arrival_marked_stale": true,
+        "same_inventory": true,
+        "zero_additional_legs": true
+      },
+      "checks_passed": 3,
+      "checks_total": 3,
+      "passed": true,
+      "seeded_inventory": true,
+      "timeline": [
+        {
+          "action": "seed one hypothetical completed paper leg",
+          "utc": "2026-11-20T20:18:33.898+00:00"
+        },
+        {
+          "action": "replay old receipt at next leg",
+          "utc": "2026-11-20T20:18:35.398+00:00"
+        }
+      ]
+    },
+    "stale_entry": {
+      "checks": {
+        "decision_abstained": true,
+        "no_proposal": true,
+        "two_routes_withheld": true
+      },
+      "checks_passed": 3,
+      "checks_total": 3,
+      "passed": true,
+      "seeded_inventory": false,
+      "timeline": [
+        {
+          "action": "captured market books",
+          "utc": "2026-11-20T20:18:33.898+00:00"
+        },
+        {
+          "action": "deliver delayed capture",
+          "utc": "2026-11-20T20:18:34.311+00:00"
+        }
+      ]
+    }
+  },
+  "finished_utc": "2026-11-20T20:21:37.810+00:00",
+  "interpretation": "The natural timeline is an observed finite feed and paper ledger. Fault tests replay two captured price books with injected delays, transport failures or connection generations; three scenarios begin from explicitly seeded hypothetical inventory. Exchange execution, fills, account authentication, fees and settlement were untested.",
+  "measured_monotonic_seconds": 185.001,
+  "mode": "public spot quotes and isolated paper execution",
+  "natural": {
+    "age_rejected_triplets": 19,
+    "capture_skew_ms": {
+      "count": 67,
+      "maximum": 630,
+      "minimum": 12,
+      "p50": 93.0,
+      "p95": 367.7
+    },
+    "complete_triplets": 67,
+    "desk_time_admissible_triplets": 48,
+    "desk_time_admissible_with_outside_wall_age": 47,
+    "failed_triplets": 0,
+    "health_timeline": [
+      {
+        "attempt": 1,
+        "completed_utc": "2026-11-20T20:18:33.898+00:00",
+        "max_desk_age_ms": 1396,
+        "max_local_minus_exchange_update_ms": 3561,
+        "skew_ms": 274,
+        "started_utc": "2026-11-20T20:18:32.810+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 2,
+        "completed_utc": "2026-11-20T20:18:36.521+00:00",
+        "max_desk_age_ms": 1322,
+        "max_local_minus_exchange_update_ms": 3022,
+        "skew_ms": 128,
+        "started_utc": "2026-11-20T20:18:35.899+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 3,
+        "completed_utc": "2026-11-20T20:18:39.123+00:00",
+        "max_desk_age_ms": 2447,
+        "max_local_minus_exchange_update_ms": 5623,
+        "skew_ms": 107,
+        "started_utc": "2026-11-20T20:18:38.522+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 4,
+        "completed_utc": "2026-11-20T20:18:41.643+00:00",
+        "max_desk_age_ms": 3875,
+        "max_local_minus_exchange_update_ms": 8142,
+        "skew_ms": 13,
+        "started_utc": "2026-11-20T20:18:41.124+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 5,
+        "completed_utc": "2026-11-20T20:18:44.770+00:00",
+        "max_desk_age_ms": 1256,
+        "max_local_minus_exchange_update_ms": 2642,
+        "skew_ms": 63,
+        "started_utc": "2026-11-20T20:18:43.644+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 6,
+        "completed_utc": "2026-11-20T20:18:47.637+00:00",
+        "max_desk_age_ms": 2763,
+        "max_local_minus_exchange_update_ms": 8834,
+        "skew_ms": 74,
+        "started_utc": "2026-11-20T20:18:46.771+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 7,
+        "completed_utc": "2026-11-20T20:18:50.746+00:00",
+        "max_desk_age_ms": 1167,
+        "max_local_minus_exchange_update_ms": 3587,
+        "skew_ms": 558,
+        "started_utc": "2026-11-20T20:18:49.638+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 8,
+        "completed_utc": "2026-11-20T20:18:53.399+00:00",
+        "max_desk_age_ms": 856,
+        "max_local_minus_exchange_update_ms": 2993,
+        "skew_ms": 99,
+        "started_utc": "2026-11-20T20:18:52.747+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 9,
+        "completed_utc": "2026-11-20T20:18:56.264+00:00",
+        "max_desk_age_ms": 2128,
+        "max_local_minus_exchange_update_ms": 2772,
+        "skew_ms": 353,
+        "started_utc": "2026-11-20T20:18:55.400+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 10,
+        "completed_utc": "2026-11-20T20:18:58.796+00:00",
+        "max_desk_age_ms": 948,
+        "max_local_minus_exchange_update_ms": 5827,
+        "skew_ms": 31,
+        "started_utc": "2026-11-20T20:18:58.265+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 11,
+        "completed_utc": "2026-11-20T20:19:01.684+00:00",
+        "max_desk_age_ms": 1259,
+        "max_local_minus_exchange_update_ms": 3061,
+        "skew_ms": 151,
+        "started_utc": "2026-11-20T20:19:00.797+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 12,
+        "completed_utc": "2026-11-20T20:19:04.368+00:00",
+        "max_desk_age_ms": 1312,
+        "max_local_minus_exchange_update_ms": 2453,
+        "skew_ms": 28,
+        "started_utc": "2026-11-20T20:19:03.685+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 13,
+        "completed_utc": "2026-11-20T20:19:07.140+00:00",
+        "max_desk_age_ms": 1060,
+        "max_local_minus_exchange_update_ms": 1524,
+        "skew_ms": 161,
+        "started_utc": "2026-11-20T20:19:06.369+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 14,
+        "completed_utc": "2026-11-20T20:19:09.704+00:00",
+        "max_desk_age_ms": 1191,
+        "max_local_minus_exchange_update_ms": 6370,
+        "skew_ms": 38,
+        "started_utc": "2026-11-20T20:19:09.142+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 15,
+        "completed_utc": "2026-11-20T20:19:12.239+00:00",
+        "max_desk_age_ms": 1198,
+        "max_local_minus_exchange_update_ms": 3035,
+        "skew_ms": 33,
+        "started_utc": "2026-11-20T20:19:11.704+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 16,
+        "completed_utc": "2026-11-20T20:19:14.876+00:00",
+        "max_desk_age_ms": 2800,
+        "max_local_minus_exchange_update_ms": 4887,
+        "skew_ms": 116,
+        "started_utc": "2026-11-20T20:19:14.240+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 17,
+        "completed_utc": "2026-11-20T20:19:17.390+00:00",
+        "max_desk_age_ms": 1307,
+        "max_local_minus_exchange_update_ms": 1429,
+        "skew_ms": 40,
+        "started_utc": "2026-11-20T20:19:16.877+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 18,
+        "completed_utc": "2026-11-20T20:19:19.913+00:00",
+        "max_desk_age_ms": 2081,
+        "max_local_minus_exchange_update_ms": 3951,
+        "skew_ms": 28,
+        "started_utc": "2026-11-20T20:19:19.391+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 19,
+        "completed_utc": "2026-11-20T20:19:22.543+00:00",
+        "max_desk_age_ms": 683,
+        "max_local_minus_exchange_update_ms": 2373,
+        "skew_ms": 116,
+        "started_utc": "2026-11-20T20:19:21.914+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 20,
+        "completed_utc": "2026-11-20T20:19:25.111+00:00",
+        "max_desk_age_ms": 945,
+        "max_local_minus_exchange_update_ms": 4800,
+        "skew_ms": 54,
+        "started_utc": "2026-11-20T20:19:24.544+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 21,
+        "completed_utc": "2026-11-20T20:19:27.674+00:00",
+        "max_desk_age_ms": 665,
+        "max_local_minus_exchange_update_ms": 4643,
+        "skew_ms": 28,
+        "started_utc": "2026-11-20T20:19:27.112+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 22,
+        "completed_utc": "2026-11-20T20:19:30.929+00:00",
+        "max_desk_age_ms": 1626,
+        "max_local_minus_exchange_update_ms": 7153,
+        "skew_ms": 630,
+        "started_utc": "2026-11-20T20:19:29.675+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 23,
+        "completed_utc": "2026-11-20T20:19:33.513+00:00",
+        "max_desk_age_ms": 2730,
+        "max_local_minus_exchange_update_ms": 5123,
+        "skew_ms": 79,
+        "started_utc": "2026-11-20T20:19:32.930+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 24,
+        "completed_utc": "2026-11-20T20:19:36.059+00:00",
+        "max_desk_age_ms": 734,
+        "max_local_minus_exchange_update_ms": 2481,
+        "skew_ms": 32,
+        "started_utc": "2026-11-20T20:19:35.514+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 25,
+        "completed_utc": "2026-11-20T20:19:38.711+00:00",
+        "max_desk_age_ms": 1238,
+        "max_local_minus_exchange_update_ms": 2229,
+        "skew_ms": 157,
+        "started_utc": "2026-11-20T20:19:38.060+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 26,
+        "completed_utc": "2026-11-20T20:19:41.334+00:00",
+        "max_desk_age_ms": 966,
+        "max_local_minus_exchange_update_ms": 1805,
+        "skew_ms": 122,
+        "started_utc": "2026-11-20T20:19:40.712+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 27,
+        "completed_utc": "2026-11-20T20:19:44.358+00:00",
+        "max_desk_age_ms": 1279,
+        "max_local_minus_exchange_update_ms": 1770,
+        "skew_ms": 374,
+        "started_utc": "2026-11-20T20:19:43.335+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 28,
+        "completed_utc": "2026-11-20T20:19:46.982+00:00",
+        "max_desk_age_ms": 674,
+        "max_local_minus_exchange_update_ms": 1864,
+        "skew_ms": 108,
+        "started_utc": "2026-11-20T20:19:46.360+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 29,
+        "completed_utc": "2026-11-20T20:19:49.664+00:00",
+        "max_desk_age_ms": 935,
+        "max_local_minus_exchange_update_ms": 2916,
+        "skew_ms": 181,
+        "started_utc": "2026-11-20T20:19:48.983+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 30,
+        "completed_utc": "2026-11-20T20:19:52.486+00:00",
+        "max_desk_age_ms": 2385,
+        "max_local_minus_exchange_update_ms": 3948,
+        "skew_ms": 29,
+        "started_utc": "2026-11-20T20:19:51.664+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 31,
+        "completed_utc": "2026-11-20T20:19:55.310+00:00",
+        "max_desk_age_ms": 2384,
+        "max_local_minus_exchange_update_ms": 6772,
+        "skew_ms": 93,
+        "started_utc": "2026-11-20T20:19:54.487+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 32,
+        "completed_utc": "2026-11-20T20:19:57.951+00:00",
+        "max_desk_age_ms": 2473,
+        "max_local_minus_exchange_update_ms": 3489,
+        "skew_ms": 47,
+        "started_utc": "2026-11-20T20:19:57.311+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 33,
+        "completed_utc": "2026-11-20T20:20:01.051+00:00",
+        "max_desk_age_ms": 1779,
+        "max_local_minus_exchange_update_ms": 6589,
+        "skew_ms": 119,
+        "started_utc": "2026-11-20T20:19:59.952+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 34,
+        "completed_utc": "2026-11-20T20:20:04.059+00:00",
+        "max_desk_age_ms": 1507,
+        "max_local_minus_exchange_update_ms": 1934,
+        "skew_ms": 253,
+        "started_utc": "2026-11-20T20:20:03.053+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 35,
+        "completed_utc": "2026-11-20T20:20:07.490+00:00",
+        "max_desk_age_ms": 1930,
+        "max_local_minus_exchange_update_ms": 5365,
+        "skew_ms": 83,
+        "started_utc": "2026-11-20T20:20:06.060+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 36,
+        "completed_utc": "2026-11-20T20:20:10.348+00:00",
+        "max_desk_age_ms": 1065,
+        "max_local_minus_exchange_update_ms": 3649,
+        "skew_ms": 157,
+        "started_utc": "2026-11-20T20:20:09.490+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 37,
+        "completed_utc": "2026-11-20T20:20:13.160+00:00",
+        "max_desk_age_ms": 1084,
+        "max_local_minus_exchange_update_ms": 2379,
+        "skew_ms": 90,
+        "started_utc": "2026-11-20T20:20:12.349+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 38,
+        "completed_utc": "2026-11-20T20:20:15.723+00:00",
+        "max_desk_age_ms": 1127,
+        "max_local_minus_exchange_update_ms": 4087,
+        "skew_ms": 19,
+        "started_utc": "2026-11-20T20:20:15.162+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 39,
+        "completed_utc": "2026-11-20T20:20:18.480+00:00",
+        "max_desk_age_ms": 830,
+        "max_local_minus_exchange_update_ms": 3085,
+        "skew_ms": 118,
+        "started_utc": "2026-11-20T20:20:17.724+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 40,
+        "completed_utc": "2026-11-20T20:20:21.013+00:00",
+        "max_desk_age_ms": 1427,
+        "max_local_minus_exchange_update_ms": 3600,
+        "skew_ms": 33,
+        "started_utc": "2026-11-20T20:20:20.481+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 41,
+        "completed_utc": "2026-11-20T20:20:23.598+00:00",
+        "max_desk_age_ms": 598,
+        "max_local_minus_exchange_update_ms": 2897,
+        "skew_ms": 87,
+        "started_utc": "2026-11-20T20:20:23.014+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 42,
+        "completed_utc": "2026-11-20T20:20:28.556+00:00",
+        "max_desk_age_ms": 3198,
+        "max_local_minus_exchange_update_ms": 1595,
+        "skew_ms": 36,
+        "started_utc": "2026-11-20T20:20:25.599+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 43,
+        "completed_utc": "2026-11-20T20:20:31.908+00:00",
+        "max_desk_age_ms": 1448,
+        "max_local_minus_exchange_update_ms": 4914,
+        "skew_ms": 87,
+        "started_utc": "2026-11-20T20:20:30.557+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 44,
+        "completed_utc": "2026-11-20T20:20:34.777+00:00",
+        "max_desk_age_ms": 911,
+        "max_local_minus_exchange_update_ms": 2167,
+        "skew_ms": 116,
+        "started_utc": "2026-11-20T20:20:33.908+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 45,
+        "completed_utc": "2026-11-20T20:20:37.583+00:00",
+        "max_desk_age_ms": 871,
+        "max_local_minus_exchange_update_ms": 2068,
+        "skew_ms": 272,
+        "started_utc": "2026-11-20T20:20:36.778+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 46,
+        "completed_utc": "2026-11-20T20:20:40.289+00:00",
+        "max_desk_age_ms": 771,
+        "max_local_minus_exchange_update_ms": 3293,
+        "skew_ms": 39,
+        "started_utc": "2026-11-20T20:20:39.584+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 47,
+        "completed_utc": "2026-11-20T20:20:43.050+00:00",
+        "max_desk_age_ms": 797,
+        "max_local_minus_exchange_update_ms": 4329,
+        "skew_ms": 107,
+        "started_utc": "2026-11-20T20:20:42.290+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 48,
+        "completed_utc": "2026-11-20T20:20:45.591+00:00",
+        "max_desk_age_ms": 603,
+        "max_local_minus_exchange_update_ms": 9033,
+        "skew_ms": 29,
+        "started_utc": "2026-11-20T20:20:45.052+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 49,
+        "completed_utc": "2026-11-20T20:20:48.531+00:00",
+        "max_desk_age_ms": 951,
+        "max_local_minus_exchange_update_ms": 2824,
+        "skew_ms": 49,
+        "started_utc": "2026-11-20T20:20:47.592+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 50,
+        "completed_utc": "2026-11-20T20:20:51.098+00:00",
+        "max_desk_age_ms": 574,
+        "max_local_minus_exchange_update_ms": 2706,
+        "skew_ms": 69,
+        "started_utc": "2026-11-20T20:20:50.531+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 51,
+        "completed_utc": "2026-11-20T20:20:53.661+00:00",
+        "max_desk_age_ms": 569,
+        "max_local_minus_exchange_update_ms": 2666,
+        "skew_ms": 40,
+        "started_utc": "2026-11-20T20:20:53.099+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 52,
+        "completed_utc": "2026-11-20T20:20:56.163+00:00",
+        "max_desk_age_ms": 508,
+        "max_local_minus_exchange_update_ms": 2562,
+        "skew_ms": 12,
+        "started_utc": "2026-11-20T20:20:55.662+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 53,
+        "completed_utc": "2026-11-20T20:20:58.779+00:00",
+        "max_desk_age_ms": 622,
+        "max_local_minus_exchange_update_ms": 3596,
+        "skew_ms": 43,
+        "started_utc": "2026-11-20T20:20:58.164+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 54,
+        "completed_utc": "2026-11-20T20:21:01.576+00:00",
+        "max_desk_age_ms": 1139,
+        "max_local_minus_exchange_update_ms": 2450,
+        "skew_ms": 23,
+        "started_utc": "2026-11-20T20:21:00.780+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 55,
+        "completed_utc": "2026-11-20T20:21:04.439+00:00",
+        "max_desk_age_ms": 1316,
+        "max_local_minus_exchange_update_ms": 2807,
+        "skew_ms": 186,
+        "started_utc": "2026-11-20T20:21:03.577+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 56,
+        "completed_utc": "2026-11-20T20:21:07.123+00:00",
+        "max_desk_age_ms": 760,
+        "max_local_minus_exchange_update_ms": 2370,
+        "skew_ms": 162,
+        "started_utc": "2026-11-20T20:21:06.440+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 57,
+        "completed_utc": "2026-11-20T20:21:09.767+00:00",
+        "max_desk_age_ms": 1015,
+        "max_local_minus_exchange_update_ms": 2885,
+        "skew_ms": 110,
+        "started_utc": "2026-11-20T20:21:09.124+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 58,
+        "completed_utc": "2026-11-20T20:21:12.418+00:00",
+        "max_desk_age_ms": 988,
+        "max_local_minus_exchange_update_ms": 3884,
+        "skew_ms": 152,
+        "started_utc": "2026-11-20T20:21:11.768+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 59,
+        "completed_utc": "2026-11-20T20:21:15.053+00:00",
+        "max_desk_age_ms": 743,
+        "max_local_minus_exchange_update_ms": 2708,
+        "skew_ms": 94,
+        "started_utc": "2026-11-20T20:21:14.419+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 60,
+        "completed_utc": "2026-11-20T20:21:17.574+00:00",
+        "max_desk_age_ms": 975,
+        "max_local_minus_exchange_update_ms": 4163,
+        "skew_ms": 16,
+        "started_utc": "2026-11-20T20:21:17.054+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 61,
+        "completed_utc": "2026-11-20T20:21:20.201+00:00",
+        "max_desk_age_ms": 859,
+        "max_local_minus_exchange_update_ms": 2127,
+        "skew_ms": 31,
+        "started_utc": "2026-11-20T20:21:19.575+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 62,
+        "completed_utc": "2026-11-20T20:21:22.948+00:00",
+        "max_desk_age_ms": 1597,
+        "max_local_minus_exchange_update_ms": 2880,
+        "skew_ms": 243,
+        "started_utc": "2026-11-20T20:21:22.202+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 63,
+        "completed_utc": "2026-11-20T20:21:25.682+00:00",
+        "max_desk_age_ms": 1619,
+        "max_local_minus_exchange_update_ms": 5614,
+        "skew_ms": 56,
+        "started_utc": "2026-11-20T20:21:24.949+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 64,
+        "completed_utc": "2026-11-20T20:21:28.824+00:00",
+        "max_desk_age_ms": 2678,
+        "max_local_minus_exchange_update_ms": 2797,
+        "skew_ms": 498,
+        "started_utc": "2026-11-20T20:21:27.683+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 65,
+        "completed_utc": "2026-11-20T20:21:31.625+00:00",
+        "max_desk_age_ms": 2336,
+        "max_local_minus_exchange_update_ms": 5598,
+        "skew_ms": 189,
+        "started_utc": "2026-11-20T20:21:30.825+00:00",
+        "status": "time_rejected"
+      },
+      {
+        "attempt": 66,
+        "completed_utc": "2026-11-20T20:21:34.397+00:00",
+        "max_desk_age_ms": 904,
+        "max_local_minus_exchange_update_ms": 3735,
+        "skew_ms": 135,
+        "started_utc": "2026-11-20T20:21:33.626+00:00",
+        "status": "time_admissible"
+      },
+      {
+        "attempt": 67,
+        "completed_utc": "2026-11-20T20:21:37.130+00:00",
+        "max_desk_age_ms": 756,
+        "max_local_minus_exchange_update_ms": 3341,
+        "skew_ms": 133,
+        "started_utc": "2026-11-20T20:21:36.398+00:00",
+        "status": "time_admissible"
+      }
+    ],
+    "paper": {
+      "active": null,
+      "armed": false,
+      "connected": true,
+      "counts": {
+        "abstained": 67,
+        "armed": 1,
+        "paused": 1,
+        "snapshots": 67
+      },
+      "ended": null,
+      "max_drawdown_usdt": 0.0,
+      "mode": "paper",
+      "pnl_usdt": 0.0
+    },
+    "paper_events": [
+      {
+        "type": "armed",
+        "utc": "2026-11-20T20:18:32.810+00:00"
+      },
+      {
+        "type": "paused",
+        "utc": "2026-11-20T20:21:37.810+00:00"
+      }
+    ],
+    "per_pair": {
+      "BTC_USDT": {
+        "consecutive_comparisons": 66,
+        "desk_age_ms": {
+          "count": 67,
+          "maximum": 2957,
+          "minimum": 504,
+          "p50": 684.0,
+          "p95": 1221.7
+        },
+        "distinct_book_ids": 66,
+        "local_minus_exchange_update_ms": {
+          "count": 67,
+          "maximum": 3061,
+          "minimum": 234,
+          "p50": 1565.0,
+          "p95": 2714.4
+        },
+        "local_minus_venue_current_ms": {
+          "count": 67,
+          "maximum": 3060,
+          "minimum": 230,
+          "p50": 1565.0,
+          "p95": 2713.1
+        },
+        "observations": 67,
+        "regressed_ids": 0,
+        "repeated_ids": 1,
+        "rtt_ms": {
+          "count": 67,
+          "maximum": 2956,
+          "minimum": 473,
+          "p50": 611.0,
+          "p95": 1196.7
+        }
+      },
+      "ETH_BTC": {
+        "consecutive_comparisons": 66,
+        "desk_age_ms": {
+          "count": 67,
+          "maximum": 3875,
+          "minimum": 508,
+          "p50": 1139.0,
+          "p95": 2753.1
+        },
+        "distinct_book_ids": 55,
+        "local_minus_exchange_update_ms": {
+          "count": 67,
+          "maximum": 9033,
+          "minimum": 103,
+          "p50": 3035.0,
+          "p95": 7038.7
+        },
+        "local_minus_venue_current_ms": {
+          "count": 67,
+          "maximum": 8968,
+          "minimum": 95,
+          "p50": 2658.0,
+          "p95": 5858.6
+        },
+        "observations": 67,
+        "regressed_ids": 6,
+        "repeated_ids": 11,
+        "rtt_ms": {
+          "count": 67,
+          "maximum": 2920,
+          "minimum": 489,
+          "p50": 620.0,
+          "p95": 1109.5
+        }
+      },
+      "ETH_USDT": {
+        "consecutive_comparisons": 66,
+        "desk_age_ms": {
+          "count": 67,
+          "maximum": 2960,
+          "minimum": 502,
+          "p50": 690.0,
+          "p95": 1227.8
+        },
+        "distinct_book_ids": 66,
+        "local_minus_exchange_update_ms": {
+          "count": 67,
+          "maximum": 3070,
+          "minimum": 183,
+          "p50": 1485.0,
+          "p95": 2700.5
+        },
+        "local_minus_venue_current_ms": {
+          "count": 67,
+          "maximum": 3068,
+          "minimum": 181,
+          "p50": 1484.0,
+          "p95": 2700.5
+        },
+        "observations": 67,
+        "regressed_ids": 0,
+        "repeated_ids": 1,
+        "rtt_ms": {
+          "count": 67,
+          "maximum": 2956,
+          "minimum": 493,
+          "p50": 641.0,
+          "p95": 1199.1
+        }
+      }
+    },
+    "poll_elapsed_ms": {
+      "count": 67,
+      "maximum": 2957,
+      "minimum": 501,
+      "p50": 683.0,
+      "p95": 1220.1
+    },
+    "poll_error_types": {},
+    "scorable_two_route_triplets": 48,
+    "skew_rejected_triplets": 0,
+    "total_poll_attempts": 67,
+    "wall_update_within_age_threshold_triplets": 1
+  },
+  "pairs": [
+    "BTC_USDT",
+    "ETH_BTC",
+    "ETH_USDT"
+  ],
+  "passed_fault_checks": 23,
+  "poll_delay_seconds": 2,
+  "requested_seconds": 185,
+  "schema": "phaseweave-paper-readiness-v1",
+  "settings": {
+    "age_ms": 1500,
+    "asset": "ETH",
+    "edge_bps": 1.0,
+    "fee_bps": 10.0,
+    "leg_delay_ms": 1500,
+    "loss_cap": 5.0,
+    "max_skew_ms": 750,
+    "notional": 100.0
+  },
+  "source_sha256": "9b558bc70b03748c8a1ac7d590a199a3196cf321de5227db7ea26298ca44e760",
+  "stale_payload_fast_relay": {
+    "candidate_quotes_scored": 2,
+    "criterion": "Withhold both candidates when unchanged venue generation and update clocks are at least 60 seconds old on the local wall clock.",
+    "injected_arrival_utc": "2026-11-20T20:19:33.898+00:00",
+    "injected_transport_rtt_ms": 5,
+    "maximum_desk_age_ms": 314,
+    "minimum_wall_age_ms": 62305,
+    "original_arrival_utc": "2026-11-20T20:18:33.898+00:00",
+    "passed": false,
+    "source_attempt": 1
+  },
+  "started_utc": "2026-11-20T20:18:32.810+00:00",
+  "verification": "Captured desk summary reproduced twice from the SHA-checked journal; deterministic scenario outcomes reproduced twice."
+}

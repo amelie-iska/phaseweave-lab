@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light">
+ <title>Operational evidence · PhaseWeave</title>
+ <link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+ <nav aria-label="Related pages"><a class="button" href="desk.html">Trading desk</a><a class="button" href="model-comparisons.html">Model comparisons</a>
+ <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div></nav></header>
+ <main class="results">
+  <h1>Operational evidence</h1>
+  <p class="standfirst">Live capture and paper controls, with measured gaps between research and deployment.</p>
+  <section class="result-panel" aria-labelledby="clock-check">
+   <h2 id="clock-check">Quote-clock correction</h2>
+   <p>The first clock check accepted a minute-old exchange snapshot when a relay returned it quickly. The corrected check considers the wall-clock age of the venue update, provider age and request RTT. It also withholds repeated or out-of-order book IDs.</p>
+   <div class="table-overflow"><table>
+    <thead><tr><th scope="col">Evidence</th><th scope="col">Previous policy</th><th scope="col">Corrected policy</th></tr></thead>
+    <tbody>
+    <tr><th scope="row">Original live journal, admitted snapshots</th><td>48 / 67</td><td>1 / 67</td></tr>
+    <tr><th scope="row">New live journal, admitted snapshots</th><td>58 / 70</td><td>4 / 70</td></tr>
+    <tr><th scope="row">Identical stale relay, scorable routes</th><td>2</td><td>0</td></tr>
+    <tr><th scope="row">Identical stale relay, maximum desk age</th><td>314 ms</td><td>63,561 ms</td></tr>
+    </tbody>
+   </table></div>
+   <p>Both policies were replayed on each journal. In the fresh 185.329-second run all 210 market requests returned data. The corrected desk abstained on all 70 decisions. No simulated fills occurred.</p>
+   <p><a href="trading-readiness-v1.json">Original audit</a> · <a href="trading-readiness-v2.json">Post-fix audit and fault results</a></p>
+  </section>
+  <section class="result-panel" aria-labelledby="requirements-title">
+   <h2 id="requirements-title">Evidence required before live deployment</h2>
+   <div class="table-overflow"><table>
+    <thead><tr><th scope="col">Area</th><th scope="col">Current evidence</th><th scope="col">Remaining verification</th></tr></thead>
+    <tbody>
+    <tr><th scope="row">Forecasts</th><td>Five chronological FX horizons, unseen CHF test and matched baselines</td><td>More seeds, independent depth sources and executable outcome targets</td></tr>
+    <tr><th scope="row">Market data</th><td>Sampled Gate depth, spot prints, perpetual data and official FX reference rates</td><td>Venue-separated uptime and historically eligible equities, FX and options executions</td></tr>
+    <tr><th scope="row">Execution</th><td>Local paper ledger, stale-snapshot rejection, and read-only connections</td><td>Durable recovery, cancel and retry semantics, authorized venue reconciliation</td></tr>
+    <tr><th scope="row">Distribution</th><td>Portable Python desk and installable widgets</td><td>Native-device coverage and professional deployment sign-off</td></tr>
+    </tbody>
+   </table></div>
+   <p><a href="downloads/production-readiness.md">Full acceptance criteria</a> · <a href="downloads/local-desk.md">Setup</a> · <a href="https://www.finra.org/rules-guidance/notices/15-09">FINRA testing and risk controls</a></p>
+  </section>
+ </main>
+ <script>
+ (()=>{const buttons=document.querySelectorAll("[data-theme-choice]");function set(value){document.documentElement.dataset.theme=value;buttons.forEach(b=>b.setAttribute("aria-pressed",String(value===b.dataset.themeChoice)));try{localStorage.setItem("phaseweave-theme",value);}catch{}}try{set(localStorage.getItem("phaseweave-theme")==="light"?"light":"dark");}catch{set("dark");}buttons.forEach(button=>button.addEventListener("click",()=>set(button.dataset.themeChoice)));})();
+ </script>
+</body>
+</html>
