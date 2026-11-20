@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="The measured PhaseWeave quantum and tropical FX forecast matrix, with matched controls and both registered seeds.">
+  <title>Quantum comparison · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="quantum-comparison.css">
+  <script defer src="quantum-comparison.js"></script>
+</head>
+<body>
+  <header class="top quantum-top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Project navigation">
+      <a class="button" href="model-comparisons.html">Model comparisons</a>
+      <a class="button" href="results.html">Results</a>
+      <button class="button" type="button" id="quantum-theme">Light theme</button>
+    </nav>
+  </header>
+  <main class="quantum-page">
+    <header class="quantum-header">
+      <div>
+        <h1>Quantum and tropical forecast matrix</h1>
+        <p id="quantum-target">FX quote-margin forecasting with matched classical controls.</p>
+      </div>
+      <a id="quantum-download" class="button" href="quantum-comparison-v1.json" download hidden>Download aggregate JSON</a>
+    </header>
+    <section class="quantum-cohorts" id="quantum-cohorts" aria-label="Evaluation cohorts"></section>
+    <p class="quantum-warning">Width, sample size, and training budget change between these studies. Patch comparisons pair each seed with its classical cosine control in the same cohort, backbone, and attention setting.</p>
+    <fieldset class="quantum-filters" id="quantum-filters" disabled>
+      <legend>Filter variants</legend>
+      <label>Evaluation split
+        <select id="quantum-fold">
+          <option value="test" selected>October test</option>
+          <option value="stress">Stress</option>
+          <option value="new_asset">New assets</option>
+          <option value="validation">Validation</option>
+        </select>
+      </label>
+      <label>Backbone <select id="quantum-backbone"><option value="">All backbones</option></select></label>
+      <label>Temporal attention <select id="quantum-attention"><option value="">All attention</option></select></label>
+      <label>Patch <select id="quantum-patch"><option value="">All patches</option></select></label>
+      <label>Display
+        <select id="quantum-metric">
+          <option value="mae">MAE + paired change</option>
+          <option value="rmse">RMSE</option>
+          <option value="interval">Paired 95% interval</option>
+          <option value="fit">Parameters + selected epoch</option>
+        </select>
+      </label>
+    </fieldset>
+    <p id="quantum-status" role="status">Loading finalized campaign summaries…</p>
+    <p id="quantum-scroll-tip">Scroll the table to see both cohorts and all seeds.</p>
+    <div class="quantum-table-wrap" id="quantum-table-wrap" tabindex="0" role="region" aria-label="Forecast comparison table" hidden>
+      <table class="quantum-table" id="quantum-table">
+        <caption id="quantum-caption"></caption>
+        <colgroup span="3"></colgroup><colgroup span="1"></colgroup><colgroup span="2"></colgroup>
+        <thead>
+          <tr>
+            <th scope="col" rowspan="2">Backbone</th>
+            <th scope="col" rowspan="2">Spatial / temporal</th>
+            <th scope="col" rowspan="2">Patch</th>
+            <th scope="colgroup" colspan="1" class="quantum-pilot">Width 32 · Pilot</th>
+            <th scope="colgroup" colspan="2" class="quantum-registered">Width 200 · Registered</th>
+          </tr>
+          <tr id="quantum-seed-headers"></tr>
+        </thead>
+        <tbody id="quantum-rows"></tbody>
+      </table>
+    </div>
+    <details class="quantum-method">
+      <summary>Methods and source receipts</summary>
+      <p>Lower MAE and RMSE are better. A negative Δ indicates lower MAE than the matched classical cosine patch on the same rows. The reported 95% intervals resample UTC-day blocks within each paired contrast. Seeds use the same sampled rows and are shown individually.</p>
+      <p>All fits run on a conventional RTX 4090. The coherent patch simulates a qutrit circuit. The dephased patch sums classical probabilities. The max-plus patch is a classical circuit surrogate, a separate factor from tropical max-plus attention. Local GAT uses softmax in both attention settings.</p>
+      <p>Each fit selects its earliest minimum-validation-MAE epoch. October test, stress, and new-asset scores are computed on their own evaluation folds.</p>
+      <dl id="quantum-sources"></dl>
+    </details>
+  </main>
+</body>
+</html>

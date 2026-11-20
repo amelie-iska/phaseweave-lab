@@ -1,0 +1,54 @@
+.quantum-page { width: min(100% - 2rem, 87rem); margin: 0 auto; padding: 2.5rem 0 4rem; }
+.quantum-top { flex-wrap: wrap; }
+.quantum-top nav { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.quantum-header { display: flex; align-items: end; justify-content: space-between; gap: .8rem 1.5rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+.quantum-header h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: -.035em; line-height: 1.08; }
+.quantum-header p { margin: .65rem 0 0; }
+.quantum-page [hidden] { display: none !important; }
+.quantum-cohorts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem; }
+.quantum-cohort { padding: .95rem 1rem; border: 1px solid var(--line,#395465); border-top: .2rem solid var(--quantum-cohort); border-radius: .55rem; background: var(--surface); }
+.quantum-pilot { --quantum-cohort: #83c6a6; }
+.quantum-registered { --quantum-cohort: #f4b97a; }
+[data-theme="light"] .quantum-pilot { --quantum-cohort: #246549; }
+[data-theme="light"] .quantum-registered { --quantum-cohort: #90551f; }
+.quantum-cohort h2 { margin: 0; font-size: 1.12rem; color: var(--quantum-cohort); }
+.quantum-cohort p { margin: .45rem 0 0; }
+.quantum-baseline { font-weight: 650; font-variant-numeric: tabular-nums; }
+.quantum-warning { margin: .85rem 0 1.2rem; }
+.quantum-filters { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: .65rem; min-width: 0; margin: 0; padding: .6rem .8rem .8rem; border: 1px solid var(--line,#395465); border-radius: .45rem; }
+.quantum-filters legend { padding: 0 .35rem; font-weight: 650; }
+.quantum-filters label { display: grid; gap: .3rem; min-width: 0; font-size: .84rem; }
+.quantum-filters select { width: 100%; min-width: 0; padding: .5rem .4rem; background: var(--surface); color: var(--text); border: 1px solid var(--line,#395465); border-radius: .3rem; font: inherit; }
+#quantum-status { margin: 1rem 0 .5rem; }
+#quantum-scroll-tip { display: none; margin: 0 0 .5rem; color: var(--muted); font-size: .84rem; }
+.quantum-page:has(.quantum-table-wrap[hidden]) #quantum-scroll-tip { display: none; }
+.quantum-table-wrap { overflow-x: auto; border: 1px solid var(--line,#395465); border-radius: .55rem; }
+.quantum-table { width: 100%; min-width: 54rem; border-collapse: collapse; font-size: .86rem; }
+.quantum-table caption { text-align: left; padding: .6rem .75rem; color: var(--muted,inherit); }
+.quantum-table thead { background: var(--surface); }
+.quantum-table th, .quantum-table td { padding: .6rem .65rem; border-bottom: 1px solid var(--line,#395465); text-align: left; vertical-align: top; }
+.quantum-table th[scope="colgroup"] { text-align: center; border-top: .16rem solid var(--quantum-cohort); color: var(--quantum-cohort); }
+.quantum-table th:nth-last-child(-n + 3)[scope="col"] { white-space: nowrap; }
+.quantum-table td[data-model-cell] { min-width: 8.25rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.quantum-table td[data-model-cell]:nth-child(4), .quantum-table td[data-model-cell]:nth-child(5) { border-left: 1px solid var(--line,#395465); }
+.quantum-table tr:last-child > * { border-bottom: 0; }
+.quantum-table tbody tr:hover, .quantum-table tbody tr:focus-within { background: var(--surface); }
+.quantum-table small { color: var(--muted,inherit); display: block; margin-top: .18rem; }
+.quantum-table td[data-improves="true"] small { color: var(--jade); }
+.quantum-method { margin-top: 1.25rem; border: 1px solid var(--line,#395465); border-radius: .45rem; padding: .75rem .95rem; }
+.quantum-method summary { font-weight: 650; cursor: pointer; }
+.quantum-method dl { display: grid; grid-template-columns: 9rem minmax(0,1fr); gap: .5rem .75rem; }
+.quantum-method dt { font-weight: 650; }
+.quantum-method dd { margin: 0; overflow-wrap: anywhere; }
+.quantum-page :focus-visible, .quantum-top :focus-visible { outline: .15rem solid var(--jade); outline-offset: .14rem; }
+@media (max-width: 864px) {
+  #quantum-scroll-tip { display: block; }
+  .quantum-filters { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+@media (max-width: 530px) {
+  .quantum-page { width: calc(100% - 1.2rem); padding-top: 1.1rem; }
+  .quantum-cohorts, .quantum-filters { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .quantum-cohort { padding: .65rem; font-size: .84rem; }
+  .quantum-method dl { grid-template-columns: minmax(0,1fr); gap: .2rem; }
+  .quantum-method dd { margin-bottom: .7rem; }
+}
