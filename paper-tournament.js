@@ -195,7 +195,7 @@
       id:String(m.id),name:String(m.name||m.id),pnl:safeNum(m.net_pnl),closed:m.completed,state:modelState(m),desc:m.seed==null?"Historical validation selection":"Training seed "+m.seed,
       rows:[["Max drawdown",money(m.max_drawdown)+" USDT"],["Live MAE / persistence",fmt(m.mae_bps,3)+" / "+fmt(m.persistence_mae_bps,3)+" bps"],
         ["Forecasts / scored",fmt(m.forecasts,0)+" / "+fmt(m.scored,0)],["Route-direction accuracy",pct(m.direction_accuracy)],
-        ["Proposed / closed / failed",[m.proposed,m.completed,m.failed].map(x=>fmt(x,0)).join(" / ")],["Abstentions",fmt(m.abstained,0)],
+        ["Proposed / closed / failed",[m.proposed,m.completed,m.failed].map(x=>fmt(x,0)).join(" / ")],["Abstentions",fmt(m.abstained,0)],["Inventory unwinds",fmt(m.recovered ?? 0,0)],
         ["Starting capital / return",fmt(m.starting_capital,2)+" USDT / "+fmt(m.return_pct,3)+"%"],["Locked / stranded",human(m.locked)+" / "+(m.stranded?"Yes":"No")],["Execution pending",m.pending_execution?"Yes":"No"],["Latest forecast · fwd / rev",vectors(m.latest_prediction)+" bps"],
         ["Latest realized · fwd / rev",vectors(m.latest_realized)+" bps"],["Validation / historical test MAE",fmt(m.validation_mae,3)+" / "+fmt(m.historical_test_mae,3)+" bps"]]
     }));
