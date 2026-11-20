@@ -15,7 +15,7 @@
   <header class="top comparison-top">
     <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
     <nav aria-label="Page controls">
-      <a class="button" href="results.html">Results</a>
+      <a class="button" href="results.html">Results</a><a class="button" href="portfolio.html">Equity portfolios</a>
       <a class="button" href="horizons.html">Forecast horizons</a>
       <a class="button" href="architecture.html">Architecture</a>
       <div class="themes" aria-label="Color theme">
@@ -46,6 +46,19 @@
     </form>
     <p id="comparison-summary" role="status">Loading verified comparison inventory…</p>
     <div id="comparison-results"></div>
+    <section class="result-panel" id="finqa-fusion" aria-labelledby="fusion-title">
+      <h2 id="fusion-title">Frozen pretrained text and graph evidence retrieval</h2>
+      <p>Forty-five similarity-screened FinQA questions. Every learned arm used three seeds. The text path uses native frozen Qwen token embeddings. The experiment scores evidence ranks.</p>
+      <div class="table-overflow"><table><thead><tr><th scope="col">Variant</th><th scope="col">Hit@1</th><th scope="col">Recall@3</th><th scope="col">MRR</th></tr></thead><tbody>
+<tr><th scope="row">Lexical</th><td>0.5556</td><td>0.6407</td><td>0.6980</td></tr>
+<tr><th scope="row">Graph specialist</th><td>0.7778</td><td>0.8000</td><td>0.8560</td></tr>
+<tr><th scope="row">Graph + mean text</th><td>0.8519</td><td>0.8444</td><td>0.9147</td></tr>
+<tr><th scope="row">Graph-to-text cross-attention</th><td>0.8593</td><td>0.8444</td><td>0.9184</td></tr>
+<tr><th scope="row">Mean text + contrastive</th><td>0.8519</td><td>0.8444</td><td>0.9147</td></tr>
+<tr><th scope="row">Cross-attention + contrastive</th><td>0.8667</td><td>0.8444</td><td>0.9220</td></tr>
+      </tbody></table></div>
+      <p><a href="finqa-graph-cross-attention-v1.json">Measured fusion results and cohort</a></p>
+    </section>
   </main>
 </body>
 </html>

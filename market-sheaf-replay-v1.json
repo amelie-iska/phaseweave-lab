@@ -1,0 +1,1050 @@
+{
+  "age_scale_ms": 125.0,
+  "derived_from": "replay.json",
+  "episodes": [
+    {
+      "frames": [
+        {
+          "active_pairs": 3,
+          "assets": [
+            "EUR",
+            "USD",
+            "JPY"
+          ],
+          "frame": 0,
+          "h0": 1,
+          "h1": 1,
+          "markets": [
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                1
+              ],
+              "projected_log_bps": [
+                0.4559405116666669,
+                0.26796241500000006
+              ],
+              "quote_utc_ms": 1793361600000,
+              "residual_log_bps": [
+                -0.18797809666666687,
+                -5.551115123125783e-17
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.267962415,
+                0.267962415
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                2
+              ],
+              "projected_log_bps": [
+                0.9305784183333332,
+                0.45516872500000005
+              ],
+              "quote_utc_ms": 1793361600000,
+              "residual_log_bps": [
+                0.18797809666666665,
+                -1.1102230246251565e-16
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                1.1185565149999999,
+                0.45516872499999994
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                1,
+                2
+              ],
+              "projected_log_bps": [
+                0.4746379066666664,
+                0.2866598100000001
+              ],
+              "quote_utc_ms": 1793361600000,
+              "residual_log_bps": [
+                -0.18797809666666637,
+                -1.1102230246251565e-16
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.28665981,
+                0.28665981
+              ],
+              "weight": 1.0
+            }
+          ],
+          "normal_equation_max_abs": 4.996003610813204e-16,
+          "projected_margin_log_bps": [
+            -1.30979095,
+            -1.30979095
+          ],
+          "projection": [
+            [
+              0.4559405116666669,
+              0.26796241500000006
+            ],
+            [
+              0.9305784183333332,
+              0.45516872500000005
+            ],
+            [
+              0.4746379066666664,
+              0.2866598100000001
+            ]
+          ],
+          "rank": 5,
+          "raw_margin_log_bps": [
+            -1.8737252399999997,
+            -0.7458566600000002
+          ],
+          "residual": [
+            [
+              -0.18797809666666687,
+              -5.551115123125783e-17
+            ],
+            [
+              0.18797809666666665,
+              -1.1102230246251565e-16
+            ],
+            [
+              -0.18797809666666637,
+              -1.1102230246251565e-16
+            ]
+          ],
+          "utc": "2026-10-30T12:00:00+00:00",
+          "vertices": [
+            [
+              -0.46217297666666673,
+              0.21823566500000002
+            ],
+            [
+              -0.006232464999999852,
+              0.04972675000000005
+            ],
+            [
+              0.46840544166666653,
+              0.23693306000000006
+            ]
+          ],
+          "weighted_residual_rms": 0.13292058686754032
+        },
+        {
+          "active_pairs": 2,
+          "assets": [
+            "EUR",
+            "USD",
+            "JPY"
+          ],
+          "frame": 15,
+          "h0": 2,
+          "h1": 0,
+          "markets": [
+            {
+              "age_ms": 1000,
+              "pair": [
+                0,
+                1
+              ],
+              "quote_utc_ms": 1793361614000,
+              "source": "HistData",
+              "state": "stale"
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                2
+              ],
+              "projected_log_bps": [
+                0.6383442150000002,
+                0.455106585
+              ],
+              "quote_utc_ms": 1793361615000,
+              "residual_log_bps": [
+                -1.1102230246251565e-16,
+                0.0
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.638344215,
+                0.455106585
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                1,
+                2
+              ],
+              "projected_log_bps": [
+                0.12737149999999997,
+                0.12737150000000008
+              ],
+              "quote_utc_ms": 1793361615000,
+              "residual_log_bps": [
+                2.7755575615628914e-17,
+                -8.326672684688674e-17
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.1273715,
+                0.1273715
+              ],
+              "weight": 1.0
+            }
+          ],
+          "normal_equation_max_abs": 1.1102230246251565e-16,
+          "projected_margin_log_bps": null,
+          "projection": [
+            [
+              0.6383442150000002,
+              0.455106585
+            ],
+            [
+              0.12737149999999997,
+              0.12737150000000008
+            ]
+          ],
+          "rank": 4,
+          "raw_margin_log_bps": null,
+          "residual": [
+            [
+              -1.1102230246251565e-16,
+              0.0
+            ],
+            [
+              2.7755575615628914e-17,
+              -8.326672684688674e-17
+            ]
+          ],
+          "utc": "2026-10-30T12:00:15+00:00",
+          "vertices": [
+            [
+              -0.3831056433333334,
+              0.26094722333333326
+            ],
+            [
+              0.12786707166666678,
+              -0.06678786166666664
+            ],
+            [
+              0.25523857166666675,
+              0.19415936166666672
+            ]
+          ],
+          "weighted_residual_rms": 7.076311083754595e-17
+        },
+        {
+          "active_pairs": 3,
+          "assets": [
+            "EUR",
+            "USD",
+            "JPY"
+          ],
+          "frame": 30,
+          "h0": 1,
+          "h1": 1,
+          "markets": [
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                1
+              ],
+              "projected_log_bps": [
+                0.2853044266666667,
+                0.17866235500000005
+              ],
+              "quote_utc_ms": 1793361630000,
+              "residual_log_bps": [
+                -0.10664207166666673,
+                -5.551115123125783e-17
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.178662355,
+                0.178662355
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                2
+              ],
+              "projected_log_bps": [
+                0.5830000933333332,
+                0.2844416150000001
+              ],
+              "quote_utc_ms": 1793361630000,
+              "residual_log_bps": [
+                0.10664207166666673,
+                -1.1102230246251565e-16
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.689642165,
+                0.284441615
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                1,
+                2
+              ],
+              "projected_log_bps": [
+                0.29769566666666647,
+                0.19105359500000005
+              ],
+              "quote_utc_ms": 1793361630000,
+              "residual_log_bps": [
+                -0.10664207166666648,
+                -5.551115123125783e-17
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.191053595,
+                0.191053595
+              ],
+              "weight": 1.0
+            }
+          ],
+          "normal_equation_max_abs": 2.498001805406602e-16,
+          "projected_margin_log_bps": [
+            -0.954157565,
+            -0.954157565
+          ],
+          "projection": [
+            [
+              0.2853044266666667,
+              0.17866235500000005
+            ],
+            [
+              0.5830000933333332,
+              0.2844416150000001
+            ],
+            [
+              0.29769566666666647,
+              0.19105359500000005
+            ]
+          ],
+          "rank": 5,
+          "raw_margin_log_bps": [
+            -1.27408378,
+            -0.6342313500000001
+          ],
+          "residual": [
+            [
+              -0.10664207166666673,
+              -5.551115123125783e-17
+            ],
+            [
+              0.10664207166666673,
+              -1.1102230246251565e-16
+            ],
+            [
+              -0.10664207166666648,
+              -5.551115123125783e-17
+            ]
+          ],
+          "utc": "2026-10-30T12:00:30+00:00",
+          "vertices": [
+            [
+              -0.28943484,
+              0.13602518750000003
+            ],
+            [
+              -0.004130413333333282,
+              0.042637167500000024
+            ],
+            [
+              0.29356525333333316,
+              0.14841642750000003
+            ]
+          ],
+          "weighted_residual_rms": 0.07540733203528177
+        }
+      ],
+      "id": "liquid",
+      "label": "FX · London session",
+      "source": "HistData"
+    },
+    {
+      "frames": [
+        {
+          "active_pairs": 3,
+          "assets": [
+            "EUR",
+            "USD",
+            "JPY"
+          ],
+          "frame": 0,
+          "h0": 1,
+          "h1": 1,
+          "markets": [
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                1
+              ],
+              "projected_log_bps": [
+                0.7630412983333339,
+                0.34847759000000006
+              ],
+              "quote_utc_ms": 1789646400000,
+              "residual_log_bps": [
+                -0.4145637083333339,
+                -5.551115123125783e-17
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.34847759,
+                0.34847759
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                2
+              ],
+              "projected_log_bps": [
+                1.466716116666667,
+                0.4197342250000001
+              ],
+              "quote_utc_ms": 1789646400000,
+              "residual_log_bps": [
+                0.4145637083333331,
+                -1.1102230246251565e-16
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                1.881279825,
+                0.419734225
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                1,
+                2
+              ],
+              "projected_log_bps": [
+                0.7036748183333329,
+                0.28911111
+              ],
+              "quote_utc_ms": 1789646400000,
+              "residual_log_bps": [
+                -0.4145637083333329,
+                0.0
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.28911111,
+                0.28911111
+              ],
+              "weight": 1.0
+            }
+          ],
+          "normal_equation_max_abs": 9.992007221626409e-16,
+          "projected_margin_log_bps": [
+            -1.357322925,
+            -1.357322925
+          ],
+          "projection": [
+            [
+              0.7630412983333339,
+              0.34847759000000006
+            ],
+            [
+              1.466716116666667,
+              0.4197342250000001
+            ],
+            [
+              0.7036748183333329,
+              0.28911111
+            ]
+          ],
+          "rank": 5,
+          "raw_margin_log_bps": [
+            -2.60101405,
+            -0.11363180000000006
+          ],
+          "residual": [
+            [
+              -0.4145637083333339,
+              -5.551115123125783e-17
+            ],
+            [
+              0.4145637083333331,
+              -1.1102230246251565e-16
+            ],
+            [
+              -0.4145637083333329,
+              0.0
+            ]
+          ],
+          "utc": "2026-09-17T12:00:00+00:00",
+          "vertices": [
+            [
+              -0.743252471666667,
+              0.23955035250000012
+            ],
+            [
+              0.019788826666666925,
+              0.10892723749999995
+            ],
+            [
+              0.7234636449999998,
+              0.18018387250000004
+            ]
+          ],
+          "weighted_residual_rms": 0.293140809396342
+        },
+        {
+          "active_pairs": 3,
+          "assets": [
+            "EUR",
+            "USD",
+            "JPY"
+          ],
+          "frame": 15,
+          "h0": 1,
+          "h1": 1,
+          "markets": [
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                1
+              ],
+              "projected_log_bps": [
+                0.4526283400000001,
+                0.08712015500000019
+              ],
+              "quote_utc_ms": 1789646415000,
+              "residual_log_bps": [
+                -0.36550818500000004,
+                -1.8041124150158794e-16
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.087120155,
+                0.087120155
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                2
+              ],
+              "projected_log_bps": [
+                1.0751332599999999,
+                0.39177496500000014
+              ],
+              "quote_utc_ms": 1789646415000,
+              "residual_log_bps": [
+                0.36550818500000015,
+                -1.6653345369377348e-16
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                1.440641445,
+                0.391774965
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                1,
+                2
+              ],
+              "projected_log_bps": [
+                0.6225049199999997,
+                0.256996735
+              ],
+              "quote_utc_ms": 1789646415000,
+              "residual_log_bps": [
+                -0.3655081849999997,
+                0.0
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.256996735,
+                0.256996735
+              ],
+              "weight": 1.0
+            }
+          ],
+          "normal_equation_max_abs": 4.440892098500626e-16,
+          "projected_margin_log_bps": [
+            -1.035891855,
+            -1.035891855
+          ],
+          "projection": [
+            [
+              0.4526283400000001,
+              0.08712015500000019
+            ],
+            [
+              1.0751332599999999,
+              0.39177496500000014
+            ],
+            [
+              0.6225049199999997,
+              0.256996735
+            ]
+          ],
+          "rank": 5,
+          "raw_margin_log_bps": [
+            -2.1324164100000003,
+            0.060632699999999984
+          ],
+          "residual": [
+            [
+              -0.36550818500000004,
+              -1.8041124150158794e-16
+            ],
+            [
+              0.36550818500000015,
+              -1.6653345369377348e-16
+            ],
+            [
+              -0.3655081849999997,
+              0.0
+            ]
+          ],
+          "utc": "2026-09-17T12:00:15+00:00",
+          "vertices": [
+            [
+              -0.5092538666666666,
+              0.11094919250000018
+            ],
+            [
+              -0.05662552666666655,
+              -0.0238290375
+            ],
+            [
+              0.5658793933333331,
+              0.28082577249999996
+            ]
+          ],
+          "weighted_residual_rms": 0.2584533161926871
+        },
+        {
+          "active_pairs": 3,
+          "assets": [
+            "EUR",
+            "USD",
+            "JPY"
+          ],
+          "frame": 30,
+          "h0": 1,
+          "h1": 1,
+          "markets": [
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                1
+              ],
+              "projected_log_bps": [
+                0.5692145733333337,
+                0.17424790500000029
+              ],
+              "quote_utc_ms": 1789646430000,
+              "residual_log_bps": [
+                -0.3949666683333337,
+                -2.7755575615628914e-16
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.174247905,
+                0.174247905
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                0,
+                2
+              ],
+              "projected_log_bps": [
+                1.2854312916666666,
+                0.36380835000000006
+              ],
+              "quote_utc_ms": 1789646430000,
+              "residual_log_bps": [
+                0.3949666683333335,
+                -1.6653345369377348e-16
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                1.68039796,
+                0.3638083499999999
+              ],
+              "weight": 1.0
+            },
+            {
+              "age_ms": 0,
+              "pair": [
+                1,
+                2
+              ],
+              "projected_log_bps": [
+                0.7162167183333329,
+                0.32125004999999995
+              ],
+              "quote_utc_ms": 1789646430000,
+              "residual_log_bps": [
+                -0.3949666683333329,
+                5.551115123125783e-17
+              ],
+              "source": "HistData",
+              "state": "fresh",
+              "value_log_bps": [
+                0.32125005,
+                0.32125005
+              ],
+              "weight": 1.0
+            }
+          ],
+          "normal_equation_max_abs": 8.326672684688674e-16,
+          "projected_margin_log_bps": [
+            -1.1593063049999999,
+            -1.1593063049999999
+          ],
+          "projection": [
+            [
+              0.5692145733333337,
+              0.17424790500000029
+            ],
+            [
+              1.2854312916666666,
+              0.36380835000000006
+            ],
+            [
+              0.7162167183333329,
+              0.32125004999999995
+            ]
+          ],
+          "rank": 5,
+          "raw_margin_log_bps": [
+            -2.3442063099999997,
+            0.025593700000000164
+          ],
+          "residual": [
+            [
+              -0.3949666683333337,
+              -2.7755575615628914e-16
+            ],
+            [
+              0.3949666683333335,
+              -1.6653345369377348e-16
+            ],
+            [
+              -0.3949666683333329,
+              5.551115123125783e-17
+            ]
+          ],
+          "utc": "2026-09-17T12:00:30+00:00",
+          "vertices": [
+            [
+              -0.6182152883333335,
+              0.10840310250000018
+            ],
+            [
+              -0.049000714999999834,
+              0.0658448025000001
+            ],
+            [
+              0.6672160033333331,
+              0.2554052474999999
+            ]
+          ],
+          "weighted_residual_rms": 0.27928360952115805
+        }
+      ],
+      "id": "stress",
+      "label": "FX · September dislocation",
+      "source": "HistData"
+    },
+    {
+      "frames": [
+        {
+          "active_pairs": 0,
+          "assets": [
+            "EUR",
+            "USD",
+            "JPY"
+          ],
+          "frame": 0,
+          "h0": 6,
+          "h1": 0,
+          "markets": [
+            {
+              "age_ms": 50401000,
+              "pair": [
+                0,
+                1
+              ],
+              "quote_utc_ms": 1786744799000,
+              "source": "HistData",
+              "state": "stale"
+            },
+            {
+              "age_ms": 50401000,
+              "pair": [
+                0,
+                2
+              ],
+              "quote_utc_ms": 1786744799000,
+              "source": "HistData",
+              "state": "stale"
+            },
+            {
+              "age_ms": 50401000,
+              "pair": [
+                1,
+                2
+              ],
+              "quote_utc_ms": 1786744799000,
+              "source": "HistData",
+              "state": "stale"
+            }
+          ],
+          "normal_equation_max_abs": 0.0,
+          "projected_margin_log_bps": null,
+          "projection": [],
+          "rank": 0,
+          "raw_margin_log_bps": null,
+          "residual": [],
+          "utc": "2026-08-15T12:00:00+00:00",
+          "vertices": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "weighted_residual_rms": null
+        },
+        {
+          "active_pairs": 0,
+          "assets": [
+            "EUR",
+            "USD",
+            "JPY"
+          ],
+          "frame": 15,
+          "h0": 6,
+          "h1": 0,
+          "markets": [
+            {
+              "age_ms": 50416000,
+              "pair": [
+                0,
+                1
+              ],
+              "quote_utc_ms": 1786744799000,
+              "source": "HistData",
+              "state": "stale"
+            },
+            {
+              "age_ms": 50416000,
+              "pair": [
+                0,
+                2
+              ],
+              "quote_utc_ms": 1786744799000,
+              "source": "HistData",
+              "state": "stale"
+            },
+            {
+              "age_ms": 50416000,
+              "pair": [
+                1,
+                2
+              ],
+              "quote_utc_ms": 1786744799000,
+              "source": "HistData",
+              "state": "stale"
+            }
+          ],
+          "normal_equation_max_abs": 0.0,
+          "projected_margin_log_bps": null,
+          "projection": [],
+          "rank": 0,
+          "raw_margin_log_bps": null,
+          "residual": [],
+          "utc": "2026-08-15T12:00:15+00:00",
+          "vertices": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "weighted_residual_rms": null
+        },
+        {
+          "active_pairs": 0,
+          "assets": [
+            "EUR",
+            "USD",
+            "JPY"
+          ],
+          "frame": 30,
+          "h0": 6,
+          "h1": 0,
+          "markets": [
+            {
+              "age_ms": 50431000,
+              "pair": [
+                0,
+                1
+              ],
+              "quote_utc_ms": 1786744799000,
+              "source": "HistData",
+              "state": "stale"
+            },
+            {
+              "age_ms": 50431000,
+              "pair": [
+                0,
+                2
+              ],
+              "quote_utc_ms": 1786744799000,
+              "source": "HistData",
+              "state": "stale"
+            },
+            {
+              "age_ms": 50431000,
+              "pair": [
+                1,
+                2
+              ],
+              "quote_utc_ms": 1786744799000,
+              "source": "HistData",
+              "state": "stale"
+            }
+          ],
+          "normal_equation_max_abs": 0.0,
+          "projected_margin_log_bps": null,
+          "projection": [],
+          "rank": 0,
+          "raw_margin_log_bps": null,
+          "residual": [],
+          "utc": "2026-08-15T12:00:30+00:00",
+          "vertices": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "weighted_residual_rms": null
+        }
+      ],
+      "id": "closed",
+      "label": "FX · Weekend staleness",
+      "source": "HistData"
+    }
+  ],
+  "excluded_context_cell": {
+    "basis": "No instrument is assigned to this geometric cell.",
+    "kind": "auxiliary surface meridian",
+    "state": "non_market"
+  },
+  "fee_per_leg_log_bps": 0.1,
+  "format": "phaseweave.market-sheaf.v1",
+  "freshness_ms": 250.0,
+  "head": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "replay_sha256": "e01dc4d942426f1f32d7e0abbeebc3ce0910a4ea8a3d86e70e99d463693dc7e1",
+  "stalk_coordinates": {
+    "edge": [
+      "log midpoint",
+      "log half spread"
+    ],
+    "vertex": [
+      "log potential",
+      "endpoint half-spread component"
+    ]
+  },
+  "tail": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0
+    ]
+  ]
+}

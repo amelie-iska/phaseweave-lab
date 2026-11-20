@@ -162,6 +162,13 @@
         <p>Read the Parquet files with PyArrow or the Hugging Face <code>parquet</code> loader. Join each companion using split, frozen row index, triangle, and anchor. The trade and document companion has a <code>[9, 32]</code> feature array and nine UTC microsecond clocks. An unobserved clock uses <code>-1</code>.</p>
       </details>
     </section>
+    <section class="result-panel" id="similarity-splits" aria-labelledby="similarity-title">
+      <h2 id="similarity-title">Shared observations and similar inputs</h2>
+      <p>The original 294,912-window audit found no shared quote keys between August training and its evaluation folds. The two October evaluation folds shared 114,450 keys because they reused EUR/JPY and GBP/JPY streams over the same dates.</p>
+      <p>A new candidate separates early-October development from late-October CHF, keeps each window’s full source support inside its time slice, and screens for near-duplicate rate, age, and availability trajectories using an August-only threshold. The candidate retains 32,873 development and 16,875 CHF windows. It is a retrospective sensitivity analysis.</p>
+      <p>For FinQA, issuer/report/page groups were disjoint. Training-calibrated question, table, and prose n-grams flagged three out of 48 validation items. The previously scored matched set drops from 42 to 39.</p>
+      <p><a href="similarity-fold-audit-v1.json">Frozen selection audit</a> · <a href="similarity-fold-replay-v1.json">Paired checkpoint replay</a> · <a href="similarity-fold-scores-v1.json">Full-stratum ridge results</a></p>
+    </section>
   </main>
   <script>
     const themeButtons = document.querySelectorAll("button[data-page-theme]");

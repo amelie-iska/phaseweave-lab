@@ -1,0 +1,83 @@
+{
+  "format": "phaseweave-nonabelian-v1",
+  "data": "site/replay.json",
+  "source": "HistData released gauge-centered EUR/JPY, EUR/USD and USD/JPY replay",
+  "sha256": {
+    "site/replay.json": "e01dc4d942426f1f32d7e0abbeebc3ce0910a4ea8a3d86e70e99d463693dc7e1",
+    "site/surface-genus-core.js": "2a438b1794b9ed61d87ece1de11f2476ce17ea26ef882c59d7c5441eedf4fab1",
+    "site/nonabelian-core.js": "abe421ce2b2280589c5ce05d16676a024f59672d3a884dcea1de23babaf52788",
+    "research/verify_nonabelian.js": "fd3f9ebb1f8de7fb9ff6bc08dd649a9e8b43749766c5cd7a1542777e7aa3305e"
+  },
+  "episode_frames": {
+    "liquid": 31,
+    "stress": 31,
+    "closed": 31
+  },
+  "genus": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "frames": 93,
+  "edge_frame_checks": 761856,
+  "face_frame_checks": 380928,
+  "handle_frame_checks": 3255,
+  "order_gap_above_1e_minus_8": 3255,
+  "order_gap_frobenius": {
+    "min": 0.0017187822756667185,
+    "median": 0.1529337365787703,
+    "max": 1.078661537652798
+  },
+  "absolute_residual_maxima": {
+    "link_unitarity": 9.420554752102651e-16,
+    "link_determinant": 6.661338147750939e-16,
+    "reverse_link": 0,
+    "face_wilson_gauge_delta": 1.1102230246251565e-15,
+    "independent_matrix_product": 4.0834390350531875e-15,
+    "independent_order_gap": 1.5543122344752192e-15,
+    "cyclic_two_factor_trace_identity": 0,
+    "conjugation_covariance": 6.667616333800674e-15,
+    "marked_wilson_gauge_delta": 5.329070518200751e-15,
+    "common_generator_order_gap": 0
+  },
+  "genus_2_handle_1": {
+    "liquid": {
+      "first": {
+        "orderGap": 0.09722014493646136,
+        "wilson": 0.9976370608546334
+      },
+      "order_gap": {
+        "min": 0.004686884145033753,
+        "median": 0.024796590619166267,
+        "max": 0.3307648445763351
+      }
+    },
+    "stress": {
+      "first": {
+        "orderGap": 0.19531521885474823,
+        "wilson": 0.9904629913209311
+      },
+      "order_gap": {
+        "min": 0.0027624889491750823,
+        "median": 0.07573945589772768,
+        "max": 0.5612025137962581
+      }
+    },
+    "closed": {
+      "first": {
+        "orderGap": 0.2717334123196686,
+        "wilson": 0.9815402381572762
+      },
+      "order_gap": {
+        "min": 0.27173339090944715,
+        "median": 0.2717334016113732,
+        "max": 0.2717334123196686
+      }
+    }
+  },
+  "scope": "Each frame reuses three observed quote pairs on an imposed marked surface. Counts across genera and handles are transformations of the same 93 frames. Closed-market frames carry stale quotes."
+}

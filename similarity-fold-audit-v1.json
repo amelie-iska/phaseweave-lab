@@ -1,0 +1,388 @@
+{
+  "calibration": {
+    "exact_distance_zeros": 0,
+    "median_nearest": 0.2247292822753732,
+    "positive_distance_q05": 0.02560933902837499,
+    "probe_indices_sha256": "6381afc11f8b98c34d810c9d60abefcf9befa6d4d094e7764771da336500f989",
+    "probe_rows": 2048,
+    "reference_train_rows": 21233
+  },
+  "finqa": {
+    "eligible_validation": 45,
+    "exact_content_overlap_counts": {
+      "prose": 0,
+      "question": 0,
+      "table": 0
+    },
+    "exact_source_overlap_counts": {
+      "issuer_id": 0,
+      "page_id": 0,
+      "report_id": 0
+    },
+    "numeric_masked": true,
+    "train": 256,
+    "train_leave_issuer_out_q99_thresholds": {
+      "prose": 0.2,
+      "question": 0.5714285714285714,
+      "table": 0.6
+    },
+    "validation": 48,
+    "validation_flagged_by_view": {
+      "prose": 0,
+      "question": 2,
+      "table": 1
+    },
+    "validation_max_similarities": {
+      "prose": 0.033950617283950615,
+      "question": 0.6428571428571429,
+      "table": 0.7333333333333333
+    }
+  },
+  "finqa_manifest_sha256": "d58fd406df9881e6963db13ad318b48414b74ecec91cc0fecd77da29ce96e15a",
+  "format": "phaseweave.similarity-fold-audit.v1",
+  "fx_manifest_sha256": "89177f9ca8eb968e50ee763bda01850af603ac663268db94a2015c01007aabff",
+  "fx_splits": {
+    "new_asset": {
+      "eligible_chronology": 17334,
+      "exact_earlier_input": 0,
+      "near_earlier_beyond_train": 104,
+      "near_earlier_retained": 870,
+      "near_original_august": 766,
+      "original_rows": 32768,
+      "strict_max_anchor_s": 1793393915,
+      "strict_min_anchor_s": 1792109310,
+      "strict_rows": 16875,
+      "support_thinned_rows": 10673,
+      "within_fold_extra_exact_input_copies": 0
+    },
+    "stress": {
+      "eligible_chronology": 65536,
+      "exact_earlier_input": 0,
+      "near_earlier_beyond_train": 122,
+      "near_earlier_retained": 2006,
+      "near_original_august": 1884,
+      "original_rows": 65536,
+      "strict_max_anchor_s": 1790811717,
+      "strict_min_anchor_s": 1789603391,
+      "strict_rows": 63530,
+      "support_thinned_rows": 19362,
+      "within_fold_extra_exact_input_copies": 0
+    },
+    "test": {
+      "eligible_chronology": 33715,
+      "exact_earlier_input": 0,
+      "near_earlier_beyond_train": 167,
+      "near_earlier_retained": 1746,
+      "near_original_august": 1579,
+      "original_rows": 65536,
+      "strict_max_anchor_s": 1792108299,
+      "strict_min_anchor_s": 1790830850,
+      "strict_rows": 32873,
+      "support_thinned_rows": 14500,
+      "within_fold_extra_exact_input_copies": 0
+    },
+    "train": {
+      "eligible_chronology": 65536,
+      "exact_earlier_input": 0,
+      "near_earlier_beyond_train": 0,
+      "near_earlier_retained": 0,
+      "near_original_august": 0,
+      "original_rows": 65536,
+      "strict_max_anchor_s": 1788220644,
+      "strict_min_anchor_s": 1785709375,
+      "strict_rows": 65536,
+      "support_thinned_rows": 27914,
+      "within_fold_extra_exact_input_copies": 0
+    },
+    "validation": {
+      "eligible_chronology": 65536,
+      "exact_earlier_input": 0,
+      "near_earlier_beyond_train": 0,
+      "near_earlier_retained": 2729,
+      "near_original_august": 2729,
+      "original_rows": 65536,
+      "strict_max_anchor_s": 1789602949,
+      "strict_min_anchor_s": 1788238825,
+      "strict_rows": 62807,
+      "support_thinned_rows": 20274,
+      "within_fold_extra_exact_input_copies": 0
+    }
+  },
+  "index_archive_sha256": "a7a6426a1dd4acb61cfc6f061345cd00c7444a5bd46fd4680540964315a30ec6",
+  "indices": {
+    "finqa_validation__strict": {
+      "ordered_indices_sha256": "b98811f7eba6f69c654b6e548bc3fad6c9f6a828c219830981dedcb44d2e36f5",
+      "rows": 45
+    },
+    "new_asset__chronology": {
+      "ordered_indices_sha256": "1031b6a22bccace223a0bba4cd17f699c6fcd62985a92f09472b12927f555b18",
+      "rows": 17334
+    },
+    "new_asset__exact_earlier": {
+      "ordered_indices_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rows": 0
+    },
+    "new_asset__near_earlier": {
+      "ordered_indices_sha256": "107010960283bf58603cca1adf55d8bb5f6a3f2c4514bab3473401dae71e3e3e",
+      "rows": 870
+    },
+    "new_asset__near_train": {
+      "ordered_indices_sha256": "918af469d9f68824d19b33586622ed737c021da46d2aec2fa56c1d2c73a0d2b2",
+      "rows": 766
+    },
+    "new_asset__shares_existing_october_source": {
+      "ordered_indices_sha256": "3b372fcc28f3016ce023d2a9a8cb9931bc3763556985c1e8926a6c0aa7c14afe",
+      "rows": 20667
+    },
+    "new_asset__strict": {
+      "ordered_indices_sha256": "6db5375b7a582d20702dc3ab2db6e4c1f974ab65d4bbd0dfb3e8b21aad6a4d6d",
+      "rows": 16875
+    },
+    "new_asset__thinned": {
+      "ordered_indices_sha256": "0eaaf0820b50b2d9f61606a85b8c2d01121a28b846d00f217a55bfa37b9d31f0",
+      "rows": 10673
+    },
+    "stress__chronology": {
+      "ordered_indices_sha256": "4a35a59aabf394adb1d83cda6d3c2e799553e35ba7e4ee55537c8add209532a7",
+      "rows": 65536
+    },
+    "stress__exact_earlier": {
+      "ordered_indices_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rows": 0
+    },
+    "stress__near_earlier": {
+      "ordered_indices_sha256": "0c64f8fd70e2d249caa5b70ea1dd38745ed8c16fd75fa872ae69a67553eaf1bf",
+      "rows": 2006
+    },
+    "stress__near_train": {
+      "ordered_indices_sha256": "41d24e9c6841284b1426eb981b5f04361d52084ebb0b748d81aa2a75fa58044b",
+      "rows": 1884
+    },
+    "stress__strict": {
+      "ordered_indices_sha256": "f72d36a8dbc501da253cb0343415658645cbb0e1bbf6f7fef90ad28ffc5177ac",
+      "rows": 63530
+    },
+    "stress__thinned": {
+      "ordered_indices_sha256": "40806caa1562809ad4c30c52849f0f051fdf3d88994f910a0c5f6916d43d954e",
+      "rows": 19362
+    },
+    "test__chronology": {
+      "ordered_indices_sha256": "98184aed920f79c2ba5345f996d6868cf21b03c847746ee3c5544cd413851f9b",
+      "rows": 33715
+    },
+    "test__exact_earlier": {
+      "ordered_indices_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rows": 0
+    },
+    "test__near_earlier": {
+      "ordered_indices_sha256": "153e716545e0d665566901be73ac7fa0066c417461f4c9ff33be95192569d740",
+      "rows": 1746
+    },
+    "test__near_train": {
+      "ordered_indices_sha256": "ccdf905c85f47fe35fe69da4cdbb3d00e54c6dc9f4050cc45d19deeec7ce2610",
+      "rows": 1579
+    },
+    "test__shares_existing_october_source": {
+      "ordered_indices_sha256": "3dbf597750d0b8541d633e00ba832f21ee96e337e9fe680a9a9085aaa6d6c813",
+      "rows": 24665
+    },
+    "test__strict": {
+      "ordered_indices_sha256": "baab1b410a485fcf6a6dffd860ce76555ece9be8de82466421c95c5e9c1cbf69",
+      "rows": 32873
+    },
+    "test__thinned": {
+      "ordered_indices_sha256": "8a9a82b62256eb0fc403942134d2d99cdfe7f336bebc8d8aa613db111292a1f0",
+      "rows": 14500
+    },
+    "train__chronology": {
+      "ordered_indices_sha256": "4a35a59aabf394adb1d83cda6d3c2e799553e35ba7e4ee55537c8add209532a7",
+      "rows": 65536
+    },
+    "train__exact_earlier": {
+      "ordered_indices_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rows": 0
+    },
+    "train__near_earlier": {
+      "ordered_indices_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rows": 0
+    },
+    "train__near_train": {
+      "ordered_indices_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rows": 0
+    },
+    "train__strict": {
+      "ordered_indices_sha256": "4a35a59aabf394adb1d83cda6d3c2e799553e35ba7e4ee55537c8add209532a7",
+      "rows": 65536
+    },
+    "train__thinned": {
+      "ordered_indices_sha256": "8e7205bab81d3482ce1c436d9dad4a6abf6555a4e8cd1ef61e44c559d0843ec2",
+      "rows": 27914
+    },
+    "validation__chronology": {
+      "ordered_indices_sha256": "4a35a59aabf394adb1d83cda6d3c2e799553e35ba7e4ee55537c8add209532a7",
+      "rows": 65536
+    },
+    "validation__exact_earlier": {
+      "ordered_indices_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rows": 0
+    },
+    "validation__near_earlier": {
+      "ordered_indices_sha256": "7a962c711a780cca3090f23c394a64ca626163ab2ecd636ac4f218d193fc738d",
+      "rows": 2729
+    },
+    "validation__near_train": {
+      "ordered_indices_sha256": "7a962c711a780cca3090f23c394a64ca626163ab2ecd636ac4f218d193fc738d",
+      "rows": 2729
+    },
+    "validation__strict": {
+      "ordered_indices_sha256": "e90f85666434a6e6a41eecb547399490def1523cbf1dfdca71b49bd5a151bfd3",
+      "rows": 62807
+    },
+    "validation__thinned": {
+      "ordered_indices_sha256": "b30c97c644795bdeab8f131d42658f1a23625265bb023eba96b70d73103e4c93",
+      "rows": 20274
+    }
+  },
+  "seed": 20261227,
+  "source_overlap": {
+    "fold_pairs": {
+      "stress__new_asset": {
+        "left_rows_using_shared_key": 0,
+        "right_rows_using_shared_key": 0,
+        "shared_source_keys": {},
+        "shared_stream_names": [
+          "EURJPY",
+          "GBPJPY"
+        ]
+      },
+      "stress__test": {
+        "left_rows_using_shared_key": 0,
+        "right_rows_using_shared_key": 0,
+        "shared_source_keys": {},
+        "shared_stream_names": [
+          "EURGBP",
+          "EURJPY",
+          "EURUSD",
+          "GBPJPY",
+          "GBPUSD",
+          "USDJPY"
+        ]
+      },
+      "test__new_asset": {
+        "left_rows_using_shared_key": 24665,
+        "right_rows_using_shared_key": 20667,
+        "shared_source_keys": {
+          "EURJPY": {
+            "distinct_observed_keys": 55169,
+            "input_input": 48324,
+            "input_target": 5959,
+            "target_input": 6678,
+            "target_target": 1184
+          },
+          "GBPJPY": {
+            "distinct_observed_keys": 59281,
+            "input_input": 52080,
+            "input_target": 5145,
+            "target_input": 7031,
+            "target_target": 957
+          }
+        },
+        "shared_stream_names": [
+          "EURJPY",
+          "GBPJPY"
+        ]
+      },
+      "train__new_asset": {
+        "left_rows_using_shared_key": 0,
+        "right_rows_using_shared_key": 0,
+        "shared_source_keys": {},
+        "shared_stream_names": [
+          "EURJPY",
+          "GBPJPY"
+        ]
+      },
+      "train__stress": {
+        "left_rows_using_shared_key": 0,
+        "right_rows_using_shared_key": 0,
+        "shared_source_keys": {},
+        "shared_stream_names": [
+          "EURGBP",
+          "EURJPY",
+          "EURUSD",
+          "GBPJPY",
+          "GBPUSD",
+          "USDJPY"
+        ]
+      },
+      "train__test": {
+        "left_rows_using_shared_key": 0,
+        "right_rows_using_shared_key": 0,
+        "shared_source_keys": {},
+        "shared_stream_names": [
+          "EURGBP",
+          "EURJPY",
+          "EURUSD",
+          "GBPJPY",
+          "GBPUSD",
+          "USDJPY"
+        ]
+      },
+      "train__validation": {
+        "left_rows_using_shared_key": 0,
+        "right_rows_using_shared_key": 0,
+        "shared_source_keys": {},
+        "shared_stream_names": [
+          "EURGBP",
+          "EURJPY",
+          "EURUSD",
+          "GBPJPY",
+          "GBPUSD",
+          "USDJPY"
+        ]
+      },
+      "validation__new_asset": {
+        "left_rows_using_shared_key": 0,
+        "right_rows_using_shared_key": 0,
+        "shared_source_keys": {},
+        "shared_stream_names": [
+          "EURJPY",
+          "GBPJPY"
+        ]
+      },
+      "validation__stress": {
+        "left_rows_using_shared_key": 0,
+        "right_rows_using_shared_key": 0,
+        "shared_source_keys": {},
+        "shared_stream_names": [
+          "EURGBP",
+          "EURJPY",
+          "EURUSD",
+          "GBPJPY",
+          "GBPUSD",
+          "USDJPY"
+        ]
+      },
+      "validation__test": {
+        "left_rows_using_shared_key": 0,
+        "right_rows_using_shared_key": 0,
+        "shared_source_keys": {},
+        "shared_stream_names": [
+          "EURGBP",
+          "EURJPY",
+          "EURUSD",
+          "GBPJPY",
+          "GBPUSD",
+          "USDJPY"
+        ]
+      }
+    },
+    "within_fold_rows_sharing_a_quote_with_a_distinct_triangle": {
+      "new_asset": 14166,
+      "stress": 57924,
+      "test": 49461,
+      "train": 50212,
+      "validation": 55904
+    }
+  },
+  "source_sha256": "c6ae8007af69a7dd4d91ea531629f879c81509f9d064250555e68014daa4a812"
+}

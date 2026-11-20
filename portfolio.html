@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light">
+ <link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css">
+ <script defer src="portfolio.js"></script>
+ <title>Portfolio benchmarks · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+ <nav aria-label="Related pages"><a class="button" href="model-comparisons.html">Model comparisons</a>
+ <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div></nav></header>
+ <main class="results">
+  <h1>Equity portfolio benchmarks</h1>
+  <p class="standfirst">Published equity backtests and the evidence needed for a common PhaseWeave portfolio replay.</p>
+  <section class="result-panel" aria-labelledby="portfolio-literature">
+   <div class="result-title"><h2 id="portfolio-literature">FinMamba and 17 reference methods</h2>
+    <label>Market <select id="portfolio-market"><option value="csi300">CSI 300</option><option value="csi500">CSI 500</option><option value="sp500">S&amp;P 500</option><option value="nasdaq100">NASDAQ 100</option></select></label>
+    <label>Sort by <select id="portfolio-metric"><option value="0">Annual return</option><option value="1">Annual volatility</option><option value="2">Maximum drawdown</option><option value="3">Annual Sharpe</option><option value="4">Information ratio</option></select></label>
+   </div>
+   <p>The authors report a gross top-nine equity simulation for 2023. Values retain the paper’s convention. Its notebook differs from the manuscript’s entry timing and does not subtract benchmark returns in the published IR implementation.</p>
+   <div id="portfolio-results"></div>
+   <p id="portfolio-status" role="status">Loading the published table.</p>
+   <p><a href="https://arxiv.org/html/2502.06707v2">FinMamba, Table 1 and Appendices A.1–A.3</a> · <a href="portfolio-literature-v1.json">Published values and provenance</a></p>
+  </section>
+  <section class="result-panel" aria-labelledby="portfolio-protocol">
+   <h2 id="portfolio-protocol">Matched PhaseWeave protocol</h2>
+   <p>Use identical point-in-time index membership and sessions, a frozen top-nine rebalance rule, the same order and cost assumptions, net daily returns, and the same benchmark and risk-free series. Annual return compounds realized ledger returns. Volatility and ratios use an explicitly recorded periods-per-year factor. Report turnover, costs, fills, missing observations, and uncertainty alongside returns.</p>
+   <p>PhaseWeave’s FX forecasts and current paper run have no entry in the external equity table. The local scorer was checked against independently calculated values from actual public U.S. factor returns.</p>
+   <p><a href="portfolio-score-calibration-v1.json">Metric calibration on observed daily returns</a> · <a href="readiness.html">Execution evidence</a></p>
+  </section>
+ </main>
+</body>
+</html>

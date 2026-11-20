@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Market sheaf · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="market-sheaf.css">
+  <script defer src="market-sheaf.js"></script>
+</head>
+<body>
+  <header class="top sheaf-nav">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="nonabelian.html">Non-Abelian phase lab</a>
+      <a class="button" href="model-comparisons.html">Model comparisons</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-sheaf-theme="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-sheaf-theme="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="sheaf-page">
+    <header class="sheaf-heading">
+      <h1>Market sheaf</h1>
+      <p>Fit a global reference to dated bid/ask observations and inspect the remaining cycle inconsistency.</p>
+    </header>
+    <section class="sheaf-controls" aria-label="Observed input and masks">
+      <label>Recorded episode <select id="sheaf-episode" disabled></select></label>
+      <label>Frame <select id="sheaf-frame" disabled></select></label>
+      <label>Weights <select id="sheaf-weight" disabled><option value="age">Age decay</option><option value="uniform">Uniform</option></select></label>
+      <label class="sheaf-check"><input id="sheaf-source" type="checkbox" checked disabled> Include HistData</label>
+      <fieldset id="sheaf-mask" disabled><legend>Include pairs</legend></fieldset>
+    </section>
+    <p id="sheaf-status" role="status">Loading the recorded observations…</p>
+    <div class="sheaf-grid">
+      <section class="sheaf-panel" aria-labelledby="sheaf-map-title">
+        <div class="sheaf-inset"><h2 id="sheaf-map-title">Observed market graph</h2><p id="sheaf-time"></p></div>
+        <canvas id="sheaf-canvas" role="img" aria-label="Quote graph showing included, stale, or withheld pairs"></canvas>
+        <ul class="sheaf-legend"><li class="counter">● Included</li><li class="clockwise">● Stale</li><li>● Excluded by input mask</li></ul>
+      </section>
+      <section class="sheaf-panel" aria-labelledby="sheaf-diagnostic-title">
+        <div class="sheaf-inset">
+          <h2 id="sheaf-diagnostic-title">Consistency fit</h2>
+          <dl class="sheaf-metrics">
+            <div><dt>Active pairs</dt><dd id="sheaf-active">—</dd></div>
+            <div><dt>Rank δ</dt><dd id="sheaf-rank">—</dd></div>
+            <div><dt>H⁰ dimension</dt><dd id="sheaf-h0">—</dd></div>
+            <div><dt>H¹ dimension</dt><dd id="sheaf-h1">—</dd></div>
+            <div><dt>Residual RMS</dt><dd id="sheaf-rms">—</dd></div>
+          </dl>
+          <p id="sheaf-weight-note"></p>
+          <p id="sheaf-cycle"></p>
+          <p id="sheaf-margin"></p>
+        </div>
+        <div class="sheaf-scroll">
+          <table aria-label="Market observation projection">
+            <thead><tr><th scope="col">Pair</th><th scope="col">State</th><th scope="col">Age (ms)</th>
+              <th scope="col">Weight</th><th scope="col">Observed midpoint</th><th scope="col">Fitted midpoint</th>
+              <th scope="col">Residual</th></tr></thead>
+            <tbody id="sheaf-readout"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <section class="sheaf-method" aria-labelledby="sheaf-method-title">
+      <h2 id="sheaf-method-title">What the fit sees</h2>
+      <p>Each currency has a potential and an endpoint spread component. Each market supplies a midpoint and half-spread in log basis points. For an oriented pair, the tail restriction flips the spread component, and δ subtracts the tail restriction from the head restriction.</p>
+      <p>Stale quotes stay visible with their ages and contribute no equation. The auxiliary surface meridian has no market observation. A missing pair prevents a complete three-market margin.</p>
+      <p>On the separate reconstructed Gate hour, 343 of 790 complete snapshots had unequal pair ages at the 250 ms cutoff. Under the same weighted objective, the mean residual RMS decreased from 0.45002 to 0.43673 log bps. Gate receipt timing remains unverified.</p>
+      <p class="resources"><a href="market-sheaf-replay-v1.json" download>Download observed replay summary</a>
+        <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/MARKET_SHEAF.md">Experiment and reproduction</a>
+        <a href="nonabelian.html">Non-Abelian phase lab</a></p>
+    </section>
+  </main>
+</body>
+</html>

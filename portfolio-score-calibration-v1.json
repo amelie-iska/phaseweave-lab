@@ -1,0 +1,48 @@
+{
+  "scope": "Actual 2023 public factor series for metric verification. Allocation mixes are mechanical benchmarks without trade or fee evidence.",
+  "source_description": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_factors.html",
+  "source_sha256": "96c23b88e651cbfff3740a53f8225e59ee39893371e96385a1d8125ec2cd9c89",
+  "source_zip_member": "F-F_Research_Data_Factors_daily.csv",
+  "method": "Portfolio series and benchmarks use observed Fama/French excess-market and one-month-bill daily returns. Market simple returns are their sum.",
+  "results": {
+    "Value-weighted market series": {
+      "observations": 250,
+      "start": "2023-01-03",
+      "stop_inclusive": "2023-12-29",
+      "periods_per_year": 252,
+      "sample_std_ddof": 1,
+      "cumulative_net_return": 0.26904298489812356,
+      "arr": 0.27146422025992223,
+      "avol": 0.1366850070060391,
+      "mdd": -0.10788172651805454,
+      "asr": 1.4572249317088573,
+      "ir": null
+    },
+    "Equal daily mix of market and bill series": {
+      "observations": 250,
+      "start": "2023-01-03",
+      "stop_inclusive": "2023-12-29",
+      "periods_per_year": 252,
+      "sample_std_ddof": 1,
+      "cumulative_net_return": 0.15771783212198306,
+      "arr": 0.15907501552941442,
+      "avol": 0.06834250350301956,
+      "mdd": -0.04901575207126337,
+      "asr": 1.4572249317088573,
+      "ir": -1.4572249317088573
+    },
+    "Treasury bill series": {
+      "observations": 250,
+      "start": "2023-01-03",
+      "stop_inclusive": "2023-12-29",
+      "periods_per_year": 252,
+      "sample_std_ddof": 1,
+      "cumulative_net_return": 0.05126584073442161,
+      "arr": 0.051686389121349,
+      "avol": 0.0,
+      "mdd": 0.0,
+      "asr": null,
+      "ir": -1.4572249317088573
+    }
+  }
+}

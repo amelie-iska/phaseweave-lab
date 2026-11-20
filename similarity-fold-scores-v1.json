@@ -1,0 +1,219 @@
+{
+  "format": "phaseweave.similarity-fold-scores.v1",
+  "scores": {
+    "new_asset": {
+      "chronology": {
+        "all_august": 0.20385984806991192,
+        "persistence": 0.2063906452608546,
+        "rows": 17334,
+        "thinned_august": 0.20133414855568044
+      },
+      "exact_earlier": {
+        "all_august": null,
+        "persistence": null,
+        "rows": 0,
+        "thinned_august": null
+      },
+      "excluded": {
+        "all_august": 0.22512740090073316,
+        "persistence": 0.2345310697809142,
+        "rows": 15893,
+        "thinned_august": 0.22553282730150592
+      },
+      "near_earlier": {
+        "all_august": 0.26251652165073697,
+        "persistence": 0.20395831729488811,
+        "rows": 870,
+        "thinned_august": 0.22320652036918032
+      },
+      "near_train": {
+        "all_august": 0.2679843003473024,
+        "persistence": 0.20316283225857557,
+        "rows": 766,
+        "thinned_august": 0.22535641063685802
+      },
+      "original": {
+        "all_august": 0.21331127051961715,
+        "persistence": 0.22015341546193667,
+        "rows": 32768,
+        "thinned_august": 0.212800257420595
+      },
+      "shares_existing_october_source": {
+        "all_august": 0.21474174699837995,
+        "persistence": 0.22797631977598537,
+        "rows": 20667,
+        "thinned_august": 0.2185341020775488
+      },
+      "strict": {
+        "all_august": 0.2021827513997904,
+        "persistence": 0.20661243412318053,
+        "rows": 16875,
+        "thinned_august": 0.20080862879142058
+      },
+      "thinned": {
+        "all_august": 0.20360680155115968,
+        "persistence": 0.2036941558050035,
+        "rows": 10673,
+        "thinned_august": 0.19893821068676587
+      }
+    },
+    "stress": {
+      "chronology": {
+        "all_august": 0.19319984079516941,
+        "persistence": 0.2070128740089368,
+        "rows": 65536,
+        "thinned_august": 0.19500576228172167
+      },
+      "exact_earlier": {
+        "all_august": null,
+        "persistence": null,
+        "rows": 0,
+        "thinned_august": null
+      },
+      "excluded": {
+        "all_august": 0.19993151303589848,
+        "persistence": 0.19261086763655544,
+        "rows": 2006,
+        "thinned_august": 0.1912825103621284
+      },
+      "near_earlier": {
+        "all_august": 0.19993151303589848,
+        "persistence": 0.19261086763655544,
+        "rows": 2006,
+        "thinned_august": 0.1912825103621284
+      },
+      "near_train": {
+        "all_august": 0.20024398891710207,
+        "persistence": 0.19199610769289205,
+        "rows": 1884,
+        "thinned_august": 0.19124245318385982
+      },
+      "original": {
+        "all_august": 0.19319984079516941,
+        "persistence": 0.2070128740089368,
+        "rows": 65536,
+        "thinned_august": 0.19500576228172167
+      },
+      "strict": {
+        "all_august": 0.19298728397925724,
+        "persistence": 0.20746762648466477,
+        "rows": 63530,
+        "thinned_august": 0.19512332631998242
+      },
+      "thinned": {
+        "all_august": 0.19253892411924678,
+        "persistence": 0.19988684023337105,
+        "rows": 19362,
+        "thinned_august": 0.1914034905259113
+      }
+    },
+    "test": {
+      "chronology": {
+        "all_august": 0.19456984300053293,
+        "persistence": 0.21382253866785803,
+        "rows": 33715,
+        "thinned_august": 0.2000518968986148
+      },
+      "exact_earlier": {
+        "all_august": null,
+        "persistence": null,
+        "rows": 0,
+        "thinned_august": null
+      },
+      "excluded": {
+        "all_august": 0.18236858437388004,
+        "persistence": 0.20117129230199116,
+        "rows": 32663,
+        "thinned_august": 0.18714819063849442
+      },
+      "near_earlier": {
+        "all_august": 0.2114102310589277,
+        "persistence": 0.1989321890847175,
+        "rows": 1746,
+        "thinned_august": 0.20069568279387442
+      },
+      "near_train": {
+        "all_august": 0.21539099871544054,
+        "persistence": 0.2019885433926244,
+        "rows": 1579,
+        "thinned_august": 0.20463099645053423
+      },
+      "original": {
+        "all_august": 0.18810979498834118,
+        "persistence": 0.20767412156418885,
+        "rows": 65536,
+        "thinned_august": 0.19350688640882038
+      },
+      "shares_existing_october_source": {
+        "all_august": 0.19251895566197352,
+        "persistence": 0.21473975797094513,
+        "rows": 24665,
+        "thinned_august": 0.1992243559542865
+      },
+      "strict": {
+        "all_august": 0.1938143294786568,
+        "persistence": 0.2141354093137451,
+        "rows": 32873,
+        "thinned_august": 0.1998249614231531
+      },
+      "thinned": {
+        "all_august": 0.18704251190519683,
+        "persistence": 0.20464018669159248,
+        "rows": 14500,
+        "thinned_august": 0.1915668360666473
+      }
+    },
+    "validation": {
+      "chronology": {
+        "all_august": 0.20321664205787138,
+        "persistence": 0.22791646489542083,
+        "rows": 65536,
+        "thinned_august": 0.20952229676852308
+      },
+      "exact_earlier": {
+        "all_august": null,
+        "persistence": null,
+        "rows": 0,
+        "thinned_august": null
+      },
+      "excluded": {
+        "all_august": 0.19972244825950364,
+        "persistence": 0.19837307751577343,
+        "rows": 2729,
+        "thinned_august": 0.19398605886108825
+      },
+      "near_earlier": {
+        "all_august": 0.19972244825950364,
+        "persistence": 0.19837307751577343,
+        "rows": 2729,
+        "thinned_august": 0.19398605886108825
+      },
+      "near_train": {
+        "all_august": 0.19972244825950364,
+        "persistence": 0.19837307751577343,
+        "rows": 2729,
+        "thinned_august": 0.19398605886108825
+      },
+      "original": {
+        "all_august": 0.20321664205787138,
+        "persistence": 0.22791646489542083,
+        "rows": 65536,
+        "thinned_august": 0.20952229676852308
+      },
+      "strict": {
+        "all_august": 0.20336846677288323,
+        "persistence": 0.2292001419403212,
+        "rows": 62807,
+        "thinned_august": 0.21019735517362745
+      },
+      "thinned": {
+        "all_august": 0.19098918969761647,
+        "persistence": 0.21171262156065992,
+        "rows": 20274,
+        "thinned_august": 0.1957439048050455
+      }
+    }
+  },
+  "selection_sha256": "42683dd6ead046cf5555135911981dd734803a28880231909d406b320bc90597",
+  "source_sha256": "c6ae8007af69a7dd4d91ea531629f879c81509f9d064250555e68014daa4a812"
+}

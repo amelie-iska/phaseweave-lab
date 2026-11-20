@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wilson loops on a marked surface · PhaseWeave</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="reasoning.css">
+<script defer src="reasoning-3d.js"></script><script defer src="surface-genus-core.js"></script>
+<script defer src="nonabelian-core.js"></script><script defer src="nonabelian.js"></script>
+</head>
+<body>
+<header class="top"><a class="brand" href="./">◇ PhaseWeave</a><nav><a class="button" href="surfaces.html">Surface suite</a></nav></header>
+<main class="latent-page">
+<div class="latent-heading"><div><h1>When loop order matters</h1><p class="standfirst">Follow two marked loops through a handle. Archived FX quotes set the rotations along each link. The order in which those rotations accumulate determines the return state.</p></div></div>
+<div class="latent-inputs"><label>FX episode <select id="episode"></select></label><label>Recorded second <input type="range" min="0" max="30" value="0" id="frame"></label><time id="utc">Loading archive…</time></div>
+<section class="latent-workspace"><div class="latent-grid"><figure class="latent-figure">
+<div class="latent-chart-header"><strong>Ordered circuit on the marked surface</strong><span id="extent"></span></div>
+<canvas id="latent-chart" role="img" aria-label="Rotatable closed surface with selected meridian, longitude, and current edge of the circuit"></canvas>
+<div class="latent-camera" id="camera"><label>Yaw <input type="range" name="yaw" min="-180" max="180" value="-32"></label><label>Pitch <input type="range" name="pitch" min="-85" max="85" value="24"></label><label>Zoom <input type="range" name="zoom" min=".65" max="1.45" step=".05" value="1"></label><button>Reset view</button></div>
+<figcaption>Jade follows the meridian A. Copper follows the longitude B. The white point advances through A B A⁻¹ B⁻¹ and returns to the shared base point.</figcaption>
+</figure><div class="latent-panel"><h2>Trace the commutator</h2><div id="latent-controls">
+<label>Genus <select id="genus"></select></label><label>Handle <select id="handle"></select></label>
+<label>Link generators <select id="model"><option value="su2">SU(2) · three axes</option><option value="common">Common-axis control</option></select></label>
+<label>Local gauge rotation <input id="gauge" type="range" min="0" max="1" step=".05" value="0"></label>
+<label>Circuit step <input id="step" type="range" min="0" value="0"></label><button id="advance" type="button" aria-pressed="false">Play circuit</button></div>
+<output id="position"></output><table aria-label="Circuit readout"><tbody id="metrics"></tbody></table>
+</div></div></section>
+<div class="latent-provenance"><section><h2>Read the circuit</h2><p>Each ordered product is shown as four real components of an SU(2) matrix. The order gap ‖AB − BA‖ compares the two return operators at their common base point. Trace alone cannot distinguish AB from BA. The Wilson value W(C) = ½ Re tr(C) measures the full commutator. A commuting pair gives zero order gap and W(C) = 1.</p>
+<p>Changing the basis independently at every vertex conjugates each closed return operator. Its components can change while its trace and the order gap stay fixed.</p></section>
+<section><h2>Where the rotations come from</h2><p>The x, y and vertical directions reuse EUR/JPY, EUR/USD and USD/JPY. Each link combines its pair’s centered bid and inverse ask, their implied spread, and their age. The surface, pair assignment and rotation scales are modeling choices. A stale episode remains a historical geometry example. These measurements do not estimate executable returns.</p>
+<p><a href="replay.json">Released HistData replay</a> · <a href="nonabelian-wilson-v1.json">Measured circuit diagnostics</a></p></section></div>
+</main></body></html>
