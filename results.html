@@ -23,6 +23,16 @@
   <main class="results">
     <h1>Experiment results</h1>
     <p class="standfirst">Measured forecasts on timestamped FX quote graphs. Scores are in log basis points.</p>
+    <section class="result-panel" aria-labelledby="convergence-title">
+      <div class="result-title">
+        <h2 id="convergence-title">Full-epoch validation</h2>
+        <label>Width <select id="convergence-width"></select></label>
+      </div>
+      <canvas id="convergence-chart" aria-label="Validation MAE by epoch, with exact values in the table below"></canvas>
+      <p id="convergence-note"></p>
+      <div id="convergence-holdouts"></div>
+      <details><summary>Every epoch</summary><div id="convergence-epochs"></div></details>
+    </section>
     <section class="result-panel" aria-labelledby="campaign-title">
       <div class="result-title">
         <h2 id="campaign-title">Width-transfer campaign</h2>
@@ -42,7 +52,7 @@
     <section class="research">
       <h2>Measurement scope</h2>
       <p>The pilot uses 16 seconds of observed quote features to forecast both cycle margins one second ahead. Each estimate requires all three pairs to refresh. Held-out score intervals resample UTC-day blocks. A smaller reported error supports a forecasting comparison under these assumptions. The measurements concern quote margins and contain no confirmed trading fills.</p>
-      <p><a href="experiment-data.json">Download aggregate results</a><a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/TRAINING.md">Training recipe</a></p>
+      <p><a href="experiment-data.json">Download sweep and ablation results</a><a href="convergence-data.json">Download epoch scores</a><a href="https://huggingface.co/AmelieSchreiber/PhaseWeave-FX-Pilot">Checkpoints</a><a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/TRAINING.md">Training recipe</a></p>
     </section>
     <p id="result-status" role="status"></p>
   </main>

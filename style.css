@@ -140,5 +140,13 @@ input[type="range"], input[type="checkbox"] { accent-color: var(--copper); }
 .result-title label { display: flex; align-items: center; gap: 8px; }
 .result-panel canvas { height: 218px; min-height: 0; margin-top: 12px; cursor: default; touch-action: auto; }
 .result-panel p { color: var(--muted); margin: 6px 0 10px; }
+.hosted-inference { margin: 24px 0 0; padding: 16px; border: 1px solid var(--line); }
+.hosted-inference p { color: var(--muted); margin: 5px 0 10px; }
+.hosted-inference iframe { display: block; width: 100%; height: min(880px, 86vh); min-height: 520px; border: 1px solid var(--line); background: var(--surface); }
+.hosted-inference .resources { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 12px 0 0; }
+@media (max-width: 420px) {
+  .top { flex-wrap: wrap; gap: 4px 10px; }
+  .top nav { flex-wrap: wrap; }
+}
 .table-overflow { max-height: 460px; overflow: auto; margin-top: 12px; }
 .table-overflow th { position: sticky; top: 0; }

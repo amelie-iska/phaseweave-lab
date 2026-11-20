@@ -1,6 +1,7 @@
 "use strict";
 
 let records;
+let convergence;
 const item = (id) => document.getElementById(id);
 const number = (value, digits = 5) => value == null ? "—" : value.toFixed(digits);
 const formatCount = new Intl.NumberFormat("en", {notation:"compact", maximumFractionDigits:2});
@@ -118,19 +119,43 @@ function renderAblation() {
     }));
 }
 
+function renderConvergence() {
+  if (!convergence?.length) return;
+  const width = Number(item("convergence-width").value);
+  const run = convergence.find((entry) => entry.width === width);
+  if (!run) return;
+  const {summary, epochs} = run;
+  drawBars(item("convergence-chart"), epochs.map((epoch) => ({
+    label: String(epoch.epoch), value: epoch.mae_bps, transfer: epoch.epoch === summary.best_epoch,
+  })), epochs[0].persistence_mae_bps);
+  const reason = summary.stop_reason.replaceAll("_", " ");
+  item("convergence-note").textContent = `Stopped after ${summary.epochs} epochs (${reason}). Copper marks the selected epoch ${summary.best_epoch}. The dashed line is persistence.`;
+  table(item("convergence-holdouts"), ["Split", "Model MAE", "Persistence MAE", "Paired Δ 95% interval"],
+    Object.entries(summary.holdout).map(([name, scores]) => [
+      {test:"October holdout", new_asset:"Unseen CHF", stress:"September stress"}[name],
+      number(scores.learned.mae_bps), number(scores.persistence.mae_bps),
+      `[${number(scores.interval.lower_95)}, ${number(scores.interval.upper_95)}]`,
+    ]));
+  table(item("convergence-epochs"), ["Epoch", "Validation MAE", "Validation RMSE", "Training loss", "Epoch seconds"],
+    epochs.map((epoch) => [epoch.epoch, number(epoch.mae_bps), number(epoch.rmse_bps),
+      number(epoch.loss), number(epoch.seconds, 1)]));
+}
+
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   document.querySelectorAll("[data-theme-choice]").forEach((button) =>
     button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme)));
   try { localStorage.setItem("phaseweave-theme",theme); } catch {}
   renderCampaign();
+  renderConvergence();
 }
 
 document.querySelectorAll("[data-theme-choice]").forEach((button) =>
   button.addEventListener("click",() => applyTheme(button.dataset.themeChoice)));
 item("series").addEventListener("change",renderCampaign);
 item("ablation-split").addEventListener("change",renderAblation);
-window.addEventListener("resize",renderCampaign);
+item("convergence-width").addEventListener("change",renderConvergence);
+window.addEventListener("resize",() => { renderCampaign(); renderConvergence(); });
 applyTheme(readTheme());
 fetch("experiment-data.json").then((response) => {
   if (!response.ok) throw new Error("result export unavailable");
@@ -140,3 +165,16 @@ fetch("experiment-data.json").then((response) => {
   renderCampaign();
   renderAblation();
 }).catch(() => { item("result-status").textContent = "The experiment data could not load."; });
+fetch("convergence-data.json").then((response) => {
+  if (!response.ok) throw new Error("epoch export unavailable");
+  return response.json();
+}).then((data) => {
+  convergence = data;
+  item("convergence-width").replaceChildren(...data.map((entry) => {
+    const option = document.createElement("option");
+    option.value = String(entry.width);
+    option.textContent = `Width ${entry.width}`;
+    return option;
+  }));
+  renderConvergence();
+}).catch(() => { item("convergence-note").textContent = "The epoch data could not load."; });
