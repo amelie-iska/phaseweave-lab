@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="reasoning.css">
   <script defer src="reasoning-core.js"></script>
   <script defer src="reasoning-3d.js"></script>
+  <script defer src="steering-concepts.js"></script>
   <script defer src="reasoning-scenes.js"></script>
+  <script defer src="reasoning-parallel.js"></script>
   <script defer src="reasoning.js"></script>
 </head>
 <body>
@@ -72,6 +74,7 @@
         </div>
       </div>
     </section>
+    <section id="latent-concept-report" aria-label="Steering concept measurements" hidden><div id="latent-concept-values" class="latent-table-wrap"></div></section>
     <div class="latent-provenance">
       <section aria-labelledby="latent-source-title">
         <h2 id="latent-source-title">Inspect the market input</h2>
@@ -91,6 +94,7 @@
           <summary>Equations and what transfers from the reviewed projects</summary>
           <dl>
             <dt>Graph encoding</dt><dd>The forest reads trained forecast coordinates. The analogy compares market-pair spreads and ages across directed cycle graphs. Its transport uses a separate two-coordinate summary.</dd>
+            <dt>Forest geometry</dt><dd>Each root seeds its own tree. Search depth reveals existing proposals layer by layer. The parallel layout spaces out the same nodes and links. The local simplex radius always uses original standardized forecast coordinates. Each edge is born at its endpoint distance. A triangle appears once all three edges fit the radius.</dd>
             <dt>Forest and analogy</dt><dd>The trained FoT trace retains parents, proposals, repairs and consensus votes. The directed graph reference analogy uses <var>z′ = z + λ(z<sub>after</sub> − z<sub>before</sub>)</var> on an earlier observed episode where available. Search and transfer stay in embedding coordinates. A short edit to an embedding does not place a trade.</dd>
             <dt>Concept basis</dt><dd>GraphCG-R learns edit directions from paired latent views with contrastive supervision. The dose slider follows <var>z′ = z + αv</var> with the graph readout fixed.</dd>
             <dt>Continuous flow</dt><dd>The forward model samples a normalized Gaussian transition at each stage. The training objective balances forward and backward path densities against an unnormalized context-dependent terminal reward. The visual display pools the conditional rewards over the selected split.</dd>

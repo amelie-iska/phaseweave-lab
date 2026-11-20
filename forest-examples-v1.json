@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "examples": [
+    {
+      "id": "recurrent-r4-d2",
+      "label": "Recurrent · 4 roots × 2 proposal layers",
+      "file": "forest-view-r4-d2.json",
+      "sha256": "2486adc459c22b3c1ce5f63d66d3bb10fa0b7bb55e672276863c064aa4568c4a",
+      "provenance": "Recurrent model trained for 2,048 updates on August FX, traced on the first eligible September validation context."
+    },
+    {
+      "id": "recurrent-r8-d4",
+      "label": "Recurrent · 8 roots × 4 proposal layers",
+      "file": "forest-view-r8-d4.json",
+      "sha256": "102dbd07fe116db7f550ccc257046a5d2cd9d3b405b2f4a2c398815879e5a639",
+      "provenance": "Recurrent model trained for 4,096 updates on August FX, traced on the first eligible September validation context."
+    },
+    {
+      "id": "recurrent-r16-d8",
+      "label": "Recurrent · 16 roots × 8 proposal layers",
+      "file": "forest-view-r16-d8.json",
+      "sha256": "92d292f658a1ac37c1def8eb0e142c70154dd953a852bd134700618b93746dea",
+      "provenance": "Recurrent model trained for 4,096 updates on August FX, traced on the first eligible September validation context."
+    }
+  ]
+}

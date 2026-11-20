@@ -5,12 +5,13 @@
   const math = LatentReasoning;
   const qs = new URLSearchParams(location.search);
   const scenes = ReasoningScenes;
+  const forests = ReasoningParallel;
   const views = {
-    forest: ["Forest of Thought", "Four learned forecast trees",
-      "Grow the trained candidates under a shared search budget. Select a node to inspect its local filtered complex."],
+    forest: ["Forest of Thought", "Learned forecast forest",
+      "Explore recorded model candidates by search layer. Select a node to inspect its verifier score and local filtered complex."],
     analogy: ["Graph and forest analogy", "Directed correspondence across two graph planes",
       "Each eligible historical source is a tree. Its six leaves score currency bijections before a forecast displacement is transported."],
-    steering: ["GraphCG-R concept steering", "Learned directions projected into three PCs",
+    steering: ["GraphCG-R concept steering", "Latent directions and measured concept responses",
       "Move along a learned direction or compare it with the initial and random controls. Dose changes the latent state while the readout stays frozen."],
     flow: ["Continuous GFlowNet", "Learned forward trajectories by stage",
       "Follow samples from a Gaussian base through the intermediate stage to the terminal state. Shading shows the pooled target reward at the terminal plane."],
@@ -22,8 +23,14 @@
     expansion: true, correction: true, consensus: true,
     source: -1, mapping: -1, strength: 1,
     seedIndex: 0, editMethod: "trained", axis: 1, dose: 1,
+    steeringProjection: "pca", concepts: [0,1,2],
     split: "test", stage: 2, count: 28, seed: 0, timer: null,
     forest: null, steering: null, flow: null,
+    forestExamples: [forests.defaultExample],
+    forestExample: qs.get("forest") || forests.defaultExample.id,
+    forestLoadedExample: null, forestPending: false, forestError: "",
+    forestTree: -1, forestProfile: null,
+    forestLayout: qs.get("layout") === "parallel" ? "parallel" : "coordinates",
   };
   const flowSplits = {"validation":"September validation","test":"October holdout","new_asset":"Unseen CHF"};
   const blank = () => ({axes:["X","Y","Z"],points:[],lines:[],faces:[]});
@@ -88,7 +95,7 @@
     input.addEventListener("input", () => {
       state[key] = Number(input.value);
       if (key === "depth" && state.forest) {
-        const nodes = state.forest.nodes.filter(node=>node.depth <= state.depth);
+        const nodes = forests.visibleNodes(state.forest,state);
         if (!nodes.some(node=>node.id === state.node)) state.node = nodes[0].id;
         const select = document.getElementById("latent-setting-node");
         select.replaceChildren(...nodes.map(node=>new Option(nodeLabel(node),node.id)));
@@ -98,6 +105,7 @@
       render();
     });
     update();
+    wrapper.htmlFor = input.id;
     wrapper.append(label, value, input);
     return wrapper;
   }
@@ -120,6 +128,7 @@
     selector.addEventListener("change", () => {
       state[key] = typeof state[key] === "number" ? Number(selector.value) : selector.value;
       if (key === "source") state.mapping = -1;
+      if (key === "forestExample") { loadForest(state.forestExample, true); return; }
       paintControls();
       render();
       document.getElementById(selector.id)?.focus();
@@ -156,19 +165,74 @@
     }, 550);
   }
 
-  const nodeLabel = node => (node.tree < 0 ? "Consensus" : `Tree ${node.tree+1}`) + ` · node ${node.id} · ${node.label}`;
+  const nodeLabel = node => forests.treeLabel(node.tree) + ` · #${node.id} · ${node.label}`;
+  let forestRequest = 0;
+  const forestCache = new Map();
+
+  async function loadForest(id, restoreFocus = false) {
+    const example = state.forestExamples.find(item => item.id === id) || forests.defaultExample;
+    const request = ++forestRequest;
+    state.forestExample = example.id;
+    state.forestPending = true;
+    state.forestError = "";
+    if (state.mode === "forest") { paintControls(); render(); }
+    try {
+      const trace = forestCache.get(example.id) || await forests.loadTrace(example);
+      if (request !== forestRequest) return;
+      forestCache.set(example.id,trace);
+      const profile = forests.profile(trace);
+      const root = trace.nodes.find(node => node.depth === 0 && node.tree >= 0);
+      if (state.timer && state.mode === "forest") {
+        clearInterval(state.timer);
+        state.timer = null;
+      }
+      state.forest = trace;
+      state.forestProfile = profile;
+      state.forestLoadedExample = example;
+      state.forestTree = -1;
+      state.node = root.id;
+      state.depth = profile.depth;
+      state.radius = Math.min(state.radius,profile.radius);
+    } catch {
+      if (request !== forestRequest) return;
+      state.forestExample = state.forestLoadedExample?.id ?? forests.defaultExample.id;
+      const error = `Could not load the measured trace for ${example.label}.`;
+      if (!state.forestLoadedExample && example.id !== forests.defaultExample.id) {
+        await loadForest(forests.defaultExample.id, restoreFocus);
+      }
+      state.forestError = error;
+    }
+    state.forestPending = false;
+    if (state.mode === "forest") {
+      paintControls();
+      render();
+      if (restoreFocus) document.getElementById("latent-setting-forestExample")?.focus();
+    }
+  }
 
   function paintControls() {
     const panel = $("controls");
     panel.replaceChildren();
-    if (state.mode === "forest" && state.forest) {
-      const limit = Math.max(...state.forest.nodes.map(node => node.depth));
-      const nodes = state.forest.nodes.filter(node => node.depth <= state.depth);
+    if (state.mode === "forest") {
+      const selector = pick("forestExample","Measured trace",state.forestExamples.map(item=>[item.id,item.label]));
+      selector.querySelector("select").disabled = state.forestPending;
+      panel.append(selector,pick("forestLayout","Tree layout",[
+        ["coordinates","Original forecast coordinates"],["parallel","Parallel tree lanes"],
+      ]));
+      if (state.forestPending || state.forestError) {
+        const status = textBlock(state.forestError || "Loading the selected measured trace.");
+        status.setAttribute("role","status");
+        panel.append(status);
+      }
+      if (!state.forest) return;
+      const {depth,radius,trees} = state.forestProfile;
+      const nodes = forests.visibleNodes(state.forest,state);
       if (!nodes.some(node => node.id === state.node)) state.node = nodes[0].id;
-      panel.append(slider("depth","Search budget",0,limit,1,0), slider("radius","Simplex radius",0,2.5,.025),
+      panel.append(pick("forestTree","Tree focus",[[-1,"All roots"],...trees.map(tree=>[tree,forests.treeLabel(tree)])]),
+        slider("depth","Search depth",0,depth,1,0), slider("radius","Simplex radius",0,radius,.025),
         pick("node","Inspect generated node",nodes.map(node=>[node.id,nodeLabel(node)])),
-        toggle("expansion","Show expansions"),toggle("correction","Show corrections"),toggle("consensus","Show consensus"),
-        command("Play search growth",()=>play("depth",limit)));
+        toggle("expansion","Show expansions"),toggle("correction","Show corrections"),toggle("consensus","Show consensus edges"),
+        command("Play search growth",()=>play("depth",depth)));
     } else if (state.mode === "analogy" && state.examples.length) {
       const sources = sourceMaps();
       if (!sources.length) return;
@@ -181,8 +245,19 @@
     } else if (state.mode === "steering" && state.steering) {
       panel.append(pick("seedIndex","Training seed",state.steering.runs.map((run,index)=>[index,run.seed])),
         pick("editMethod","Editor",[["trained","GraphCG-R trained"],["initial","Initial axes"],["random","Equal-norm random"]]),
-        pick("axis","Direction",[1,2,3,4].map(axis=>[axis,`Axis ${axis}`])),slider("dose","Embedding dose",-2,2,.05),
+        pick("axis","Edit direction",[1,2,3,4].map(axis=>[axis,`Axis ${axis}`])),
+        slider("dose","Edit magnitude · signed dose",-2,2,.25),
+        pick("steeringProjection","3D coordinates",[["pca","Latent space · PCA3"],["concepts","Three named concepts"]]),
         command("Reset dose",()=>{state.dose=0;paintControls();render();}));
+      panel.append(command("Example · spread and dispersion",() => {
+        Object.assign(state,{seedIndex:0,editMethod:"trained",axis:3,dose:1,steeringProjection:"concepts",concepts:[1,3,2]});
+        paintControls(); render();
+      }));
+      if (state.steeringProjection === "concepts") {
+        panel.append(...SteeringConcepts.fields(state.steering,state.concepts,indices => {
+          state.concepts = indices; paintControls(); render();
+        }));
+      }
     } else if (state.mode === "flow" && state.flow) {
       panel.append(pick("split","Data split",Object.entries(flowSplits)),slider("stage","Flow stage",0,2,1,0),
         slider("count","Sampled trajectories",8,76,4,0),
@@ -195,28 +270,34 @@
     const panel = $("readout");
     panel.replaceChildren();
     if (state.mode === "forest" && state.forest) {
-      const source = state.forest;
-      const shown = source.nodes.filter(node=>node.depth<=state.depth);
-      const pivot = shown.find(node=>node.id===state.node) || shown[0];
-      const edges = source.edges.filter(edge => edge.kind === "expansion" ? state.expansion :
-        edge.kind.includes("consensus") ? state.consensus : state.correction);
-      const result = Reasoning3D.forestScene(source.nodes,edges,state.depth,0,pivot.id,
-        ["Forward Δ","Reverse Δ","Log move"]);
-      const coords = new Map(shown.map(n=>[n.id,n.point]));
-      let cells=0;
-      for (const simplex of source.local_complexes[pivot.id]?.simplices || []) {
-        if (simplex.birth > state.radius || !simplex.vertices.every(id=>coords.has(id))) continue;
-        const vertices = simplex.vertices.map(id=>coords.get(id));
-        if (vertices.length===2) result.lines.push({coords:vertices,color:"violet",dash:[2,3],alpha:.75});
-        else if (vertices.length===3) result.faces.push({coords:vertices,color:"violet",alpha:.15});
-        cells++;
-      }
+      const trace = state.forest;
+      const meta = state.forestLoadedExample;
+      const {result,pivot,shown,counts} = forests.scene(trace,state,Reasoning3D);
+      const {trees,depth,widths} = state.forestProfile;
+      const visibleLayer = shown.filter(node => node.depth === state.depth).length;
+      const incoming = trace.edges.filter(edge => edge.target === pivot.id);
+      $("chart-label").textContent = state.forestLayout === "parallel" ? "Parallel tree lanes" : "Original forecast coordinates";
+      $("description").textContent = forests.purpose(state.forestLayout) +
+        " Colored edges are expansions, dashed edges are corrections, neutral edges are consensus votes, and violet marks show the selected local complex.";
+      panel.append(textBlock(meta.provenance));
+      const experiment = trace.experiment;
+      const scope = experiment ? [
+        ["Proposal unroll",`${experiment.inference_unroll} layers · ${experiment.branch_factor} proposals per expanded parent`],
+        ["Inference budget",`${experiment.evaluations_per_window} candidates scored per window`],
+      ] : [];
       panel.append(table("Selected learned forest node",["Property","Value"],[
-        ["Origin","Historical validation context"],["Tree",pivot.tree<0 ? "Consensus" : pivot.tree+1],
-        ["Node and role",`${pivot.id} · ${pivot.label}`],["Status",pivot.status],
-        ["Standardized coordinates",asCoordinate(pivot.point)],["Verifier score",Number(pivot.score).toFixed(5)],
-        ["Visible candidate states",shown.length],["Local simplices at radius",cells]
+        ["Trace scope",`${trees.length} roots · ${trace.nodes.length} displayed states · layers 0–${depth}`],
+        ...scope,
+        ["Layer width",`${visibleLayer} shown / ${widths[state.depth]} across all roots at layer ${state.depth}`],
+        ["Tree and layer",`${forests.treeLabel(pivot.tree)} · ${pivot.depth}`],
+        ["Node and role",`#${pivot.id} · ${pivot.label}`],["Status",pivot.status],
+        ["Standardized coordinates",asCoordinate(pivot.point)],
+        ["Verifier score",Number.isFinite(pivot.score) ? pivot.score.toFixed(5) : "No verifier score for this state"],
+        ["Incoming trace links",incoming.map(edge => `#${edge.source} · ${edge.kind}`).join(", ") || "Root"],
+        ["Visible candidate states",shown.length],
+        ["Local simplices",`${counts[0]} vertices · ${counts[1]} edges · ${counts[2]} triangles`],
       ]));
+      panel.append(textBlock(trace.provenance || "Model-generated candidate states on a recorded FX context."));
       return result;
     }
     if (state.mode === "analogy" && current) {
@@ -234,13 +315,19 @@
       return result;
     }
     if (state.mode === "steering" && state.steering) {
-      const {result,active,method} = scenes.steering(state.steering,state.seedIndex,state.editMethod,state.axis,state.dose);
-      panel.append(table("Projected concept intervention",["Property","Value"],[
-        ["Editor",method.id],["Training origin","August latent centroid"],
-        ["Axis projection",asCoordinate(active.axis.unit_vector_pca3)],["Edited position",asCoordinate(active.point)],
-        ["Mean forecast change, log bps",active.outcome ? asCoordinate(active.outcome) : "Measured at integer doses −2 through 2"],
-        ["State variance in 3 PCs",(100*state.steering.explained_variance_fraction.reduce((a,b)=>a+b,0)).toFixed(2)+"%"],
-      ]));
+      const coordinates = SteeringConcepts.display(state.steering,state.steeringProjection,state.concepts);
+      const {result,active,method} = scenes.steering(state.steering,state.seedIndex,state.editMethod,state.axis,state.dose,coordinates);
+      const row = SteeringConcepts.pointAt(active.axis,state.dose);
+      const conceptView = state.steeringProjection === "concepts";
+      $("description").textContent = conceptView
+        ? "The axes are the three selected observer changes in August target SD. Every color follows one edit direction through its measured doses. White marks the selected dose."
+        : "The four colors show edit directions in the same August PCA frame. White marks the selected dose. The first three PCs retain 81.79% of state variance; a direction may project to a short line.";
+      panel.append(table("Measured steering intervention",["Setting","Value"],[
+        ["Coordinates",coordinates.axes.join(" / ")],["Selected point",asCoordinate(active.point)],
+        ["Forward forecast Δ",SteeringConcepts.signed(row.margin_delta_bps[0],5)+" log bps"],
+        ["Reverse forecast Δ",SteeringConcepts.signed(row.margin_delta_bps[1],5)+" log bps"],
+      ]),textBlock("Forecast changes are measured at the chosen dose using the frozen nonlinear readout on the same 1,024 October windows."));
+      SteeringConcepts.report($("concept-values"),state.steering,method,state.axis,state.dose,table,textBlock);
       return result;
     }
     if (state.mode === "flow" && state.flow) {
@@ -258,21 +345,30 @@
   }
 
   function render() {
-    if (!state.examples.length) return;
     const episode = state.examples[state.example];
-    const frame = episode.frames[state.frame];
-    const current = episode.states[state.frame];
-    $("clock").dateTime = frame.utc;
-    $("clock").textContent = utc(frame.utc);
-    $("edges").replaceChildren();
-    frame.edges.forEach((edge) => {
-      const row = $("edges").insertRow();
-      [edge.from + " → " + edge.to, edge.side.replace("_", " "), edge.bps.toFixed(3),
-        Number(edge.age).toLocaleString() + " ms"].forEach((value) => cell(row, "td", value));
-    });
+    const frame = episode?.frames[state.frame];
+    const current = episode?.states[state.frame];
+    if (frame) {
+      $("clock").dateTime = frame.utc;
+      $("clock").textContent = utc(frame.utc);
+      $("edges").replaceChildren();
+      frame.edges.forEach((edge) => {
+        const row = $("edges").insertRow();
+        [edge.from + " → " + edge.to, edge.side.replace("_", " "), edge.bps.toFixed(3),
+          Number(edge.age).toLocaleString() + " ms"].forEach((value) => cell(row, "td", value));
+      });
+    }
     lastScene = scene(current);
     draw(lastScene, colors());
-    const locationState = new URLSearchParams({mode: state.mode, example: episode.id, frame: state.frame});
+    const locationState = new URLSearchParams({mode: state.mode});
+    if (episode) {
+      locationState.set("example",episode.id);
+      locationState.set("frame",state.frame);
+    }
+    if (state.mode === "forest") {
+      locationState.set("forest",state.forestExample);
+      locationState.set("layout",state.forestLayout);
+    }
     history.replaceState(null, "", "?" + locationState);
   }
 
@@ -287,18 +383,19 @@
     $("chart-label").textContent = chart;
     $("explainer").textContent = explanation;
     const key = {
-      forest: "Colored branches identify the four trees. Dashed links are learned corrections. White edges cast votes into consensus. Violet links and faces show the selected local complex.",
+      forest: "Choose a measured trace and a tree layout.",
       analogy: "Arrows show the source and query cycles. Dashed cross-links match their vertices. Select a forest leaf to inspect a competing map.",
       steering: "The four colors distinguish edit directions. The white point is the selected dose. Axis lengths preserve the original PCA projection.",
       flow: "Blue dots are base samples, violet dots are intermediate states, and copper dots are terminal states. The third axis is stage.",
     };
     $("description").textContent = key[mode];
     $("inputs").hidden = mode !== "analogy";
+    $("concept-report").hidden = mode !== "steering";
 
 
     document.querySelectorAll("[data-latent-mode]").forEach((button) =>
       button.setAttribute("aria-pressed", String(button.dataset.latentMode === mode)));
-    if (state.examples.length) paintControls();
+    paintControls();
     render();
   }
 
@@ -332,6 +429,10 @@
   new ResizeObserver(render).observe($("chart"));
 
   selectMode(state.mode);
+  forests.loadExamples().then(examples => {
+    state.forestExamples = examples;
+    loadForest(state.forestExample);
+  });
   fetch("replay.json").then((response) => {
     if (!response.ok) throw new Error("archive unavailable");
     return response.json();
@@ -355,13 +456,12 @@
     $("error").textContent = "The recorded market data could not be loaded. Reload this page or open the archived replay JSON below.";
   });
   for (const [key,file] of Object.entries({
-    forest:"forest-view-v1.json",steering:"steering-projection-v2.json",flow:"flow-view-v1.json"
+    steering:"steering-concepts-v3.json",flow:"flow-view-v1.json"
   })) fetch(file).then(response => {
     if (!response.ok) throw new Error("trace unavailable");
     return response.json();
   }).then(data => {
     state[key] = data;
-    if (key === "forest") state.depth = Math.max(...data.nodes.map(node=>node.depth));
     if (state.mode === key) { paintControls(); render(); }
   }).catch(() => { $("error").textContent = "A measured reasoning trace could not load."; });
 })();

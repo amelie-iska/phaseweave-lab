@@ -98,7 +98,7 @@ const Reasoning3D = (() => {
         ctx.fill();
       }
       const bound = range * 0.9;
-      for (let i = -4; i <= 4; i++) {
+      if (scene.grid !== false) for (let i = -4; i <= 4; i++) {
         const k = i * bound / 4;
         stroke([[-bound,k,0],[bound,k,0]], {color:"line", alpha:i ? 0.2 : 0.48});
         stroke([[k,-bound,0],[k,bound,0]], {color:"line", alpha:i ? 0.2 : 0.48});
@@ -113,7 +113,10 @@ const Reasoning3D = (() => {
         ctx.fillText(name, Math.max(5, Math.min(width - ctx.measureText(name).width - 5, x+6)),
           Math.max(13, Math.min(height-8,y-5)));
       });
-      for (const face of scene.faces || []) polygon(face.coords, face.color, face.alpha);
+      const faces = (scene.faces || []).map(face=>({face,
+        depth:face.coords.reduce((sum,point)=>sum+project(point)[2],0)/face.coords.length
+      })).sort((a,b)=>a.depth-b.depth);
+      for (const {face} of faces) polygon(face.coords,face.color,face.alpha);
       const drawables = scene.lines.map(line => ({line, depth: Math.min(...line.coords.map(p => project(p)[2]))}))
         .concat(scene.points.map(node => ({node, depth:project(node.point)[2]}))).sort((a,b) => a.depth-b.depth);
       hits = [];

@@ -62,21 +62,23 @@ const ReasoningScenes = (() => {
     return {result,source,candidate,prediction:math.add(target,math.scale(candidate.delta,strength))};
   }
 
-  function steering(projection, runIndex, methodId, axisId, dose) {
+  function steering(projection, runIndex, methodId, axisId, dose, coordinates) {
     const run = projection.runs[runIndex];
     const method = run.methods.find(row => row.id === methodId) || run.methods[0];
     const origin = projection.origin;
-    const result = {axes:projection.axis_labels,minExtent:.17,points:[{point:origin,color:"text",radius:5,square:true}],lines:[]};
+    const view = coordinates || {axes:projection.axis_labels, minExtent:.17, point:row=>row.point};
+    const result = {axes:view.axes,minExtent:view.minExtent,points:[{point:origin,color:"text",radius:5,square:true}],lines:[]};
     let active;
     for (const axis of method.axes) {
       const chosen = axis.axis_id === axisId;
       const color = shortlist[(axis.axis_id-1) % shortlist.length];
-      const positions = axis.points.map(row => row.point);
+      const positions = axis.points.map(view.point);
       result.lines.push({coords:positions,color,alpha:chosen?1:.44,width:chosen?2.7:1.3,arrow:true});
-      axis.points.forEach(row => result.points.push({point:row.point,color,radius:chosen?3.5:2.3,alpha:chosen?1:.46}));
+      axis.points.forEach(row => result.points.push({point:view.point(row),color,radius:chosen?3.5:2.3,alpha:chosen?1:.46}));
       if (chosen) {
-        const point = math.scale(axis.unit_vector_pca3,dose);
-        const outcome = axis.points.find(row => Math.abs(row.dose - dose) < 1e-9)?.margin_delta_bps;
+        const measured = axis.points.find(row => Math.abs(row.dose - dose) < 1e-9);
+        const point = measured ? view.point(measured) : math.scale(axis.unit_vector_pca3,dose);
+        const outcome = measured?.margin_delta_bps;
         active = {point,outcome,axis};
         result.points.push({point,color:"text",radius:7,label:`Dose ${dose.toFixed(2)}`});
       }

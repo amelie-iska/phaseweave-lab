@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Higher-genus surfaces · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reasoning.css">
+  <script defer src="reasoning-core.js"></script>
+  <script defer src="reasoning-3d.js"></script>
+  <script defer src="surface-genus-core.js"></script>
+  <script defer src="surfaces.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="./">Market lab</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-theme-value="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme-value="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="latent-page">
+    <div class="latent-heading">
+      <div>
+        <h1>Higher-genus market surfaces</h1>
+        <p class="standfirst">Follow loops through a surface with several handles and compare local face phases with periods along longer loops.</p>
+      </div>
+    </div>
+    <section class="latent-inputs" aria-label="Recorded market input">
+      <label>Recorded episode <select id="surface-episode"></select></label>
+      <label>Recorded second <input id="surface-frame" type="range" min="0" max="30" value="0"></label>
+      <time id="surface-clock"></time>
+    </section>
+    <section class="latent-workspace" aria-labelledby="surface-title">
+      <div class="latent-grid">
+        <figure class="latent-figure">
+          <div class="latent-chart-header"><strong id="surface-title">Cubical surface and oriented cycles</strong></div>
+          <canvas id="latent-chart" role="img" aria-label="Rotatable higher-genus cubical surface with marked meridian and longitude"></canvas>
+          <div class="latent-camera" id="surface-camera" aria-label="3D camera">
+            <label>Yaw <input type="range" name="yaw" min="-180" max="180" value="-32"></label>
+            <label>Pitch <input type="range" name="pitch" min="-85" max="85" value="24"></label>
+            <label>Zoom <input type="range" name="zoom" min=".65" max="1.45" step=".05" value="1"></label>
+            <button type="button">Reset view</button>
+          </div>
+          <figcaption>Jade marks the loop that winds around a hole. Copper marks its companion loop across the slab. White points mark the selected loop vertices.</figcaption>
+        </figure>
+        <div class="latent-panel">
+          <h2>Cellulation and gauge</h2>
+          <div id="latent-controls">
+            <label>Genus <select id="surface-genus"></select></label>
+            <label>Handle <select id="surface-handle"></select></label>
+            <label>Quote-to-phase scale <input id="surface-scale" type="range" min="0" max="2" value=".7" step=".05"></label>
+            <label>Vertex gauge change <input id="surface-gauge" type="range" min="0" max="3" value="0" step=".05"></label>
+            <label>Selected link edit, rad <input id="surface-edit" type="range" min="-2" max="2" value="0" step=".05"></label>
+            <label><input id="surface-dessin" type="checkbox"> Show clean dessin subdivision</label>
+            <button id="surface-play" type="button" aria-pressed="false">Play recorded seconds</button>
+          </div>
+          <div id="surface-readout" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+    <div class="latent-provenance">
+      <section>
+        <h2>How the graph cellulates the surface</h2>
+        <p>The mesh is the oriented boundary of a slab whose vertical holes pass through both sheets. Every edge has two oppositely oriented incident faces. For the clean dessin view, put a white vertex at the midpoint of each edge and color the original vertices black. The faces and Euler characteristic stay the same.</p>
+      </section>
+      <section>
+        <h2>Why phases can disagree</h2>
+        <p>The link phase integrates angular change around the selected hole, with amplitude set by an observed cycle margin. In the flat case each contractible face has zero holonomy while a winding loop can have a nonzero period. A vertex gauge change cancels around a closed walk. Editing one link changes the local curvature on its two adjacent faces.</p>
+        <p><a href="replay.json">Recorded quote windows</a> · <a href="density.html">Unitary gauge transport</a></p>
+      </section>
+    </div>
+    <p id="surface-status" role="status"></p>
+  </main>
+</body>
+</html>
