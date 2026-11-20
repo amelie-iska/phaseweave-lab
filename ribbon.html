@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <title>Ribbon holonomy · PhaseWeave</title>
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="reasoning.css">
+ <script defer src="reasoning-core.js"></script><script defer src="reasoning-3d.js"></script><script defer src="ribbon.js"></script>
+</head>
+<body>
+<header class="top">
+ <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+ <nav aria-label="Page controls">
+  <a href="surfaces.html">Higher-genus surfaces</a>
+  <div class="themes" aria-label="Color theme">
+   <button type="button" data-scheme="dark" aria-pressed="true">Dark</button>
+   <button type="button" data-scheme="light" aria-pressed="false">Light</button>
+  </div>
+ </nav>
+</header>
+<main class="latent-page">
+ <div class="latent-heading"><div><h1>Ribbon holonomy</h1><p class="standfirst">Change the cyclic order at one vertex. Watch the same loop signal move between global periods and local face circulation.</p></div></div>
+ <section class="latent-workspace" aria-label="Ribbon rotation comparison">
+  <div class="latent-grid">
+   <figure class="latent-figure">
+    <div class="latent-chart-header"><strong>Marked 3D graph</strong><span id="ribbon-clock">Exact ternary witness</span></div>
+    <canvas id="latent-chart" role="img" aria-label="Schematic ribbon graph with the selected walk highlighted"></canvas>
+    <div class="latent-camera" id="ribbon-camera" aria-label="3D camera">
+     <label>Yaw <input name="yaw" type="range" min="-180" max="180" value="-32"></label>
+     <label>Pitch <input name="pitch" type="range" min="-85" max="85" value="24"></label>
+     <label>Zoom <input name="zoom" type="range" min=".65" max="1.45" step=".05" value="1"></label>
+     <button type="button">Reset view</button>
+    </div>
+    <figcaption>The 3D positions show adjacency. A highlighted walk follows the signed edge order of the selected embedding.</figcaption>
+   </figure>
+   <aside class="latent-panel">
+    <h2>Connection and rotation</h2>
+    <div id="latent-controls">
+     <label>Connection <select id="ribbon-input"><option value="ternary">Exact ternary witness</option><option value="fx">Recorded FX</option></select></label>
+     <label>Graph <select id="ribbon-size"><option value="5">K₂,₅</option><option value="9">K₂,₉</option></select></label>
+     <label>Rotation <select id="ribbon-rotation"><option value="matching">Matching cyclic orders</option><option value="opposite">Opposite cyclic orders</option></select></label>
+     <label>Marked walk <select id="ribbon-walk"></select></label>
+     <label>Vertex rephasing <input id="ribbon-gauge" type="range" min="0" max="5" value="0" step="1"></label>
+    </div>
+    <div id="ribbon-replay" hidden>
+     <div class="latent-inputs">
+      <label>Recorded episode <select id="ribbon-episode"></select></label>
+      <label>Recorded second <input id="ribbon-frame" type="range" min="15" max="30" value="15"></label>
+      <button type="button" id="ribbon-play" aria-pressed="false">Play recorded frames</button>
+     </div>
+    </div>
+    <p id="ribbon-note" role="status"></p>
+    <div class="latent-table-wrap">
+     <table aria-label="Ribbon transport metrics"><tbody id="ribbon-report"></tbody></table>
+    </div>
+   </aside>
+  </div>
+ </section>
+ <div class="latent-provenance">
+  <section><h2>What changes with the embedding</h2>
+   <p>A primal tree fixes vertex phase differences. A dual tree identifies independent face boundaries. The edges left over determine the integral loop coordinates. With matching rotations, an edge may occur twice in one face walk and cancel in its Abelian sum.</p>
+   <p><a href="ribbon-basis-v1.json">Signed faces and integral generators</a> · <a href="https://jeffe.cs.illinois.edu/teaching/comptop/2023/notes/20-surface-classification.html">Tree–cotree construction</a></p>
+  </section>
+  <section><h2>How recorded quotes enter</h2>
+   <p>For K₂,₅, four archived frames supply four signed triangle margins relative to a zero reference path. The display applies 0.5 radians per log bp. A frame with a missing or stale edge leaves the transport unavailable. The ternary witness checks the topology with exact integers.</p>
+   <p><a href="#ribbon-benchmark">Matched historical experiment</a> · <a href="manuscripts/ribbon-v1/note.pdf">Two-page research note</a> · <a href="manuscripts/ribbon-v1/note.tex">TeX</a> · <a href="manuscripts/ribbon-v1/table.tex">Table source</a></p>
+  </section>
+ </div>
+ <section class="latent-workspace" id="ribbon-benchmark" aria-labelledby="ribbon-benchmark-title">
+  <div class="latent-panel">
+   <h2 id="ribbon-benchmark-title">Matched FX forecasts</h2>
+   <div class="latent-inputs">
+    <label>Split <select id="ribbon-split"><option value="test">October test</option><option value="stress">Stress</option><option value="new_asset">Unseen CHF</option><option value="validation">September validation</option></select></label>
+    <label>Horizon <select id="ribbon-horizon"></select></label>
+   </div>
+   <p id="ribbon-results" role="status">Loading the measured comparison.</p>
+   <div class="latent-table-wrap">
+    <table aria-label="Matched historical mean absolute error across surface representations">
+     <thead><tr><th scope="col">Representation</th><th scope="col">MAE, log bp</th><th scope="col">Δ vs raw ridge</th><th scope="col">Paired day-block 95% interval</th></tr></thead>
+     <tbody id="ribbon-scores"></tbody>
+    </table>
+   </div>
+   <p id="ribbon-paired"></p>
+   <p><a href="ribbon-fx-results-v1.json">Download the complete result</a></p>
+  </div>
+ </section>
+</main>
+</body>
+</html>

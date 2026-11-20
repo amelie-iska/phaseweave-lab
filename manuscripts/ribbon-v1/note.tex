@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.80in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\title{Local circulation and global periods\protect\\on a fixed market ribbon graph}
+\author{PhaseWeave research note}
+\date{20 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A change of rotation system can change which closed walks represent homology without changing the underlying adjacency. We construct integral periods for finite signed face walks, verify a genus-two counterexample, and compare two encodings of the same four observed FX values. In a reused October split, planar phase features gave the lowest mean absolute error among four ridge fits at every evaluated horizon. The one-second advantage over the genus-two phase features was about $2.9\times10^{-5}$ log basis points.
+\end{abstract}
+
+\section{Integral coordinates}
+Let $E$ be the stable oriented edges of a connected cellular map on a closed orientable surface. A face is a word of signed edge occurrences. Each directed dart is used once. Preserve both occurrences when the same face traverses an edge twice. Let $\partial_1$ be the vertex boundary and $\partial_2$ the signed face boundary.
+
+\textbf{Construction.} Choose a primal spanning tree $T$. From the dual edges outside $T$, choose a dual spanning tree $C$. For each leftover edge $h$ let $c_h$ traverse $h$ positively and return along $T$. These $2g$ cycles give a basis for $H_1$ over $\mathbb Z$.
+
+\textbf{Proof.} The dual edges outside $T$ are connected. Otherwise the boundary of a nonempty proper union of dual components would be a nonzero integral cycle supported on the primal tree. This is impossible. The dual of a connected closed surface cellulation is connected, so that union has a boundary edge. For a closed integral edge chain $z$, solve $(\partial_2 x)_e=z_e$ for $e\in C$. Fix one face potential to zero and propagate along $C$. Every dual tree equation is the difference of two face potentials with unit coefficients, so the solution is integral. The chain $z-\partial_2x$ vanishes on $C$. Subtract its coefficients on the leftover edges times their corresponding $c_h$. The remaining chain is closed and supported on $T$, hence zero. The same argument with $z$ a boundary proves uniqueness, since a face potential constant across $C$ is constant everywhere. The count is $|E|-(|V|-1)-(|F|-1)=2g$.
+
+For an Abelian connection $a$, changing $a$ by a vertex coboundary leaves the evaluation of every closed walk unchanged. Replacing a walk by $c'=\sum_h M_h c_h + \partial_2 x$ gives
+\[
+ \langle a,c'\rangle = \sum_h M_h\langle a,c_h\rangle
+       + \langle \partial_2^{\mathsf T}a,x\rangle .
+\]
+The second term disappears for flat $a$, including circle-valued transport flat modulo $2\pi$.
+
+
+\textbf{Reference.} Jeff Erickson, \href{https://jeffe.cs.illinois.edu/teaching/comptop/2023/notes/20-surface-classification.html}{Surface Classification} and \href{https://jeffe.cs.illinois.edu/teaching/comptop/2023/notes/22a-homology.html}{Systems of Cycles and Homology}, Computational Topology lecture notes. The PhaseWeave source ledger traces the fixed ribbon counterexample to the reviewed GRH-research manuscripts.
+\newpage
+\section{Fixed-adjacency witness}
+Matching rotations on $K_{2,5}$ give one face and genus two. Reversing one rotation gives five faces and genus zero. Give the first edge exponent $1$ in $\mathbb Z/3$ and the others exponent $0$. The first embedding gives zero face circulation and period exponents $(2,2,2,2)$. The planar embedding gives two opposite nonzero face circulations and no free periods. The corresponding $K_{2,9}$ comparison has genus four versus genus zero. These are exact finite identities.
+
+\section{Recorded observations}
+Each window contains sixteen measured one-second FX frames. At relative offsets $-15,-11,-7,0$, take half the forward-minus-reverse sum of the six directional log quotes around the triangle. Put those four values on four of the length-two ribbon paths. The reference path and all first legs carry structural zero. Genus-two periods recover the input vector, while four independent planar face circulations are related by an integer matrix of determinant $\pm 1$.
+
+Both periodic fits add the sine and shifted cosine of each resulting coordinate at $0.5$ radians per log bp. The tanh control adds $\tanh(x)$ and $\tanh^2(x)$ at the same scale of the genus-two period vector. All fits share the raw graph features and ridge penalty $30$. A missing direction at any of the four selected steps masks the extra channels. The fit uses $262{,}144$ training windows, of which $38{,}011$ have complete four-frame support. The October split has $65{,}536$ anchor windows and $12{,}513$ complete phase inputs. Target masks vary by horizon, with identical target keys across arms.
+
+\begin{table}[h]
+\centering
+\caption{October mean absolute error in log bp.}
+\input{table.tex}
+\end{table}
+
+At one second, the paired genus-two-minus-planar MAE difference is $+0.0000289$ log bp, with interval $[+0.0000097,+0.0000511]$. The interval resamples the same 26 UTC days with replacement within this October split. The smooth phase encodings use equal input width and the same underlying information. Finite-sample performance can change with the nonlinear representation and ridge regularization under a basis change. These comparisons use previously evaluated FX partitions. They measure a fixed classical feature encoding. An independent prospective study and direct quantum-circuit ablation are separate experiments.
+
+\section{Reproduction}
+The dataset receipt records the source manifest, feature scale, time indices and fitted weights digest. A second full run reproduced the metrics and coefficients byte for byte. The verifier rejects missing oriented darts, pinched vertex links, and nonclosed chains. Unit checks cover parallel periodic edges, gauge shifts, the exact curvature correction when changing basis, and two ribbon sizes.
+
+The \href{https://amelie-iska.github.io/phaseweave-lab/ribbon.html}{interactive figure} displays the same signed walks and the recorded phase lift. The \href{https://amelie-iska.github.io/phaseweave-lab/ribbon-fx-results-v1.json}{machine-readable report} gives per-horizon support, error and paired uncertainty on all four recorded splits.
+
+\end{document}

@@ -127,11 +127,19 @@
 
   async function development() {
     try {
-      const result = await get("numerai-registered-development-v1.json");
-      const values = result.mean_development_neutral_corr;
-      text("front-benchmark","Development neutral CORR · PhaseWeave " + number(values[result.winner],5) +
-        " · LightGBM " + number(values.lgbm_jupiter_60,5) + " · " + result.scored_per_date_panel.dates + " dates");
-    } catch { text("front-benchmark","The verified development receipt is unavailable here."); }
+      const result = await get("numerai-medium-development-v1.json");
+      const winner = result.models.find(row=>row.id===result.selection.winner);
+      const benchmark = result.models.find(row=>row.role==="published_benchmark");
+      text("front-benchmark","Development neutral CORR · PhaseWeave " + number(winner.overall.neutral_corr,5) +
+        " · LightGBM " + number(benchmark.overall.neutral_corr,5) + " · " + result.cohort.development_dates + " dates");
+    } catch {
+      try {
+        const result = await get("numerai-registered-development-v1.json");
+        const values = result.mean_development_neutral_corr;
+        text("front-benchmark","Prior development neutral CORR · PhaseWeave " + number(values[result.winner],5) +
+          " · LightGBM " + number(values.lgbm_jupiter_60,5) + " · " + result.scored_per_date_panel.dates + " dates");
+      } catch { text("front-benchmark","The verified development receipt is unavailable here."); }
+    }
   }
   function renderNumerai(value) {
     const checked = Date.parse(value.checked_utc);
@@ -161,5 +169,5 @@
   }
   development();
   numerai();
-  setInterval(() => { if (!document.hidden) numerai(); },hosted ? 15*60e3 : 30e3);
+  setInterval(() => { if (!document.hidden) { numerai(); development(); } },hosted ? 15*60e3 : 30e3);
 })();

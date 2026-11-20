@@ -1,0 +1,464 @@
+{
+  "format": "phaseweave.numerai-medium-development.v1",
+  "scope": "Offline, previously used development cohort; selection by equal-date mean NCORR.",
+  "fit_finished_utc": "2026-11-20T23:37:39.667668+00:00",
+  "hashes": {
+    "original_registration_sha256": "8efbec1aef4e670ea2461d3f1de50ab412ff6fbeda7cd6bc83c91e4b095d5efa",
+    "proposal_sha256": "24c1eeb59763e855c499fa705e4747c347c27557ab6aa32ecd8731123593341b",
+    "plan_sha256": "320331422f9369b68dc367aee27ef9ee9bf32761573a9f8f300fea635f8d1818",
+    "recovery_plan_sha256": "d1f236dce43dc65fe022e8d4c7b41f816120d651cf9f8ce997333f23889c53f8",
+    "acquisition_sha256": "30a2c5bf442bc5707fe6a1c9abf589cf756d61d8bb12a8d26bc18f71a60ce7d0",
+    "fit_input_audit_sha256": "cd3d2cc9499e929d93bb88f6684f16e5c23484935974f7f6a3fafa7d0322c3cc",
+    "private_fit_receipt_sha256": "9904ca9562755d2020cf0b49abd252ff06080936208aba2198e5796cb54ac064",
+    "official_scorer_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+    "prior_hgb_control_sha256": "43886adb679e22534a8ec9944e7740f74203bc701c322a881a9d314442e00649"
+  },
+  "cohort": {
+    "training_window": [
+      "2003-01-03",
+      "2018-12-28"
+    ],
+    "training_rows": 4329443,
+    "training_dates": 835,
+    "nonfinite_training_targets": {
+      "target_jupiter_60": 0,
+      "target_jupiter_20": 0,
+      "target_factor_neutral_60": 0
+    },
+    "development_window": [
+      "2020-01-03",
+      "2021-12-31"
+    ],
+    "development_rows": 699389,
+    "development_dates": 105,
+    "development_neutralizers": 300,
+    "by_year": {
+      "2020": {
+        "dates": 52,
+        "rows": 332404
+      },
+      "2021": {
+        "dates": 53,
+        "rows": 366985
+      }
+    },
+    "sealed_original_terminal_dates": 78
+  },
+  "acquisition": {
+    "parquet_network_bytes": 917530419,
+    "frozen_maximum_bytes": 917530419,
+    "range_receipts": 2310,
+    "initial_bytes": 168203513,
+    "optional_gap_bytes_exchanged_for_footer_rechecks": 5483517,
+    "terminal_bytes_acquired": 0,
+    "terminal_payload_accessed": false
+  },
+  "verification": {
+    "candidate_prediction_digests_reproduced": 6,
+    "metric_replay_max_abs_error": {
+      "neutral_corr": 0.0,
+      "raw_corr": 0.0,
+      "benchmark_neutral_contribution": 0.0
+    },
+    "independent_raw_corr_max_abs_error": 1.3877787807814457e-17,
+    "ridge_training_optimality_max_abs_error": 2.4623898297986002e-14,
+    "all_models_scored_on_identical_keys": true,
+    "per_date_observations_in_this_export": false
+  },
+  "selection": {
+    "criterion": "Highest equal-date mean neutral CORR; ties use fewer predictors, then frozen arm order.",
+    "winner": "fixed-medium-blend",
+    "ranking_new_challengers": [
+      "fixed-medium-blend",
+      "medium-jupiter20-hgb",
+      "medium-jupiter60-hgb",
+      "medium-factor-neutral60-hgb",
+      "medium-ridge",
+      "small-jupiter60-hgb"
+    ],
+    "frozen_order": [
+      "small-jupiter60-hgb",
+      "medium-jupiter60-hgb",
+      "medium-jupiter20-hgb",
+      "medium-factor-neutral60-hgb",
+      "medium-ridge",
+      "fixed-medium-blend"
+    ],
+    "winner_beats_published_benchmark": false
+  },
+  "models": [
+    {
+      "id": "lgbm_jupiter_60",
+      "label": "Published LightGBM Jupiter 60",
+      "role": "published_benchmark",
+      "predictors": null,
+      "overall": {
+        "neutral_corr": 0.04596967115599026,
+        "raw_corr": 0.03855766346978559,
+        "benchmark_neutral_contribution": 5.989529092922643e-19,
+        "neutral_corr_delta_vs_benchmark": 0.0,
+        "raw_corr_delta_vs_benchmark": 0.0,
+        "neutral_corr_wins_over_benchmark": 0,
+        "neutral_corr_ties_with_benchmark": 105,
+        "neutral_corr_losses_to_benchmark": 0
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.031079879452188184,
+          "raw_corr": 0.02434549353576249,
+          "benchmark_neutral_contribution": 1.3707071883466994e-19,
+          "neutral_corr_delta_vs_benchmark": 0.0,
+          "raw_corr_delta_vs_benchmark": 0.0,
+          "neutral_corr_wins_over_benchmark": 0,
+          "neutral_corr_ties_with_benchmark": 52,
+          "neutral_corr_losses_to_benchmark": 0
+        },
+        "2021": {
+          "neutral_corr": 0.06057852339368287,
+          "raw_corr": 0.052501679254110145,
+          "benchmark_neutral_contribution": 1.052120341439338e-18,
+          "neutral_corr_delta_vs_benchmark": 0.0,
+          "raw_corr_delta_vs_benchmark": 0.0,
+          "neutral_corr_wins_over_benchmark": 0,
+          "neutral_corr_ties_with_benchmark": 53,
+          "neutral_corr_losses_to_benchmark": 0
+        }
+      }
+    },
+    {
+      "id": "hgb-f128-l31",
+      "label": "Prior 128-feature HGB",
+      "role": "prior_control",
+      "predictors": 128,
+      "overall": {
+        "neutral_corr": 0.01814713719962493,
+        "raw_corr": 0.015403519001432473,
+        "benchmark_neutral_contribution": 0.004724523424246745,
+        "neutral_corr_delta_vs_benchmark": -0.027822533956365334,
+        "raw_corr_delta_vs_benchmark": -0.023154144468353118,
+        "neutral_corr_wins_over_benchmark": 3,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 102
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.011296614794877483,
+          "raw_corr": 0.010678206875183246,
+          "benchmark_neutral_contribution": 0.0026606550930161907,
+          "neutral_corr_delta_vs_benchmark": -0.019783264657310697,
+          "raw_corr_delta_vs_benchmark": -0.013667286660579247,
+          "neutral_corr_wins_over_benchmark": 3,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 49
+        },
+        "2021": {
+          "neutral_corr": 0.024868404464660158,
+          "raw_corr": 0.020039674295110957,
+          "benchmark_neutral_contribution": 0.006749450843567288,
+          "neutral_corr_delta_vs_benchmark": -0.03571011892902271,
+          "raw_corr_delta_vs_benchmark": -0.03246200495899919,
+          "neutral_corr_wins_over_benchmark": 0,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 53
+        }
+      }
+    },
+    {
+      "id": "existing_ridge",
+      "label": "Prior eight-feature ridge",
+      "role": "prior_control",
+      "predictors": 8,
+      "overall": {
+        "neutral_corr": 0.008769688201109151,
+        "raw_corr": 0.00327860596317307,
+        "benchmark_neutral_contribution": 0.004192482195321784,
+        "neutral_corr_delta_vs_benchmark": -0.03719998295488111,
+        "raw_corr_delta_vs_benchmark": -0.035279057506612525,
+        "neutral_corr_wins_over_benchmark": 12,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 93
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.011614849671426869,
+          "raw_corr": 0.004657273861796269,
+          "benchmark_neutral_contribution": 0.0068705107583932985,
+          "neutral_corr_delta_vs_benchmark": -0.01946502978076131,
+          "raw_corr_delta_vs_benchmark": -0.019688219673966223,
+          "neutral_corr_wins_over_benchmark": 9,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 43
+        },
+        "2021": {
+          "neutral_corr": 0.00597820902268422,
+          "raw_corr": 0.0019259506664106852,
+          "benchmark_neutral_contribution": 0.0015649824730629386,
+          "neutral_corr_delta_vs_benchmark": -0.05460031437099865,
+          "raw_corr_delta_vs_benchmark": -0.05057572858769945,
+          "neutral_corr_wins_over_benchmark": 3,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 50
+        }
+      }
+    },
+    {
+      "id": "small-jupiter60-hgb",
+      "label": "Small Jupiter 60 HGB",
+      "role": "challenger",
+      "predictors": 100,
+      "overall": {
+        "neutral_corr": 0.01034491100991215,
+        "raw_corr": 0.00989541693115431,
+        "benchmark_neutral_contribution": -0.008485371103517207,
+        "neutral_corr_delta_vs_benchmark": -0.03562476014607812,
+        "raw_corr_delta_vs_benchmark": -0.02866224653863128,
+        "neutral_corr_wins_over_benchmark": 0,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 105
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.0024939244900983714,
+          "raw_corr": 0.003084695028297992,
+          "benchmark_neutral_contribution": -0.009629019554798186,
+          "neutral_corr_delta_vs_benchmark": -0.028585954962089814,
+          "raw_corr_delta_vs_benchmark": -0.0212607985074645,
+          "neutral_corr_wins_over_benchmark": 0,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 52
+        },
+        "2021": {
+          "neutral_corr": 0.018047765708597365,
+          "raw_corr": 0.01657763464716428,
+          "benchmark_neutral_contribution": -0.007363300924901909,
+          "neutral_corr_delta_vs_benchmark": -0.04253075768508551,
+          "raw_corr_delta_vs_benchmark": -0.03592404460694586,
+          "neutral_corr_wins_over_benchmark": 0,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 53
+        }
+      },
+      "target": "target_jupiter_60",
+      "fitted_iterations": 300,
+      "model_sha256": "2e43d630e0103432ee0e2ddc3d7628e4138129ffc7838680c4519edabbb18650",
+      "development_prediction_sha256": "a1f5bc45b11fea88b79032f7fde54759a5c36b5239384a3e6689e2d97f1cc01c"
+    },
+    {
+      "id": "medium-jupiter60-hgb",
+      "label": "Medium Jupiter 60 HGB",
+      "role": "challenger",
+      "predictors": 350,
+      "overall": {
+        "neutral_corr": 0.02865023756037649,
+        "raw_corr": 0.024346977767398272,
+        "benchmark_neutral_contribution": -0.0017017780331512287,
+        "neutral_corr_delta_vs_benchmark": -0.017319433595613772,
+        "raw_corr_delta_vs_benchmark": -0.01421068570238732,
+        "neutral_corr_wins_over_benchmark": 13,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 92
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.015035999286018117,
+          "raw_corr": 0.011122487406063808,
+          "benchmark_neutral_contribution": -0.004908753842102843,
+          "neutral_corr_delta_vs_benchmark": -0.016043880166170067,
+          "raw_corr_delta_vs_benchmark": -0.013223006129698685,
+          "neutral_corr_wins_over_benchmark": 5,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 47
+        },
+        "2021": {
+          "neutral_corr": 0.042007603414463954,
+          "raw_corr": 0.037321949442669825,
+          "benchmark_neutral_contribution": 0.0014446887982729974,
+          "neutral_corr_delta_vs_benchmark": -0.01857091997921892,
+          "raw_corr_delta_vs_benchmark": -0.015179729811440322,
+          "neutral_corr_wins_over_benchmark": 8,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 45
+        }
+      },
+      "target": "target_jupiter_60",
+      "fitted_iterations": 300,
+      "model_sha256": "093ef959eb24331726dcecc35bc0146d40812bd620ca7480365bcec450e84440",
+      "development_prediction_sha256": "b4cd34a17281b95699ac24640096cb55b74424114f68421dfaf7a8684a60d29e"
+    },
+    {
+      "id": "medium-jupiter20-hgb",
+      "label": "Medium Jupiter 20 HGB",
+      "role": "challenger",
+      "predictors": 350,
+      "overall": {
+        "neutral_corr": 0.02925575244212505,
+        "raw_corr": 0.023991518819166644,
+        "benchmark_neutral_contribution": 0.001639407701474609,
+        "neutral_corr_delta_vs_benchmark": -0.01671391871386521,
+        "raw_corr_delta_vs_benchmark": -0.014566144650618947,
+        "neutral_corr_wins_over_benchmark": 18,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 87
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.019215643869029252,
+          "raw_corr": 0.014466849353814879,
+          "benchmark_neutral_contribution": 5.213874414033895e-06,
+          "neutral_corr_delta_vs_benchmark": -0.01186423558315893,
+          "raw_corr_delta_vs_benchmark": -0.009878644181947614,
+          "neutral_corr_wins_over_benchmark": 12,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 40
+        },
+        "2021": {
+          "neutral_corr": 0.039106425004407724,
+          "raw_corr": 0.03333647753988913,
+          "benchmark_neutral_contribution": 0.0032427676827415882,
+          "neutral_corr_delta_vs_benchmark": -0.021472098389275145,
+          "raw_corr_delta_vs_benchmark": -0.019165201714221015,
+          "neutral_corr_wins_over_benchmark": 6,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 47
+        }
+      },
+      "target": "target_jupiter_20",
+      "fitted_iterations": 300,
+      "model_sha256": "633ce24f00ec4220e802e45c4611b434265e5cc10ffdbb6b6b5deae2fd4ee075",
+      "development_prediction_sha256": "69b6545390cf0d72ffca3936b88efb7c0d81b00f0978c8bd07d33d03b55bd8ba"
+    },
+    {
+      "id": "medium-factor-neutral60-hgb",
+      "label": "Medium factor-neutral 60 HGB",
+      "role": "challenger",
+      "predictors": 350,
+      "overall": {
+        "neutral_corr": 0.025579664603526144,
+        "raw_corr": 0.015689464034171048,
+        "benchmark_neutral_contribution": 0.0009714738592597038,
+        "neutral_corr_delta_vs_benchmark": -0.02039000655246412,
+        "raw_corr_delta_vs_benchmark": -0.022868199435614543,
+        "neutral_corr_wins_over_benchmark": 14,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 91
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.011856705689065524,
+          "raw_corr": 0.005574204002179963,
+          "benchmark_neutral_contribution": -0.003220464069604303,
+          "neutral_corr_delta_vs_benchmark": -0.01922317376312266,
+          "raw_corr_delta_vs_benchmark": -0.01877128953358253,
+          "neutral_corr_wins_over_benchmark": 8,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 44
+        },
+        "2021": {
+          "neutral_corr": 0.03904369976488374,
+          "raw_corr": 0.025613870103294377,
+          "benchmark_neutral_contribution": 0.005084318619654578,
+          "neutral_corr_delta_vs_benchmark": -0.021534823628799132,
+          "raw_corr_delta_vs_benchmark": -0.026887809150815765,
+          "neutral_corr_wins_over_benchmark": 6,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 47
+        }
+      },
+      "target": "target_factor_neutral_60",
+      "fitted_iterations": 300,
+      "model_sha256": "4e408e6b72cc8d7e8bdf687e71fa00f8a0616c8fac02ddc29057789c34d2d7bc",
+      "development_prediction_sha256": "da2f8f9ca8ae3d758d31d3ed2ff0509551badd675a4e416b842516f1164278b7"
+    },
+    {
+      "id": "medium-ridge",
+      "label": "Medium Jupiter 60 ridge",
+      "role": "challenger",
+      "predictors": 350,
+      "overall": {
+        "neutral_corr": 0.017434243717499284,
+        "raw_corr": 0.014518947186316114,
+        "benchmark_neutral_contribution": -0.003422730451398541,
+        "neutral_corr_delta_vs_benchmark": -0.028535427438490978,
+        "raw_corr_delta_vs_benchmark": -0.024038716283469475,
+        "neutral_corr_wins_over_benchmark": 10,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 95
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.00562370541865166,
+          "raw_corr": 0.004567471801077001,
+          "benchmark_neutral_contribution": -0.007703916653397915,
+          "neutral_corr_delta_vs_benchmark": -0.025456174033536522,
+          "raw_corr_delta_vs_benchmark": -0.019778021734685493,
+          "neutral_corr_wins_over_benchmark": 2,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 50
+        },
+        "2021": {
+          "neutral_corr": 0.029021941671085634,
+          "raw_corr": 0.024282658885041282,
+          "benchmark_neutral_contribution": 0.0007776786524499006,
+          "neutral_corr_delta_vs_benchmark": -0.03155658172259723,
+          "raw_corr_delta_vs_benchmark": -0.028219020369068863,
+          "neutral_corr_wins_over_benchmark": 8,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 45
+        }
+      },
+      "model_sha256": "840e5ea517fc2c32f8cf1e6564a3a2ebdadec0b08293cc04c2966f46bd36499f",
+      "development_prediction_sha256": "841213c61adb54ecb480abd7cca27b6075c35c48e081a44f59325ee941606704"
+    },
+    {
+      "id": "fixed-medium-blend",
+      "label": "Fixed Medium blend",
+      "role": "challenger",
+      "predictors": 350,
+      "overall": {
+        "neutral_corr": 0.03138485610449332,
+        "raw_corr": 0.024540281671989336,
+        "benchmark_neutral_contribution": -0.00028077544384463415,
+        "neutral_corr_delta_vs_benchmark": -0.014584815051496943,
+        "raw_corr_delta_vs_benchmark": -0.014017381797796253,
+        "neutral_corr_wins_over_benchmark": 18,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 87
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.017153652673429835,
+          "raw_corr": 0.011536515150837172,
+          "benchmark_neutral_contribution": -0.003731069207982195,
+          "neutral_corr_delta_vs_benchmark": -0.01392622677875835,
+          "raw_corr_delta_vs_benchmark": -0.012808978384925321,
+          "neutral_corr_wins_over_benchmark": 8,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 44
+        },
+        "2021": {
+          "neutral_corr": 0.04534754626327259,
+          "raw_corr": 0.03729869410783675,
+          "benchmark_neutral_contribution": 0.0031044184379507085,
+          "neutral_corr_delta_vs_benchmark": -0.01523097713041028,
+          "raw_corr_delta_vs_benchmark": -0.015202985146273397,
+          "neutral_corr_wins_over_benchmark": 10,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 43
+        }
+      },
+      "development_prediction_sha256": "b07d2ec8176c8f94565e5a7312198341bbd8579ef9794c8daa83e398005172cb",
+      "components": [
+        "medium-jupiter60-hgb",
+        "medium-jupiter20-hgb",
+        "medium-factor-neutral60-hgb"
+      ],
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ]
+    }
+  ],
+  "score_scope": "Benchmark-neutral contribution is relative to published LightGBM. No live Meta Model or leaderboard observation.",
+  "submission": false
+}

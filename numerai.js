@@ -47,3 +47,28 @@ async function init(){
 get("numerai-round").addEventListener("change",history);
 get("numerai-tournament").addEventListener("change",roster);
 init().catch(()=>{get("numerai-session").textContent="The public leaderboard receipt could not load.";});
+
+async function mediumComparison() {
+  const response = await fetch("numerai-medium-development-v1.json");
+  if (!response.ok) throw Error("Medium comparison unavailable");
+  const report = await response.json();
+  const select = get("numerai-medium-period");
+  const selected = report.models.find(row=>row.id===report.selection.winner);
+  function repaint() {
+    const period = select.value;
+    const values = row=>period==="overall"?row.overall:row.by_year[period];
+    const dates = (period==="overall"?report.cohort.development_dates:report.cohort.by_year[period].dates);
+    const ordered = report.models.slice().sort((a,b)=>values(b).neutral_corr-values(a).neutral_corr);
+    get("numerai-medium-summary").textContent = dates+" comparable dates · full-development selection "+selected.label;
+    get("numerai-medium-table").replaceChildren(table(
+      ["Model", "Neutral CORR", "Raw CORR", "Neutral contribution", "Dates above benchmark"],
+      ordered.map(row=> {
+        const score=values(row);
+        return [row.label,num(score.neutral_corr),num(score.raw_corr),num(score.benchmark_neutral_contribution),
+          score.neutral_corr_wins_over_benchmark+" / "+dates];
+      })));
+  }
+  select.addEventListener("change",repaint);
+  repaint();
+}
+mediumComparison().catch(()=>{get("numerai-medium-summary").textContent="The Medium comparison receipt could not load.";});
