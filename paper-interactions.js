@@ -14,7 +14,7 @@
   };
   const actions = {
     proposal: ["Proposed", "--violet"], fill: ["Paper fill", "--state-fill"],
-    closed: ["Closed", "--jade"], expiration: ["Expired", "--state-loss"],
+    closed: ["Closed", "--state-close"], expiration: ["Expired", "--state-loss"],
     flattened: ["Unwind", "--state-caution"], profile: ["Settings", "--state-info"],
   };
   const chart = $("action-chart");
@@ -124,7 +124,8 @@
       d.active.route_width + (d.active.route_width === 1 ? " route" : " routes"),
       d.active.confirmations + (d.active.confirmations === 1 ? " confirmation" : " confirmations"));
     if (d.trade_pnl !== undefined) heading.push(fmt(d.trade_pnl, 5) + " USDT realized");
-    if (d.amount !== undefined) heading.push(d.amount + " " + (d.inventory || ""));
+    if (d.amount !== undefined) heading.push(fmt(Number(d.amount), 8) + " " + (d.inventory || ""));
+    if (d.levels !== undefined) heading.push(d.levels + " depth " + (d.levels === 1 ? "level" : "levels"));
     if (d.observed_net_bps !== undefined) heading.push(fmt(d.observed_net_bps, 3) + " executable log bp");
     if (d.stranded) heading.push("Residual inventory in " + d.stranded.asset);
     if (d.book_id) heading.push("source book " + d.book_id);
@@ -163,16 +164,16 @@
     const start = end - Number($("action-window").value) * 1000;
     visible = (state.action_feed || state.recent).filter(e => Object.hasOwn(actions,e.type) && e.model)
       .map(e => ({...e, t: Date.parse(e.utc)})).filter(e => e.t >= start && e.t <= end).sort((a,b)=>a.t-b.t);
-    const left = width < 540 ? 68 : 148;
+    const labels = state.models.map((model, i) => width < 540 ? "Model " + (i+1) :
+      model.name.split(" · ")[0] + " / " + (model.name.includes("cosine") ? "cosine" : "max-plus"));
+    const left = 14 + Math.ceil(Math.max(...labels.map(label => c.measureText(label).width)));
     const plotWidth = Math.max(1, width - left - 24);
     const x = t => left + (t - start) * plotWidth / (end - start);
     state.models.forEach((model, i) => {
       const y = 27 + i * 40;
       c.fillStyle = color("--muted");
       c.textAlign = "right";
-      const label = width < 540 ? "Model " + (i+1) :
-        model.name.split(" · ")[0] + " / " + (model.name.includes("cosine") ? "cosine" : "max-plus");
-      c.fillText(label, left - 8, y+4);
+      c.fillText(labels[i], left - 8, y+4);
       c.strokeStyle = color("--line");
       c.beginPath(); c.moveTo(left, y); c.lineTo(left+plotWidth, y); c.stroke();
       const bins = new Map();
@@ -187,7 +188,11 @@
         const px = x(stamp);
         const radius = Math.min(8, 3 + list.length);
         c.fillStyle = color(actions[final.type][1]);
-        c.beginPath(); c.arc(px, y, radius, 0, 2*Math.PI); c.fill();
+        if (final.type === "closed") {
+          c.fillRect(px-radius, y-radius, radius*2, radius*2);
+        } else {
+          c.beginPath(); c.arc(px, y, radius, 0, 2*Math.PI); c.fill();
+        }
         if (list.length > 1) {
           c.strokeStyle = color("--muted");
           c.beginPath(); c.arc(px, y, radius+2, 0, 2*Math.PI); c.stroke();
@@ -195,9 +200,10 @@
         markers.push({x:px,y,event:final});
       }
     });
-    for (let i=0;i<=3;i++) {
-      const stamp = start + (end-start)*i/3;
-      c.textAlign = i===0 ? "left" : i===3 ? "right" : "center";
+    const intervals = width < 540 ? 2 : 3;
+    for (let i=0;i<=intervals;i++) {
+      const stamp = start + (end-start)*i/intervals;
+      c.textAlign = i===0 ? "left" : i===intervals ? "right" : "center";
       c.fillStyle = color("--muted");
       c.fillText(time(stamp), x(stamp), height-25);
     }
