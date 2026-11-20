@@ -14,7 +14,18 @@
  </nav></header>
  <main class="architecture">
   <header><h1>Fee-aware route training</h1><p class="arch-lead">Replay real Gate depth and train on the net outcome of later, sequential paper fills.</p></header>
-  <section class="arch-panel"><h2>Held-out comparison</h2>
+  <section class="arch-panel"><h2>Four-tier holdout</h2>
+   <p>Four published taker tiers use the same captured books. Each tier contributes 408 completed held-out scenarios from 68 distinct origin times.</p>
+   <div class="arch-scroll"><table><thead><tr><th scope="col">Gate tier</th><th scope="col">Taker fee (bps per leg)</th><th scope="col">Mean net outcome (log bps)</th></tr></thead><tbody>
+    <tr><th scope="row">VIP 0</th><td>10.0</td><td>−40.41874</td></tr>
+    <tr><th scope="row">VIP 3</th><td>9.7</td><td>−39.51787</td></tr>
+    <tr><th scope="row">VIP 6</th><td>9.0</td><td>−37.41593</td></tr>
+    <tr><th scope="row">VIP 9</th><td>7.5</td><td>−32.91228</td></tr>
+   </tbody></table></div>
+   <p>The four-tier refit used 138 train and 68 held-out origin times. Across 1,632 completed held-out scenarios, the ridge scored 5.07023 log bps MAE against 2.35978 for the fee-aware depth baseline. All completed scenarios were non-positive.</p>
+   <p><a href="fee-training-four-tiers-v1.json">Four-tier training receipt</a> · <a href="http://127.0.0.1:8143/live-fee-ladder.html">Open the local live fee ladder</a> · <a href="https://www.gate.com/en-eu/fee">Published fee schedule</a></p>
+  </section>
+  <section class="arch-panel"><h2>Initial two-tier comparison</h2>
    <p>The train period contained 138 distinct origin times. The held-out period contained 68. Both orientations, three trade sizes, and the two published fee scenarios use the same underlying books. Each anchor and all of its scenarios belong to one split.</p>
    <div class="arch-scroll"><table><thead><tr><th scope="col">Forecast</th><th scope="col">MAE (log bps)</th></tr></thead><tbody>
     <tr><th scope="row">Executable depth at origin with fees</th><td>2.35976</td></tr>

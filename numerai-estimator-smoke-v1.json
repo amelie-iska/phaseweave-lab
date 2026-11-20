@@ -1,0 +1,17 @@
+{
+  "kind": "training_only_compatibility",
+  "training_ranges_verified": 10,
+  "sklearn": "1.8.0",
+  "lightgbm": null,
+  "pyarrow": "24.0.0",
+  "fit_date": "2017-01-06",
+  "fit_rows": 6233,
+  "prediction_date": "2017-01-13",
+  "prediction_rows": 6208,
+  "validation_rows_accessed": 0,
+  "features": 8,
+  "all_finite_nonconstant": true,
+  "maximum_iterations": 8,
+  "seed": 20261120,
+  "predictions_float64_le_sha256": "3444c09bbfc0012f7aaea2d56d058ad7c3f510315ed35989780b8045649479aa"
+}

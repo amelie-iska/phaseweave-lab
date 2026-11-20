@@ -28,6 +28,11 @@
    <p>The benchmark beat the pilot on every held-out date. The neutral subset used all 300 official exposure columns, and the dated comparison preserves the official publication clocks. These values describe a published offline benchmark and do not establish live NMMC.</p>
    <p><a href="numerai-offline-pilot-v1.json">Download exact result and per-date scores</a> · <a href="https://docs.numer.ai/numerai-tournament/models">Numerai benchmark model</a></p>
   </section>
+  <section class="arch-panel"><h2>Outperform the leading models</h2>
+   <p>This registered follow-on first tests four fixed nonlinear challengers versus the published benchmark on untouched dates using official neutral CORR. A separate prospective comparison requires all ten leading peers and PhaseWeave on the same twelve resolved rounds with matching metric versions and targets.</p>
+   <p>The first nonlinear development fit improved the eight-feature ridge slightly to −0.00750 mean CORR on the same 26 dates. The published LightGBM benchmark achieved 0.03684 and won all 26. Those dates are reserved for development diagnostics.</p>
+   <p><a href="downloads/numerai-outperformance-v1.md">Registered task and exact success criteria</a> · <a href="numerai-hgb-development-v1.json">Exact nonlinear development scores</a></p>
+  </section>
   <section class="arch-panel"><h2>Public model leaderboard</h2>
    <label>Tournament <select id="numerai-tournament"><option value="classic">Classic</option><option value="signals">Signals</option><option value="crypto">Crypto</option></select></label>
    <p id="numerai-order"></p>

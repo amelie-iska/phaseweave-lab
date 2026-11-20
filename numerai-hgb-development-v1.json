@@ -1,0 +1,227 @@
+{
+  "config": {
+    "early_stopping": false,
+    "l2_regularization": 2.0,
+    "learning_rate": 0.06,
+    "max_iter": 160,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 400,
+    "random_state": 20261120
+  },
+  "date_count": 26,
+  "fit_rows": 677820,
+  "hgb_wins": 0,
+  "mean_corr": {
+    "existing_ridge_corr": -0.007736886067208395,
+    "hgb_corr": -0.007500410185414959,
+    "published_corr": 0.03684303058437865
+  },
+  "per_date": [
+    {
+      "date": "2024-01-05",
+      "existing_ridge_corr": -0.013855226941698027,
+      "hgb_corr": -0.015095040141960815,
+      "published_corr": 0.0550871310430668,
+      "rows": 6529
+    },
+    {
+      "date": "2024-01-12",
+      "existing_ridge_corr": -0.008232878761365874,
+      "hgb_corr": -0.007420993378001324,
+      "published_corr": 0.07123994501398949,
+      "rows": 6525
+    },
+    {
+      "date": "2024-01-19",
+      "existing_ridge_corr": 0.007298443486798993,
+      "hgb_corr": -0.008237912659070252,
+      "published_corr": 0.06745973837823145,
+      "rows": 6532
+    },
+    {
+      "date": "2024-01-26",
+      "existing_ridge_corr": -0.0035864452046074913,
+      "hgb_corr": -0.01722388886273706,
+      "published_corr": 0.053786575436423976,
+      "rows": 6542
+    },
+    {
+      "date": "2024-02-02",
+      "existing_ridge_corr": 0.000567567363079352,
+      "hgb_corr": -0.018965379583423165,
+      "published_corr": 0.05590573420702147,
+      "rows": 6530
+    },
+    {
+      "date": "2024-02-09",
+      "existing_ridge_corr": 0.004461606899638485,
+      "hgb_corr": -0.022533783569439664,
+      "published_corr": 0.04373073813192598,
+      "rows": 6541
+    },
+    {
+      "date": "2024-02-16",
+      "existing_ridge_corr": -0.00567586245950443,
+      "hgb_corr": -0.03097822081048139,
+      "published_corr": 0.0556070757397126,
+      "rows": 6538
+    },
+    {
+      "date": "2024-02-23",
+      "existing_ridge_corr": 0.004474785324218498,
+      "hgb_corr": -0.005475745045643165,
+      "published_corr": 0.055569133151925534,
+      "rows": 6546
+    },
+    {
+      "date": "2024-03-01",
+      "existing_ridge_corr": -0.003957592346880452,
+      "hgb_corr": -0.001818335054346015,
+      "published_corr": 0.04270221985647474,
+      "rows": 6563
+    },
+    {
+      "date": "2024-03-08",
+      "existing_ridge_corr": -0.012201866084278671,
+      "hgb_corr": -0.006471894852446259,
+      "published_corr": 0.039757198366374286,
+      "rows": 6564
+    },
+    {
+      "date": "2024-03-15",
+      "existing_ridge_corr": -0.01028390583325419,
+      "hgb_corr": 0.005001566578871535,
+      "published_corr": 0.024215011928866197,
+      "rows": 6570
+    },
+    {
+      "date": "2024-03-22",
+      "existing_ridge_corr": -0.01750977054370471,
+      "hgb_corr": 0.0021848670386461566,
+      "published_corr": 0.017823975659970057,
+      "rows": 6584
+    },
+    {
+      "date": "2024-03-29",
+      "existing_ridge_corr": -0.018304328903154338,
+      "hgb_corr": 0.010532902430061957,
+      "published_corr": 0.01692813739033209,
+      "rows": 6593
+    },
+    {
+      "date": "2024-04-05",
+      "existing_ridge_corr": -0.009548078324873093,
+      "hgb_corr": 0.0017778024638998538,
+      "published_corr": 0.019710023679096196,
+      "rows": 6616
+    },
+    {
+      "date": "2024-04-12",
+      "existing_ridge_corr": -0.007183853597250491,
+      "hgb_corr": 0.005459172588962335,
+      "published_corr": 0.01571389518644023,
+      "rows": 6631
+    },
+    {
+      "date": "2024-04-19",
+      "existing_ridge_corr": -0.007303471356415978,
+      "hgb_corr": 0.00730662744520825,
+      "published_corr": 0.020525923806236728,
+      "rows": 6640
+    },
+    {
+      "date": "2024-04-26",
+      "existing_ridge_corr": -0.0020441132758365127,
+      "hgb_corr": -0.00011301441865638236,
+      "published_corr": 0.026906559362112312,
+      "rows": 6652
+    },
+    {
+      "date": "2024-05-03",
+      "existing_ridge_corr": -0.016850668334440103,
+      "hgb_corr": -0.0036349823428031536,
+      "published_corr": 0.014493245869949349,
+      "rows": 6644
+    },
+    {
+      "date": "2024-05-10",
+      "existing_ridge_corr": 0.005824717173462241,
+      "hgb_corr": 0.0005832906992690514,
+      "published_corr": 0.03771583725133792,
+      "rows": 6649
+    },
+    {
+      "date": "2024-05-17",
+      "existing_ridge_corr": 0.0021706959561511615,
+      "hgb_corr": -0.01717788642773631,
+      "published_corr": 0.033213871710569866,
+      "rows": 6654
+    },
+    {
+      "date": "2024-05-24",
+      "existing_ridge_corr": -0.0035469907677306606,
+      "hgb_corr": -0.0008229009228355067,
+      "published_corr": 0.03886094353138766,
+      "rows": 6647
+    },
+    {
+      "date": "2024-05-31",
+      "existing_ridge_corr": -0.00888503906773431,
+      "hgb_corr": -0.009976907783270192,
+      "published_corr": 0.03728840341875493,
+      "rows": 6631
+    },
+    {
+      "date": "2024-06-07",
+      "existing_ridge_corr": -0.01606099376938431,
+      "hgb_corr": -0.014117546973421154,
+      "published_corr": 0.04936775370814598,
+      "rows": 6629
+    },
+    {
+      "date": "2024-06-14",
+      "existing_ridge_corr": -0.013873902093216256,
+      "hgb_corr": -0.009954835783592882,
+      "published_corr": 0.02252635090847289,
+      "rows": 6634
+    },
+    {
+      "date": "2024-06-21",
+      "existing_ridge_corr": -0.015702912296782598,
+      "hgb_corr": -0.020187710839400227,
+      "published_corr": 0.02300849103565111,
+      "rows": 6648
+    },
+    {
+      "date": "2024-06-28",
+      "existing_ridge_corr": -0.03134895398865452,
+      "hgb_corr": -0.01764991461644315,
+      "published_corr": 0.0187748814213751,
+      "rows": 6646
+    }
+  ],
+  "plan_sha256": "0dd26d2ea3ab97b86a9de020aaefb873068bfb724fbc865ff6f28a48008d25a6",
+  "prior_reference_sha256": "2c4cb9639ea6b50ca4705858df9a75c7ce9febfaeb1fdbcdbe886e060f7e8cbe",
+  "protocol": {
+    "features": "first eight numeric columns in Parquet schema named feature_*",
+    "learner": "single ridge; training-only mean impute and standardize, fixed L2 penalty 1 per unnormalized normal equations, unpenalized intercept, no tuning",
+    "network_payload_cap": 75000000,
+    "neutral_subset": [
+      "2024-01-05",
+      "2024-06-28"
+    ],
+    "score": "per date published Numerai CORR versus lgbm_jupiter_60, complete common exact ticker/date keys; optional official neutral correlation on two preregistered dates subject to byte cap. No model or data choices based on outcomes.",
+    "target": "target_jupiter_60 if available, otherwise documented target alias",
+    "train": [
+      "2017-01-01",
+      "2018-12-28"
+    ],
+    "validation": [
+      "2024-01-05",
+      "2024-06-28"
+    ]
+  },
+  "schema": "phaseweave.numerai-hgb-development.v1",
+  "scope": "Exploratory on previously inspected dates; untouched confirmation and official live rank remain separate.",
+  "score_rows": 171478
+}

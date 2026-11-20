@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="live-fee-ladder.js"></script>
+ <title>Live fee tiers · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Related tools">
+ <a class="button" href="fee-training.html">Training results</a>
+ <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Four live fee tiers</h1><p class="arch-lead">Walk the same observed ETH/BTC/USDT depth at four published taker rates.</p></header>
+  <section class="arch-panel">
+   <div class="arch-heading">
+    <label>Trade size <select id="fee-size"><option value="25">25 USDT</option><option value="100" selected>100 USDT</option><option value="250">250 USDT</option></select></label>
+    <label><input type="checkbox" id="fee-hold" checked> Show last eligible snapshot across gaps</label>
+   </div>
+   <p id="fee-status" role="status">Connecting to the local fee scenario worker.</p>
+   <div class="arch-scroll"><table id="fee-tiers"><thead><tr><th scope="col">Gate tier</th><th scope="col">Taker bps per leg</th><th scope="col">Three-leg fee drag (log bps)</th><th scope="col">USDT → ETH → BTC → USDT</th><th scope="col">USDT → BTC → ETH → USDT</th></tr></thead><tbody></tbody></table></div>
+   <p>Route values are net log bps from walking the displayed levels of one observed snapshot. Later sequential paper fills can differ. These scenarios use published tiers. Account-specific charges can differ.</p>
+   <p><a href="https://www.gate.com/en-eu/fee">Gate taker fee schedule</a> · <a href="fee-training.html">Four-tier training results</a></p>
+  </section>
+ </main>
+</body>
+</html>
