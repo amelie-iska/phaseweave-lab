@@ -1,0 +1,87 @@
+{
+  "schema": "phaseweave.numerai-front.v1",
+  "checked_utc": "2026-11-20T23:08:08+00:00",
+  "leaderboard_metric": "MMC60 reputation",
+  "latest_round": {
+    "number": 1403,
+    "target": "target_jupiter_60",
+    "dataDatestamp": 20261119,
+    "openTime": "2026-11-20T13:00:23Z",
+    "closeTime": "2026-11-21T12:00:00Z",
+    "resolveTime": "2027-02-17T16:00:00Z"
+  },
+  "latest_generally_resolved": {
+    "dataDatestamp": 20260826,
+    "number": 1342,
+    "resolveTime": "2026-09-29T16:00:00Z",
+    "target": "target_ender_20"
+  },
+  "payout_scores": [
+    {
+      "defaultMultiplier": 32.0,
+      "displayName": "neutral_mmc",
+      "isPayout": true,
+      "totalScoreDays": 60,
+      "version": "1"
+    },
+    {
+      "defaultMultiplier": 8.0,
+      "displayName": "neutral_corr",
+      "isPayout": true,
+      "totalScoreDays": 60,
+      "version": "1"
+    }
+  ],
+  "leaders": [
+    {
+      "mmc60Rep": 0.01724237073870876,
+      "rank": 1,
+      "username": "valois300_1024"
+    },
+    {
+      "mmc60Rep": 0.01700161416427803,
+      "rank": 2,
+      "username": "hypochlorous"
+    },
+    {
+      "mmc60Rep": 0.016771311792406943,
+      "rank": 3,
+      "username": "valois200_1024"
+    },
+    {
+      "mmc60Rep": 0.015937808403636518,
+      "rank": 4,
+      "username": "tdd_model24"
+    },
+    {
+      "mmc60Rep": 0.015202988562928533,
+      "rank": 5,
+      "username": "valois400_1024"
+    },
+    {
+      "mmc60Rep": 0.01485356815364867,
+      "rank": 6,
+      "username": "kodama_ov"
+    },
+    {
+      "mmc60Rep": 0.014785731565783082,
+      "rank": 7,
+      "username": "tdd_model34"
+    },
+    {
+      "mmc60Rep": 0.014734420769042113,
+      "rank": 8,
+      "username": "tdd_model31"
+    },
+    {
+      "mmc60Rep": 0.014380636675247561,
+      "rank": 9,
+      "username": "dtf200_ov"
+    },
+    {
+      "mmc60Rep": 0.01432213192870269,
+      "rank": 10,
+      "username": "valois400_ty"
+    }
+  ]
+}

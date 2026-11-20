@@ -8,6 +8,8 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="desk.css">
+  <link rel="stylesheet" href="front-brief.css">
+  <script defer src="front-brief.js"></script>
   <script defer src="reasoning-3d.js"></script>
   <script defer src="desk.js"></script>
 </head>
@@ -33,6 +35,22 @@
       </div>
       <p id="desk-state" role="status">Checking for the local server.</p>
     </header>
+    <section class="front-brief" aria-label="Live activity and assessment">
+      <article class="front-card">
+        <div class="front-head"><h2>Live activity</h2><span id="front-activity-clock">Waiting for feed</span></div>
+        <p class="front-context" id="front-activity-source">Connecting to the activity source.</p>
+        <ol class="front-events" id="front-events"><li>Waiting for observations.</li></ol>
+        <a class="front-link" href="http://127.0.0.1:8144/paper-tournament.html">Paper trading dashboard ↗</a>
+      </article>
+      <article class="front-card">
+        <div class="front-head"><h2>Numerai assessment</h2><span id="front-numerai-clock">Checking round history</span></div>
+        <p id="front-benchmark" class="front-benchmark">Loading measured development comparison.</p>
+        <p class="front-context" id="front-numerai-round"></p>
+        <p class="front-context" id="front-numerai-leading"></p>
+        <p class="front-context">PhaseWeave has no verified live rank. Terminal outcomes remain sealed.</p>
+        <a class="front-link" href="numerai.html">Full results and leaderboard ↗</a>
+      </article>
+    </section>
     <section id="desk-setup" class="desk-panel" hidden>
       <h2>Start the desk</h2>
       <p>From the PhaseWeave checkout, run the dashboard script. It starts with live polling paused.</p>

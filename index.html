@@ -8,6 +8,8 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="console.css">
+  <link rel="stylesheet" href="front-brief.css">
+  <script defer src="front-brief.js"></script>
   <script defer src="core.js"></script>
   <script defer src="gate.js"></script>
   <script defer src="replay-instruments.js"></script>
@@ -36,6 +38,22 @@
         <label>Surface <select id="surface"><option value="torus">Torus</option><option value="sphere">Sphere</option></select></label>
       </div>
     </div>
+    <section class="front-brief" aria-label="Live activity and assessment">
+      <article class="front-card">
+        <div class="front-head"><h2>Live activity</h2><span id="front-activity-clock">Waiting for feed</span></div>
+        <p class="front-context" id="front-activity-source">Connecting to the activity source.</p>
+        <ol class="front-events" id="front-events"><li>Waiting for observations.</li></ol>
+        <a class="front-link" href="http://127.0.0.1:8144/paper-tournament.html">Paper trading dashboard ↗</a>
+      </article>
+      <article class="front-card">
+        <div class="front-head"><h2>Numerai assessment</h2><span id="front-numerai-clock">Checking round history</span></div>
+        <p id="front-benchmark" class="front-benchmark">Loading measured development comparison.</p>
+        <p class="front-context" id="front-numerai-round"></p>
+        <p class="front-context" id="front-numerai-leading"></p>
+        <p class="front-context">PhaseWeave has no verified live rank. Terminal outcomes remain sealed.</p>
+        <a class="front-link" href="numerai.html">Full results and leaderboard ↗</a>
+      </article>
+    </section>
     <div class="workspace">
       <section class="visual" aria-label="Three-dimensional graph">
         <div class="scene-bezel" aria-hidden="true"></div>
