@@ -5,9 +5,17 @@ const canvas = element("scene");
 const ctx = canvas.getContext("2d");
 const T = Math.PI * 2;
 const state = {
-  examples: [], liveFrames: [], frame: 0, step: 1, layer: 0, query: 0, playback: null,
-  yaw: -0.16, pitch: 0.64, useNetwork: false, drag: null,
+  examples: [], liveFrames: [], frame: 0, step: 1, layer: 0, query: 0, playback: null, replayRate: 1,
+  yaw: -0.16, pitch: 0.88, useNetwork: false, drag: null,
 };
+const replayInstruments = typeof ReplayInstruments === "undefined" ? null : ReplayInstruments.bind({
+  speedMount: element("replay-speed"),
+  compareMount: element("replay-compare"),
+  onSpeed(rate) {
+    state.replayRate = rate;
+    if (state.playback) schedulePlayback();
+  },
+});
 const updateFeedStatus = (status) => { element("feed-state").textContent = status; };
 const feeds = {
   "gate-live": new GatePublicFeed(updateFeedStatus),
@@ -205,9 +213,9 @@ function renderSurface(project, palette, frame, result, wallPhase) {
     quad.slice(1).forEach(([x, y]) => ctx.lineTo(x, y));
     ctx.closePath();
     const luminance = light ? 66 + 20 * factor : 10 + 11 * factor;
-    ctx.fillStyle = "hsl(204 37% " + luminance + "%)";
+    ctx.fillStyle = "hsl(164 24% " + luminance + "%)";
     ctx.fill();
-    ctx.strokeStyle = light ? "rgba(32,72,91,.32)" : "rgba(117,168,195,.32)";
+    ctx.strokeStyle = light ? "rgba(36,75,60,.38)" : "rgba(161,194,172,.46)";
     ctx.lineWidth = .7;
     ctx.stroke();
   });
@@ -312,7 +320,7 @@ function draw(frame, pipeline, result, wallPhase = 0) {
   const css = getComputedStyle(document.documentElement);
   const palette = Object.fromEntries(["line", "text", "canvas", "muted", "copper", "jade"].map((key) =>
     [key, css.getPropertyValue("--" + key).trim()]));
-  const factor = state.useNetwork ? Math.min(width * .235, height * .33) : Math.min(width * .22, height * .33);
+  const factor = state.useNetwork ? Math.min(width * .235, height * .33) : Math.min(width * .224, height * .276);
   const project = (point) => projectPoint(point, width, height, factor);
   if (state.useNetwork) renderNetwork(project, palette, frame, pipeline);
   else renderSurface(project, palette, frame, result, wallPhase);
@@ -404,6 +412,7 @@ function render(refreshLive = false) {
   const result = PhaseWeave.replay(frame, adjustedAge, cost);
   const pipeline = PhaseWeave.referencePipeline(frame, age, element("model").value, element("tropical").checked);
   current = { frame, pipeline, result };
+  replayInstruments?.update(live() ? null : {selection, frame, result, age, cost}, live());
   element("time").dateTime = frame.utc;
   element("time").textContent = "UTC " + frame.utc.slice(0, 19).replace("T", " ");
   element("timeline").value = String(state.frame);
@@ -441,6 +450,14 @@ function setFrame(offset) {
   const last = +element("timeline").max;
   state.frame = Math.min(last, Math.max(0, state.frame + offset));
   render();
+}
+
+function schedulePlayback() {
+  clearInterval(state.playback);
+  state.playback = setInterval(() => {
+    if (state.frame >= +element("timeline").max) stopPlayback();
+    else setFrame(1);
+  }, 650 / state.replayRate);
 }
 
 function stopPlayback() {
@@ -500,14 +517,12 @@ element("timeline").addEventListener("input", (event) => {
 element("previous").addEventListener("click", () => setFrame(-1));
 element("next").addEventListener("click", () => setFrame(1));
 element("play").addEventListener("click", () => {
+  if (live() || !state.examples.length) return;
   if (state.playback) { stopPlayback(); return; }
   if (state.frame === +element("timeline").max) state.frame = 0;
   element("play").textContent = "Ⅱ";
   element("play").setAttribute("aria-label", "Pause replay");
-  state.playback = setInterval(() => {
-    if (state.frame >= +element("timeline").max) stopPlayback();
-    else setFrame(1);
-  }, 650);
+  schedulePlayback();
 });
 element("view").addEventListener("click", () => {
   state.useNetwork = !state.useNetwork;
@@ -516,7 +531,7 @@ element("view").addEventListener("click", () => {
 });
 element("reset").addEventListener("click", () => {
   state.yaw = -0.16;
-  state.pitch = 0.64;
+  state.pitch = 0.88;
   drawCurrent();
 });
 canvas.addEventListener("pointerdown", (event) => {

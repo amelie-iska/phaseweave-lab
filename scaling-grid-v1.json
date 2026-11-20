@@ -1,1 +1,265 @@
-{"status":"running"}
+{
+  "status": "complete",
+  "summary_sha256": "3ccd987656024ab7c9c8db589a986ecfe5d0dc3fff15cae00cb49d147b56ec4c",
+  "paired_sha256": "f6ffff65ee140363a8af4fb3592210a65df8b6729b1a4adec6889b3b5b08de4d",
+  "widths": {
+    "200": {
+      "arms": [
+        {
+          "label": "Original",
+          "unique": 65536,
+          "parameters": 2020265,
+          "marks": [
+            {
+              "mae_bps": 0.18470242619514465,
+              "epoch": 2
+            },
+            {
+              "mae_bps": 0.17792746424674988,
+              "epoch": 4
+            },
+            {
+              "mae_bps": 0.17752408981323242,
+              "epoch": 6
+            }
+          ],
+          "selected_presentations": 393216,
+          "selected_epoch": 6,
+          "wandb_url": "https://wandb.ai/amelie-iska-math/phaseweave/runs/pi49vl7i",
+          "holdouts": {
+            "new_asset": 0.17658095061779022,
+            "stress": 0.16144460439682007,
+            "test": 0.1579216569662094
+          }
+        },
+        {
+          "label": "Expanded",
+          "unique": 131072,
+          "parameters": 2020265,
+          "marks": [
+            {
+              "mae_bps": 0.18896152079105377,
+              "epoch": 1
+            },
+            {
+              "mae_bps": 0.17948105931282043,
+              "epoch": 2
+            },
+            {
+              "mae_bps": 0.1772802174091339,
+              "epoch": 3
+            }
+          ],
+          "selected_presentations": 393216,
+          "selected_epoch": 3,
+          "wandb_url": "https://wandb.ai/amelie-iska-math/phaseweave/runs/84u6av4b",
+          "holdouts": {
+            "new_asset": 0.17705419659614563,
+            "stress": 0.16037648916244507,
+            "test": 0.15807706117630005
+          }
+        }
+      ],
+      "marks": [
+        131072,
+        262144,
+        393216
+      ],
+      "contrasts": {
+        "new_asset": {
+          "expanded_minus_original_bps": 0.0004732469969894737,
+          "lower_95": -0.0001101967083759338,
+          "upper_95": 0.0009536009304155403,
+          "utc_day_blocks": 26,
+          "windows": 32768
+        },
+        "stress": {
+          "expanded_minus_original_bps": -0.00106812734156847,
+          "lower_95": -0.002228017165318548,
+          "upper_95": -0.00022741530031092735,
+          "utc_day_blocks": 12,
+          "windows": 65536
+        },
+        "test": {
+          "expanded_minus_original_bps": 0.00015540346794296056,
+          "lower_95": 9.805394826553132e-06,
+          "upper_95": 0.00030800381138087546,
+          "utc_day_blocks": 26,
+          "windows": 65536
+        }
+      }
+    },
+    "448": {
+      "arms": [
+        {
+          "label": "Original",
+          "unique": 65536,
+          "parameters": 10080513,
+          "marks": [
+            {
+              "mae_bps": 0.1886393129825592,
+              "epoch": 2
+            },
+            {
+              "mae_bps": 0.17792220413684845,
+              "epoch": 4
+            },
+            {
+              "mae_bps": 0.17801830172538757,
+              "epoch": 6
+            }
+          ],
+          "selected_presentations": 262144,
+          "selected_epoch": 4,
+          "wandb_url": "https://wandb.ai/amelie-iska-math/phaseweave/runs/mw9z6cjy",
+          "holdouts": {
+            "new_asset": 0.17641757428646088,
+            "stress": 0.16296061873435974,
+            "test": 0.1577727496623993
+          }
+        },
+        {
+          "label": "Expanded",
+          "unique": 131072,
+          "parameters": 10080513,
+          "marks": [
+            {
+              "mae_bps": 0.19010214507579803,
+              "epoch": 1
+            },
+            {
+              "mae_bps": 0.17939577996730804,
+              "epoch": 2
+            },
+            {
+              "mae_bps": 0.17729094624519348,
+              "epoch": 3
+            }
+          ],
+          "selected_presentations": 393216,
+          "selected_epoch": 3,
+          "wandb_url": "https://wandb.ai/amelie-iska-math/phaseweave/runs/toar1qnm",
+          "holdouts": {
+            "new_asset": 0.17610302567481995,
+            "stress": 0.1615799069404602,
+            "test": 0.15786588191986084
+          }
+        }
+      ],
+      "marks": [
+        131072,
+        262144,
+        393216
+      ],
+      "contrasts": {
+        "new_asset": {
+          "expanded_minus_original_bps": -0.0003145514929201454,
+          "lower_95": -0.002316065805439807,
+          "upper_95": 0.0013080057685469812,
+          "utc_day_blocks": 26,
+          "windows": 32768
+        },
+        "stress": {
+          "expanded_minus_original_bps": -0.0013807020150125027,
+          "lower_95": -0.002387433984050468,
+          "upper_95": -0.0006298711909260293,
+          "utc_day_blocks": 12,
+          "windows": 65536
+        },
+        "test": {
+          "expanded_minus_original_bps": 9.312263136962429e-05,
+          "lower_95": -6.812468153982727e-05,
+          "upper_95": 0.00025091671987093945,
+          "utc_day_blocks": 26,
+          "windows": 65536
+        }
+      }
+    },
+    "832": {
+      "arms": [
+        {
+          "label": "Original",
+          "unique": 65536,
+          "parameters": 34695297,
+          "marks": [
+            {
+              "mae_bps": 0.18100988864898682,
+              "epoch": 2
+            },
+            {
+              "mae_bps": 0.17719623446464539,
+              "epoch": 4
+            },
+            {
+              "mae_bps": 0.1774822473526001,
+              "epoch": 6
+            }
+          ],
+          "selected_presentations": 262144,
+          "selected_epoch": 4,
+          "wandb_url": "https://wandb.ai/amelie-iska-math/phaseweave/runs/zg1wz3tx",
+          "holdouts": {
+            "new_asset": 0.17231635749340057,
+            "stress": 0.16105696558952332,
+            "test": 0.15683139860630035
+          }
+        },
+        {
+          "label": "Expanded",
+          "unique": 131072,
+          "parameters": 34695297,
+          "marks": [
+            {
+              "mae_bps": 0.18387138843536377,
+              "epoch": 1
+            },
+            {
+              "mae_bps": 0.17890910804271698,
+              "epoch": 2
+            },
+            {
+              "mae_bps": 0.17771124839782715,
+              "epoch": 3
+            }
+          ],
+          "selected_presentations": 393216,
+          "selected_epoch": 3,
+          "wandb_url": "https://wandb.ai/amelie-iska-math/phaseweave/runs/9hvaibw9",
+          "holdouts": {
+            "new_asset": 0.17759385704994202,
+            "stress": 0.16045333445072174,
+            "test": 0.15844517946243286
+          }
+        }
+      ],
+      "marks": [
+        131072,
+        262144,
+        393216
+      ],
+      "contrasts": {
+        "new_asset": {
+          "expanded_minus_original_bps": 0.005277484655380249,
+          "lower_95": 0.004751817672474055,
+          "upper_95": 0.005804879084058384,
+          "utc_day_blocks": 26,
+          "windows": 32768
+        },
+        "stress": {
+          "expanded_minus_original_bps": -0.0006036220584064722,
+          "lower_95": -0.002206910875470184,
+          "upper_95": 0.0005871848213914203,
+          "utc_day_blocks": 12,
+          "windows": 65536
+        },
+        "test": {
+          "expanded_minus_original_bps": 0.0016137678176164627,
+          "lower_95": 0.0013876112839770792,
+          "upper_95": 0.0018510144755402686,
+          "utc_day_blocks": 26,
+          "windows": 65536
+        }
+      }
+    }
+  }
+}

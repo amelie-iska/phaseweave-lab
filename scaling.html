@@ -40,12 +40,17 @@
       <p>The original August corpus has 65,536 window keys. The expanded corpus has 131,072. Both use the same early-September validation, stress, October and unseen-CHF splits.</p>
       <canvas id="scale-chart" aria-label="Validation forecast error at matched presentations"></canvas>
       <div id="scale-grid"></div>
+      <h3>Holdouts at validation-selected checkpoints</h3>
+      <div id="scale-holdouts"></div>
+      <p id="scale-run-links" aria-label="Weights and Biases run history"></p>
+      <p>The expanded arm was selected at 393,216 presentations at every width. The original arms at widths 448 and 832 were selected at 262,144. Holdout contrasts compare these selected models. The intervals resample UTC days and use a single initialization per arm.</p>
+      <p><a href="scaling-grid-v1.json">Download chart data and paired contrasts</a></p>
       <p id="scale-status" role="status">Loading the six-arm results.</p>
       <p><a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/SCALING_GRID.md">Configuration and run commands</a></p>
     </section>
     <section class="research">
       <h2>Counting graph inputs</h2>
-      <p><a href="manuscripts/scaling-calibration-v2/compact.pdf">Compact manuscript</a> · <a href="manuscripts/scaling-calibration-v2/extended.pdf">Extended manuscript</a> · <a href="manuscripts/scaling-calibration-v2/source.zip">TeX source</a></p>
+      <p><a href="manuscripts/scaling-grid-v1/compact.pdf">Short research paper</a> · <a href="manuscripts/scaling-grid-v1/extended.pdf">Technical supplement</a> · <a href="manuscripts/scaling-grid-v1/source.zip">TeX source</a> · <a href="book/evidence-v1/">Book</a></p>
       <p>Each window allocates 144 spatial positions and yields 16 derived temporal positions. Some edges are masked. The runs report unique windows, total presentations, updates and model parameters separately.</p>
       <p><a href="https://arxiv.org/abs/2203.15556">Chinchilla</a> · <a href="https://arxiv.org/abs/2305.16264">Data-constrained training</a> · <a href="https://arxiv.org/abs/2203.03466">μTransfer</a></p>
     </section>

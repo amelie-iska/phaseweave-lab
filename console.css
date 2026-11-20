@@ -1,0 +1,171 @@
+.market-console {
+  --console-rim: color-mix(in srgb, var(--line), var(--canvas) 28%);
+  --console-mark: color-mix(in srgb, var(--copper), var(--canvas) 36%);
+}
+.market-console .top {
+  padding: 10px clamp(12px, 2vw, 32px);
+  border-color: var(--console-rim);
+  justify-content: flex-start;
+}
+.market-console .top nav { flex: 1; flex-wrap: wrap; gap: 7px 14px; }
+.market-console .top nav > .button { border-color: transparent; background: transparent; }
+.market-console .top nav > .button:hover { border-color: var(--line); }
+.market-console .themes { margin-left: auto; }
+.market-console .brand {
+  padding-right: clamp(12px, 2vw, 30px);
+  border-right: 1px solid var(--console-rim);
+}
+.market-console .brand span { text-shadow: 0 0 18px color-mix(in srgb, var(--copper), transparent 70%); }
+.market-console main { padding: 18px clamp(12px, 2vw, 28px) 36px; }
+.market-console .heading { margin-inline: 0; }
+.market-console .heading p { color: var(--muted); }
+.market-console .selectors { border: 0; padding-left: 0; }
+.market-console .selectors label { display: grid; align-content: end; }
+.market-console .selectors select { max-width: 32ch; width: 100%; }
+.market-console .workspace { grid-template-columns: minmax(0,1.82fr) minmax(320px,1fr); gap: 12px; }
+.market-console button,
+.market-console select,
+.market-console .button,
+.market-console .selectors label,
+.market-console .model,
+.market-console .assumptions label,
+.market-console .legend,
+.market-console #replay-speed {
+  font: 500 .71rem/1.35 var(--mono);
+  letter-spacing: .036em;
+}
+.market-console button, .market-console select, .market-console .button { border-radius: 3px; }
+.market-console .tabs {
+  overflow: clip;
+  border: 1px solid var(--console-rim);
+  border-radius: 3px;
+}
+.market-console .tabs button + button { border-left: 1px solid var(--console-rim); }
+.market-console .tabs button[aria-pressed="true"] {
+  border-bottom: 2px solid var(--copper);
+  background: color-mix(in srgb, var(--copper), transparent 91%);
+}
+.market-console .visual, .market-console .inspector, .market-console .routes,
+.market-console .timeline-chart, .market-console .playback, .market-console .hosted-inference,
+.market-console #replay-compare {
+  position: relative;
+  border: 1px solid var(--console-rim);
+  background-color: var(--surface);
+}
+.market-console .visual {
+  min-height: clamp(430px, 35vw, 566px);
+  background: radial-gradient(ellipse at 50% 48%, var(--surface), var(--canvas) 72%);
+}
+.market-console .visual::after {
+  position: absolute;
+  inset: 7px;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(var(--console-mark), var(--console-mark)) top left / 11px 1px,
+    linear-gradient(var(--console-mark), var(--console-mark)) top left / 1px 11px,
+    linear-gradient(var(--console-mark), var(--console-mark)) top right / 11px 1px,
+    linear-gradient(var(--console-mark), var(--console-mark)) top right / 1px 11px,
+    linear-gradient(var(--console-mark), var(--console-mark)) bottom left / 11px 1px,
+    linear-gradient(var(--console-mark), var(--console-mark)) bottom left / 1px 11px,
+    linear-gradient(var(--console-mark), var(--console-mark)) bottom right / 11px 1px,
+    linear-gradient(var(--console-mark), var(--console-mark)) bottom right / 1px 11px;
+  background-repeat: no-repeat;
+}
+.scene-bezel {
+  position: absolute;
+  pointer-events: none;
+  top: 49%; left: 50%;
+  translate: -50% -50%;
+  width: min(71%, 660px);
+  height: 78%;
+  border: 1px solid color-mix(in srgb, var(--copper), transparent 72%);
+  border-radius: 50%;
+  background:
+    linear-gradient(transparent 49.9%, color-mix(in srgb,var(--line),transparent 75%) 50%, transparent 50.4%),
+    linear-gradient(90deg, transparent 49.9%, color-mix(in srgb,var(--line),transparent 75%) 50%, transparent 50.4%);
+}
+.scene-bezel::before {
+  content: "";
+  position: absolute;
+  inset: 2.2%;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--line), transparent 48%);
+}
+.market-console .visual footer { background: transparent; margin: 0 4px 3px; }
+.market-console .inspector { box-shadow: inset 0 1px color-mix(in srgb, var(--jade), transparent 87%); }
+.market-console .playback {
+  grid-template-columns: auto auto auto minmax(64px, 1fr) auto auto;
+  min-height: 52px;
+}
+.market-console .playback.live { grid-template-columns: minmax(0,1fr) auto; }
+.market-console #replay-speed label { display: flex; align-items: center; gap: 7px; }
+.market-console #replay-speed select { min-height: 29px; }
+.market-console .route-workbench {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+  margin-block-start: 12px;
+}
+.market-console .routes { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 0; }
+.market-console #replay-compare { min-width: 0; padding: 10px 15px 12px; }
+.market-console .replay-compare-actions, .market-console .replay-compare-pins {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-block: 6px;
+}
+.market-console .replay-compare-table { overflow-x: auto; }
+.market-console .replay-compare-note, .market-console .replay-pin { color: var(--muted); font-size: .84rem; }
+.market-console #replay-pin-a { color: var(--copper); }
+.market-console #replay-pin-b { color: var(--jade); }
+.market-console #replay-compare-export { color: var(--violet); }
+.market-console .research > div:last-child { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+
+@media (max-width: 960px) {
+  .market-console .workspace { grid-template-columns: minmax(0,1fr); }
+  .market-console .inspector { min-height: auto; }
+  .market-console .heading { gap: 16px; }
+  .market-console .visual { min-height: 410px; }
+}
+@media (max-width: 680px) {
+  .market-console .top { display: block; }
+  .market-console .brand { display: inline-block; border: 0; margin-bottom: 4px; }
+  .market-console .top nav { gap: 4px 6px; }
+  .market-console .top nav > .button { min-height: 29px; padding: 5px; }
+  .market-console .top .themes button { min-height: 29px; padding-inline: 7px; }
+  .market-console .selectors { display: grid; grid-template-columns: 1.25fr 1fr; width: 100%; gap: 8px; }
+  .market-console .selectors select { max-width: 100%; min-width: 0; }
+  .market-console .visual { min-height: 352px; }
+  .market-console .route-workbench { grid-template-columns: minmax(0,1fr); }
+  .market-console .playback { grid-template-columns: auto auto auto minmax(48px,1fr); }
+  .market-console .playback time { grid-column: 1 / 3; }
+  .market-console #replay-speed { grid-column: 3 / 5; justify-self: end; }
+  .market-console .playback.live { grid-template-columns: minmax(0,1fr); }
+  .market-console .playback.live time { grid-column: 1; }
+  .market-console .visual footer .topology { width: 100%; }
+}
+.market-console .inspector th, .market-console .inspector td { padding-block: 3px; }
+.market-console .inspector #inspector p { font-size: .9rem; }
+.market-console .routes { align-content: start; }
+.market-console #replay-speed:not([hidden]) { display: flex; align-items: center; gap: 7px; }
+.market-console .replay-pin { flex: 1 1 13rem; min-width: 0; }
+.market-console .replay-pin dt { color: var(--text); margin-bottom: 3px; }
+.market-console .replay-pin dd { display: grid; gap: 1px; margin: 0; }
+.market-console .replay-pin time { font: .72rem/1.4 var(--mono); color: var(--text); }
+.market-console .replay-compare-table caption { text-align: left; color: var(--muted); font-size: .88rem; }
+.market-console .replay-compare-table tbody th { background: transparent; }
+.market-console .replay-compare-note { margin-top: 6px; }
+@media (max-width: 360px) {
+  .market-console #replay-speed:not([hidden]) { display: grid; }
+}
+.market-console .heading h1 { font-size: clamp(32px, 3.2vw, 47px); }
+.market-console .heading p { font-size: clamp(16px, 1.5vw, 21px); }
+.market-console .visual { min-height: clamp(410px, 33vw, 520px); }
+.market-console .inspector th, .market-console .inspector td { line-height: 1.3; }
+@media (max-width: 960px) {
+  .market-console .visual { min-height: 410px; }
+}
+@media (max-width: 680px) {
+  .market-console .visual { min-height: 352px; }
+}

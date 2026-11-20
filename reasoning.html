@@ -13,6 +13,7 @@
   <script defer src="steering-concepts.js"></script>
   <script defer src="reasoning-scenes.js"></script>
   <script defer src="reasoning-parallel.js"></script>
+  <script defer src="reasoning-flow-paths.js"></script>
   <script defer src="reasoning.js"></script>
 </head>
 <body>
@@ -97,7 +98,7 @@
             <dt>Forest geometry</dt><dd>Each root seeds its own tree. Search depth reveals existing proposals layer by layer. The parallel layout spaces out the same nodes and links. The local simplex radius always uses original standardized forecast coordinates. Each edge is born at its endpoint distance. A triangle appears once all three edges fit the radius.</dd>
             <dt>Forest and analogy</dt><dd>The trained FoT trace retains parents, proposals, repairs and consensus votes. The directed graph reference analogy uses <var>z′ = z + λ(z<sub>after</sub> − z<sub>before</sub>)</var> on an earlier observed episode where available. Search and transfer stay in embedding coordinates. A short edit to an embedding does not place a trade.</dd>
             <dt>Concept basis</dt><dd>GraphCG-R learns edit directions from paired latent views with contrastive supervision. The dose slider follows <var>z′ = z + αv</var> with the graph readout fixed.</dd>
-            <dt>Continuous flow</dt><dd>The forward model samples a normalized Gaussian transition at each stage. The training objective balances forward and backward path densities against an unnormalized context-dependent terminal reward. The visual display pools the conditional rewards over the selected split.</dd>
+            <dt>Continuous flow</dt><dd>The forward model samples a normalized Gaussian transition at each stage. The training objective balances forward and backward path densities against an unnormalized context-dependent terminal reward. The short sampler pools terminal rewards over the selected split. The longer sampler learns a distribution over a tree, a branch and its ordered 3D states. Two September validation draws show eight expansions and an optional final edit.</dd>
           </dl>
           <p class="latent-resources"><a href="https://arxiv.org/abs/2207.02505">TokenGT</a> <a href="https://github.com/amelie-iska/ToricGT">ToricGT</a> <a href="https://proceedings.mlr.press/v267/bi25a.html">Forest of Thought</a> <a href="https://arxiv.org/abs/2401.17123">GraphCG</a> <a href="https://proceedings.mlr.press/v202/lahlou23a.html">Continuous GFlowNets</a> <a href="https://proceedings.mlr.press/v267/yi25a.html">ADFLIP</a> <a href="https://arxiv.org/abs/2311.10908">InfGCN</a> <a href="https://github.com/dauparas/LigandMPNN">LigandMPNN</a></p>
         </details>

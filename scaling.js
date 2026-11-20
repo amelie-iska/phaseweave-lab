@@ -53,7 +53,7 @@
       ctx.stroke();
     }
     ctx.textAlign="center";
-    marks.forEach((mark,i)=>ctx.fillText(count.format(mark/1024)+"k",x(i),height-29));
+    marks.forEach((mark,i)=>ctx.fillText(count.format(mark/1000)+"k",x(i),height-29));
     ctx.fillText("Window presentations",width/2,height-10);
     arms.forEach((arm,index)=>{
       ctx.strokeStyle=ink(index===0?"jade":"copper");
@@ -71,8 +71,22 @@
     const {arms,marks}=grid.widths[get("scale-width").value];
     draw(arms,marks);
     table("scale-grid",["Corpus","Unique windows",...marks.map(n=>count.format(n)+" presentations"),"Selected October MAE"],
-      arms.map(arm=>[arm.label,count.format(arm.unique),...arm.marks.map(row=>bps.format(row.mae_bps)),bps.format(arm.october_mae_bps)]));
-    get("scale-status").textContent = `${count.format(arms[0].parameters)} parameters per arm. Jade shows the original corpus and copper shows the expansion. Validation MAEs use log bps.`;
+      arms.map(arm=>[arm.label,count.format(arm.unique),...arm.marks.map(row=>bps.format(row.mae_bps)),bps.format(arm.holdouts.test)]));
+    const splits = [["September stress","stress"],["October","test"],["Unseen CHF","new_asset"]];
+    table("scale-holdouts",["Holdout","Original MAE","Expanded MAE","Expanded − original","UTC-day 95% interval"],
+      splits.map(([label,key])=>{
+        const contrast = grid.widths[get("scale-width").value].contrasts[key];
+        return [label,...arms.map(arm=>bps.format(arm.holdouts[key])),bps.format(contrast.expanded_minus_original_bps),
+          "["+bps.format(contrast.lower_95)+", "+bps.format(contrast.upper_95)+"]"];
+      }));
+    const runLinks = arms.map(arm=>{
+      const anchor = document.createElement("a");
+      anchor.href = arm.wandb_url;
+      anchor.textContent = arm.label + " W&B run";
+      return anchor;
+    });
+    get("scale-run-links").replaceChildren(runLinks[0], " · ", runLinks[1]);
+    get("scale-status").textContent = `${count.format(arms[0].parameters)} parameters per arm. Jade shows the original corpus and copper shows the expansion. MAEs use log basis points.`;
   }
   function theme(value){
     document.documentElement.dataset.theme=value;
@@ -105,5 +119,5 @@
     grid=data;
     renderGrid();
   })
-    .catch(()=>{get("scale-status").textContent="The six-arm GPU grid is in progress. The completed CPU calibration is above.";get("scale-chart").hidden=true;});
+    .catch(()=>{get("scale-status").textContent="The GPU measurements could not load.";get("scale-chart").hidden=true;});
 })();

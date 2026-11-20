@@ -1,0 +1,152 @@
+{
+  "alternative": 2,
+  "coordinate_system": "frozen August standardized teacher axes",
+  "draw_number": 1,
+  "edges": [
+    {
+      "kind": "expansion",
+      "source": 0,
+      "target": 1
+    },
+    {
+      "kind": "expansion",
+      "source": 1,
+      "target": 2
+    },
+    {
+      "kind": "expansion",
+      "source": 2,
+      "target": 3
+    },
+    {
+      "kind": "expansion",
+      "source": 3,
+      "target": 4
+    },
+    {
+      "kind": "expansion",
+      "source": 4,
+      "target": 5
+    },
+    {
+      "kind": "expansion",
+      "source": 5,
+      "target": 6
+    },
+    {
+      "kind": "expansion",
+      "source": 6,
+      "target": 7
+    },
+    {
+      "kind": "expansion",
+      "source": 7,
+      "target": 8
+    },
+    {
+      "kind": "edit",
+      "source": 8,
+      "target": 9
+    }
+  ],
+  "id": "fx-gfn-validation-edited-v1",
+  "kind": "model-sampled ordered path",
+  "nodes": [
+    {
+      "id": 0,
+      "kind": "root",
+      "point": [
+        0.096552,
+        -0.358728,
+        0.110538
+      ]
+    },
+    {
+      "id": 1,
+      "kind": "expansion",
+      "point": [
+        -0.669799,
+        -0.560852,
+        0.080085
+      ]
+    },
+    {
+      "id": 2,
+      "kind": "expansion",
+      "point": [
+        0.19947,
+        0.019523,
+        0.279152
+      ]
+    },
+    {
+      "id": 3,
+      "kind": "expansion",
+      "point": [
+        0.011258,
+        0.169175,
+        -0.014625
+      ]
+    },
+    {
+      "id": 4,
+      "kind": "expansion",
+      "point": [
+        0.469133,
+        -0.098652,
+        0.143911
+      ]
+    },
+    {
+      "id": 5,
+      "kind": "expansion",
+      "point": [
+        -0.421696,
+        0.218011,
+        -0.003959
+      ]
+    },
+    {
+      "id": 6,
+      "kind": "expansion",
+      "point": [
+        0.172099,
+        0.036305,
+        -0.104266
+      ]
+    },
+    {
+      "id": 7,
+      "kind": "expansion",
+      "point": [
+        -0.20532,
+        0.369206,
+        -0.561398
+      ]
+    },
+    {
+      "id": 8,
+      "kind": "expansion",
+      "point": [
+        -0.134754,
+        -0.227111,
+        0.095913
+      ]
+    },
+    {
+      "id": 9,
+      "kind": "edit",
+      "point": [
+        -0.163011,
+        -0.298231,
+        -0.18393
+      ]
+    }
+  ],
+  "policy_seed": 20261204,
+  "policy_sha256": "c25b6a94c2c3267970596c7d95a33da4f024be5d98e1ab56b00942f00f0f2dc8",
+  "profile": "16 roots, 8 expansions, optional edit",
+  "sample_seed": 20261231,
+  "source_split": "validation",
+  "tree": 13
+}

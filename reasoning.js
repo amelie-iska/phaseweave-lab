@@ -26,6 +26,8 @@
     steeringProjection: "pca", concepts: [0,1,2],
     split: "test", stage: 2, count: 28, seed: 0, timer: null,
     forest: null, steering: null, flow: null,
+    flowPath: ReasoningFlowPaths.choices.some(([id])=>id===qs.get("path")) ? qs.get("path") : "short",
+    flowTrace: null, flowTraceError: false,
     forestExamples: [forests.defaultExample],
     forestExample: qs.get("forest") || forests.defaultExample.id,
     forestLoadedExample: null, forestPending: false, forestError: "",
@@ -94,6 +96,11 @@
     const update = () => { value.textContent = state[key].toFixed(digits); };
     input.addEventListener("input", () => {
       state[key] = Number(input.value);
+      if (state.mode === "flow" && state.flowPath !== "short" && key === "stage" && state.timer) {
+        clearInterval(state.timer);
+        state.timer = null;
+        $("path-playback").textContent = "Play ordered path";
+      }
       if (key === "depth" && state.forest) {
         const nodes = forests.visibleNodes(state.forest,state);
         if (!nodes.some(node=>node.id === state.node)) state.node = nodes[0].id;
@@ -128,6 +135,10 @@
     selector.addEventListener("change", () => {
       state[key] = typeof state[key] === "number" ? Number(selector.value) : selector.value;
       if (key === "source") state.mapping = -1;
+      if (key === "flowPath") {
+        loadFlowPath(true);
+        return;
+      }
       if (key === "forestExample") { loadForest(state.forestExample, true); return; }
       paintControls();
       render();
@@ -163,6 +174,56 @@
       render();
       if (state[key] >= limit) { clearInterval(state.timer); state.timer = null; }
     }, 550);
+  }
+
+  function togglePathPlayback(end) {
+    function show(stage) {
+      const range = $("setting-stage");
+      const output = range.parentElement.querySelector("output");
+      state.stage = stage;
+      range.value = String(stage);
+      output.textContent = String(stage);
+      render();
+    }
+    function stop() {
+      clearInterval(state.timer);
+      state.timer = null;
+      $("path-playback").textContent = "Play ordered path";
+    }
+    if (state.timer) { stop(); return; }
+    if (state.stage === end) show(0);
+    $("path-playback").textContent = "Pause playback";
+    state.timer = setInterval(() => {
+      show(Math.min(state.stage+1,end));
+      if (state.stage === end) stop();
+    },550);
+  }
+
+  let flowRequest = 0;
+  async function loadFlowPath(focus = false) {
+    const request = ++flowRequest;
+    if (state.timer) { clearInterval(state.timer); state.timer = null; }
+    state.flowTrace = null;
+    state.flowTraceError = false;
+    state.stage = state.flowPath === "short" ? 2 : 0;
+    function refresh() {
+      if (state.mode !== "flow") return;
+      paintControls();
+      render();
+      if (focus) $("setting-flowPath")?.focus();
+    }
+    refresh();
+    if (state.flowPath === "short") return;
+    try {
+      const trace = await ReasoningFlowPaths.load(state.flowPath);
+      if (request !== flowRequest) return;
+      state.flowTrace = trace;
+      state.stage = trace.nodes.length-1;
+    } catch {
+      if (request !== flowRequest) return;
+      state.flowTraceError = true;
+    }
+    refresh();
   }
 
   const nodeLabel = node => forests.treeLabel(node.tree) + ` · #${node.id} · ${node.label}`;
@@ -258,7 +319,20 @@
           state.concepts = indices; paintControls(); render();
         }));
       }
-    } else if (state.mode === "flow" && state.flow) {
+    } else if (state.mode === "flow") {
+      panel.append(pick("flowPath","Trained sampler",ReasoningFlowPaths.choices));
+      if (state.flowPath !== "short") {
+        if (state.flowTrace) {
+          const end = state.flowTrace.nodes.length-1;
+          const playback = command(state.timer?"Pause playback":"Play ordered path",()=>togglePathPlayback(end));
+          playback.id = "latent-path-playback";
+          panel.append(slider("stage","Path frame",0,end,1,0),playback);
+        } else if (state.flowTraceError) {
+          panel.append(command("Retry loading path",()=>loadFlowPath(true)));
+        }
+        return;
+      }
+      if (!state.flow) return;
       panel.append(pick("split","Data split",Object.entries(flowSplits)),slider("stage","Flow stage",0,2,1,0),
         slider("count","Sampled trajectories",8,76,4,0),
         command("Play flow stages",()=>play("stage",2)),
@@ -330,7 +404,32 @@
       SteeringConcepts.report($("concept-values"),state.steering,method,state.axis,state.dose,table,textBlock);
       return result;
     }
+    if (state.mode === "flow" && state.flowPath !== "short") {
+      $("chart-label").textContent = state.flowPath === "edited" ? "Eight expansions and a final edit" : "Eight expansions from one root";
+      $("explainer").textContent = "Replay one draw from a trained path sampler conditioned on a historical FX graph. Each frame appends one generated state.";
+      $("description").textContent = "Blue marks the root. Jade arrows follow expansions. A dashed copper arrow and square mark an edit when present. All three axes use standardized August forecast coordinates.";
+      const trace = state.flowTrace;
+      if (!trace) {
+        const msg = textBlock(state.flowTraceError ? "This measured path could not be verified. Retry or select the short sampler." : "Loading the measured path.");
+        msg.setAttribute("role","status");
+        panel.append(msg);
+        return blank();
+      }
+      const node = trace.nodes[state.stage];
+      panel.append(table("Sampled ordered GFlowNet path",["Property","Value"],[
+        ["Frame",`${state.stage+1} of ${trace.nodes.length} · ${ReasoningFlowPaths.label(state.stage)}`],
+        ["Forward Δ / reverse Δ / log magnitude",asCoordinate(node.point)],
+        ["Evidence branch",`Tree ${trace.tree+1} of 16 · ${trace.alternative===2?"repair of finalist 2":"finalist "+(trace.alternative+1)}`],
+        ["Source","September validation · first eligible sampled condition"],
+        ["Policy checkpoint",`2,048 updates · training seed ${trace.policy_seed}`],
+        ["Policy draw",`Draw ${trace.draw_number} · seed ${trace.sample_seed}`],
+      ]),textBlock("The two long paths are independent draws on the same graph. The edit appends a state after expansion eight and preserves the preceding state."));
+      return ReasoningFlowPaths.scene(trace,state.stage);
+    }
     if (state.mode === "flow" && state.flow) {
+      $("chart-label").textContent = views.flow[1];
+      $("explainer").textContent = views.flow[2];
+      $("description").textContent = "Blue dots are base samples, violet dots are intermediate states, and copper dots are terminal states. The third axis is stage.";
       const {result,report} = scenes.flow(state.flow,state.split,state.count,state.seed,state.stage);
       panel.append(table("Learned continuous sampler",["Property","Value"],[
         ["Stage",["Base sample z₀","Intermediate z₁","Terminal y"][state.stage]],
@@ -369,6 +468,7 @@
       locationState.set("forest",state.forestExample);
       locationState.set("layout",state.forestLayout);
     }
+    if (state.mode === "flow" && state.flowPath !== "short") locationState.set("path",state.flowPath);
     history.replaceState(null, "", "?" + locationState);
   }
 
@@ -429,6 +529,7 @@
   new ResizeObserver(render).observe($("chart"));
 
   selectMode(state.mode);
+  if (state.flowPath !== "short") loadFlowPath();
   forests.loadExamples().then(examples => {
     state.forestExamples = examples;
     loadForest(state.forestExample);
