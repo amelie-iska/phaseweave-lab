@@ -2,6 +2,7 @@
 
 let records;
 let convergence;
+let baselines;
 const item = (id) => document.getElementById(id);
 const number = (value, digits = 5) => value == null ? "—" : value.toFixed(digits);
 const formatCount = new Intl.NumberFormat("en", {notation:"compact", maximumFractionDigits:2});
@@ -141,6 +142,23 @@ function renderConvergence() {
       number(epoch.loss), number(epoch.seconds, 1)]));
 }
 
+function renderBaselines() {
+  if (!baselines || !convergence?.length) return;
+  const split = item("baseline-split").value;
+  const persistence = baselines.find((run) => run.name === "Persistence").splits[split].metrics.mae_bps;
+  const phaseweave = convergence.find((run) => run.width === 200).summary;
+  const phaseScore = split === "validation" ? phaseweave.best_validation.mae_bps :
+    phaseweave.holdout[split].learned.mae_bps;
+  const series = baselines.map((run) => ({
+    label: run.name, value: run.splits[split].metrics.mae_bps, parameters: run.parameters, budget: run.best_epoch ?? "—",
+  }));
+  series.push({label:"PhaseWeave 2M", value:phaseScore, parameters:2020265, budget:phaseweave.best_epoch, transfer:true});
+  series.sort((a, b) => a.value - b.value);
+  drawBars(item("baseline-chart"), series.map((row, index) => ({...row, label:String(index + 1)})), persistence);
+  table(item("baseline-table"), ["Rank", "Forecast", "Trainable parameters", "Selected epoch", "MAE (log bps)"],
+    series.map((row, index) => [index+1, row.label, row.parameters?.toLocaleString() ?? "—", row.budget, number(row.value)]));
+}
+
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   document.querySelectorAll("[data-theme-choice]").forEach((button) =>
@@ -148,6 +166,7 @@ function applyTheme(theme) {
   try { localStorage.setItem("phaseweave-theme",theme); } catch {}
   renderCampaign();
   renderConvergence();
+  renderBaselines();
 }
 
 document.querySelectorAll("[data-theme-choice]").forEach((button) =>
@@ -155,7 +174,8 @@ document.querySelectorAll("[data-theme-choice]").forEach((button) =>
 item("series").addEventListener("change",renderCampaign);
 item("ablation-split").addEventListener("change",renderAblation);
 item("convergence-width").addEventListener("change",renderConvergence);
-window.addEventListener("resize",() => { renderCampaign(); renderConvergence(); });
+item("baseline-split").addEventListener("change",renderBaselines);
+window.addEventListener("resize",() => { renderCampaign(); renderConvergence(); renderBaselines(); });
 applyTheme(readTheme());
 fetch("experiment-data.json").then((response) => {
   if (!response.ok) throw new Error("result export unavailable");
@@ -177,4 +197,12 @@ fetch("convergence-data.json").then((response) => {
     return option;
   }));
   renderConvergence();
+  renderBaselines();
 }).catch(() => { item("convergence-note").textContent = "The epoch data could not load."; });
+fetch("baseline-data.json").then((response) => {
+  if (!response.ok) throw new Error("baseline export unavailable");
+  return response.json();
+}).then((data) => {
+  baselines = data.roster;
+  renderBaselines();
+}).catch(() => { item("baseline-note").textContent = "The baseline data could not load."; });

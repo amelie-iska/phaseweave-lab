@@ -1,11 +1,11 @@
 "use strict";
 
 class GatePublicFeed {
-  static pairs = ["ETH_BTC", "BTC_USDT", "ETH_USDT"];
-  static assets = ["ETH", "BTC", "USDT"];
-
-  constructor(onState) {
+  constructor(onState, assets = ["ETH", "BTC", "USDT"]) {
     this.onState = onState;
+    const [base, bridge, market] = assets;
+    this.assets = assets;
+    this.pairs = [base + "_" + bridge, bridge + "_" + market, base + "_" + market];
     this.quotes = new Map();
     this.socket = null;
     this.retry = null;
@@ -37,7 +37,7 @@ class GatePublicFeed {
 
   accept(pair, bid, ask, bidSize, askSize, updated) {
     const received = Date.now();
-    if (!GatePublicFeed.pairs.includes(pair) ||
+    if (!this.pairs.includes(pair) ||
       ![bid, ask, bidSize, askSize, updated].every(Number.isFinite) ||
       bid <= 0 || ask < bid || bidSize <= 0 || askSize <= 0 || updated <= 0) return;
     const current = this.quotes.get(pair);
@@ -53,7 +53,7 @@ class GatePublicFeed {
     this.socket = socket;
     const subscribe = () => socket.send(JSON.stringify({
       time: Math.floor(Date.now() / 1000), channel: "spot.book_ticker",
-      event: "subscribe", payload: GatePublicFeed.pairs,
+      event: "subscribe", payload: this.pairs,
     }));
     socket.addEventListener("open", subscribe);
     socket.addEventListener("message", (event) => {
@@ -91,7 +91,7 @@ class GatePublicFeed {
     const request = new AbortController();
     this.pending = request;
     const deadline = setTimeout(() => request.abort(), 5000);
-    const results = await Promise.allSettled(GatePublicFeed.pairs.map(async (pair) => {
+    const results = await Promise.allSettled(this.pairs.map(async (pair) => {
       const response = await fetch(
         "https://api.gateio.ws/api/v4/spot/order_book?limit=1&currency_pair=" + pair,
         { signal: request.signal, cache: "no-store" },
@@ -112,10 +112,12 @@ class GatePublicFeed {
 
   snapshot(now = Date.now()) {
     const rates = this.quotes;
-    const gauge = { ETH: 0, BTC: 0, USDT: 0 };
-    if (rates.has("ETH_BTC") && rates.has("BTC_USDT")) {
-      gauge.BTC = -Math.log(rates.get("ETH_BTC").bid);
-      gauge.USDT = gauge.BTC - Math.log(rates.get("BTC_USDT").bid);
+    const [base, bridge, market] = this.assets;
+    const [first, second] = this.pairs;
+    const gauge = { [base]: 0, [bridge]: 0, [market]: 0 };
+    if (rates.has(first) && rates.has(second)) {
+      gauge[bridge] = -Math.log(rates.get(first).bid);
+      gauge[market] = gauge[bridge] - Math.log(rates.get(second).bid);
     }
     const edges = [...rates.entries()].flatMap(([pair, quote]) => {
       const [base, counter] = pair.split("_");
@@ -129,7 +131,7 @@ class GatePublicFeed {
       ];
     });
     return {
-      utc: new Date(now).toISOString(), assets: GatePublicFeed.assets, edges,
+      utc: new Date(now).toISOString(), assets: this.assets, edges,
       source: this.mode, bookCount: rates.size, clockSkew: edges.some((edge) => edge.updated > now + 1000),
     };
   }

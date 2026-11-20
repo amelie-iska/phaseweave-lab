@@ -5,6 +5,7 @@ const test = require("node:test");
 const fs = require("node:fs");
 const path = require("node:path");
 const {cellulation, replay, referencePipeline, qutrit} = require("../core");
+const GatePublicFeed = require("../gate");
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "replay.json")));
 
 test("the marked surface graphs have disk faces and the stated Euler characteristic", () => {
@@ -55,4 +56,19 @@ test("displayed route capacity converts every leg to the same initial units", ()
   assert.equal(routes.best, 0);
   assert.equal(routes.scored[0].displayCapacity, 1);
   assert.equal(routes.scored[1].displayCapacity, null);
+});
+
+test("a live feed keeps each triangle's quotes and units separate", () => {
+  const feed = new GatePublicFeed(() => {}, ["XRP", "BTC", "USDT"]);
+  const now = Date.now();
+  feed.accept("ETH_BTC", .05, .06, 2, 2, now);
+  feed.accept("XRP_BTC", .00002, .000022, 100, 120, now);
+  feed.accept("BTC_USDT", 94000, 94002, .5, .6, now);
+  feed.accept("XRP_USDT", 1.9, 1.91, 100, 120, now);
+  const result = feed.snapshot(now);
+  assert.equal(result.bookCount, 3);
+  assert.equal(result.edges.length, 6);
+  assert(result.edges.every((edge) => result.assets.includes(edge.from) && result.assets.includes(edge.to)));
+  const margin = replay(result, 250, .1).scored[0].score;
+  assert(Math.abs(margin - (1e4 * Math.log(.00002 * 94000 / 1.91) - .3)) < 1e-8);
 });

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Trade and event replay · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="events.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-theme="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme="light" aria-pressed="false">Light</button>
+      </div>
+      <a class="button" href="./">Market lab</a>
+    </nav>
+  </header>
+  <main class="results">
+    <h1>Trade and event replay</h1>
+    <p class="standfirst">Step through exchange trades, Federal Reserve statements, and contemporaneous media coverage.</p>
+    <section class="result-panel" aria-labelledby="trace-title">
+      <div class="result-title">
+        <h2 id="trace-title">Executed trades</h2>
+        <div class="selectors">
+          <label>FOMC release <select id="release"></select></label>
+          <label>Instrument <select id="instrument"></select></label>
+        </div>
+      </div>
+      <canvas id="event-chart" aria-label="Relative weighted average trade price and trade count by UTC minute"></canvas>
+      <div class="event-playback">
+        <button type="button" id="event-play" aria-pressed="false">Play</button>
+        <input type="range" id="event-minute" min="0" max="75" value="30" aria-label="Minute relative to release">
+        <time id="event-time"></time>
+      </div>
+      <table aria-label="Selected minute observations"><tbody id="current-minute"></tbody></table>
+    </section>
+    <section class="research" aria-labelledby="context-title">
+      <h2 id="context-title">Release and coverage</h2>
+      <p id="release-summary"></p>
+      <p><a id="release-source" href="https://www.federalreserve.gov/monetarypolicy/materials/">Read the official statement</a></p>
+      <p id="coverage"></p>
+      <p>Trade features use the minute immediately before the selected UTC time. Price changes are relative to the last observed minute VWAP at or before the release. Coverage counts are restricted to selected GDELT monetary-policy themes and use a conservative archive availability time.</p>
+      <p><a href="https://www.gate.com/developer/historical_quotes">Trade archive source</a><a href="https://www.gdeltproject.org/data.html">GDELT archive</a><a href="event-data.json">Aggregate chart data</a></p>
+    </section>
+    <p id="event-error" role="status"></p>
+  </main>
+</body>
+</html>

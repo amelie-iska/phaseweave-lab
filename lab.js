@@ -4,13 +4,17 @@ const element = (id) => document.getElementById(id);
 const canvas = element("scene");
 const ctx = canvas.getContext("2d");
 const T = Math.PI * 2;
-const liveId = "gate-live";
 const state = {
-  examples: [], frame: 0, step: 1, layer: 0, query: 0, playback: null,
+  examples: [], liveFrames: [], frame: 0, step: 1, layer: 0, query: 0, playback: null,
   yaw: -0.16, pitch: 0.64, useNetwork: false, drag: null,
 };
-const feed = new GatePublicFeed((status) => { element("feed-state").textContent = status; });
-const live = () => element("example").value === liveId;
+const updateFeedStatus = (status) => { element("feed-state").textContent = status; };
+const feeds = {
+  "gate-live": new GatePublicFeed(updateFeedStatus),
+  "gate-xrp": new GatePublicFeed(updateFeedStatus, ["XRP", "BTC", "USDT"]),
+};
+let activeFeed;
+const live = () => Boolean(activeFeed);
 const format = (value, digits = 3) => value == null ? "—" : Number(value).toFixed(digits);
 
 function addCell(row, tag, text, className) {
@@ -318,9 +322,6 @@ const archiveChart = element("history");
 
 function drawHistory() {
   if (!current) return;
-  const section = archiveChart.closest("section");
-  section.hidden = live();
-  if (live()) return;
   const example = state.examples.find((item) => item.id === element("example").value);
   const {width, height} = archiveChart.getBoundingClientRect();
   if (width < 20 || height < 20) return;
@@ -332,13 +333,17 @@ function drawHistory() {
   const style = getComputedStyle(document.documentElement);
   const color = (key) => style.getPropertyValue("--" + key).trim();
   const age = +element("age").value, cost = +element("fee").value;
-  const margins = example.frames.map((frame) => PhaseWeave.replay(frame, age, cost).scored.map((route) => route.score));
+  const frames = live() ? state.liveFrames : example.frames;
+  const margins = frames.map((frame) =>
+    PhaseWeave.replay(frame, frame.clockSkew ? -1 : age, cost).scored.map((route) => route.score));
   const available = margins.flat().filter((value) => value != null);
   element("history-status").textContent = available.length ?
-    "Observed scores in log basis points. Gaps indicate missing or stale quotes." :
+    (live() ? "Live browser observations over approximately one minute. Gaps indicate missing or stale quotes." :
+      "Observed scores in log basis points. Gaps indicate missing or stale quotes.") :
     "Both routes are unavailable throughout this window at the selected quote-age limit.";
+  if (!margins.length) return;
   const lo = Math.min(-0.1, ...available), hi = Math.max(0.1, ...available);
-  const x = (index) => 50 + (width - 69) * index / (margins.length - 1);
+  const x = (index) => 50 + (width - 69) * index / Math.max(1, margins.length - 1);
   const y = (value) => 17 + (height - 43) * (hi - value) / (hi - lo);
   plot.font = "11px monospace";
   plot.fillStyle = color("muted");
@@ -368,13 +373,14 @@ function drawHistory() {
   });
   plot.strokeStyle = color("muted");
   plot.lineWidth = 1;
+  const selectedFrame = live() ? margins.length - 1 : state.frame;
   plot.beginPath();
-  plot.moveTo(x(state.frame), 12);
-  plot.lineTo(x(state.frame), height - 22);
+  plot.moveTo(x(selectedFrame), 12);
+  plot.lineTo(x(selectedFrame), height - 22);
   plot.stroke();
   plot.fillStyle = color("muted");
-  plot.fillText("+0 s", x(0), height-4);
-  plot.fillText("+30 s", x(margins.length - 1)-28, height-4);
+  plot.fillText(live() ? frames[0].utc.slice(11, 19) : "+0 s", x(0), height-4);
+  if (margins.length > 1) plot.fillText(live() ? "Now (UTC)" : "+30 s", width - 68, height-4);
 }
 
 archiveChart.addEventListener("click", (event) => {
@@ -393,7 +399,7 @@ function render(refreshLive = false) {
   if (state.examples.length === 0) return;
   const age = +element("age").value, cost = +element("fee").value;
   const selection = state.examples.find((example) => example.id === element("example").value);
-  const frame = live() ? feed.snapshot() : selection.frames[state.frame];
+  const frame = activeFeed ? activeFeed.snapshot() : selection.frames[state.frame];
   const adjustedAge = frame.clockSkew ? -1 : age;
   const result = PhaseWeave.replay(frame, adjustedAge, cost);
   const pipeline = PhaseWeave.referencePipeline(frame, age, element("model").value, element("tropical").checked);
@@ -402,6 +408,10 @@ function render(refreshLive = false) {
   element("time").textContent = "UTC " + frame.utc.slice(0, 19).replace("T", " ");
   element("timeline").value = String(state.frame);
   if (live()) {
+    if (state.liveFrames.at(-1)?.utc.slice(0, 19) !== frame.utc.slice(0, 19)) {
+      state.liveFrames.push(frame);
+      if (state.liveFrames.length > 60) state.liveFrames.shift();
+    }
     element("feed-state").textContent = frame.source + " · " + frame.bookCount + "/3 books" +
       (frame.clockSkew ? " · clock mismatch" : "");
   }
@@ -443,12 +453,15 @@ function stopPlayback() {
 function chooseExample() {
   stopPlayback();
   state.frame = 0;
+  state.liveFrames = [];
+  activeFeed?.stop();
+  activeFeed = feeds[element("example").value];
   const isLive = live();
   const panel = document.querySelector(".playback");
   panel.classList.toggle("live", isLive);
   ["play", "previous", "next", "timeline"].forEach((id) => { element(id).hidden = isLive; });
   element("feed-state").hidden = !isLive;
-  if (isLive) feed.start(); else feed.stop();
+  if (isLive) activeFeed.start();
   render();
 }
 
@@ -533,7 +546,7 @@ setInterval(() => { if (live()) render(true); }, 400);
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   setInterval(() => { if (state.playback) drawCurrent((Date.now() % 1000) / 1000); }, 70);
 }
-window.addEventListener("pagehide", () => { feed.stop(); stopPlayback(); });
+window.addEventListener("pagehide", () => { activeFeed?.stop(); stopPlayback(); });
 window.addEventListener("pageshow", (event) => { if (event.persisted && live()) chooseExample(); });
 try {
   if (localStorage.getItem("phaseweave-theme") === "light") theme("light");
@@ -545,7 +558,8 @@ fetch("replay.json").then((response) => {
 }).then((examples) => {
   state.examples = examples;
   examples.forEach((example) => element("example").add(new Option(example.label, example.id)));
-  element("example").add(new Option("Live · Gate spot", liveId));
+  element("example").add(new Option("Live · ETH / BTC / USDT", "gate-live"));
+  element("example").add(new Option("Live · XRP / BTC / USDT", "gate-xrp"));
   chooseExample();
 }).catch(() => { element("status").textContent = "The archived examples could not load. Serve the site over HTTP and reload."; });
 
@@ -553,10 +567,17 @@ const referenceProviders = [
   {
     name: "ECB reference rates",
     url: "https://data-api.ecb.europa.eu/service/data/EXR/D.USD+JPY+GBP.EUR.SP00.A?lastNObservations=1&format=csvdata",
-    parse: async (response) => (await response.text()).trim().split(/\\r?\\n/).slice(1).map((line) => {
-      const fields = line.split(",");
-      return ["EUR / " + fields[2], fields[6], fields[7]];
-    }),
+    parse: async (response) => {
+      const [head, ...data] = (await response.text()).trim().split(/\r?\n/);
+      const columns = head.split(",");
+      const fields = ["CURRENCY", "TIME_PERIOD", "OBS_VALUE"].map((name) => columns.indexOf(name));
+      if (!data.length || fields.includes(-1)) throw new Error("ECB CSV format changed");
+      const [currency, date, observation] = fields;
+      return data.map((line) => {
+        const row = line.split(",");
+        return ["EUR / " + row[currency], row[date], row[observation]];
+      });
+    },
   },
   {
     name: "U.S. Treasury average interest rates",

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Market density walk · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="gate.js"></script>
+  <script defer src="density.js"></script>
+  <style>
+    .density-page { max-width: 1340px; padding: clamp(16px, 3vw, 32px) clamp(12px, 3vw, 32px); }
+    .density-title { margin-bottom: 17px; }
+    .density-title p { margin-top: 5px; max-width: 72ch; color: var(--muted); font-size: 18px; }
+    .density-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 10px 18px; margin: 0 0 12px; }
+    .density-controls label, .walk-parameters label { display: grid; gap: 4px; color: var(--muted); font-size: 14px; }
+    .density-controls select { max-width: 100%; }
+    .density-controls button[aria-pressed="true"] { color: var(--button-ink); background: var(--copper); border-color: var(--copper); }
+    .density-grid { display: grid; gap: 12px; grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); align-items: start; }
+    .density-panel { min-width: 0; background: var(--surface); border: 1px solid var(--faint); }
+    .density-panel header { padding: 12px 16px 3px; }
+    .density-panel p { color: var(--muted); }
+    .walk-map { display: block; width: 100%; height: auto; max-height: clamp(275px, 44vh, 410px); color: var(--text); background: var(--canvas); }
+    .map-boundary { fill: none; stroke: var(--faint); stroke-width: 1.25; }
+    .map-node { fill: var(--surface); stroke: var(--line); stroke-width: 1.25; }
+    .map-prob { fill: var(--jade); fill-opacity: .26; stroke: var(--jade); stroke-width: 1.5; }
+    .map-text { fill: var(--text); text-anchor: middle; font: 700 16px system-ui; }
+    .map-detail { fill: var(--muted); text-anchor: middle; font: 12px var(--mono); }
+    .map-forward { color: var(--copper); }
+    .map-reverse { color: var(--jade); }
+    .map-flux { stroke: currentColor; fill: none; stroke-linecap: round; }
+    .map-arrow { fill: currentColor; }
+    .map-inactive { stroke: var(--faint); stroke-dasharray: 4 7; }
+    .map-legend { margin: 0; padding: 9px 16px; display: flex; gap: 8px 18px; flex-wrap: wrap; border-top: 1px solid var(--faint); font-size: 13px; }
+    .walk-status { padding: 8px 16px; border-top: 1px solid var(--faint); font: 12px/1.5 var(--mono); min-height: 35px; }
+    .walk-side { padding: 12px 14px 14px; }
+    .walk-side h2 { font-size: 25px; }
+    .walk-parameters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 15px; margin: 8px 0 14px; }
+    .walk-parameters input, .walk-parameters select { width: 100%; min-width: 0; }
+    .walk-parameters span { display: flex; justify-content: space-between; gap: 5px; }
+    .walk-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-bottom: 10px; }
+    .walk-metrics div { border-top: 1px solid var(--faint); padding-top: 6px; }
+    .walk-metrics div:last-child { grid-column: 1 / -1; }
+    .walk-metrics dt { color: var(--muted); font-size: 13px; }
+    .walk-metrics dd { margin: 3px 0 0; font: 13px var(--mono); overflow-wrap: anywhere; }
+    .walk-side h3 { margin: 9px 0 3px; font-size: 17px; }
+    .walk-side th, .walk-side td { padding: 6px 4px; }
+    .walk-side p { margin-top: 6px; font-size: 13px; }
+    .walk-color-0 { color: var(--copper); }
+    .walk-color-1 { color: var(--jade); }
+    .walk-color-2 { color: var(--text); }
+    .walk-strip { display: grid; grid-template-columns: auto minmax(80px, 1fr) auto; gap: 6px 12px; padding: 10px 14px; align-items: center; margin-top: 12px; }
+    .walk-strip time, .walk-strip output { font: 12px var(--mono); }
+    .density-track { margin-top: 12px; padding: 11px 14px 14px; }
+    .density-track svg { display: block; width: 100%; height: auto; max-height: 195px; margin: 5px 0; }
+    .density-track p { font-size: 14px; }
+    .trace-point { stroke: var(--canvas); stroke-width: 1.5; }
+    .trace-line { fill: none; stroke-width: 2.2; vector-effect: non-scaling-stroke; }
+    .trace-0 { stroke: var(--copper); fill: var(--copper); }
+    .trace-1 { stroke: var(--jade); fill: var(--jade); }
+    .trace-2 { stroke: var(--text); fill: var(--text); }
+    .trace-line.trace-0, .trace-line.trace-1, .trace-line.trace-2 { fill: none; }
+    .trace-line.trace-1 { stroke-dasharray: 7 4; }
+    .trace-line.trace-2 { stroke-dasharray: 2 4; }
+    .trace-grid { stroke: var(--faint); stroke-width: 1; }
+    .trace-selected { stroke: var(--line); stroke-width: 1; stroke-dasharray: 4 5; }
+    .trace-label { fill: var(--muted); font: 12px var(--mono); }
+    .density-method { margin: 15px 0 0; padding: 10px 0; color: var(--muted); border-top: 1px solid var(--faint); }
+    .density-method summary { cursor: pointer; color: var(--text); }
+    .density-method p { margin: 7px 0; max-width: 85ch; }
+    .density-method a { margin-right: 12px; }
+    @media (max-width: 780px) { .density-grid { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 500px) { .walk-strip { grid-template-columns: auto 1fr; } .walk-strip time { grid-column: 1 / -1; } }
+    @media (prefers-reduced-motion: reduce) { .walk-map * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="results.html">Results</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" id="dark" aria-pressed="true">Dark</button>
+        <button type="button" id="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="density-page">
+    <header class="density-title">
+      <h1>Market density walk</h1>
+      <p>Follow a normalized graph state across an observed quote triangle. Change the local color basis to see which measurements stay fixed.</p>
+    </header>
+    <section class="density-controls" aria-label="Walk controls">
+      <label>Quote source <select id="quote-source" disabled></select></label>
+      <label>Initial site <select id="initial-site" disabled></select></label>
+      <button type="button" id="walk-play" disabled aria-pressed="false">Play walk</button>
+      <button type="button" id="walk-step" disabled>Step</button>
+      <button type="button" id="walk-reset" disabled>Reset walk</button>
+    </section>
+    <div class="density-grid">
+      <section class="density-panel" aria-labelledby="map-title">
+        <header><h2 id="map-title">Site density and link flux</h2></header>
+        <svg class="walk-map" id="walk-map" viewBox="0 0 520 364" role="img" aria-label="Triangle map of site probability density and signed link flux"></svg>
+        <p class="map-legend"><span>Circle area · site density</span><span>Arrow · signed probability transfer in the last sweep</span></p>
+        <p class="walk-status" id="walk-status" role="status">Loading historical quote examples…</p>
+      </section>
+      <section class="density-panel walk-side" aria-labelledby="inspector-title">
+        <h2 id="inspector-title">State and invariants</h2>
+        <div class="walk-parameters">
+          <label><span>Mixing <output id="mix-label">0.63 rad</output></span><input id="mix" type="range" min="0" max="1.2" step="0.01" value="0.63"></label>
+          <label><span>Phase scale <output id="phase-label">1.00</output></span><input id="phase" type="range" min="0" max="3" step="0.01" value="1"></label>
+          <label>Max quote age <select id="quote-age"><option value="250">250 ms</option><option value="1000">1,000 ms</option><option value="5000">5,000 ms</option></select></label>
+          <label>Local color basis <select id="color-basis"><option value="reference">Reference</option><option value="rotated">Rotated (SU(3))</option></select></label>
+        </div>
+        <dl class="walk-metrics">
+          <div><dt>Total probability</dt><dd id="total-probability">—</dd></div>
+          <div><dt>Conservation error</dt><dd id="norm-error">—</dd></div>
+          <div><dt>Normalized Wilson trace</dt><dd id="wilson-trace">—</dd></div>
+        </dl>
+        <h3>Site populations</h3>
+        <table aria-label="Site probabilities, resolved in the selected basis">
+          <thead><tr><th>Site</th><th>Total</th><th class="walk-color-0">|0⟩</th><th class="walk-color-1">|1⟩</th><th class="walk-color-2">|2⟩</th></tr></thead>
+          <tbody id="populations"></tbody>
+        </table>
+        <p id="gauge-audit">The three components depend on the local basis.</p>
+        <h3>Quote-derived link inputs</h3>
+        <table aria-label="Directed link inputs and previous sweep flux">
+          <thead><tr><th>Orientation</th><th>Rate skew (bps)</th><th>Age (ms)</th><th>Flux</th></tr></thead>
+          <tbody id="fluxes"></tbody>
+        </table>
+      </section>
+    </div>
+    <section class="density-panel walk-strip" aria-label="Walk timeline">
+      <output id="walk-index">Step 0</output>
+      <input id="walk-timeline" type="range" min="0" max="0" value="0" aria-label="Walk step" disabled>
+      <time id="quote-time">—</time>
+    </section>
+    <section class="density-panel density-track" aria-labelledby="trace-title">
+      <h2 id="trace-title">Site density by step</h2>
+      <svg id="density-trace" viewBox="0 0 640 175" role="img" aria-label="Site probabilities from zero to one across the walk"></svg>
+      <p id="trace-readout">Select a quote source to start.</p>
+    </section>
+    <details class="density-method">
+      <summary>How the walk uses quotes</summary>
+      <p>A normalized three-component state starts on the selected currency. Each fresh market pair sets a phase equal to the phase scale times tanh(rate skew ÷ 2 bps). Rate skew is half the difference of its two directed gauge-centered log rates. Quote age damps the two-site mixing angle by exp(−age ÷ max age). Each active link applies a cyclic shift |0⟩→|1⟩→|2⟩→|0⟩ followed by a determinant-one phase. An unavailable pair skips its gate in that sweep.</p>
+      <p>For a link U that transports from a to b, the new site states are cos θ ψ<sub>a</sub> − sin θ U†ψ<sub>b</sub> and sin θ Uψ<sub>a</sub> + cos θ ψ<sub>b</sub>. We apply the links in triangle order. The signed change in density at b is the link flux. Site density sums the squared amplitudes across the three components.</p>
+      <p>The normalized trace of the ordered SU(3) product around a fully fresh triangle is invariant under independent basis rotations at each site. The density and flux are dimensionless properties of the illustrative walk. Market quotes supply its inputs.</p>
+      <p><a href="https://www.histdata.com/f-a-q/data-files-detailed-specification/">HistData tick specification</a> <a href="https://www.gate.com/docs/developers/apiv4/en/">Gate public API</a> <a href="https://www.tpi.uni-jena.de/~floerchinger/qft2/lecture15/">Gauge link transformation</a></p>
+    </details>
+  </main>
+</body>
+</html>

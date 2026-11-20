@@ -15,6 +15,7 @@
   <header class="top">
     <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
     <nav aria-label="Page controls">
+      <a class="button" href="#inference">Inference</a>
       <div class="themes" aria-label="Color theme">
         <button type="button" id="dark" aria-pressed="true">Dark</button>
         <button type="button" id="light" aria-pressed="false">Light</button>
@@ -88,6 +89,20 @@
       <canvas id="history" aria-label="Time series of both indicative route margins. Use Replay time to select a timestamp."></canvas>
       <p id="history-status"></p>
     </section>
+    <section id="inference" class="hosted-inference" aria-labelledby="inference-title">
+      <div class="result-title">
+        <div>
+          <h2 id="inference-title">Run a trained model</h2>
+          <p>Load an observed FX graph window, choose a checkpoint, and compare the predicted one-second margin with persistence and the recorded outcome.</p>
+        </div>
+        <a class="button" href="https://huggingface.co/spaces/AmelieSchreiber/PhaseWeave-Lab">Open on Hugging Face</a>
+      </div>
+      <iframe title="PhaseWeave inference on Hugging Face" loading="lazy"
+        src="https://amelieschreiber-phaseweave-lab.hf.space/"></iframe>
+      <p class="resources"><a href="https://huggingface.co/AmelieSchreiber/PhaseWeave-FX-Pilot">Model card and download request</a>
+        <a href="https://huggingface.co/datasets/AmelieSchreiber/PhaseWeave-FX-Windows-Catalog">Dataset card</a>
+        <a href="results.html">Comparisons and ablations</a></p>
+    </section>
     <section id="research" class="research">
       <h2>Research</h2>
       <p>The FX archives record quotes and timestamps. The replay tests indicative margins with a specified maximum quote age and per-leg cost. The browser network uses deterministic reference operators, with no trained weights loaded.</p>
@@ -96,7 +111,7 @@
         <div id="reference-values" aria-live="polite"></div>
       </div>
       <p>The clean dessin inserts a white vertex at each physical edge midpoint. On the sphere the market triangle bounds two disks. On the torus the market longitude and an auxiliary non-market meridian cut out one disk. Orange and jade arrows mark the two quote orientations.</p>
-      <div><a href="results.html">Experiment results</a><a href="COMMERCIAL.md">Commercial licensing</a><a href="https://github.com/amelie-iska/PhaseWeave">Repository</a><a href="https://www.histdata.com/f-a-q/data-files-detailed-specification/">Quote source and format</a></div>
+      <div><a href="density.html">Gauge density lab</a><a href="events.html">Trade and event replay</a><a href="results.html">Experiment results</a><a href="book/">Interactive book</a><a href="COMMERCIAL.md">Commercial licensing</a><a href="https://github.com/amelie-iska/PhaseWeave">Repository</a><a href="https://www.histdata.com/f-a-q/data-files-detailed-specification/">Quote source and format</a></div>
     </section>
     <p id="status" role="status"></p>
   </main>

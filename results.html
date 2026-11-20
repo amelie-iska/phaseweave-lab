@@ -49,10 +49,19 @@
       </div>
       <div id="ablation-table"></div>
     </section>
+    <section class="result-panel" aria-labelledby="baseline-title">
+      <div class="result-title">
+        <h2 id="baseline-title">External backbone controls</h2>
+        <label>Split <select id="baseline-split"><option value="test">October holdout</option><option value="new_asset">Unseen CHF</option><option value="stress">September stress</option><option value="validation">Validation</option></select></label>
+      </div>
+      <canvas id="baseline-chart" aria-label="Control mean absolute errors ranked by the selected split"></canvas>
+      <p id="baseline-note">Ten published backbone adaptations, persistence, and histogram boosting on the same frozen FX windows. The model sizes and optimization budgets differ.</p>
+      <div id="baseline-table"></div>
+    </section>
     <section class="research">
       <h2>Measurement scope</h2>
       <p>The pilot uses 16 seconds of observed quote features to forecast both cycle margins one second ahead. Each estimate requires all three pairs to refresh. Held-out score intervals resample UTC-day blocks. A smaller reported error supports a forecasting comparison under these assumptions. The measurements concern quote margins and contain no confirmed trading fills.</p>
-      <p><a href="experiment-data.json">Download sweep and ablation results</a><a href="convergence-data.json">Download epoch scores</a><a href="https://huggingface.co/AmelieSchreiber/PhaseWeave-FX-Pilot">Checkpoints</a><a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/TRAINING.md">Training recipe</a></p>
+      <p><a href="experiment-data.json">Download sweep and ablation results</a><a href="convergence-data.json">Download epoch scores</a><a href="baseline-data.json">Download control receipts</a><a href="https://huggingface.co/AmelieSchreiber/PhaseWeave-FX-Pilot">Checkpoints</a><a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/BASELINE_LITERATURE.md">Baseline literature</a></p>
     </section>
     <p id="result-status" role="status"></p>
   </main>

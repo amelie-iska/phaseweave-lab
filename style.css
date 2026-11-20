@@ -144,6 +144,8 @@ input[type="range"], input[type="checkbox"] { accent-color: var(--copper); }
 .hosted-inference p { color: var(--muted); margin: 5px 0 10px; }
 .hosted-inference iframe { display: block; width: 100%; height: min(880px, 86vh); min-height: 520px; border: 1px solid var(--line); background: var(--surface); }
 .hosted-inference .resources { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 12px 0 0; }
+.event-playback { display: grid; grid-template-columns: auto minmax(60px, 1fr) auto; align-items: center; gap: 12px; margin: 9px 0; }
+.event-playback time { font: 12px var(--mono); white-space: nowrap; }
 @media (max-width: 420px) {
   .top { flex-wrap: wrap; gap: 4px 10px; }
   .top nav { flex-wrap: wrap; }
