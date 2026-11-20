@@ -31,8 +31,8 @@
     forestExamples: [forests.defaultExample],
     forestExample: qs.get("forest") || forests.defaultExample.id,
     forestLoadedExample: null, forestPending: false, forestError: "",
-    forestTree: -1, forestProfile: null,
-    forestLayout: qs.get("layout") === "parallel" ? "parallel" : "coordinates",
+    forestTree: -1, forestProfile: null, forestStep: "",
+    forestLayout: qs.get("layout") === "coordinates" ? "coordinates" : "parallel",
   };
   const flowSplits = {"validation":"September validation","test":"October holdout","new_asset":"Unseen CHF"};
   const blank = () => ({axes:["X","Y","Z"],points:[],lines:[],faces:[]});
@@ -40,7 +40,10 @@
   const draw = Reasoning3D.bind($("chart"), $("camera"),
     () => { if (lastScene) draw(lastScene, colors()); },
     id => {
-      if (state.mode === "forest") state.node = Number(id);
+      if (state.mode === "forest") {
+        state.node = Number(id);
+        state.forestStep = "";
+      }
       if (state.mode === "analogy") {
         const key = /^source-(\d+)-map-(\d+)$/.exec(id);
         if (!key) return;
@@ -50,6 +53,23 @@
       paintControls();
       render();
     });
+  let localScene;
+  const redrawLocal = () => { if (localScene) drawLocal(localScene,colors()); };
+  const drawLocal = Reasoning3D.bind(document.getElementById("forest-local-chart"),
+    document.getElementById("forest-local-camera"), redrawLocal,
+    id => {
+      const node = state.forest?.nodes.find(n => n.id === Number(id));
+      if (node) focusForest(node);
+    });
+  function focusForest(node, stage, depth) {
+    if (state.timer) { clearInterval(state.timer); state.timer = null; }
+    state.node = node.id;
+    state.forestTree = -1;
+    state.forestStep = stage || "";
+    state.depth = depth ?? Math.max(state.depth,node.depth);
+    paintControls();
+    render();
+  }
   const asCoordinate = (vector) => "(" + vector.map((value) => value.toFixed(3)).join(", ") + ")";
   const utc = (value) => value.replace("T", " ").replace("+00:00", " UTC");
   const stamp = (frame) => Date.parse(frame.utc);
@@ -251,6 +271,7 @@
       state.forestProfile = profile;
       state.forestLoadedExample = example;
       state.forestTree = -1;
+      state.forestStep = "";
       state.node = root.id;
       state.depth = profile.depth;
       state.radius = Math.min(state.radius,profile.radius);
@@ -348,11 +369,15 @@
       const meta = state.forestLoadedExample;
       const {result,pivot,shown,counts} = forests.scene(trace,state,Reasoning3D);
       const {trees,depth,widths} = state.forestProfile;
+      localScene = ForestWalkthrough.render(trace,pivot,state.forestStep,state.radius,{
+        stage: item => focusForest(item.node,item.id,item.depth ?? item.node.depth),
+        node: item => focusForest(item),
+      });
       const visibleLayer = shown.filter(node => node.depth === state.depth).length;
       const incoming = trace.edges.filter(edge => edge.target === pivot.id);
       $("chart-label").textContent = state.forestLayout === "parallel" ? "Parallel tree lanes" : "Original forecast coordinates";
       $("description").textContent = forests.purpose(state.forestLayout) +
-        " Colored edges are expansions, dashed edges are corrections, neutral edges are consensus votes, and violet marks show the selected local complex.";
+        " Colored edges are expansions, dashed edges are corrections, and neutral arrows show votes. The linked local geometry panel keeps the original coordinates.";
       panel.append(textBlock(meta.provenance));
       const experiment = trace.experiment;
       const scope = experiment ? [
@@ -457,8 +482,12 @@
           Number(edge.age).toLocaleString() + " ms"].forEach((value) => cell(row, "td", value));
       });
     }
+    const showForest = state.mode === "forest" && Boolean(state.forest);
+    document.getElementById("forest-guide").hidden = !showForest;
+    document.getElementById("forest-audit").hidden = !showForest;
     lastScene = scene(current);
     draw(lastScene, colors());
+    if (showForest) redrawLocal();
     const locationState = new URLSearchParams({mode: state.mode});
     if (episode) {
       locationState.set("example",episode.id);
@@ -506,6 +535,7 @@
     try { localStorage.setItem("phaseweave-theme", value); } catch {}
     render();
   }
+  new ResizeObserver(redrawLocal).observe(document.getElementById("forest-local-chart"));
   try { theme(localStorage.getItem("phaseweave-theme") === "light" ? "light" : "dark"); } catch {}
   document.querySelectorAll("[data-reasoning-theme]").forEach((button) =>
     button.addEventListener("click", () => theme(button.dataset.reasoningTheme)));

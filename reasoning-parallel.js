@@ -141,8 +141,8 @@ const ReasoningParallel = (() => {
       if (simplex.birth > state.radius || !simplex.vertices.every(id => plotted.has(id))) continue;
       const vertices = simplex.vertices.map(id => coords.get(id));
       counts[vertices.length-1]++;
-      if (vertices.length === 2) result.lines.push({coords:vertices,color:"violet",dash:[2,3],alpha:.75});
-      if (vertices.length === 3) result.faces.push({coords:vertices,color:"violet",alpha:.15});
+      if (!parallel && vertices.length === 2) result.lines.push({coords:vertices,color:"violet",dash:[2,3],alpha:.75});
+      if (!parallel && vertices.length === 3) result.faces.push({coords:vertices,color:"violet",alpha:.15});
     }
     return {result,pivot,shown,counts};
   }
