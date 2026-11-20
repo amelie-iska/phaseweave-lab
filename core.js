@@ -41,7 +41,17 @@ const PhaseWeave = (() => {
       const legs = names.slice(1).map((asset, index) => byPair.get(names[index] + ":" + asset));
       const fresh = legs.every((leg) => leg && leg.age <= ageLimit);
       const score = fresh ? legs.reduce((sum, leg) => sum + leg.bps - fee, 0) : null;
-      return { label: names.join(" → "), legs, score, fresh };
+      let displayCapacity = null;
+      if (fresh && legs.every((leg) => Number.isFinite(leg.capacity) && leg.capacity > 0 &&
+        Number.isFinite(leg.nativeRate) && leg.nativeRate > 0)) {
+        let prefix = 1;
+        displayCapacity = Math.min(...legs.map((leg) => {
+          const inInitialUnits = leg.capacity / prefix;
+          prefix *= leg.nativeRate * Math.exp(-fee / 1e4);
+          return inInitialUnits;
+        }));
+      }
+      return { label: names.join(" → "), legs, score, fresh, displayCapacity, initialAsset: names[0] };
     });
     const best = scored.reduce((choice, route, index) =>
       route.fresh && route.score > (choice === -1 ? 0 : scored[choice].score) ? index : choice, -1);

@@ -20,6 +20,7 @@ class GatePublicFeed {
     if (this.running) return;
     this.running = true;
     this.connect();
+    this.poll();
   }
 
   stop() {
@@ -121,9 +122,9 @@ class GatePublicFeed {
       const age = Math.max(0, now - quote.updated);
       const evidence = { age, updated: quote.updated, received: quote.received };
       return [
-        { from: base, to: counter, side: "bid", capacity: quote.bidSize,
+        { from: base, to: counter, side: "bid", capacity: quote.bidSize, nativeRate: quote.bid,
           bps: 1e4 * (Math.log(quote.bid) + gauge[counter] - gauge[base]), ...evidence },
-        { from: counter, to: base, side: "inverse ask", capacity: quote.ask * quote.askSize,
+        { from: counter, to: base, side: "inverse ask", capacity: quote.ask * quote.askSize, nativeRate: 1 / quote.ask,
           bps: 1e4 * (-Math.log(quote.ask) + gauge[base] - gauge[counter]), ...evidence },
       ];
     });

@@ -314,6 +314,76 @@ function draw(frame, pipeline, result, wallPhase = 0) {
   else renderSurface(project, palette, frame, result, wallPhase);
 }
 
+const archiveChart = element("history");
+
+function drawHistory() {
+  if (!current) return;
+  const section = archiveChart.closest("section");
+  section.hidden = live();
+  if (live()) return;
+  const example = state.examples.find((item) => item.id === element("example").value);
+  const {width, height} = archiveChart.getBoundingClientRect();
+  if (width < 20 || height < 20) return;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  archiveChart.width = Math.round(width * dpr);
+  archiveChart.height = Math.round(height * dpr);
+  const plot = archiveChart.getContext("2d");
+  plot.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const style = getComputedStyle(document.documentElement);
+  const color = (key) => style.getPropertyValue("--" + key).trim();
+  const age = +element("age").value, cost = +element("fee").value;
+  const margins = example.frames.map((frame) => PhaseWeave.replay(frame, age, cost).scored.map((route) => route.score));
+  const available = margins.flat().filter((value) => value != null);
+  element("history-status").textContent = available.length ?
+    "Observed scores in log basis points. Gaps indicate missing or stale quotes." :
+    "Both routes are unavailable throughout this window at the selected quote-age limit.";
+  const lo = Math.min(-0.1, ...available), hi = Math.max(0.1, ...available);
+  const x = (index) => 50 + (width - 69) * index / (margins.length - 1);
+  const y = (value) => 17 + (height - 43) * (hi - value) / (hi - lo);
+  plot.font = "11px monospace";
+  plot.fillStyle = color("muted");
+  const tick = (value) => {
+    plot.fillText(value.toFixed(2), 4, y(value) + 4);
+    plot.strokeStyle = color("faint");
+    plot.beginPath();
+    plot.moveTo(x(0), y(value));
+    plot.lineTo(x(margins.length - 1), y(value));
+    plot.stroke();
+  };
+  [hi, 0, lo].forEach(tick);
+  [0, 1].forEach((route) => {
+    plot.strokeStyle = color(route === 0 ? "copper" : "jade");
+    plot.fillStyle = plot.strokeStyle;
+    plot.lineWidth = 1.8;
+    let contiguous = false;
+    plot.beginPath();
+    margins.forEach((row, index) => {
+      if (row[route] == null) { contiguous = false; return; }
+      const px = x(index), py = y(row[route]);
+      plot.fillRect(px - 1, py - 1, 2, 2);
+      if (contiguous) plot.lineTo(px, py); else plot.moveTo(px, py);
+      contiguous = true;
+    });
+    plot.stroke();
+  });
+  plot.strokeStyle = color("muted");
+  plot.lineWidth = 1;
+  plot.beginPath();
+  plot.moveTo(x(state.frame), 12);
+  plot.lineTo(x(state.frame), height - 22);
+  plot.stroke();
+  plot.fillStyle = color("muted");
+  plot.fillText("+0 s", x(0), height-4);
+  plot.fillText("+30 s", x(margins.length - 1)-28, height-4);
+}
+
+archiveChart.addEventListener("click", (event) => {
+  if (!current || live()) return;
+  const bounds = archiveChart.getBoundingClientRect();
+  state.frame = Math.max(0, Math.min(30, Math.round(30 * (event.clientX - bounds.left - 50) / (bounds.width - 69))));
+  render();
+});
+
 let current = null;
 function drawCurrent(wallPhase = 0) {
   if (current) draw(current.frame, current.pipeline, current.result, wallPhase);
@@ -339,6 +409,7 @@ function render(refreshLive = false) {
   element("topology").textContent = "V " + topology.vertices.length + " · E " + topology.edges.length +
     " · F " + topology.faces.length + " · genus " + topology.genus;
   const body = element("routes");
+  document.querySelector(".depth-column").hidden = !live();
   body.replaceChildren();
   result.scored.concat([{ label: "Abstain", fresh: true, score: 0 }]).forEach((route, index) => {
     const row = body.insertRow();
@@ -346,11 +417,14 @@ function render(refreshLive = false) {
     addCell(row, "td", route.label, ["clockwise", "counter", ""][index]);
     addCell(row, "td", index === 2 ? "Available" : route.fresh ? "Fresh" : "Missing / stale");
     addCell(row, "td", format(route.score, 4));
+    if (live()) addCell(row, "td", route.displayCapacity == null ? "—" :
+      format(route.displayCapacity, 5) + " " + route.initialAsset);
   });
   if (refreshLive !== true || !element("inspector").contains(document.activeElement)) {
     inspector(frame, result, pipeline);
   }
   drawCurrent((Date.now() % 1000) / 1000);
+  drawHistory();
 }
 
 function setFrame(offset) {
@@ -384,6 +458,7 @@ function theme(value) {
   element("light").setAttribute("aria-pressed", String(value === "light"));
   try { localStorage.setItem("phaseweave-theme", value); } catch {}
   drawCurrent();
+  drawHistory();
 }
 
 element("dark").addEventListener("click", () => theme("dark"));
@@ -453,6 +528,7 @@ canvas.addEventListener("keydown", (event) => {
   drawCurrent();
 });
 new ResizeObserver(() => drawCurrent()).observe(canvas);
+new ResizeObserver(drawHistory).observe(archiveChart);
 setInterval(() => { if (live()) render(true); }, 400);
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   setInterval(() => { if (state.playback) drawCurrent((Date.now() % 1000) / 1000); }, 70);

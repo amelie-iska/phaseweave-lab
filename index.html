@@ -78,10 +78,15 @@
           <label>Cost per leg <select id="fee"><option value="0.1">0.1 bps</option><option value="0">0 bps</option><option value="0.5">0.5 bps</option></select></label>
         </div>
         <table aria-label="Verified route scores">
-          <thead><tr><th>Route</th><th>Quote status</th><th>Net log bps</th></tr></thead>
+          <thead><tr><th>Route</th><th>Quote status</th><th>Net log bps</th><th class="depth-column" hidden>Top-level input cap</th></tr></thead>
           <tbody id="routes"></tbody>
         </table>
       </div>
+    </section>
+    <section class="timeline-chart" aria-labelledby="history-title">
+      <h2 id="history-title">Route margins over time</h2>
+      <canvas id="history" aria-label="Time series of both indicative route margins. Use Replay time to select a timestamp."></canvas>
+      <p id="history-status"></p>
     </section>
     <section id="research" class="research">
       <h2>Research</h2>

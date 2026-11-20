@@ -45,3 +45,14 @@ test("cyclic qutrit probabilities sum to one", () => {
     assert(Math.abs(norm - 1) < 1e-12);
   }
 });
+
+test("displayed route capacity converts every leg to the same initial units", () => {
+  const routes = replay({assets: ["A", "B", "C"], edges: [
+    {from:"A",to:"B",nativeRate:2,capacity:4,bps:10000*Math.log(2),age:2},
+    {from:"B",to:"C",nativeRate:3,capacity:7,bps:10000*Math.log(3),age:2},
+    {from:"C",to:"A",nativeRate:.2,capacity:6,bps:10000*Math.log(.2),age:2},
+  ]}, 250, 0);
+  assert.equal(routes.best, 0);
+  assert.equal(routes.scored[0].displayCapacity, 1);
+  assert.equal(routes.scored[1].displayCapacity, null);
+});

@@ -126,3 +126,10 @@ input[type="range"], input[type="checkbox"] { accent-color: var(--copper); }
   .visual { min-height: 380px; }
   .visual canvas { inset-block-end: 62px; height: calc(100% - 62px); }
 }
+.timeline-chart { margin-top: 12px; padding: 12px 15px; border: 1px solid var(--line); }
+.timeline-chart canvas { display: block; width: 100%; height: 165px; min-height: 0; cursor: crosshair; touch-action: auto; }
+.timeline-chart p { color: var(--muted); font-size: 14px; }
+@media (max-width: 500px) {
+  .routes td, .routes th { white-space: normal; }
+  .routes td:not(:first-child) { font-size: 10px; }
+}
