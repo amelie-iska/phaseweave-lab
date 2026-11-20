@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Experiment results · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="results.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+      </div>
+      <a class="button" href="./">Market lab</a>
+    </nav>
+  </header>
+  <main class="results">
+    <h1>Experiment results</h1>
+    <p class="standfirst">Measured forecasts on timestamped FX quote graphs. Scores are in log basis points.</p>
+    <section class="result-panel" aria-labelledby="campaign-title">
+      <div class="result-title">
+        <h2 id="campaign-title">Width-transfer campaign</h2>
+        <label>Series <select id="series"><option value="roster">24 proxies + 2 transfers</option><option value="test">October holdout</option><option value="new_asset">Unseen CHF</option><option value="stress">September stress</option></select></label>
+      </div>
+      <canvas id="campaign-chart" aria-label="Run mean absolute errors, with matching data in the table below"></canvas>
+      <p id="campaign-note"></p>
+      <div id="campaign-table"></div>
+    </section>
+    <section class="result-panel" aria-labelledby="ablation-title">
+      <div class="result-title">
+        <h2 id="ablation-title">Quantum and tropical ablations</h2>
+        <label>Split <select id="ablation-split"><option value="validation">Validation</option><option value="test">October holdout</option><option value="new_asset">Unseen CHF</option><option value="stress">September stress</option></select></label>
+      </div>
+      <div id="ablation-table"></div>
+    </section>
+    <section class="research">
+      <h2>Measurement scope</h2>
+      <p>The pilot uses 16 seconds of observed quote features to forecast both cycle margins one second ahead. Each estimate requires all three pairs to refresh. Held-out score intervals resample UTC-day blocks. A smaller reported error supports a forecasting comparison under these assumptions. The measurements concern quote margins and contain no confirmed trading fills.</p>
+      <p><a href="experiment-data.json">Download aggregate results</a><a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/TRAINING.md">Training recipe</a></p>
+    </section>
+    <p id="result-status" role="status"></p>
+  </main>
+</body>
+</html>

@@ -133,3 +133,12 @@ input[type="range"], input[type="checkbox"] { accent-color: var(--copper); }
   .routes td, .routes th { white-space: normal; }
   .routes td:not(:first-child) { font-size: 10px; }
 }
+.results { max-width: 1240px; padding-top: 24px; }
+.results .standfirst { color: var(--muted); font-size: 19px; margin-top: 4px; }
+.result-panel { border: 1px solid var(--line); margin-top: 18px; padding: 14px 16px; }
+.result-title { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 24px; }
+.result-title label { display: flex; align-items: center; gap: 8px; }
+.result-panel canvas { height: 218px; min-height: 0; margin-top: 12px; cursor: default; touch-action: auto; }
+.result-panel p { color: var(--muted); margin: 6px 0 10px; }
+.table-overflow { max-height: 460px; overflow: auto; margin-top: 12px; }
+.table-overflow th { position: sticky; top: 0; }
