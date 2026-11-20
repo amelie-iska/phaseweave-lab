@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A source-linked, 3D atlas of currency, country, capital and issuer relations.">
+  <title>Currency knowledge atlas · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="atlas.css">
+  <script defer src="reasoning-3d.js"></script>
+  <script defer src="atlas.js"></script>
+</head>
+<body>
+  <header class="top atlas-top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="reasoning.html">Reasoning lab</a>
+      <a class="button" href="memory.html">Graph memory</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-atlas-theme="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-atlas-theme="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="atlas-page">
+    <header class="atlas-heading">
+      <div>
+        <h1>Currency knowledge atlas</h1>
+        <p>Follow directed Wikidata statements from capitals and countries to currencies and their issuers.</p>
+      </div>
+      <p id="atlas-totals" class="atlas-totals" aria-live="polite">Loading the frozen atlas…</p>
+    </header>
+
+    <div class="atlas-layout">
+      <section class="atlas-panel atlas-search" aria-labelledby="atlas-search-title">
+        <h2 id="atlas-search-title">Find an entity</h2>
+        <form id="atlas-search-form" role="search">
+          <label class="atlas-sr-only" for="atlas-query">Entity name or Wikidata ID</label>
+          <input id="atlas-query" type="search" placeholder="Name or Wikidata ID" autocomplete="off"
+                 aria-controls="atlas-results" aria-describedby="atlas-result-status" disabled>
+        </form>
+        <p id="atlas-result-status" class="atlas-result-count" aria-live="polite"></p>
+        <ul id="atlas-results" class="atlas-results" aria-label="Matching entities"></ul>
+      </section>
+
+      <section class="atlas-panel atlas-map" aria-labelledby="atlas-map-title">
+        <header class="atlas-map-header">
+          <h2 id="atlas-map-title">Graph view</h2>
+          <label for="atlas-layout-choice">Layout</label>
+          <select id="atlas-layout-choice" disabled>
+            <option value="relations">Wikidata relations</option>
+            <option value="projection">Code projection (PCA)</option>
+          </select>
+        </header>
+        <canvas id="atlas-canvas" tabindex="0" aria-label="Interactive 3D atlas of Wikidata entities"
+                aria-describedby="atlas-map-hint"></canvas>
+        <div class="atlas-map-footer">
+          <ul class="atlas-role-legend" aria-label="Entity colors">
+            <li class="atlas-country">Country</li>
+            <li class="atlas-capital">Capital</li>
+            <li class="atlas-currency">Currency</li>
+            <li class="atlas-issuer">Issuer</li>
+          </ul>
+          <p id="atlas-map-hint">Drag to rotate. Select a point or use the search list.</p>
+        </div>
+        <div id="atlas-camera" class="atlas-camera" aria-label="Camera controls">
+          <label>Yaw <input type="range" name="yaw" min="-180" max="180" value="-32" aria-label="Yaw"></label>
+          <label>Pitch <input type="range" name="pitch" min="-85" max="85" value="24" aria-label="Pitch"></label>
+          <label>Zoom <input type="range" name="zoom" min=".75" max="2.5" value="1" step=".05" aria-label="Zoom"></label>
+          <button type="button">Reset view</button>
+        </div>
+        <p id="atlas-layout-fidelity" class="atlas-fidelity"></p>
+      </section>
+
+      <section id="atlas-entity" class="atlas-panel atlas-detail" aria-labelledby="atlas-entity-title">
+        <p id="atlas-entity-role" class="atlas-entity-role"></p>
+        <h2 id="atlas-entity-title">Selected entity</h2>
+        <p class="atlas-entity-links"><a id="atlas-wiki-link" hidden></a></p>
+        <h3>Adjacent statements</h3>
+        <ul id="atlas-neighbors" class="atlas-neighbors"></ul>
+        <details id="atlas-path" hidden>
+          <summary>Capital-to-issuer path</summary>
+          <ol id="atlas-path-steps"></ol>
+        </details>
+        <p id="atlas-data-error" role="alert" hidden></p>
+      </section>
+    </div>
+
+    <section class="atlas-provenance" aria-labelledby="atlas-provenance-title">
+      <h2 id="atlas-provenance-title">Source snapshot</h2>
+      <p>Wikidata structured facts · <time id="atlas-snapshot"></time>. The frozen snapshot was acquired in November 2026, after every August–October FX benchmark anchor.</p>
+      <p><a href="kg-atlas-calibration-v1.json" download>Download atlas JSON</a> <a href="https://www.wikidata.org/wiki/Wikidata:Licensing">CC0 structured-data license</a></p>
+    </section>
+  </main>
+</body>
+</html>

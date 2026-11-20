@@ -1,0 +1,1505 @@
+{
+  "edges": [
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q30",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q30.json?revision=2572305193",
+      "statement_id": "q30$62800D38-8C8E-4EEE-BE8F-DD3DCFB9025F",
+      "target": "Q4917"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q30",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q30.json?revision=2572305193",
+      "statement_id": "q30$E0257E2F-A11D-40D9-8C58-6B5A8D3AF952",
+      "target": "Q61"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q4917",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q4917.json?revision=2557623321",
+      "statement_id": "q4917$ca26115b-450a-6e90-c69e-6f90d609cb8e",
+      "target": "Q53536"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q16",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q16.json?revision=2567425781",
+      "statement_id": "q16$DD99F835-19C0-4A6D-A692-B34096B0F91B",
+      "target": "Q1104069"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q16",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q16.json?revision=2567425781",
+      "statement_id": "q16$B77FAC7C-4711-4C6E-8500-37A0F6EB5590",
+      "target": "Q1930"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q1104069",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q1104069.json?revision=2555671306",
+      "statement_id": "q1104069$D669F282-A82C-4ADF-A7AD-569F28B3D234",
+      "target": "Q806703"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q17",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q17.json?revision=2572660318",
+      "statement_id": "q17$37158A50-995D-4FD3-9097-C39D048D5590",
+      "target": "Q8146"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q17",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q17.json?revision=2572660318",
+      "statement_id": "Q17$7b5e8528-4dcd-04ee-eb80-b231abec34e5",
+      "target": "Q1490"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q8146",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q8146.json?revision=2565024958",
+      "statement_id": "q8146$17985f94-411d-1f5c-2d2c-578c8edc3fa1",
+      "target": "Q333101"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q155",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q155.json?revision=2571892848",
+      "statement_id": "q155$11037DE2-4842-4845-8A43-0136FD57FD5C",
+      "target": "Q173117"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q155",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q155.json?revision=2571892848",
+      "statement_id": "q155$14A8A9D4-F7D1-4B46-BB83-C015F95E7DF3",
+      "target": "Q2844"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q173117",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q173117.json?revision=2555909204",
+      "statement_id": "q173117$267DF844-8070-4D4E-9AB4-5943F7993B03",
+      "target": "Q806186"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q668",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q668.json?revision=2571897473",
+      "statement_id": "q668$F80305E3-3ACE-40BA-8BF3-A186BFEEC218",
+      "target": "Q80524"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q668",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q668.json?revision=2571897473",
+      "statement_id": "q668$F5A99C88-77A2-4BC0-B17C-5557D19B2751",
+      "target": "Q987"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q80524",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q80524.json?revision=2568149967",
+      "statement_id": "Q80524$265791b1-46ab-01a1-8ca0-64c8a0d68dfa",
+      "target": "Q944085"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q884",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q884.json?revision=2568775901",
+      "statement_id": "q884$045A681B-3093-4B3F-8B55-21915D8D8D9E",
+      "target": "Q202040"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q884",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q884.json?revision=2568775901",
+      "statement_id": "q884$ACA44C84-E9D5-4350-8B15-47DB5BFC72AB",
+      "target": "Q8684"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q202040",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q202040.json?revision=2558218531",
+      "statement_id": "q202040$311d965d-4286-98d2-4740-39ce9f591b64",
+      "target": "Q485531"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q20",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q20.json?revision=2571889793",
+      "statement_id": "q20$38F18783-75D5-4C6B-B620-5E13878C78F3",
+      "target": "Q132643"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q20",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q20.json?revision=2571889793",
+      "statement_id": "q20$CB7CF181-7CB4-495D-883B-2AD6CFBD6872",
+      "target": "Q585"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q132643",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q132643.json?revision=2552154099",
+      "statement_id": "q132643$EFB8DDFE-8365-4124-9D16-D43992ECFDF5",
+      "target": "Q970769"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q408",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q408.json?revision=2567535006",
+      "statement_id": "q408$C6DD2D83-6B08-44E4-A2EE-C8B59D184958",
+      "target": "Q259502"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q408",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q408.json?revision=2567535006",
+      "statement_id": "q408$0A27874B-64AE-4798-A26A-1CC6011516BF",
+      "target": "Q3114"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q259502",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q259502.json?revision=2559822508",
+      "statement_id": "q259502$438e5955-468e-94ec-ec27-54539be7293e",
+      "target": "Q1506724"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q664",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q664.json?revision=2568132058",
+      "statement_id": "q664$5EB7F18B-0A08-46EB-A309-308D5C0EC6C5",
+      "target": "Q1472704"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q664",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q664.json?revision=2568132058",
+      "statement_id": "q664$113F2588-9597-488E-833D-5EB70E604B1F",
+      "target": "Q23661"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q1472704",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q1472704.json?revision=2560297745",
+      "statement_id": "q1472704$7FBECAC3-F97D-4A1C-A50E-438E56CEEED2",
+      "target": "Q1494550"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q36",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q36.json?revision=2571885760",
+      "statement_id": "q36$265E4A39-29A3-4920-A1A2-A1BA633C0144",
+      "target": "Q123213"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q36",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q36.json?revision=2571885760",
+      "statement_id": "q36$94D48ABA-3371-4101-8AD7-E85AB63F7B4F",
+      "target": "Q270"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q123213",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q123213.json?revision=2565022301",
+      "statement_id": "q123213$BE10302B-91AB-476F-89D9-AC2E99914386",
+      "target": "Q168844"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q96",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q96.json?revision=2572361009",
+      "statement_id": "q96$F1691274-F03C-4BA3-83A8-46984A520F3F",
+      "target": "Q4730"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q96",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q96.json?revision=2572361009",
+      "statement_id": "q96$4F416360-22E5-4453-9698-B8239BC31DA9",
+      "target": "Q1489"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q4730",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q4730.json?revision=2563674982",
+      "statement_id": "q4730$A815069A-A76A-482A-8328-B47C5E27B52E",
+      "target": "Q806208"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q34",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q34.json?revision=2571886399",
+      "statement_id": "q34$183BCD4D-8600-441D-98B4-E5AC28EA92E9",
+      "target": "Q122922"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q34",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q34.json?revision=2571886399",
+      "statement_id": "Q34$29dffe8a-4325-956d-eb86-87b763bfb638",
+      "target": "Q1754"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q122922",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q122922.json?revision=2552381795",
+      "statement_id": "q122922$560DEB1A-4B2F-4E34-938D-CB313065962D",
+      "target": "Q564652"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q35",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q35.json?revision=2571882211",
+      "statement_id": "q35$BF0FA4C8-5E24-4F46-A1C6-C49D355B3340",
+      "target": "Q25417"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q35",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q35.json?revision=2571882211",
+      "statement_id": "q35$BCF86804-9AC0-46FF-9DF6-6048212BD7C7",
+      "target": "Q1748"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q25417",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q25417.json?revision=2556681741",
+      "statement_id": "q25417$5DFAFD5D-D1A3-4E4B-B4EB-FD787C062FCB",
+      "target": "Q683252"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q189",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q189.json?revision=2569305992",
+      "statement_id": "Q189$29D94021-87D1-4E03-B78E-B89E22A74E69",
+      "target": "Q131473"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q189",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q189.json?revision=2569305992",
+      "statement_id": "q189$9007C954-CCAF-4EE1-9D94-F87702FF646B",
+      "target": "Q1764"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q131473",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q131473.json?revision=2547954740",
+      "statement_id": "q131473$A7D534F1-6769-4AA6-A0BB-97C6BC4ACD15",
+      "target": "Q1195916"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q739",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q739.json?revision=2568773891",
+      "statement_id": "q739$FD51529D-0FD5-4418-8D90-6CE004DF086A",
+      "target": "Q244819"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q739",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q739.json?revision=2568773891",
+      "statement_id": "q739$0848E6D1-CFA5-4F7C-8E52-50480CEBDAF9",
+      "target": "Q2841"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q244819",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q244819.json?revision=2555359963",
+      "statement_id": "q244819$9608F4DF-17DF-4656-AB0E-E956A1F40273",
+      "target": "Q686329"
+    },
+    {
+      "birth": 0,
+      "kind": "P38",
+      "source": "Q869",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q869.json?revision=2572657101",
+      "statement_id": "q869$67F4A017-9135-4FE0-AD1B-A0D76D07E583",
+      "target": "Q177882"
+    },
+    {
+      "birth": 0,
+      "kind": "P36",
+      "source": "Q869",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q869.json?revision=2572657101",
+      "statement_id": "q869$AABBF66D-C714-43E0-8C37-C36F24CFA208",
+      "target": "Q1861"
+    },
+    {
+      "birth": 0,
+      "kind": "P562",
+      "source": "Q177882",
+      "source_revision_url": "https://www.wikidata.org/wiki/Special:EntityData/Q177882.json?revision=2572117056",
+      "statement_id": "q177882$EA1E1E60-1E48-47D7-B987-9F2DC55CFD83",
+      "target": "Q806706"
+    }
+  ],
+  "fixture_sha256": "89ae91bbce25de0f6d19b75874a91985c734cec247ea3f56a484c6f54aa85cb4",
+  "format": "phaseweave.kg_atlas_calibration.v1",
+  "historical_fx_eligible_rows": 0,
+  "license": "CC0-1.0",
+  "license_url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+  "nodes": [
+    {
+      "hrr_projected_point": [
+        -0.399929407,
+        0.103793281,
+        0.033642775
+      ],
+      "id": "Q1104069",
+      "label": "Canadian dollar",
+      "owner": "Q16",
+      "point": [
+        -2.0,
+        -7.5,
+        0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q1104069"
+    },
+    {
+      "hrr_projected_point": [
+        -0.040842669,
+        -0.034385534,
+        -0.015523568
+      ],
+      "id": "Q1195916",
+      "label": "Central Bank of Iceland",
+      "owner": "Q189",
+      "point": [
+        9.0,
+        -7.5,
+        0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q1195916"
+    },
+    {
+      "hrr_projected_point": [
+        -0.112471983,
+        0.018833098,
+        -0.042147706
+      ],
+      "id": "Q122922",
+      "label": "Swedish krona",
+      "owner": "Q34",
+      "point": [
+        3.0,
+        -2.5,
+        -0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q122922"
+    },
+    {
+      "hrr_projected_point": [
+        -0.034777061,
+        -0.01706252,
+        -0.075962376
+      ],
+      "id": "Q123213",
+      "label": "złoty",
+      "owner": "Q36",
+      "point": [
+        -7.0,
+        2.5,
+        -0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q123213"
+    },
+    {
+      "hrr_projected_point": [
+        0.028904089,
+        -0.027678587,
+        -0.007091422
+      ],
+      "id": "Q131473",
+      "label": "Icelandic króna",
+      "owner": "Q189",
+      "point": [
+        8.0,
+        -7.5,
+        0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q131473"
+    },
+    {
+      "hrr_projected_point": [
+        -0.087150111,
+        0.031273791,
+        -0.05386729
+      ],
+      "id": "Q132643",
+      "label": "Norwegian krone",
+      "owner": "Q20",
+      "point": [
+        -7.0,
+        -2.5,
+        -0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q132643"
+    },
+    {
+      "hrr_projected_point": [
+        -0.014114496,
+        -0.16194214,
+        0.331150346
+      ],
+      "id": "Q1472704",
+      "label": "New Zealand dollar",
+      "owner": "Q664",
+      "point": [
+        3.0,
+        2.5,
+        -0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q1472704"
+    },
+    {
+      "hrr_projected_point": [
+        0.032618155,
+        0.2409892,
+        0.029749218
+      ],
+      "id": "Q1489",
+      "label": "Mexico City",
+      "owner": "Q96",
+      "point": [
+        6.0,
+        7.5,
+        0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q1489"
+    },
+    {
+      "hrr_projected_point": [
+        -0.018893126,
+        0.112387357,
+        -0.027206378
+      ],
+      "id": "Q1490",
+      "label": "Tokyo",
+      "owner": "Q17",
+      "point": [
+        1.0,
+        -7.5,
+        -0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q1490"
+    },
+    {
+      "hrr_projected_point": [
+        0.131045414,
+        0.313273636,
+        0.068382195
+      ],
+      "id": "Q1494550",
+      "label": "Reserve Bank of New Zealand",
+      "owner": "Q664",
+      "point": [
+        4.0,
+        2.5,
+        -0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q1494550"
+    },
+    {
+      "hrr_projected_point": [
+        0.035554924,
+        0.055818093,
+        0.045566284
+      ],
+      "id": "Q1506724",
+      "label": "Reserve Bank of Australia",
+      "owner": "Q408",
+      "point": [
+        -1.0,
+        2.5,
+        0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q1506724"
+    },
+    {
+      "hrr_projected_point": [
+        0.248229963,
+        0.088271793,
+        0.122035237
+      ],
+      "id": "Q155",
+      "label": "Brazil",
+      "owner": "Q155",
+      "point": [
+        -8.0,
+        -7.5,
+        -0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q155"
+    },
+    {
+      "hrr_projected_point": [
+        0.100865462,
+        -0.085950707,
+        -0.449267069
+      ],
+      "id": "Q16",
+      "label": "Canada",
+      "owner": "Q16",
+      "point": [
+        -3.0,
+        -7.5,
+        0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q16"
+    },
+    {
+      "hrr_projected_point": [
+        -0.013064798,
+        0.046488247,
+        -0.008489384
+      ],
+      "id": "Q168844",
+      "label": "Narodowy Bank Polski",
+      "owner": "Q36",
+      "point": [
+        -6.0,
+        2.5,
+        -0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q168844"
+    },
+    {
+      "hrr_projected_point": [
+        -0.182669762,
+        -0.072259644,
+        0.021161351
+      ],
+      "id": "Q17",
+      "label": "Japan",
+      "owner": "Q17",
+      "point": [
+        2.0,
+        -7.5,
+        -0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q17"
+    },
+    {
+      "hrr_projected_point": [
+        -0.003658119,
+        -0.315946855,
+        -0.307358497
+      ],
+      "id": "Q173117",
+      "label": "Brazilian real",
+      "owner": "Q155",
+      "point": [
+        -7.0,
+        -7.5,
+        -0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q173117"
+    },
+    {
+      "hrr_projected_point": [
+        -0.156000555,
+        0.496904166,
+        0.044113654
+      ],
+      "id": "Q1748",
+      "label": "Copenhagen",
+      "owner": "Q35",
+      "point": [
+        6.0,
+        -2.5,
+        0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q1748"
+    },
+    {
+      "hrr_projected_point": [
+        0.021713468,
+        0.044213861,
+        -0.051222443
+      ],
+      "id": "Q1754",
+      "label": "Stockholm",
+      "owner": "Q34",
+      "point": [
+        1.0,
+        -2.5,
+        -0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q1754"
+    },
+    {
+      "hrr_projected_point": [
+        0.078550682,
+        -0.002236277,
+        -0.034535837
+      ],
+      "id": "Q1764",
+      "label": "Reykjavík",
+      "owner": "Q189",
+      "point": [
+        6.0,
+        -7.5,
+        0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q1764"
+    },
+    {
+      "hrr_projected_point": [
+        -0.052148722,
+        0.051115325,
+        -0.03067721
+      ],
+      "id": "Q177882",
+      "label": "baht",
+      "owner": "Q869",
+      "point": [
+        -2.0,
+        7.5,
+        0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q177882"
+    },
+    {
+      "hrr_projected_point": [
+        -0.024084244,
+        0.05630188,
+        -0.052199408
+      ],
+      "id": "Q1861",
+      "label": "Bangkok",
+      "owner": "Q869",
+      "point": [
+        -4.0,
+        7.5,
+        0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q1861"
+    },
+    {
+      "hrr_projected_point": [
+        0.008777289,
+        -0.07248469,
+        0.029037351
+      ],
+      "id": "Q189",
+      "label": "Iceland",
+      "owner": "Q189",
+      "point": [
+        7.0,
+        -7.5,
+        0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q189"
+    },
+    {
+      "hrr_projected_point": [
+        0.326384394,
+        -0.197441776,
+        -0.099117189
+      ],
+      "id": "Q1930",
+      "label": "Ottawa",
+      "owner": "Q16",
+      "point": [
+        -4.0,
+        -7.5,
+        0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q1930"
+    },
+    {
+      "hrr_projected_point": [
+        -0.081321719,
+        0.01214915,
+        -0.069838447
+      ],
+      "id": "Q20",
+      "label": "Norway",
+      "owner": "Q20",
+      "point": [
+        -8.0,
+        -2.5,
+        -0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q20"
+    },
+    {
+      "hrr_projected_point": [
+        0.34028026,
+        0.118852032,
+        -0.004498818
+      ],
+      "id": "Q202040",
+      "label": "won",
+      "owner": "Q884",
+      "point": [
+        3.0,
+        7.5,
+        -0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q202040"
+    },
+    {
+      "hrr_projected_point": [
+        -0.205408718,
+        -0.169806718,
+        -0.175341443
+      ],
+      "id": "Q23661",
+      "label": "Wellington",
+      "owner": "Q664",
+      "point": [
+        1.0,
+        2.5,
+        -0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q23661"
+    },
+    {
+      "hrr_projected_point": [
+        0.310603424,
+        0.141250971,
+        0.062832951
+      ],
+      "id": "Q244819",
+      "label": "Colombian peso",
+      "owner": "Q739",
+      "point": [
+        -7.0,
+        7.5,
+        -0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q244819"
+    },
+    {
+      "hrr_projected_point": [
+        -0.245642959,
+        0.10548802,
+        -0.10611917
+      ],
+      "id": "Q25417",
+      "label": "Danish krone",
+      "owner": "Q35",
+      "point": [
+        8.0,
+        -2.5,
+        0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q25417"
+    },
+    {
+      "hrr_projected_point": [
+        0.006980476,
+        -0.058710983,
+        -0.01929412
+      ],
+      "id": "Q259502",
+      "label": "Australian dollar",
+      "owner": "Q408",
+      "point": [
+        -2.0,
+        2.5,
+        0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q259502"
+    },
+    {
+      "hrr_projected_point": [
+        0.055667797,
+        0.029108617,
+        0.025542087
+      ],
+      "id": "Q270",
+      "label": "Warsaw",
+      "owner": "Q36",
+      "point": [
+        -9.0,
+        2.5,
+        -0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q270"
+    },
+    {
+      "hrr_projected_point": [
+        -0.065601217,
+        0.013542603,
+        0.218033768
+      ],
+      "id": "Q2841",
+      "label": "Bogotá",
+      "owner": "Q739",
+      "point": [
+        -9.0,
+        7.5,
+        -0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q2841"
+    },
+    {
+      "hrr_projected_point": [
+        -0.101360238,
+        -0.085018346,
+        0.043587683
+      ],
+      "id": "Q2844",
+      "label": "Brasília",
+      "owner": "Q155",
+      "point": [
+        -9.0,
+        -7.5,
+        -0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q2844"
+    },
+    {
+      "hrr_projected_point": [
+        -0.107244085,
+        0.204520684,
+        -0.138923542
+      ],
+      "id": "Q30",
+      "label": "United States",
+      "owner": "Q30",
+      "point": [
+        -3.0,
+        -2.5,
+        0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q30"
+    },
+    {
+      "hrr_projected_point": [
+        0.035865624,
+        0.049779671,
+        -0.061400839
+      ],
+      "id": "Q3114",
+      "label": "Canberra",
+      "owner": "Q408",
+      "point": [
+        -4.0,
+        2.5,
+        0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q3114"
+    },
+    {
+      "hrr_projected_point": [
+        -0.03660939,
+        -0.068878016,
+        -0.210259042
+      ],
+      "id": "Q333101",
+      "label": "Bank of Japan",
+      "owner": "Q17",
+      "point": [
+        4.0,
+        -7.5,
+        -0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q333101"
+    },
+    {
+      "hrr_projected_point": [
+        0.015542829,
+        0.004947101,
+        0.007472725
+      ],
+      "id": "Q34",
+      "label": "Sweden",
+      "owner": "Q34",
+      "point": [
+        2.0,
+        -2.5,
+        -0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q34"
+    },
+    {
+      "hrr_projected_point": [
+        0.386850297,
+        -0.280155833,
+        0.065072508
+      ],
+      "id": "Q35",
+      "label": "Denmark",
+      "owner": "Q35",
+      "point": [
+        7.0,
+        -2.5,
+        0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q35"
+    },
+    {
+      "hrr_projected_point": [
+        0.018190482,
+        0.04750523,
+        -0.053814984
+      ],
+      "id": "Q36",
+      "label": "Poland",
+      "owner": "Q36",
+      "point": [
+        -8.0,
+        2.5,
+        -0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q36"
+    },
+    {
+      "hrr_projected_point": [
+        0.055429582,
+        -0.049816301,
+        0.045363433
+      ],
+      "id": "Q408",
+      "label": "Australia",
+      "owner": "Q408",
+      "point": [
+        -3.0,
+        2.5,
+        0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q408"
+    },
+    {
+      "hrr_projected_point": [
+        0.22766225,
+        0.218414933,
+        -0.017236234
+      ],
+      "id": "Q4730",
+      "label": "peso",
+      "owner": "Q96",
+      "point": [
+        8.0,
+        7.5,
+        0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q4730"
+    },
+    {
+      "hrr_projected_point": [
+        -0.022926665,
+        0.04701649,
+        0.078251997
+      ],
+      "id": "Q485531",
+      "label": "Bank of Korea",
+      "owner": "Q884",
+      "point": [
+        4.0,
+        7.5,
+        -0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q485531"
+    },
+    {
+      "hrr_projected_point": [
+        0.255948773,
+        0.242967015,
+        0.099570568
+      ],
+      "id": "Q4917",
+      "label": "United States dollar",
+      "owner": "Q30",
+      "point": [
+        -2.0,
+        -2.5,
+        0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q4917"
+    },
+    {
+      "hrr_projected_point": [
+        -0.12711579,
+        0.180307489,
+        -0.052669047
+      ],
+      "id": "Q53536",
+      "label": "Federal Reserve System",
+      "owner": "Q30",
+      "point": [
+        -1.0,
+        -2.5,
+        0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q53536"
+    },
+    {
+      "hrr_projected_point": [
+        -0.07197896,
+        -0.052181909,
+        -0.067625181
+      ],
+      "id": "Q564652",
+      "label": "Sveriges Riksbank",
+      "owner": "Q34",
+      "point": [
+        4.0,
+        -2.5,
+        -0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q564652"
+    },
+    {
+      "hrr_projected_point": [
+        0.049435799,
+        0.035186602,
+        -0.005295522
+      ],
+      "id": "Q585",
+      "label": "Oslo",
+      "owner": "Q20",
+      "point": [
+        -9.0,
+        -2.5,
+        -0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q585"
+    },
+    {
+      "hrr_projected_point": [
+        0.011035135,
+        -0.040747476,
+        -0.234885771
+      ],
+      "id": "Q61",
+      "label": "Washington, D.C.",
+      "owner": "Q30",
+      "point": [
+        -4.0,
+        -2.5,
+        0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q61"
+    },
+    {
+      "hrr_projected_point": [
+        -0.183686819,
+        -0.09936541,
+        0.232414438
+      ],
+      "id": "Q664",
+      "label": "New Zealand",
+      "owner": "Q664",
+      "point": [
+        2.0,
+        2.5,
+        -0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q664"
+    },
+    {
+      "hrr_projected_point": [
+        -0.149029615,
+        -0.22652427,
+        0.001779981
+      ],
+      "id": "Q668",
+      "label": "India",
+      "owner": "Q668",
+      "point": [
+        7.0,
+        2.5,
+        0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q668"
+    },
+    {
+      "hrr_projected_point": [
+        -0.2831488,
+        -0.368193481,
+        -0.074838566
+      ],
+      "id": "Q683252",
+      "label": "Danmarks Nationalbank",
+      "owner": "Q35",
+      "point": [
+        9.0,
+        -2.5,
+        0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q683252"
+    },
+    {
+      "hrr_projected_point": [
+        -0.22827647,
+        0.105955852,
+        0.148205217
+      ],
+      "id": "Q686329",
+      "label": "Banco de la República",
+      "owner": "Q739",
+      "point": [
+        -6.0,
+        7.5,
+        -0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q686329"
+    },
+    {
+      "hrr_projected_point": [
+        -0.00772244,
+        -0.186948493,
+        -0.238934674
+      ],
+      "id": "Q739",
+      "label": "Colombia",
+      "owner": "Q739",
+      "point": [
+        -8.0,
+        7.5,
+        -0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q739"
+    },
+    {
+      "hrr_projected_point": [
+        0.22935315,
+        -0.076832954,
+        -0.010729787
+      ],
+      "id": "Q80524",
+      "label": "Indian rupee",
+      "owner": "Q668",
+      "point": [
+        8.0,
+        2.5,
+        0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q80524"
+    },
+    {
+      "hrr_projected_point": [
+        0.162118092,
+        0.224238951,
+        -0.069336916
+      ],
+      "id": "Q806186",
+      "label": "Central Bank of Brazil",
+      "owner": "Q155",
+      "point": [
+        -6.0,
+        -7.5,
+        -0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q806186"
+    },
+    {
+      "hrr_projected_point": [
+        -0.337397315,
+        0.038628087,
+        0.195638176
+      ],
+      "id": "Q806208",
+      "label": "Bank of Mexico",
+      "owner": "Q96",
+      "point": [
+        9.0,
+        7.5,
+        0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q806208"
+    },
+    {
+      "hrr_projected_point": [
+        0.060644876,
+        -0.358298051,
+        0.235966729
+      ],
+      "id": "Q806703",
+      "label": "Bank of Canada",
+      "owner": "Q16",
+      "point": [
+        -1.0,
+        -7.5,
+        0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q806703"
+    },
+    {
+      "hrr_projected_point": [
+        0.022515384,
+        0.012209485,
+        -0.063416352
+      ],
+      "id": "Q806706",
+      "label": "Bank of Thailand",
+      "owner": "Q869",
+      "point": [
+        -1.0,
+        7.5,
+        0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q806706"
+    },
+    {
+      "hrr_projected_point": [
+        0.047246632,
+        -0.127732336,
+        0.315576401
+      ],
+      "id": "Q8146",
+      "label": "yen",
+      "owner": "Q17",
+      "point": [
+        3.0,
+        -7.5,
+        -0.6
+      ],
+      "role": "currency",
+      "url": "https://www.wikidata.org/wiki/Q8146"
+    },
+    {
+      "hrr_projected_point": [
+        0.117062516,
+        -0.122580454,
+        0.461425309
+      ],
+      "id": "Q8684",
+      "label": "Seoul",
+      "owner": "Q884",
+      "point": [
+        1.0,
+        7.5,
+        -0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q8684"
+    },
+    {
+      "hrr_projected_point": [
+        0.009102001,
+        -0.010234773,
+        -0.002845456
+      ],
+      "id": "Q869",
+      "label": "Thailand",
+      "owner": "Q869",
+      "point": [
+        -3.0,
+        7.5,
+        0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q869"
+    },
+    {
+      "hrr_projected_point": [
+        0.226114027,
+        -0.181092877,
+        -0.122723263
+      ],
+      "id": "Q884",
+      "label": "South Korea",
+      "owner": "Q884",
+      "point": [
+        2.0,
+        7.5,
+        -0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q884"
+    },
+    {
+      "hrr_projected_point": [
+        -0.162172991,
+        0.057239775,
+        0.002878414
+      ],
+      "id": "Q944085",
+      "label": "Reserve Bank of India",
+      "owner": "Q668",
+      "point": [
+        9.0,
+        2.5,
+        0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q944085"
+    },
+    {
+      "hrr_projected_point": [
+        -0.16466374,
+        -0.00705721,
+        -0.032763553
+      ],
+      "id": "Q96",
+      "label": "Mexico",
+      "owner": "Q96",
+      "point": [
+        7.0,
+        7.5,
+        0.6
+      ],
+      "role": "country",
+      "url": "https://www.wikidata.org/wiki/Q96"
+    },
+    {
+      "hrr_projected_point": [
+        -0.063236292,
+        -0.032147848,
+        0.011990013
+      ],
+      "id": "Q970769",
+      "label": "Norges Bank",
+      "owner": "Q20",
+      "point": [
+        -6.0,
+        -2.5,
+        -0.6
+      ],
+      "role": "issuer",
+      "url": "https://www.wikidata.org/wiki/Q970769"
+    },
+    {
+      "hrr_projected_point": [
+        -0.010790105,
+        0.178730715,
+        -0.439259955
+      ],
+      "id": "Q987",
+      "label": "New Delhi",
+      "owner": "Q668",
+      "point": [
+        6.0,
+        2.5,
+        0.6
+      ],
+      "role": "capital",
+      "url": "https://www.wikidata.org/wiki/Q987"
+    }
+  ],
+  "projection": {
+    "fit_nodes": 40,
+    "hrr_projected_hop_pearson": -0.048018371644851246,
+    "hrr_projected_point": "Train-only PCA of fixed HRR destination identity codes; distances are display diagnostics.",
+    "identity_dimension": 512,
+    "mapped_nodes": 64,
+    "partition_counts": {
+      "other": 24,
+      "train": 40
+    },
+    "pca_training_explained_variance": 0.1147355715636964,
+    "point": "Role-ordered layout, exact undirected hops within each component; grid offsets separate owners.",
+    "role_layout_max_hop_error": 0,
+    "seed": 20261120,
+    "within_component_pairs": 96
+  },
+  "properties": {
+    "P36": "capital",
+    "P38": "currency",
+    "P562": "central bank/issuer"
+  },
+  "retrieved_utc": "2026-11-20T16:14:28+00:00"
+}
