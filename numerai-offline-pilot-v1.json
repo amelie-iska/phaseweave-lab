@@ -1,0 +1,351 @@
+{
+  "fit": {
+    "coef_standardized": [
+      -0.0008383505544371645,
+      -0.0010076250770382224,
+      0.000801917772075119,
+      -0.0022758359685982935,
+      0.0006645113503335585,
+      0.0014576742472685211,
+      -0.0019406746323628644,
+      0.00010119291436061908
+    ],
+    "features": [
+      "feature_intelligence_1",
+      "feature_intelligence_2",
+      "feature_intelligence_3",
+      "feature_intelligence_4",
+      "feature_intelligence_5",
+      "feature_intelligence_6",
+      "feature_intelligence_7",
+      "feature_intelligence_8"
+    ],
+    "intercept": 0.49996164173379365,
+    "purge_calendar_days": 1834,
+    "target": "target_jupiter_60",
+    "train_first": "2017-01-06",
+    "train_last": "2018-12-28",
+    "train_mean": [
+      1.9999645923696556,
+      1.9999645923696556,
+      1.9999645923696556,
+      1.9999645923696556,
+      1.9999645923696556,
+      1.9999645923696556,
+      1.9999645923696556,
+      1.9999645923696556
+    ],
+    "train_sd": [
+      1.4143303963228842,
+      1.4143303963228842,
+      1.4143303963228842,
+      1.4143303963228842,
+      1.4143303963228842,
+      1.4143303963228842,
+      1.4143303963228842,
+      1.4143303963228842
+    ],
+    "train_target_nonnull_rows": 677820,
+    "training_cells_mean_imputed": 0,
+    "training_dates": 104,
+    "training_rows_before_target_filter": 677820
+  },
+  "format": "phaseweave-numerai-offline-pilot-v1",
+  "hashes": {
+    "official_file_footers": {
+      "train": "8f147eb6805b4cddb478f04e69740986e3a0a01f2054f1b7a74c591e82fbab17",
+      "validation": "69d56a3676819a81a7d840f8a6fc16b20646560f571bd153b64c017ca37b959e",
+      "validation_benchmark_models": "443c462f249407f4e86646c835dbde4e5ac717162d8fd4323fe876b43bdb50e4",
+      "validation_neutralizer": "fb360ccb67b21c6ef0a9cdcbb800a62a80c539780e26110a4ac2c236448b3e02"
+    },
+    "plan": "0dd26d2ea3ab97b86a9de020aaefb873068bfb724fbc865ff6f28a48008d25a6",
+    "range_loader": "cacb5f462f771284d86d51b915f3893ac90bb90764680f5782ff914e725899ad",
+    "scorer_source": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+    "scoring_driver": "bd23514e6d8eb2712c0f1be435e8dea1654f96d51b9ef631eb256bcfb1df84a6",
+    "selected_private_byte_ranges": "2713324dcd2195fbd0a633fffb8ef5c084995b43589cac964854703193fcea6a"
+  },
+  "independent_formula_max_abs_difference": 6.938893903907228e-18,
+  "limitations": [
+    "Single fixed eight-feature local baseline. Current published benchmark is one model. Weekly 60-day outcomes overlap; per-date wins are descriptive.",
+    "The two neutral-score dates are a bounded subset. No live Meta Model or live NMMC score is available. This research backtest does not establish a current leaderboard rank."
+  ],
+  "neutral_validation": {
+    "date_equal_weight_mean_neutral_corr": {
+      "lgbm_jupiter_60": 0.03992328156214818,
+      "local_ridge": -0.022034433966975537
+    },
+    "exposures_per_date": 300,
+    "per_date": [
+      {
+        "date": "2024-01-05",
+        "keys_before_eligibility": 6529,
+        "n": 6529,
+        "neutral_corr": {
+          "lgbm_jupiter_60": 0.0601298497573892,
+          "local_ridge": -0.008835052151845971
+        }
+      },
+      {
+        "date": "2024-06-28",
+        "keys_before_eligibility": 6646,
+        "n": 6646,
+        "neutral_corr": {
+          "lgbm_jupiter_60": 0.019716713366907158,
+          "local_ridge": -0.035233815782105105
+        }
+      }
+    ],
+    "version": "v6.0/validation_neutralizer.parquet"
+  },
+  "official_rank": null,
+  "protocol": {
+    "features": "first eight numeric columns in Parquet schema named feature_*",
+    "learner": "single ridge; training-only mean impute and standardize, fixed L2 penalty 1 per unnormalized normal equations, unpenalized intercept, no tuning",
+    "network_payload_cap": 75000000,
+    "neutral_subset": [
+      "2024-01-05",
+      "2024-06-28"
+    ],
+    "score": "per date published Numerai CORR versus lgbm_jupiter_60, complete common exact ticker/date keys; optional official neutral correlation on two preregistered dates subject to byte cap. No model or data choices based on outcomes.",
+    "target": "target_jupiter_60 if available, otherwise documented target alias",
+    "train": [
+      "2017-01-01",
+      "2018-12-28"
+    ],
+    "validation": [
+      "2024-01-05",
+      "2024-06-28"
+    ]
+  },
+  "scorer": "https://github.com/numerai/numerai-tools/blob/195e2469881b638709169f00d1d48c625bc94ac7/numerai_tools/scoring.py",
+  "submission": false,
+  "transfer": {
+    "parquet_payload_bytes": 54975698,
+    "reservation_bytes": 54975698,
+    "successful_ranges": 21
+  },
+  "validation": {
+    "date_equal_weight_mean_corr": {
+      "lgbm_jupiter_60": 0.03684303058437865,
+      "local_ridge": -0.007736886067208395
+    },
+    "eligible_cases": 171478,
+    "exact_date_ticker_keys": 171478,
+    "first": "2024-01-05",
+    "last": "2024-06-28",
+    "local_corr_wins": 0,
+    "local_prediction_nonfinite": 0,
+    "per_date": [
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.0550871310430668,
+          "local_ridge": -0.013855226941698027
+        },
+        "date": "2024-01-05",
+        "n": 6529
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.07123994501398949,
+          "local_ridge": -0.008232878761365874
+        },
+        "date": "2024-01-12",
+        "n": 6525
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.06745973837823145,
+          "local_ridge": 0.007298443486798993
+        },
+        "date": "2024-01-19",
+        "n": 6532
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.053786575436423976,
+          "local_ridge": -0.0035864452046074913
+        },
+        "date": "2024-01-26",
+        "n": 6542
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.05590573420702147,
+          "local_ridge": 0.000567567363079352
+        },
+        "date": "2024-02-02",
+        "n": 6530
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.04373073813192598,
+          "local_ridge": 0.004461606899638485
+        },
+        "date": "2024-02-09",
+        "n": 6541
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.0556070757397126,
+          "local_ridge": -0.00567586245950443
+        },
+        "date": "2024-02-16",
+        "n": 6538
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.055569133151925534,
+          "local_ridge": 0.004474785324218498
+        },
+        "date": "2024-02-23",
+        "n": 6546
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.04270221985647474,
+          "local_ridge": -0.003957592346880452
+        },
+        "date": "2024-03-01",
+        "n": 6563
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.039757198366374286,
+          "local_ridge": -0.012201866084278671
+        },
+        "date": "2024-03-08",
+        "n": 6564
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.024215011928866197,
+          "local_ridge": -0.01028390583325419
+        },
+        "date": "2024-03-15",
+        "n": 6570
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.017823975659970057,
+          "local_ridge": -0.01750977054370471
+        },
+        "date": "2024-03-22",
+        "n": 6584
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.01692813739033209,
+          "local_ridge": -0.018304328903154338
+        },
+        "date": "2024-03-29",
+        "n": 6593
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.019710023679096196,
+          "local_ridge": -0.009548078324873093
+        },
+        "date": "2024-04-05",
+        "n": 6616
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.01571389518644023,
+          "local_ridge": -0.007183853597250491
+        },
+        "date": "2024-04-12",
+        "n": 6631
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.020525923806236728,
+          "local_ridge": -0.007303471356415978
+        },
+        "date": "2024-04-19",
+        "n": 6640
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.026906559362112312,
+          "local_ridge": -0.0020441132758365127
+        },
+        "date": "2024-04-26",
+        "n": 6652
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.014493245869949349,
+          "local_ridge": -0.016850668334440103
+        },
+        "date": "2024-05-03",
+        "n": 6644
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.03771583725133792,
+          "local_ridge": 0.005824717173462241
+        },
+        "date": "2024-05-10",
+        "n": 6649
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.033213871710569866,
+          "local_ridge": 0.0021706959561511615
+        },
+        "date": "2024-05-17",
+        "n": 6654
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.03886094353138766,
+          "local_ridge": -0.0035469907677306606
+        },
+        "date": "2024-05-24",
+        "n": 6647
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.03728840341875493,
+          "local_ridge": -0.00888503906773431
+        },
+        "date": "2024-05-31",
+        "n": 6631
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.04936775370814598,
+          "local_ridge": -0.01606099376938431
+        },
+        "date": "2024-06-07",
+        "n": 6629
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.02252635090847289,
+          "local_ridge": -0.013873902093216256
+        },
+        "date": "2024-06-14",
+        "n": 6634
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.02300849103565111,
+          "local_ridge": -0.015702912296782598
+        },
+        "date": "2024-06-21",
+        "n": 6648
+      },
+      {
+        "corr": {
+          "lgbm_jupiter_60": 0.0187748814213751,
+          "local_ridge": -0.03134895398865452
+        },
+        "date": "2024-06-28",
+        "n": 6646
+      }
+    ],
+    "published_prediction_nonfinite": 0,
+    "target_nonfinite": 0
+  }
+}

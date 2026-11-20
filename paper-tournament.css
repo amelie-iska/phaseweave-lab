@@ -1,0 +1,62 @@
+#tourney {max-width:1450px;margin:auto;padding:26px clamp(13px,3vw,44px) 44px}
+#tourney h1 {font-size:clamp(42px,4.4vw,67px)}
+#tourney h2 {font-weight:500;font-size:clamp(22px,2vw,30px);letter-spacing:-.04em}
+.t-heading,.panel-heading {display:flex;align-items:center;justify-content:space-between;gap:16px}
+.t-heading p {font-size:clamp(16px,1.5vw,20px);color:var(--muted);margin:4px 0 15px}
+.session-indicator {display:grid;grid-template-columns:12px auto;align-items:center;gap:3px 7px;text-align:right}
+.session-indicator small {grid-column:1/-1;color:var(--muted);font:12px var(--mono);white-space:nowrap}
+.led {width:9px;height:9px;border-radius:50%;background:var(--muted)}
+.led.live {background:var(--jade);box-shadow:0 0 0 3px var(--faint)}
+.led.stale {background:var(--copper)}
+#notice {border-left:3px solid var(--copper);padding:7px 12px;margin:0 0 12px;background:var(--surface)}
+.capture {display:grid;grid-template-columns:1.35fr .7fr .85fr 1fr;gap:8px 16px;border-top:1px solid var(--line);border-bottom:1px solid var(--faint);padding:12px 0}
+.capture span,.metric-label {display:block;color:var(--muted);font-size:14px}
+.capture strong {font:14px/1.4 var(--mono);overflow-wrap:anywhere}
+#models {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+.model-card,.performance,.panel {background:var(--surface);border:1px solid var(--faint);border-radius:7px;padding:clamp(13px,1.6vw,22px);min-width:0}
+.model-card {border-top:3px solid var(--model-color)}
+.model-card h2 {overflow-wrap:anywhere}
+.model-card .pnl {display:block;font-size:clamp(30px,3.1vw,48px);letter-spacing:-.055em;line-height:1.15;margin:8px 0 0;font-variant-numeric:tabular-nums}
+.model-card .unit,.model-card .model-description,.panel p,.empty {color:var(--muted)}
+.model-description {font-size:14px;min-height:1.4em}
+.model-card dl,.panel dl {margin:10px 0 0}
+#tourney dl div {display:flex;align-items:baseline;justify-content:space-between;gap:10px;border-bottom:1px solid var(--faint);padding:5px 0}
+#tourney dt {color:var(--muted)}#tourney dd {margin:0;text-align:right;font:13px/1.5 var(--mono);overflow-wrap:anywhere}
+.panel-heading {flex-wrap:wrap}
+.panel-heading span,.panel-heading label,#event-count,.t-legend,.unit {font:12px/1.5 var(--mono);color:var(--muted)}
+#chart {width:100%;height:186px;min-height:0;display:block;cursor:default;touch-action:auto}
+.t-legend {display:flex;gap:15px;flex-wrap:wrap}
+.t-legend span {display:inline-flex;gap:6px;align-items:center}
+.t-legend i {height:3px;width:16px;display:inline-block}
+.detail-layout {display:grid;grid-template-columns:minmax(0,1.7fr) minmax(250px,.8fr);gap:12px;margin:12px 0}
+.table-scroll {overflow-x:auto;margin-top:7px}
+#tourney table {width:100%;border-collapse:collapse;font-size:14px}
+#tourney th,#tourney td {border-bottom:1px solid var(--faint);text-align:left;padding:6px;vertical-align:top}
+#tourney th,#tourney td:first-child {font:12px var(--mono);white-space:nowrap}
+.panel details summary {cursor:pointer;font-size:18px}
+.panel p {margin:7px 0}.empty {margin:8px 0}
+.sr-only {position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+@media(max-width:890px){#models{gap:7px}#tourney dl div{flex-wrap:wrap;gap:3px}#tourney dd{margin-left:auto}.capture{grid-template-columns:1.15fr .65fr .75fr 1fr}}
+@media(max-width:700px){#tourney{padding:17px 12px 30px}.top{padding:8px 12px}.top nav>a{display:none}.t-heading{align-items:flex-start;flex-direction:column;gap:1px}.session-indicator{display:flex;gap:8px;margin-bottom:12px}.capture{grid-template-columns:1fr 1fr}.detail-layout,#models{grid-template-columns:1fr}.model-card dl{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.model-card .pnl{font-size:36px}.model-card dl div{display:block!important}.model-card dd{text-align:left!important}.model-description{min-height:0}}
+.model-card details {margin-top:9px;color:var(--muted);font-size:14px}
+.model-card details summary {cursor:pointer;color:var(--jade);width:fit-content}
+.model-card details dl {display:block}
+.model-card details dd {color:var(--text)}
+.decisions .panel-heading label {max-width:100%;min-width:0}
+#event-model {max-width:100%;white-space:nowrap;text-overflow:ellipsis}
+
+#tourney {--state-fill:#91e5c1;--state-caution:#f6c074;--state-loss:#ffa3b0;--state-info:#b9cbe2}
+[data-theme="light"] #tourney {--state-fill:#146144;--state-caution:#855313;--state-loss:#982d44;--state-info:#425b76}
+#run-policy {display:flex;align-items:center;flex-wrap:wrap;gap:7px 12px;margin:2px 0 12px;font:12px/1.45 var(--mono);color:var(--muted)}
+#run-policy[hidden]{display:none}
+#tourney .state-badge {display:inline-flex;align-items:center;width:fit-content;max-width:100%;border:1px solid currentColor;border-radius:4px;padding:2px 6px;font:600 11px/1.4 var(--mono);color:var(--state-info);overflow-wrap:anywhere}
+#tourney .state-badge[data-tone="fill"],#tourney .pnl[data-sign="gain"] {color:var(--state-fill)}
+#tourney .state-badge[data-tone="caution"] {color:var(--state-caution)}
+#tourney .state-badge[data-tone="loss"],#tourney .pnl[data-sign="loss"] {color:var(--state-loss)}
+#tourney .model-name {color:var(--model-color)}
+#tourney .model-card .state-badge {margin:4px 0}
+#tourney #timing dt {max-width:68%}
+#tourney #timing dd {min-width:0}
+#tourney dd[data-tone="fill"] {color:var(--state-fill)}
+#tourney dd[data-tone="caution"] {color:var(--state-caution)}
+#tourney dd[data-tone="loss"] {color:var(--state-loss)}

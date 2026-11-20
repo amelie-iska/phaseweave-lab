@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="numerai.js"></script>
+ <title>Numerai leaderboard audit · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Controls">
+  <a class="button" href="model-comparisons.html">Model comparisons</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Numerai leaderboard audit</h1><p class="arch-lead">Top 20 public models per tournament and resolved Classic scores for the same current roster.</p></header>
+  <section class="arch-panel"><h2>Submission eligibility</h2>
+   <p id="numerai-session" role="status">Loading the public leaderboard receipt.</p>
+   <p>PhaseWeave has no live Numerai rank. The top-10 submission condition is unmet. FX and GRT forecast errors use different markets, horizons and metrics. A Classic v6 evaluation needs common dates, Numerai’s official targets and neutralizers, published benchmarks, and a resolved live submission to establish rank.</p>
+   <p><a href="https://docs.numer.ai/numerai-tournament/data">Classic data and targets</a> · <a href="https://docs.numer.ai/numerai-tournament/scoring">Scoring and reputation</a> · <a href="https://docs.numer.ai/numerai-tournament/submissions">Round windows and submission format</a></p>
+  </section>
+  <section class="arch-panel"><h2>Matched offline Classic v6 pilot</h2>
+   <p>Eight-feature ridge and the published LightGBM benchmark were scored on 171,478 matching stock/date rows across 26 held-out weekly dates. The fit used 677,820 earlier rows and 1,834 days of purge.</p>
+   <div class="arch-scroll"><table><thead><tr><th scope="col">Scoring cohort</th><th scope="col">PhaseWeave pilot</th><th scope="col">Published benchmark</th></tr></thead><tbody>
+    <tr><th scope="row">Mean CORR, 26 dates</th><td>−0.00774</td><td>0.03684</td></tr>
+    <tr><th scope="row">Mean neutral CORR, two declared dates</th><td>−0.02203</td><td>0.03992</td></tr>
+   </tbody></table></div>
+   <p>The benchmark beat the pilot on every held-out date. The neutral subset used all 300 official exposure columns, and the dated comparison preserves the official publication clocks. These values describe a published offline benchmark and do not establish live NMMC.</p>
+   <p><a href="numerai-offline-pilot-v1.json">Download exact result and per-date scores</a> · <a href="https://docs.numer.ai/numerai-tournament/models">Numerai benchmark model</a></p>
+  </section>
+  <section class="arch-panel"><h2>Public model leaderboard</h2>
+   <label>Tournament <select id="numerai-tournament"><option value="classic">Classic</option><option value="signals">Signals</option><option value="crypto">Crypto</option></select></label>
+   <p id="numerai-order"></p>
+   <div class="arch-scroll" id="numerai-table"></div>
+  </section>
+  <section class="arch-panel"><h2>Resolved Classic round</h2>
+   <label>Round <select id="numerai-round"></select></label>
+   <p id="numerai-round-description"></p>
+   <div class="arch-scroll" id="numerai-resolved"></div>
+   <p><a href="numerai-top20-v1.json">Public API audit receipt</a></p>
+  </section>
+ </main>
+</body>
+</html>

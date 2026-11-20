@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="live-horizons.js"></script>
+ <title>Live forecast horizons · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Research controls">
+ <a class="button" href="horizons.html">Historical forecasts</a>
+ <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Live forecast horizons</h1><p class="arch-lead">Compare two trained graph models against persistence on the same observable windows. The shadow session observes live markets without creating paper positions.</p></header>
+  <p id="live-horizon-state" role="status">Waiting for the local shadow worker.</p>
+  <div class="arch-grid">
+   <section class="arch-panel"><h2>Active profile</h2><dl id="shadow-profile" class="arch-details"></dl></section>
+   <section class="arch-panel"><h2>Latest forecast</h2><label>Horizon <select id="shadow-selected"></select></label><dl id="shadow-last" class="arch-details"></dl></section>
+  </div>
+  <section class="arch-panel">
+   <h2>Forecast quality and compute</h2>
+   <p>Every scored row uses the same origin and realized outcome for both models and persistence. Missing quotes are counted separately.</p>
+   <div class="arch-scroll"><table id="shadow-table"><thead><tr><th scope="col">Horizon</th><th scope="col">Issued</th><th scope="col">Scored</th><th scope="col">Missing</th><th scope="col">Deep TokenGT MAE</th><th scope="col">Torus TokenGT MAE</th><th scope="col">Persistence MAE</th></tr></thead><tbody></tbody></table></div>
+   <p>MAE is in natural-log basis points. Changing the decision cadence preserves the input resolution and trained target clocks. Each pending forecast retains its original horizon and profile version.</p>
+  </section>
+ </main>
+</body>
+</html>

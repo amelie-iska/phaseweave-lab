@@ -1,0 +1,29 @@
+{
+  "run": "phaseweave.finqa-ministral-compatibility-smoke.v1",
+  "base_repository": "unsloth/Ministral-3-8B-Reasoning-2512-bnb-4bit",
+  "base_revision": "9b63df6976d77db506d60c5835d2775aeaf068e6",
+  "base_sha256": "505a4757cd2ecc5a58b6e0820ae494795ceeb6517fb538e62f2f22b7d7e438c7",
+  "model_type": "mistral3",
+  "source_sha256": "dc3657762809f09ca69359df3c85309c687f01f88c6018655ecad74464b0a5d7",
+  "corpus_sha256": "d58fd406df9881e6963db13ad318b48414b74ecec91cc0fecd77da29ce96e15a",
+  "train_examples": 16,
+  "validation_examples": 3,
+  "updates": 2,
+  "adapter_rank": 16,
+  "adapter_tensors": 476,
+  "adapter_scalars": 44564480,
+  "adapter_bytes": 178328936,
+  "adapter_sha256": "e962f0e628951825abded3afec3863943e79d69fbc8bd363da701b36e625021b",
+  "checkpoint_sha256": "e962f0e628951825abded3afec3863943e79d69fbc8bd363da701b36e625021b",
+  "base_completion_loss": 1.768473744392395,
+  "adapted_completion_loss": 1.1285642385482788,
+  "peak_allocated_mib": 7040.515625,
+  "software": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.15.1",
+    "peft": "0.21.3",
+    "bitsandbytes": "0.50.2",
+    "trl": "0.22.2",
+    "unsloth": "2026.11.5"
+  }
+}

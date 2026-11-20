@@ -1,0 +1,17 @@
+<!doctype html><html lang="en" data-theme="dark"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light">
+<title>Live paper tournament · PhaseWeave</title><link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="paper-tournament.css"><script defer src="paper-tournament.js"></script></head>
+<body><header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span>PhaseWeave</a><nav aria-label="Related pages"><a href="desk.html">Trading desk</a><div class="themes" aria-label="Color theme"><button data-choice="dark" aria-pressed="true">Dark</button><button data-choice="light" aria-pressed="false">Light</button></div></nav></header>
+<main id="tourney"><div class="t-heading"><div><h1>Live paper tournament</h1><p id="subtitle">Forecasts, simulated fills and outcomes from the local paper engine.</p></div><div class="session-indicator"><span class="led" id="led"></span><strong id="phase" role="status">Connecting</strong><small id="freshness">Waiting for first status</small></div></div>
+ <div id="run-policy" aria-label="Paper policy and source" hidden><span class="state-badge" id="policy-badge"></span><span id="policy-explainer"></span></div>
+ <div id="notice" role="status" hidden></div>
+ <section class="capture" aria-label="Capture status"><div><span>Session</span><strong id="session">—</strong></div><div><span>Elapsed</span><strong id="elapsed">—</strong></div><div><span>Capture</span><strong id="ingest">—</strong></div><div><span>Latest observation</span><strong id="latest">—</strong></div></section>
+ <section aria-label="Model standings" id="models"><p class="empty">Waiting for model records.</p></section>
+ <section class="performance"><div class="panel-heading"><h2>Paper PnL</h2><span id="plot-caption">Since this window opened</span></div><canvas id="chart" role="img" aria-label="Paper PnL for the selected models as received by this window"></canvas><div id="legend" class="t-legend"></div></section>
+ <div class="detail-layout">
+  <section class="panel decisions"><div class="panel-heading"><h2>Decisions and fills</h2><label>Model <select id="event-model"><option value="">All models</option></select></label></div><p id="event-count"></p>
+   <div class="table-scroll"><table><caption class="sr-only">Recent paper engine events</caption><thead><tr><th>Time · UTC</th><th>Model</th><th>Event</th><th>Details</th></tr></thead><tbody id="events"><tr><td colspan="4">Waiting for the first event.</td></tr></tbody></table></div></section>
+  <section class="panel"><div class="panel-heading"><h2>Coverage and timing</h2></div><div id="timing"><p class="empty">Waiting for capture metrics.</p></div></section>
+ </div>
+ <section class="panel"><details><summary>Session source and accounting</summary><div id="method"></div><p>Numbers come from the same-origin paper status feed. A pending forecast receives a realized-error value only when its outcome is eligible and available. A missing observation remains unscored.</p></details></section>
+</main></body></html>

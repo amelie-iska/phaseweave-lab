@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light">
+ <link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="architecture.css">
+ <script defer src="reasoning-3d.js"></script>
+ <script defer src="operator-volumes.js"></script>
+ <script defer src="qlora-operators.js"></script>
+ <title>Inside the QLoRA adapter · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+  <nav aria-label="Related tools"><a class="button" href="operators.html">Graph operators</a><a class="button" href="pretrained-comparison.html">Pretrained comparisons</a>
+   <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+  </nav>
+ </header>
+ <main class="architecture">
+  <header><h1>Inside the QLoRA adapter</h1><p class="arch-lead">Follow a question about two original BLS releases into a fine-tuned Qwen3.8-27B decoder. Select a layer and a low-rank projection.</p></header>
+  <p id="lora-status" role="status">Loading the checkpoint trace.</p>
+  <div class="arch-grid">
+   <section class="arch-panel">
+    <h2>Model and rank dimensions</h2>
+    <div class="arch-camera">
+     <label>Decoder layer <select id="lora-layer"></select></label>
+     <label>Projection <select id="lora-op"></select></label>
+    </div>
+    <div class="arch-tabs" aria-label="Three-dimensional layout">
+     <button type="button" data-lora-view="model" aria-pressed="true">Model stack</button>
+     <button type="button" data-lora-view="rank" aria-pressed="false">Rank reduction</button>
+    </div>
+    <canvas id="lora-canvas" aria-label="Rotatable model stack or rank-16 projection" tabindex="0"></canvas>
+    <div class="arch-camera" id="lora-camera">
+     <label>Yaw <input type="range" name="yaw" min="-180" max="180" value="-32"></label>
+     <label>Pitch <input type="range" name="pitch" min="-85" max="85" value="24"></label>
+     <label>Zoom <input type="range" name="zoom" min=".55" max="1.60" step=".05" value="1"></label>
+     <button type="button">Reset view</button>
+    </div>
+   </section>
+   <section class="arch-panel">
+    <h2>Adapter witness</h2>
+    <p id="lora-prompt"></p>
+    <label>Rank coordinate <input type="range" id="lora-rank" min="0" max="15" value="0"></label>
+    <dl id="lora-details" class="arch-details"></dl>
+   </section>
+  </div>
+  <section class="arch-panel">
+   <h2>Reconstruct the selected update</h2>
+   <p>For the selected hidden token, the adapter computes an intermediate vector with A, then multiplies by B and applies α/r. The numerical witness uses float32. The native combined projection comes from the quantized base and adapter together.</p>
+   <div id="lora-terms" class="arch-scroll"></div>
+  </section>
+  <section class="arch-panel">
+   <h2>Next-token logits</h2>
+   <div id="lora-tokens" class="arch-scroll"></div>
+   <p>Scope covers the observed low-rank projection hooks and decoder block shapes. The fused quantized base contraction has its own operator path.</p>
+   <p><a href="qlora-operator-trace-v1.json">Checkpoint trace and source links</a> · <a href="macro-releases.html">Original BLS releases</a></p>
+  </section>
+ </main>
+</body>
+</html>

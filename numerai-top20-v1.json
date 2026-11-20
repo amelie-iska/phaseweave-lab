@@ -1,0 +1,904 @@
+{
+  "as_of_utc": "2026-11-20T21:52:58.061402+00:00",
+  "classic_current": {
+    "closeStakingTime": "2026-11-20T14:04:12Z",
+    "closeTime": "2026-11-21T12:00:00Z",
+    "dataDatestamp": 20261119,
+    "number": 1403,
+    "openTime": "2026-11-20T13:00:23Z",
+    "payout_score_config": [
+      {
+        "dataDelayDays": 2,
+        "defaultMultiplier": 32.0,
+        "displayName": "neutral_mmc",
+        "isPayout": true,
+        "maxMultiplier": 32.0,
+        "minMultiplier": 32.0,
+        "totalScoreDays": 60,
+        "version": "1"
+      },
+      {
+        "dataDelayDays": 2,
+        "defaultMultiplier": 8.0,
+        "displayName": "neutral_corr",
+        "isPayout": true,
+        "maxMultiplier": 8.0,
+        "minMultiplier": 8.0,
+        "totalScoreDays": 60,
+        "version": "1"
+      }
+    ],
+    "resolveTime": "2027-02-17T16:00:00Z",
+    "resolvedGeneral": false,
+    "target": "target_jupiter_60",
+    "tournament": 8
+  },
+  "classic_dataset_filenames": [
+    "v6.0/features.json",
+    "v6.0/live.parquet",
+    "v6.0/live_benchmark_models.parquet",
+    "v6.0/live_example_preds.csv",
+    "v6.0/live_example_preds.parquet",
+    "v6.0/live_neutralizer.parquet",
+    "v6.0/train.parquet",
+    "v6.0/train_benchmark_models.parquet",
+    "v6.0/train_neutralizer.parquet",
+    "v6.0/validation.parquet",
+    "v6.0/validation_benchmark_models.parquet",
+    "v6.0/validation_example_preds.csv",
+    "v6.0/validation_example_preds.parquet",
+    "v6.0/validation_neutralizer.parquet"
+  ],
+  "classic_latest_generally_resolved": {
+    "closeStakingTime": "2026-08-27T13:08:07Z",
+    "closeTime": "2026-08-28T12:00:00Z",
+    "dataDatestamp": 20260826,
+    "number": 1342,
+    "openTime": "2026-08-27T12:00:00Z",
+    "resolveTime": "2026-09-29T16:00:00Z",
+    "resolvedGeneral": true,
+    "target": "target_ender_20",
+    "tournament": 8
+  },
+  "current_top20_retrospective_scores": [
+    {
+      "data_datestamp": [
+        20260826
+      ],
+      "payout_score_config": [
+        {
+          "dataDelayDays": 2,
+          "defaultMultiplier": 0.75,
+          "displayName": "v2_corr20",
+          "isPayout": true,
+          "maxMultiplier": 0.75,
+          "minMultiplier": 0.75,
+          "totalScoreDays": 20,
+          "version": "6"
+        },
+        {
+          "dataDelayDays": 2,
+          "defaultMultiplier": 2.25,
+          "displayName": "mmc",
+          "isPayout": true,
+          "maxMultiplier": 2.25,
+          "minMultiplier": 2.25,
+          "totalScoreDays": 20,
+          "version": "5"
+        }
+      ],
+      "resolved_nonnull": {
+        "mmc": 20,
+        "mmc60": 0,
+        "v2_corr20": 20
+      },
+      "round": 1342,
+      "round_target": "target_ender_20",
+      "score_version_day": {
+        "mmc": [
+          [
+            "5",
+            20
+          ]
+        ],
+        "mmc60": [],
+        "v2_corr20": [
+          [
+            "6",
+            20
+          ]
+        ]
+      },
+      "scores_by_model": {
+        "dtf200_ov": {
+          "mmc": 0.012773787989479096,
+          "mmc60": null,
+          "v2_corr20": 0.020921996105645303
+        },
+        "fors002": {
+          "mmc": 0.006021657701928403,
+          "mmc60": null,
+          "v2_corr20": 0.02274323490532787
+        },
+        "fors003": {
+          "mmc": 0.007923211072077104,
+          "mmc60": null,
+          "v2_corr20": 0.021023623531389053
+        },
+        "glas007": {
+          "mmc": -0.006562278270529075,
+          "mmc60": null,
+          "v2_corr20": 0.009082601009519449
+        },
+        "hypochlorous": {
+          "mmc": 0.015238701463068358,
+          "mmc60": null,
+          "v2_corr20": 0.028280149698063212
+        },
+        "kodama_ov": {
+          "mmc": 0.010060218123182932,
+          "mmc60": null,
+          "v2_corr20": 0.019981001609512033
+        },
+        "nofle_17": {
+          "mmc": 0.025475941876510033,
+          "mmc60": null,
+          "v2_corr20": 0.025444593260903522
+        },
+        "pl12": {
+          "mmc": -0.002517021609605646,
+          "mmc60": null,
+          "v2_corr20": 0.01585946788877951
+        },
+        "pl20_winged_hussar": {
+          "mmc": 0.011038824623388403,
+          "mmc60": null,
+          "v2_corr20": 0.039383097158479694
+        },
+        "pl47_zygalski": {
+          "mmc": 0.011497730475798343,
+          "mmc60": null,
+          "v2_corr20": 0.02850043814578089
+        },
+        "pl89_orzel": {
+          "mmc": 0.011551835991242708,
+          "mmc60": null,
+          "v2_corr20": 0.029299919016693238
+        },
+        "pl99_orzel": {
+          "mmc": 0.012783113717296318,
+          "mmc60": null,
+          "v2_corr20": 0.036003529941271095
+        },
+        "tdd_model24": {
+          "mmc": 0.016982329663748127,
+          "mmc60": null,
+          "v2_corr20": 0.025818933557153874
+        },
+        "tdd_model31": {
+          "mmc": 0.01822608536851253,
+          "mmc60": null,
+          "v2_corr20": 0.022465390629235946
+        },
+        "tdd_model34": {
+          "mmc": 0.017042089672960413,
+          "mmc60": null,
+          "v2_corr20": 0.0375013146723949
+        },
+        "tdd_model35": {
+          "mmc": 0.015277208957595167,
+          "mmc60": null,
+          "v2_corr20": 0.026668757430027258
+        },
+        "valois200_1024": {
+          "mmc": 0.011580552715243882,
+          "mmc60": null,
+          "v2_corr20": 0.01545575875089346
+        },
+        "valois300_1024": {
+          "mmc": 0.014125761469118508,
+          "mmc60": null,
+          "v2_corr20": 0.01996241998982231
+        },
+        "valois400_1024": {
+          "mmc": 0.01615456656551168,
+          "mmc60": null,
+          "v2_corr20": 0.0229855370315964
+        },
+        "valois400_ty": {
+          "mmc": 0.015379331257294156,
+          "mmc60": null,
+          "v2_corr20": 0.025793173304847598
+        }
+      }
+    },
+    {
+      "data_datestamp": [
+        20260824
+      ],
+      "payout_score_config": [
+        {
+          "dataDelayDays": 2,
+          "defaultMultiplier": 0.75,
+          "displayName": "v2_corr20",
+          "isPayout": true,
+          "maxMultiplier": 0.75,
+          "minMultiplier": 0.75,
+          "totalScoreDays": 20,
+          "version": "6"
+        },
+        {
+          "dataDelayDays": 2,
+          "defaultMultiplier": 2.25,
+          "displayName": "mmc",
+          "isPayout": true,
+          "maxMultiplier": 2.25,
+          "minMultiplier": 2.25,
+          "totalScoreDays": 20,
+          "version": "5"
+        }
+      ],
+      "resolved_nonnull": {
+        "corr60": 20,
+        "mmc60": 20
+      },
+      "round": 1340,
+      "round_target": "target_ender_20",
+      "score_version_day": {
+        "corr60": [
+          [
+            "1",
+            60
+          ]
+        ],
+        "mmc60": [
+          [
+            "1",
+            60
+          ]
+        ]
+      },
+      "scores_by_model": {
+        "dtf200_ov": {
+          "corr60": 0.01101119654165962,
+          "mmc60": 0.0032730449733010107
+        },
+        "fors002": {
+          "corr60": 0.05545682042337401,
+          "mmc60": 0.02404483977741003
+        },
+        "fors003": {
+          "corr60": 0.06222873910684886,
+          "mmc60": 0.033242745537215256
+        },
+        "glas007": {
+          "corr60": 0.0716193998716291,
+          "mmc60": 0.03401936850022291
+        },
+        "hypochlorous": {
+          "corr60": 0.03940159125391077,
+          "mmc60": 0.016877375289179212
+        },
+        "kodama_ov": {
+          "corr60": 0.039606810434138724,
+          "mmc60": 0.021509381697508996
+        },
+        "nofle_17": {
+          "corr60": -0.014111132516546747,
+          "mmc60": -0.019471858639127683
+        },
+        "pl12": {
+          "corr60": 0.03506301608314836,
+          "mmc60": 0.008447918114963888
+        },
+        "pl20_winged_hussar": {
+          "corr60": 0.06108596116296973,
+          "mmc60": 0.021257317932540976
+        },
+        "pl47_zygalski": {
+          "corr60": 0.01745863250940492,
+          "mmc60": -0.013632018170757114
+        },
+        "pl89_orzel": {
+          "corr60": 0.055078206237016744,
+          "mmc60": 0.02945241736611427
+        },
+        "pl99_orzel": {
+          "corr60": 0.05748595578895119,
+          "mmc60": 0.024832827708320914
+        },
+        "tdd_model24": {
+          "corr60": 0.01616600190526798,
+          "mmc60": 0.007491777150271892
+        },
+        "tdd_model31": {
+          "corr60": 0.013888620919064506,
+          "mmc60": 0.008377426900215285
+        },
+        "tdd_model34": {
+          "corr60": 0.03698854122694997,
+          "mmc60": 0.013453311912475322
+        },
+        "tdd_model35": {
+          "corr60": 0.02610618700813586,
+          "mmc60": 0.009791667829117204
+        },
+        "valois200_1024": {
+          "corr60": 0.013382266869780493,
+          "mmc60": 0.0030009214553305477
+        },
+        "valois300_1024": {
+          "corr60": 0.028675777263435714,
+          "mmc60": 0.009735722957496362
+        },
+        "valois400_1024": {
+          "corr60": 0.032513268541854476,
+          "mmc60": 0.012960958256738883
+        },
+        "valois400_ty": {
+          "corr60": 0.035855016160870126,
+          "mmc60": 0.016626128230072285
+        }
+      }
+    }
+  ],
+  "format": "phaseweave-numerai-public-audit-v1",
+  "interpretation": [
+    "Model leaderboard snapshots are separate from pooled account results. Rank reflects the API-returned display order; storedRank may differ, particularly in Signals.",
+    "The Classic MMC60 trailing reputation snapshot predates resolution of v6 neutral payout rounds. Missing neutral scores remain null. The named cohort is today's top 20 evaluated retrospectively on two common past rounds, which creates survivor/selection bias.",
+    "For a reproducible comparison use the same tournament ID, model ID, round number, data date, target, score displayName, score version, final day and resolved status, plus the matching stock universe and contemporaneous Meta Model for official NMMC.",
+    "Classic v6 validation joins require numerai_ticker and date, using exactly the eligible universe and same-date neutralizer. Fixed public benchmark contribution is distinct from live Meta Model contribution. Scores and one-year reputations cannot be interchanged.",
+    "A future on-time round would require permission to use a user-owned account and model slot, authorized submission scope, unique eligible live predictions in [0,1], and actual round-specific cutoffs. Staking is a separate opt-in. No submission or staking was performed."
+  ],
+  "neutral_reputation_missing_among_classic_20": {
+    "neutralCorrRep": 20,
+    "neutralMmcRep": 20
+  },
+  "phaseweave": {
+    "condition_met": false,
+    "live_classic_rank": null,
+    "reason": "Local forecast MAE and chain event forecasts have different prediction units, horizons, universes and scoring. No resolved matching tournament submission is present in this audit. An offline v6 validation comparison can use published benchmarks and neutralizers; it cannot assign a live rank.",
+    "same_round_submission_scores": null
+  },
+  "primary_sources": {
+    "benchmarks": "https://docs.numer.ai/numerai-tournament/models",
+    "client": "https://github.com/numerai/numerapi",
+    "crypto_data": "https://docs.numer.ai/numerai-crypto/data",
+    "data": "https://docs.numer.ai/numerai-tournament/data",
+    "public_api": "https://api-tournament.numer.ai",
+    "scoring": "https://docs.numer.ai/numerai-tournament/scoring/",
+    "signals_submissions": "https://docs.numer.ai/numerai-signals/submissions",
+    "submissions": "https://docs.numer.ai/numerai-tournament/submissions"
+  },
+  "public_snapshot_sha256": "cf65d4d2f4570d96960f1f762b492332f4e5531d677606aa3fb1b1d6df67095f",
+  "tournament_model_lists": {
+    "classic": {
+      "metric": "mmc60Rep",
+      "returned_ranks": [
+        1,
+        20
+      ],
+      "rows": [
+        {
+          "corr60Rep": 0.02511458371483832,
+          "mmc60Rep": 0.01724237073870876,
+          "mmcRep": 0.010073002112965673,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 1,
+          "storedRank": 1,
+          "username": "valois300_1024"
+        },
+        {
+          "corr60Rep": 0.02258018649268057,
+          "mmc60Rep": 0.01700161416427803,
+          "mmcRep": 0.008293759268576945,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 2,
+          "storedRank": 2,
+          "username": "hypochlorous"
+        },
+        {
+          "corr60Rep": 0.02326544186068237,
+          "mmc60Rep": 0.016771311792406943,
+          "mmcRep": 0.010832551996159904,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 3,
+          "storedRank": 3,
+          "username": "valois200_1024"
+        },
+        {
+          "corr60Rep": 0.021005241055915058,
+          "mmc60Rep": 0.015937808403636518,
+          "mmcRep": 0.007568156477935421,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 4,
+          "storedRank": 4,
+          "username": "tdd_model24"
+        },
+        {
+          "corr60Rep": 0.02387950734917522,
+          "mmc60Rep": 0.015202988562928533,
+          "mmcRep": 0.008733063164348952,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 5,
+          "storedRank": 5,
+          "username": "valois400_1024"
+        },
+        {
+          "corr60Rep": 0.021846322397689875,
+          "mmc60Rep": 0.01485356815364867,
+          "mmcRep": 0.008514723537862312,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 6,
+          "storedRank": 6,
+          "username": "kodama_ov"
+        },
+        {
+          "corr60Rep": 0.026368125754112123,
+          "mmc60Rep": 0.014785731565783082,
+          "mmcRep": 0.007538583314642287,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 7,
+          "storedRank": 7,
+          "username": "tdd_model34"
+        },
+        {
+          "corr60Rep": 0.01915251784234888,
+          "mmc60Rep": 0.014734420769042113,
+          "mmcRep": 0.005291960747881905,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 8,
+          "storedRank": 8,
+          "username": "tdd_model31"
+        },
+        {
+          "corr60Rep": 0.018218120200162197,
+          "mmc60Rep": 0.014380636675247561,
+          "mmcRep": 0.008091354140751836,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 9,
+          "storedRank": 9,
+          "username": "dtf200_ov"
+        },
+        {
+          "corr60Rep": 0.02323795810058992,
+          "mmc60Rep": 0.01432213192870269,
+          "mmcRep": 0.007994670228186717,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 10,
+          "storedRank": 10,
+          "username": "valois400_ty"
+        },
+        {
+          "corr60Rep": 0.027830708197390187,
+          "mmc60Rep": 0.01355383767273269,
+          "mmcRep": 0.009620952584513835,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 11,
+          "storedRank": 11,
+          "username": "glas007"
+        },
+        {
+          "corr60Rep": 0.025016905731716856,
+          "mmc60Rep": 0.01345552604317864,
+          "mmcRep": 0.011417841428177382,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 12,
+          "storedRank": 12,
+          "username": "fors003"
+        },
+        {
+          "corr60Rep": 0.027741816277455436,
+          "mmc60Rep": 0.013393768820272668,
+          "mmcRep": 0.007496904775958894,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 13,
+          "storedRank": 13,
+          "username": "pl47_zygalski"
+        },
+        {
+          "corr60Rep": 0.02207903835387564,
+          "mmc60Rep": 0.013367476317129309,
+          "mmcRep": 0.0049031543349530755,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 14,
+          "storedRank": 14,
+          "username": "tdd_model35"
+        },
+        {
+          "corr60Rep": 0.026408849056632697,
+          "mmc60Rep": 0.013273862597690261,
+          "mmcRep": 0.009718761056207264,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 15,
+          "storedRank": 15,
+          "username": "fors002"
+        },
+        {
+          "corr60Rep": 0.030377650743755185,
+          "mmc60Rep": 0.013037635869109958,
+          "mmcRep": 0.007368336963830005,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 16,
+          "storedRank": 16,
+          "username": "pl20_winged_hussar"
+        },
+        {
+          "corr60Rep": 0.028039648575002078,
+          "mmc60Rep": 0.01284165167025686,
+          "mmcRep": 0.006639187625388326,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 17,
+          "storedRank": 17,
+          "username": "pl99_orzel"
+        },
+        {
+          "corr60Rep": 0.016826152811066898,
+          "mmc60Rep": 0.012505048744884806,
+          "mmcRep": 0.009601646196275347,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 18,
+          "storedRank": 18,
+          "username": "nofle_17"
+        },
+        {
+          "corr60Rep": 0.028014077242391168,
+          "mmc60Rep": 0.012190973772669499,
+          "mmcRep": 0.006168744694887924,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 19,
+          "storedRank": 19,
+          "username": "pl12"
+        },
+        {
+          "corr60Rep": 0.026091467900562305,
+          "mmc60Rep": 0.01216115412660497,
+          "mmcRep": 0.0060370523434624445,
+          "neutralCorrRep": null,
+          "neutralMmcRep": null,
+          "rank": 20,
+          "storedRank": 20,
+          "username": "pl89_orzel"
+        }
+      ]
+    },
+    "crypto": {
+      "metric": "mmcRep",
+      "returned_ranks": [
+        1,
+        20
+      ],
+      "rows": [
+        {
+          "corrRep": 0.06763983624496131,
+          "mmcRep": 0.0427086798997361,
+          "rank": 1,
+          "storedRank": 1,
+          "username": "crypto_alpha_4"
+        },
+        {
+          "corrRep": 0.038239219385267406,
+          "mmcRep": 0.029550118293051285,
+          "rank": 2,
+          "storedRank": 2,
+          "username": "datapipelinegeek_c2"
+        },
+        {
+          "corrRep": 0.10861504983057926,
+          "mmcRep": 0.028998573775494047,
+          "rank": 3,
+          "storedRank": 3,
+          "username": "degerhan_c3_04"
+        },
+        {
+          "corrRep": 0.07292541528488543,
+          "mmcRep": 0.028403853465202453,
+          "rank": 4,
+          "storedRank": 4,
+          "username": "utopic_peak"
+        },
+        {
+          "corrRep": 0.06614576603417342,
+          "mmcRep": 0.028006060217597984,
+          "rank": 5,
+          "storedRank": 5,
+          "username": "quixotic15"
+        },
+        {
+          "corrRep": 0.10764520523002534,
+          "mmcRep": 0.027696296366845823,
+          "rank": 6,
+          "storedRank": 6,
+          "username": "crp_trial_3"
+        },
+        {
+          "corrRep": 0.041905104118256736,
+          "mmcRep": 0.02631606794493294,
+          "rank": 7,
+          "storedRank": 7,
+          "username": "betawombat"
+        },
+        {
+          "corrRep": 0.0764034599122285,
+          "mmcRep": 0.02586163496036922,
+          "rank": 8,
+          "storedRank": 8,
+          "username": "wy_pellucid"
+        },
+        {
+          "corrRep": 0.10482815318607769,
+          "mmcRep": 0.02575928964888029,
+          "rank": 9,
+          "storedRank": 9,
+          "username": "crp_trial_8"
+        },
+        {
+          "corrRep": 0.12285391082575245,
+          "mmcRep": 0.025751401584494744,
+          "rank": 10,
+          "storedRank": 10,
+          "username": "bifrostbaryonyx"
+        },
+        {
+          "corrRep": 0.10464286302140924,
+          "mmcRep": 0.025558477889229485,
+          "rank": 11,
+          "storedRank": 11,
+          "username": "crp_trial_7"
+        },
+        {
+          "corrRep": 0.10774833634684193,
+          "mmcRep": 0.0252504071934273,
+          "rank": 12,
+          "storedRank": 12,
+          "username": "crp_trial_9"
+        },
+        {
+          "corrRep": 0.09408955390754675,
+          "mmcRep": 0.025131038488601615,
+          "rank": 13,
+          "storedRank": 13,
+          "username": "rs_7"
+        },
+        {
+          "corrRep": 0.11031874933895235,
+          "mmcRep": 0.024661465324008463,
+          "rank": 14,
+          "storedRank": 14,
+          "username": "redstonerhopalodon"
+        },
+        {
+          "corrRep": 0.005849256182678077,
+          "mmcRep": 0.024466941936368676,
+          "rank": 15,
+          "storedRank": 15,
+          "username": "juhuu25"
+        },
+        {
+          "corrRep": 0.08352471186174514,
+          "mmcRep": 0.024289812014800183,
+          "rank": 16,
+          "storedRank": 16,
+          "username": "rs_10"
+        },
+        {
+          "corrRep": 0.12190884771748245,
+          "mmcRep": 0.024133692242065893,
+          "rank": 17,
+          "storedRank": 17,
+          "username": "formithlafalcarius"
+        },
+        {
+          "corrRep": 0.07520415820703825,
+          "mmcRep": 0.023900208290487834,
+          "rank": 18,
+          "storedRank": 18,
+          "username": "tdd_crypto31_em"
+        },
+        {
+          "corrRep": 0.09925633279355989,
+          "mmcRep": 0.023746113096216923,
+          "rank": 19,
+          "storedRank": 19,
+          "username": "crp_trial_4"
+        },
+        {
+          "corrRep": 0.04244190435767804,
+          "mmcRep": 0.02344124249636459,
+          "rank": 20,
+          "storedRank": 20,
+          "username": "utopic_corr"
+        }
+      ]
+    },
+    "signals": {
+      "metric": "neutralMmcRep",
+      "returned_ranks": [
+        1,
+        20
+      ],
+      "rows": [
+        {
+          "alphaRep": 0.004770421796390545,
+          "neutralCorrRep": 0.02869601622263695,
+          "neutralMmcRep": 0.01866693580826207,
+          "rank": 1,
+          "storedRank": 985,
+          "username": "v31_lgbm_jupiter60"
+        },
+        {
+          "alphaRep": 0.01521584186593437,
+          "neutralCorrRep": 0.020338901289306245,
+          "neutralMmcRep": 0.014077788739830571,
+          "rank": 2,
+          "storedRank": 1196,
+          "username": "degerhan_s3_4"
+        },
+        {
+          "alphaRep": 0.015171804756644858,
+          "neutralCorrRep": 0.020357814727720854,
+          "neutralMmcRep": 0.013928381689743736,
+          "rank": 3,
+          "storedRank": 1203,
+          "username": "degerhan_s3_2"
+        },
+        {
+          "alphaRep": 0.012648525299950959,
+          "neutralCorrRep": 0.01900882127638184,
+          "neutralMmcRep": 0.012878490429753342,
+          "rank": 4,
+          "storedRank": 3930,
+          "username": "degerhan_s3_6"
+        },
+        {
+          "alphaRep": 0.01282735366850959,
+          "neutralCorrRep": 0.018307112008484693,
+          "neutralMmcRep": 0.012295565112382547,
+          "rank": 5,
+          "storedRank": 4538,
+          "username": "degerhan_s3"
+        },
+        {
+          "alphaRep": 0.011329661247369512,
+          "neutralCorrRep": 0.01437278647298119,
+          "neutralMmcRep": 0.01217195025487386,
+          "rank": 6,
+          "storedRank": 29,
+          "username": "numeraibr_43"
+        },
+        {
+          "alphaRep": 0.010065751763448375,
+          "neutralCorrRep": 0.01961210925835832,
+          "neutralMmcRep": 0.01174184596243893,
+          "rank": 7,
+          "storedRank": 271,
+          "username": "nds_mt_cat_759_8"
+        },
+        {
+          "alphaRep": 0.006708219313724005,
+          "neutralCorrRep": 0.01334976538788122,
+          "neutralMmcRep": 0.011315119076441515,
+          "rank": 8,
+          "storedRank": 242,
+          "username": "numeraibr_07"
+        },
+        {
+          "alphaRep": 0.016594783619637826,
+          "neutralCorrRep": 0.019465639488605423,
+          "neutralMmcRep": 0.010789512150264639,
+          "rank": 9,
+          "storedRank": 236,
+          "username": "t_br3"
+        },
+        {
+          "alphaRep": 0.004733248836239681,
+          "neutralCorrRep": 0.012650286090703325,
+          "neutralMmcRep": 0.010699209988879483,
+          "rank": 10,
+          "storedRank": 640,
+          "username": "numeraibr_22"
+        },
+        {
+          "alphaRep": 0.009315358978982245,
+          "neutralCorrRep": 0.012490252675423821,
+          "neutralMmcRep": 0.010608992096856285,
+          "rank": 11,
+          "storedRank": 76,
+          "username": "numeraibr_13"
+        },
+        {
+          "alphaRep": 0.016158650511888657,
+          "neutralCorrRep": 0.018521498030057027,
+          "neutralMmcRep": 0.010301722524731804,
+          "rank": 12,
+          "storedRank": 305,
+          "username": "knight_5"
+        },
+        {
+          "alphaRep": 0.006562041816063807,
+          "neutralCorrRep": 0.012230269691509634,
+          "neutralMmcRep": 0.010250349313529085,
+          "rank": 13,
+          "storedRank": 332,
+          "username": "acm"
+        },
+        {
+          "alphaRep": 0.014229033587439002,
+          "neutralCorrRep": 0.018247513548417537,
+          "neutralMmcRep": 0.010243835539876065,
+          "rank": 14,
+          "storedRank": 292,
+          "username": "t_br7"
+        },
+        {
+          "alphaRep": 0.013941859471167207,
+          "neutralCorrRep": 0.01815738795385028,
+          "neutralMmcRep": 0.010060666939970556,
+          "rank": 15,
+          "storedRank": 2687,
+          "username": "t_al5812"
+        },
+        {
+          "alphaRep": 0.010209424466534809,
+          "neutralCorrRep": 0.014425311353252515,
+          "neutralMmcRep": 0.009973480218784931,
+          "rank": 16,
+          "storedRank": 2,
+          "username": "david_model"
+        },
+        {
+          "alphaRep": 0.013004432793041023,
+          "neutralCorrRep": 0.017838459935277544,
+          "neutralMmcRep": 0.009968865698653698,
+          "rank": 17,
+          "storedRank": 3796,
+          "username": "t_al4"
+        },
+        {
+          "alphaRep": 0.011205249818661734,
+          "neutralCorrRep": 0.016803443634795398,
+          "neutralMmcRep": 0.009884645924714537,
+          "rank": 18,
+          "storedRank": 107,
+          "username": "integration_test"
+        },
+        {
+          "alphaRep": 0.009840711647160709,
+          "neutralCorrRep": 0.012251830113486083,
+          "neutralMmcRep": 0.009842207053333834,
+          "rank": 19,
+          "storedRank": 1050,
+          "username": "degerhan_s3_e3"
+        },
+        {
+          "alphaRep": 0.009566229316630658,
+          "neutralCorrRep": 0.012221602237822104,
+          "neutralMmcRep": 0.00982996018514763,
+          "rank": 20,
+          "storedRank": 1161,
+          "username": "btu0_signals"
+        }
+      ]
+    }
+  },
+  "upstream_api": "https://api-tournament.numer.ai"
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script>
+ <title>GRT and market transfer · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Related pages">
+  <a class="button" href="market-modalities.html">Market modalities</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>GRT and market transfer</h1>
+   <p class="arch-lead">Three independent datasets separate trading The Graph’s token, token transfer activity, and activity in The Graph protocol.</p></header>
+  <div class="arch-grid">
+   <section class="arch-panel"><h2>Exchange market</h2>
+    <p>The complete catalogued Binance monthly GRT/USDT hourly archive through October 2026 yielded 51,436 valid bars from 71 checksum-verified archives. The October return model scored 65.2920 log bps MAE versus 65.2910 for zero return.</p>
+    <p><a href="https://github.com/binance/binance-public-data">Binance public archives</a></p>
+   </section>
+   <section class="arch-panel"><h2>Token transfer graph</h2>
+    <p>The bounded Ethereum capture included 1,198 GRT transfers in 809 complete active blocks. Among 157 chronological test cases, graph ridge scored 0.83247 against 0.83042 for lag ridge and 0.86301 for the median. Error is measured on log(1 + seconds) until the next active block.</p>
+    <p><a href="https://docs.blockscout.com/devs/apis/rest">Blockscout data API</a></p>
+   </section>
+  </div>
+  <section class="arch-panel"><h2>The Graph protocol</h2>
+   <p>The Arbitrum L2GNS capture contains 5,568 contract events. Matching 725 block hashes recovered verified timestamps. On 54 later three-hour bins, the graph ridge averaged 32.241 events of absolute error, lag ridge 27.234, and the train median 17.037.</p>
+   <p><a href="https://thegraph.com/docs/en/subgraphs/existing-subgraphs/explorer/">The Graph’s indexed contracts</a> · <a href="https://docs.arbitrum.io/chain-info">Arbitrum chain information</a></p>
+  </section>
+  <section class="arch-panel"><h2>Other assets and reproducibility</h2>
+   <p>The price pilot also fitted ETH, BTC, EUR/USD, IVE and WDC independently. Zero return won on all six test series under the same hourly scoring protocol. Further subgraphs have separate chain, contract, block and schema coverage. The Graph Network’s query gateway requires its own API key.</p>
+   <p><a href="downloads/grt-research-v1.zip">Source manifests, experiment code, and public aggregate receipts</a> · <a href="https://thegraph.com/docs/en/subgraphs/querying/introduction/">The Graph gateway documentation</a></p>
+  </section>
+ </main>
+</body>
+</html>
