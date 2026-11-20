@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Inspect the PhaseWeave quote, trade, policy, and reference inputs, their historical availability, and documented exports.">
+  <title>Data and provenance · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .data-page { padding-bottom: 42px; }
+    .data-intro { max-width: 76ch; }
+    .data-nav { gap: 7px 22px; flex-wrap: wrap; margin-top: 14px; }
+    .data-nav a { text-decoration: underline; text-underline-offset: .16em; }
+    .data-section { margin-top: 25px; border-top: 1px solid var(--line); padding-top: 12px; }
+    .data-section > p, .data-section article > p { max-width: 86ch; color: var(--muted); margin-top: 5px; }
+    .data-examples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+    .data-example { min-width: 0; padding: 12px 14px; border: 1px solid var(--faint); background: var(--surface); }
+    .data-example h3, .data-section h3 { font-size: 19px; font-weight: 500; }
+    .data-section .data-observation { color: var(--text); }
+    .data-observation strong { font: 18px/1.4 var(--mono); color: var(--copper); }
+    .data-observation time { font: 12px/1.4 var(--mono); }
+    .data-links { display: flex; gap: 4px 15px; flex-wrap: wrap; margin-top: 8px; }
+    .data-table { overflow-x: auto; margin: 12px 0 6px; }
+    .data-table:focus-visible, .data-section summary:focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; }
+    .data-table table { min-width: 510px; }
+    .data-table th, .data-table td { padding: 8px 9px; }
+    .data-table tbody th { background: transparent; }
+    .data-table td:nth-child(n+3), .data-table thead th:nth-child(n+3) { text-align: right; }
+    .data-key { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px; margin: 13px 0 0; }
+    .data-key div { border-top: 1px solid var(--faint); padding-top: 8px; }
+    .data-key dt { font-size: 17px; }
+    .data-key dd { margin: 4px 0 0; color: var(--muted); }
+    .data-section details { margin-top: 14px; padding: 8px 12px; border: 1px solid var(--faint); background: var(--surface); }
+    .data-section details summary { cursor: pointer; }
+    .data-section details p { margin-top: 8px; color: var(--muted); }
+    .data-section code { font-family: var(--mono); overflow-wrap: anywhere; }
+    @media (max-width: 840px) { .data-examples { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) {
+      .data-key { grid-template-columns: 1fr; }
+      .data-top, .data-top nav { flex-wrap: wrap; gap: 6px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top data-top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="./">Market lab</a>
+      <a class="button" href="events.html">Event replay</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-page-theme="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-page-theme="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="results data-page">
+    <header class="data-intro">
+      <h1>Data and provenance</h1>
+      <p class="standfirst">Inspect the 294,912 frozen FX windows behind the one-second forecasts, the executed trades and policy releases used for context, and the public samples available to replay.</p>
+    </header>
+    <nav class="data-nav" aria-label="On this page">
+      <a href="#inputs">Input examples</a>
+      <a href="#coverage">Coverage and clocks</a>
+      <a href="#downloads">Files and schemas</a>
+    </nav>
+
+    <section id="inputs" class="data-section" aria-labelledby="inputs-title">
+      <h2 id="inputs-title">Three kinds of observation</h2>
+      <div class="data-examples">
+        <article class="data-example">
+          <h3>Quote · HistData FX replay</h3>
+          <p class="data-observation"><strong>+0.663388</strong> log bps<br>EUR → JPY bid edge<br><time datetime="2026-10-30T12:00:00Z">30 Oct 2026, 12:00 UTC</time></p>
+          <p>This is a gauge-centered edge value from the London-session replay. An A/B bid supplies A→B; the reciprocal ask supplies B→A. HistData quotes are indicative prices.</p>
+          <div class="data-links"><a href="replay.json">Replay sample</a><a href="https://www.histdata.com/f-a-q/data-files-detailed-specification/">HistData tick schema</a></div>
+        </article>
+        <article class="data-example">
+          <h3>Trade · Gate spot history</h3>
+          <p class="data-observation"><strong>137</strong> executions<br>BTC/USDT spot, one minute<br><time datetime="2026-10-28T18:00:00Z">28 Oct 2026, minute ending 18:00 UTC</time></p>
+          <p>Each venue print records a matched price and size. Spot sizes use the base asset, here BTC. USDT perpetual sizes use contracts. The public event chart groups these prints by minute.</p>
+          <div class="data-links"><a href="events.html">Inspect the minute</a><a href="https://www.gate.com/announcements/article/21688">Gate archive schema</a></div>
+        </article>
+        <article class="data-example">
+          <h3>Reference · ECB daily EUR rate</h3>
+          <p class="data-observation"><strong>1.0990</strong> USD per EUR<br>Daily reference observation<br><time datetime="2026-11-20">20 Nov 2026</time></p>
+          <p>The ECB publishes one reference value per working day. The lab displays its observation date and keeps this informational series outside the quote route graph.</p>
+          <div class="data-links"><a href="https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod=2026-11-20&amp;endPeriod=2026-11-20&amp;format=csvdata">ECB observation CSV</a><a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html">ECB publication schedule</a></div>
+        </article>
+      </div>
+      <dl class="data-key">
+        <div>
+          <dt>Live Gate best bid and ask</dt>
+          <dd>The market lab can subscribe to Gate spot quotes on request. For ETH/BTC, BTC/USDT, and ETH/USDT it uses the public WebSocket and a one-level REST fallback. The browser tracks quote update and receipt times separately. USDT is a separate asset from USD. <span class="data-links"><a href="./">Open the market lab</a><a href="https://www.gate.com/docs/developers/apiv4/ws/#best-bid-or-ask-price">Gate book-ticker feed</a></span></dd>
+        </div>
+        <div>
+          <dt>Policy text and media metadata</dt>
+          <dd>The October 28 FOMC announcement was published at 18:00 UTC. The event example shows 23 selected GDELT records available at 17:46 UTC. These contain themes, tone, and article links. <span class="data-links"><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm">Official FOMC release</a><a href="https://data.gdeltproject.org/documentation/GDELT-Global_Knowledge_Graph_Codebook-V2.1.pdf">GDELT field definitions</a></span></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="coverage" class="data-section" aria-labelledby="coverage-title">
+      <h2 id="coverage-title">Frozen splits and as-of coverage</h2>
+      <p>Thirty HistData archives cover August through October 2026. Each window holds 16 one-second frames and six directed edges. Both target cycle margins use fresh quotes at one second after the anchor.</p>
+      <div class="data-table" tabindex="0" role="region" aria-label="Scrollable frozen split coverage table">
+        <table aria-describedby="split-notes">
+          <thead><tr><th scope="col">Split</th><th scope="col">2026 dates, UTC</th><th scope="col">FX windows</th><th scope="col">Masked edge slots</th><th scope="col">Prior FOMC text</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Train</th><td>Aug 1–Sep 1</td><td>65,536</td><td>52.45%</td><td>5,284</td></tr>
+            <tr><th scope="row">Validation</th><td>Sep 1–Sep 17</td><td>65,536</td><td>46.72%</td><td>3,697</td></tr>
+            <tr><th scope="row">Stress</th><td>Sep 17–Oct 1</td><td>65,536</td><td>46.32%</td><td>6,093</td></tr>
+            <tr><th scope="row">Test</th><td>Oct 1–Nov 1</td><td>65,536</td><td>44.81%</td><td>8,077</td></tr>
+            <tr><th scope="row">Unseen CHF</th><td>Oct 1–Nov 1</td><td>32,768</td><td>40.20%</td><td>3,659</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="split-notes">Ranges include their start and exclude their end. The FX freshness cutoff is 250&nbsp;ms. Missing or stale edges carry an explicit availability mask. FOMC counts use the expanded source graph and a 24-hour lookback.</p>
+      <dl class="data-key">
+        <div>
+          <dt>Trade and document coverage</dt>
+          <dd>The expanded graph includes 182,116,091 Gate spot and perpetual executions, five official FOMC documents, and 2,324 GDELT metadata records. Every frozen FX anchor has eligible Gate spot and perpetual observations in the prior 60 seconds and GDELT metadata in the prior 24 hours. Gate contributes cross-market context with zero exact FX pair matches. <span class="data-links"><a href="https://www.gate.com/developer/historical_quotes">Gate history</a><a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">FOMC calendar</a><a href="https://www.gdeltproject.org/data.html">GDELT archive</a></span></dd>
+        </div>
+        <div>
+          <dt>Observation and availability</dt>
+          <dd>Context must be available strictly before the forecast anchor. The Gate archive records the exchange event time. Historical subscriber receipt times are unavailable. FOMC uses the official release time. GDELT uses one minute after the later of the archive bucket and its retained HTTP Last-Modified timestamp.</dd>
+        </div>
+        <div>
+          <dt>Reference features with dated sources</dt>
+          <dd>Five overnight funding rates from the New York Fed cover every anchor under a conservative next-business-day publication and revision rule. The BIS turnover snapshot predates all five splits. The published tables omit GBP/CHF pair turnover, so 16,384 unseen-CHF rows carry a missing-pair flag. SDR membership and central bank swap arrangements share a separate dated graph. <span class="data-links"><a href="https://www.newyorkfed.org/markets/reference-rates/additional-information-about-reference-rates">NY Fed methodology</a><a href="https://www.bis.org/publications/triennial-survey/rpfx25-fx-annex-2606.pdf">BIS FX annex</a><a href="https://www.federalreserve.gov/monetarypolicy/bst_liquidityswaps.htm">Swap arrangements</a></span></dd>
+        </div>
+        <div>
+          <dt>Separate studies and gaps</dt>
+          <dd>The November Wikidata revision fixture was acquired after the FX interval and is used for a separate memory evaluation. U.S. equity execution history remains pending suitable historical access. Gate xStock activity measures executions in token markets. <span class="data-links"><a href="memory.html">Memory evaluation</a><a href="https://docs.xstocks.fi/docs/frequently-asked-questions">xStocks instrument definition</a><a href="https://databento.com/docs/datasets/xnas-itch">Nasdaq trade archive specification</a></span></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="downloads" class="data-section" aria-labelledby="downloads-title">
+      <h2 id="downloads-title">Files and schemas</h2>
+      <dl class="data-key">
+        <div>
+          <dt>Browser data · JSON</dt>
+          <dd>Download three FX replay traces, the September and October event aggregates, or the separate Wikidata retrieval evaluation. <span class="data-links"><a href="replay.json" download>Quote replay JSON</a><a href="event-data.json" download>Event aggregates JSON</a><a href="memory-data.json" download>Memory evaluation JSON</a></span></dd>
+        </div>
+        <div>
+          <dt>Dataset card and archive provenance</dt>
+          <dd>The gated Hugging Face catalog contains the FX dataset card, source URLs, archive hashes, and curation parameters. <span class="data-links"><a href="https://huggingface.co/datasets/AmelieSchreiber/PhaseWeave-FX-Windows-Catalog">Hugging Face catalog</a><a href="https://www.histdata.com/download-free-forex-historical-data/">HistData archive download</a><a href="https://www.gate.com/legal/user-agreement">Gate terms</a></span></dd>
+        </div>
+        <div>
+          <dt>Research exports · Parquet</dt>
+          <dd>Verified FX, joint trade and document, and reference companions each have five split files in authorized research storage. The catalog lists provenance and access terms. Bulk quote and execution rows require provider rights for external redistribution.</dd>
+        </div>
+        <div>
+          <dt>Use the correct chronology</dt>
+          <dd>The market lab replays selected historical quote traces and can display current Gate observations. The event replay uses selected historical trade aggregates. The training benchmark uses fixed FX windows, split definitions, and row hashes. <span class="data-links"><a href="results.html">Evaluated models</a></span></dd>
+        </div>
+      </dl>
+      <details>
+        <summary>Read the Parquet fields</summary>
+        <p>FX rows carry <code>split</code>, <code>row_index</code>, <code>triangle</code>, <code>anchor_utc_s</code>, <code>features</code>, <code>margin</code>, <code>persistence</code>, and <code>row_sha256</code>. The <code>features</code> tensor has shape <code>[16, 6, 3]</code> for time, directed edge, and feature channel. Channels contain the centered log rate, scaled quote age, and availability. The cycle margin and persistence arrays each have two entries, one for each direction.</p>
+        <p>Read the Parquet files with PyArrow or the Hugging Face <code>parquet</code> loader. Join each companion using split, frozen row index, triangle, and anchor. The trade and document companion has a <code>[9, 32]</code> feature array and nine UTC microsecond clocks. An unobserved clock uses <code>-1</code>.</p>
+      </details>
+    </section>
+  </main>
+  <script>
+    const themeButtons = document.querySelectorAll("button[data-page-theme]");
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      for (const button of themeButtons) {
+        button.setAttribute("aria-pressed", String(button.dataset.pageTheme === theme));
+      }
+    }
+    for (const button of themeButtons) {
+      button.addEventListener("click", () => {
+        const theme = button.dataset.pageTheme;
+        applyTheme(theme);
+        try { localStorage.setItem("phaseweave-theme", theme); } catch {}
+      });
+    }
+    try {
+      if (localStorage.getItem("phaseweave-theme") === "light") applyTheme("light");
+    } catch {}
+  </script>
+</body>
+</html>
