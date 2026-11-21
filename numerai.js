@@ -107,6 +107,7 @@ breadthComparison().catch(()=>{get("numerai-breadth-summary").textContent="The b
 
 async function fixedCandidateComparison() {
   const paths = {
+    wide: "numerai-wide-2022-23-v1.json",
     audit: "numerai-2022-23-validation-v1.json",
     development: "numerai-neural-development-v1.json",
     scale: "numerai-scale-development-v1.json",
@@ -119,6 +120,7 @@ async function fixedCandidateComparison() {
   }));
   const periods = Object.fromEntries(reports);
   const select = get("numerai-fresh-period");
+  const block = get("numerai-fresh-block");
   const summary = get("numerai-fresh-summary");
   const results = get("numerai-fresh-table");
   const labels = {
@@ -128,6 +130,8 @@ async function fixedCandidateComparison() {
     all_numeric: "Static LightGBM Jupiter 60 · 1,039",
     rolling_all_numeric: "Rolling LightGBM Jupiter 60 · 1,039",
     "fixed-medium-blend": "Fixed Medium tree blend",
+    "static-all-1039": "Static LightGBM Jupiter 60 · 1,039",
+    "rolling-all-1039": "Rolling LightGBM Jupiter 60 · 1,039",
     "neural-multitarget-blend": "Multitarget residual MLP blend",
     "tree-neural-blend": "75% Medium HGB + 25% residual MLP",
     "local-lightgbm-multitarget": "Locally trained LightGBM multitarget blend",
@@ -135,16 +139,21 @@ async function fixedCandidateComparison() {
   function repaint() {
     const report = periods[select.value];
     const entries = Object.entries(report.overall).sort((a, b) => b[1].neutral_corr - a[1].neutral_corr);
+    const boundsKey = "neutral_corr_paired_ci_"+block.value+"_weeks";
+    const interval = score => score[boundsKey]?.map(num).join(" to ") ?? "Unavailable";
+    const primary = select.value === "wide" ? " Rolling versus static "+num(report.primary.neutral_corr_delta)
+      +" neutral CORR ("+interval(report.primary)+")." : "";
     summary.textContent = report.dates + " matched dates · " + report.keys.toLocaleString("en-US")
-      + " stock-date keys · Reference " + (labels[report.reference] ?? report.reference) + ".";
+      + " stock-date keys · Reference " + (labels[report.reference] ?? report.reference) + "." + primary;
     results.replaceChildren(table(
-      ["Forecast", "Neutral CORR", "Raw CORR", "Paired neutral Δ", "13-week 95% interval", "Dates ahead"],
+      ["Forecast", "Neutral CORR", "Raw CORR", "Paired neutral Δ", block.value+"-week 95% interval", "Dates ahead"],
       entries.map(([key, score]) => [labels[key] ?? key, num(score.neutral_corr), num(score.raw_corr),
         key === report.reference ? "—" : num(score.neutral_corr_delta),
-        key === report.reference ? "—" : score.neutral_corr_paired_ci_13_weeks.map(num).join(" to "),
+        key === report.reference ? "—" : interval(score),
         key === report.reference ? "Reference" : score.neutral_corr_wins + " / " + report.dates])));
   }
   select.addEventListener("change", repaint);
+  block.addEventListener("change", repaint);
   repaint();
 }
 fixedCandidateComparison().catch(() => {

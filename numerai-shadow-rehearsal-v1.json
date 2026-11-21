@@ -1,0 +1,20 @@
+{
+  "data_date": "2026-11-19",
+  "excluded_data_page_bytes": 0,
+  "mode": "closed_round_rehearsal",
+  "models": [
+    "registered-hgb128",
+    "static-lightgbm1039"
+  ],
+  "network_bytes": 4326000,
+  "official_rank": null,
+  "official_upload": false,
+  "on_time_cutoff_utc": "2026-11-20T14:04:12Z",
+  "payout": null,
+  "prediction_rows_per_model": 7080,
+  "receipt_sha256": "b193ffdba7fbcb287d3dbe4abc177f3fa3b7c468d89dd76452f0f67ca275c2a7",
+  "round": 1403,
+  "schema": "phaseweave.numerai-shadow-public.v1",
+  "sealed_utc": "2026-11-21T04:20:24.436313+00:00",
+  "source_size_bytes": 4401106
+}

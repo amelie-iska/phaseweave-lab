@@ -1,0 +1,173 @@
+{
+  "format": "phaseweave.numerai-wide-2022-23.v1",
+  "start": "2022-07-22",
+  "end": "2023-09-08",
+  "dates": 60,
+  "keys": 402488,
+  "target": "target_jupiter_60",
+  "neutralizers": 300,
+  "reference": "fixed-medium-blend",
+  "comparison": "Frozen single-target wide LightGBM models on previously scored 2022–23 dates",
+  "models": {
+    "static-all-1039": {
+      "name": "Static LightGBM",
+      "features": 1039,
+      "iterations": 400,
+      "train_dates": 835,
+      "train_keys": 4329443,
+      "last_train_date": "2018-12-28"
+    },
+    "rolling-all-1039": {
+      "name": "Rolling LightGBM",
+      "features": 1039,
+      "iterations": 400,
+      "train_dates": 873,
+      "train_keys": 4569861,
+      "last_train_date": "2020-09-18"
+    },
+    "fixed-medium-blend": {
+      "name": "Fixed Medium HGB blend",
+      "features": 350
+    }
+  },
+  "overall": {
+    "static-all-1039": {
+      "neutral_corr": 0.03696429105038157,
+      "raw_corr": 0.03252989632219151,
+      "neutral_corr_delta": 0.0021207936642860066,
+      "raw_corr_delta": 0.0049574498656638375,
+      "neutral_corr_wins": 34,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.003022652824132548,
+        0.0071762540699154935
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.002326290826322128,
+        0.005892396265467084
+      ],
+      "raw_corr_paired_ci_13_weeks": [
+        0.0005192228479864644,
+        0.009958725955855782
+      ],
+      "raw_corr_paired_ci_26_weeks": [
+        0.0015363194984665065,
+        0.00815069745780976
+      ]
+    },
+    "rolling-all-1039": {
+      "neutral_corr": 0.03726188804935267,
+      "raw_corr": 0.033320823500732705,
+      "neutral_corr_delta": 0.0024183906632571014,
+      "raw_corr_delta": 0.005748377044205028,
+      "neutral_corr_wins": 34,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.005175033303761439,
+        0.009345572278330067
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.00506846422142867,
+        0.009377605123407238
+      ],
+      "raw_corr_paired_ci_13_weeks": [
+        -0.0019507642935826064,
+        0.012767302156158457
+      ],
+      "raw_corr_paired_ci_26_weeks": [
+        -0.001528090087912754,
+        0.012346971940493294
+      ]
+    },
+    "fixed-medium-blend": {
+      "neutral_corr": 0.034843497386095566,
+      "raw_corr": 0.027572446456527674,
+      "neutral_corr_delta": 0.0,
+      "raw_corr_delta": 0.0,
+      "neutral_corr_wins": 0,
+      "neutral_corr_ties": 60,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "primary_comparison": [
+    "rolling-all-1039",
+    "static-all-1039"
+  ],
+  "primary": {
+    "neutral_corr": 0.03726188804935267,
+    "raw_corr": 0.033320823500732705,
+    "neutral_corr_delta": 0.0002975969989710946,
+    "raw_corr_delta": 0.0007909271785411907,
+    "neutral_corr_wins": 33,
+    "neutral_corr_ties": 0,
+    "neutral_corr_paired_ci_13_weeks": [
+      -0.004684716922018709,
+      0.004906378957849328
+    ],
+    "neutral_corr_paired_ci_26_weeks": [
+      -0.00447468859397535,
+      0.004955240789139635
+    ],
+    "raw_corr_paired_ci_13_weeks": [
+      -0.004555218605989462,
+      0.006075909275513623
+    ],
+    "raw_corr_paired_ci_26_weeks": [
+      -0.004684872472085798,
+      0.006235918793007706
+    ]
+  },
+  "inference": {
+    "weeks": [
+      13,
+      26
+    ],
+    "draws": 10000,
+    "seed": 20261120,
+    "date_weight": "equal"
+  },
+  "controls": {
+    "official_benchmark": false,
+    "terminal_outcomes": false,
+    "live": false,
+    "submitted": false
+  },
+  "transfer": {
+    "network_bytes": 131061059,
+    "network_requests": 561,
+    "footer_bytes": 2239398,
+    "predictor_page_bytes": 128821661,
+    "previously_verified_predictor_page_bytes_reused": 73976939,
+    "target_benchmark_neutralizer_protected_bytes": 0
+  },
+  "independent": {
+    "method": "Reversed-layout rank transform, SVD exposure projection and Pearson correlation",
+    "score_cells": 360,
+    "max_absolute_difference": {
+      "neutral_corr": 6.35013637159676e-10,
+      "raw_corr": 1.3183898417423734e-16
+    }
+  },
+  "provenance": {
+    "acquisition_plan_sha256": "f26af893ce75ef2c6ba4a798c9d6a0b20ab568bb1b17b4ff35c1478940f65adb",
+    "acquisition_sha256": "46e473081fe2f042580892f0e8ca6b1b65673684ad4283c6da2b3e3791bef55c",
+    "prediction_freeze_sha256": "96164045cdcc702b822f096b8a6c0f4ede33ee286f7bb9b93871fc0936b2127c",
+    "official_score_receipt_sha256": "b5d1eefde1694c9b999d4f5e9050e4b669cb40351b15ec350c52d7b16c90b8ee",
+    "independent_score_receipt_sha256": "e0ca7cbdf5f08e751e02654303105a54bcafb593a5c3eff4d153791d755ed22f",
+    "runner_sha256": "2c84bad6ca1e8f6babb7e8ddf5c8701cf0b55c0627137650e52ba285e815801f",
+    "original_control_forecast_seal_sha256": "2e35a61a7974712b80ce9e18005e599194850f2129bcafd68d8a19d20f829e55",
+    "original_panel_score_sha256": "a6e3fa969d0df35fef38f293ad1aaa47b82bc6d7f1cb6e11d1ef3484e6901277",
+    "official_scorer_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+    "scoring_source_sha256": {
+      "targets": "7430c058cbb2432ca2c5f36a99b4e94ccb10d5b0f4013bc7c96e5ae5c9e32682",
+      "exposures": "8cf5e852603dd94a1d583404cb9e991e74afdffe8af28599961db677e2a7f901"
+    }
+  }
+}
