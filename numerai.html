@@ -24,6 +24,12 @@
    <p>PhaseWeave has no live Numerai rank. The top-10 submission condition is unmet. FX and GRT forecast errors use different markets, horizons and metrics. A Classic v6 evaluation needs common dates, Numerai’s official targets and neutralizers, published benchmarks, and a resolved live submission to establish rank.</p>
    <p><a href="https://docs.numer.ai/numerai-tournament/data">Classic data and targets</a> · <a href="https://docs.numer.ai/numerai-tournament/scoring">Scoring and reputation</a> · <a href="https://docs.numer.ai/numerai-tournament/submissions">Round windows and submission format</a></p>
   </section>
+  <section class="arch-panel" id="archive-boundary">
+   <h2>Published benchmark archive boundary</h2>
+   <p>The pinned Classic v6 benchmark has three physical row groups. The first was used in development. The second and third overlap the protected terminal. The Classic example and Signals benchmark files have the same physical boundaries.</p>
+   <p>The alternate-file check transferred 5,630 bytes of footer and trailer metadata. Prediction equality remains unverified. The registered terminal and live comparison gates are pending.</p>
+   <p><a href="numerai-classic-v6-archive-boundary-v1.json">Classic archive boundary</a> · <a href="numerai-alternate-benchmark-footers-v1.json">Alternate footer checks</a></p>
+  </section>
   <section class="arch-panel" id="fresh-validation"><h2>Fixed-candidate validation</h2>
    <div class="arch-period-controls">
    <label>Scoring period <select id="numerai-fresh-period"><option value="wide">2022–23 · 1,039-feature recency check</option><option value="preterminal">Jul–Sep 2024 · nine frozen forecasts</option><option value="audit">2022–23 · original candidate audit</option><option value="development">2020–21 · reused development with published LightGBM</option><option value="multitarget">2020–21 · wide target diversity</option><option value="disagreement">2020–21 · disagreement selector</option><option value="scale">2020–21 · 350 vs 1,017 vs 1,039 LightGBM inputs</option><option value="rolling">2021 · rolling vs static training</option></select></label>

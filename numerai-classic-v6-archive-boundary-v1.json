@@ -1,0 +1,115 @@
+{
+  "archive_file_count": 14,
+  "archive_validation_benchmark_files": [
+    "v6.0/validation_benchmark_models.parquet"
+  ],
+  "benchmark_footer_sha256": "443c462f249407f4e86646c835dbde4e5ac717162d8fd4323fe876b43bdb50e4",
+  "benchmark_groups": [
+    {
+      "dates": [
+        "2019-01-04",
+        "2022-01-28"
+      ],
+      "group": 0,
+      "has_offset_or_column_index": false,
+      "intersects_terminal_group": false,
+      "previous_complete_projection_receipted": true,
+      "projected_half_open_byte_ranges": [
+        [
+          4,
+          6536637
+        ]
+      ],
+      "rows": 1048576
+    },
+    {
+      "dates": [
+        "2022-01-28",
+        "2025-01-31"
+      ],
+      "group": 1,
+      "has_offset_or_column_index": false,
+      "intersects_terminal_group": true,
+      "previous_complete_projection_receipted": true,
+      "projected_half_open_byte_ranges": [
+        [
+          6536637,
+          13158737
+        ]
+      ],
+      "rows": 1048576
+    },
+    {
+      "dates": [
+        "2025-01-31",
+        "2026-11-13"
+      ],
+      "group": 2,
+      "has_offset_or_column_index": false,
+      "intersects_terminal_group": true,
+      "previous_complete_projection_receipted": false,
+      "projected_half_open_byte_ranges": [
+        [
+          13158737,
+          17428651
+        ]
+      ],
+      "rows": 649096
+    }
+  ],
+  "cutoff_date": "2026-11-20",
+  "format": "phaseweave.numerai-classic-v6-archive-boundary.v1",
+  "last_target_group": {
+    "dates": [
+      "2026-08-07",
+      "2026-11-13"
+    ],
+    "group": 13
+  },
+  "numeric_data_pages_opened": 0,
+  "receipt_sha256": {
+    "artifacts/numerai-2019-scoring-audit-v1.0rTlyY/audit/validation/source.json": "4fb40a1a87f52014a00e8a471b2c24ed1d3927ef367efebbeabf8da908b2cfaf",
+    "artifacts/numerai-2022-23-v1.C2Xfmo/targets/acquisition-complete.json": "7430c058cbb2432ca2c5f36a99b4e94ccb10d5b0f4013bc7c96e5ae5c9e32682",
+    "artifacts/numerai-bounded-benchmark-v1/cache/range-validation-1038975004-1039053293.json": "99e0380e28df7065f98c7a9b68c5bed971caf3bb0ee4a4aedaf45d73037369f1",
+    "artifacts/numerai-bounded-benchmark-v1/cache/range-validation-1408605356-1410844754.json": "b5729f1ed38652fff9de016a6b0a652db4f6eb6be6c583320b739ecae9b8a54d",
+    "artifacts/numerai-bounded-benchmark-v1/cache/range-validation-829497844-829869391.json": "e6eb10c9c50669ef69e3c0488b36c22ac14899b5b245b6fb7d10adf8c70d6b22",
+    "artifacts/numerai-bounded-benchmark-v1/cache/range-validation-830364864-830980822.json": "e3dc22ae7b12c6824d272000936e2b2ddaebdf9e8ad24221552505894a84d5a1",
+    "artifacts/numerai-bounded-benchmark-v1/cache/range-validation-933321139-933776280.json": "9118d597d803b4d8b16a356c7506fb8ec8ecf2ba344388b3c235172c17551e7f",
+    "artifacts/numerai-bounded-benchmark-v1/cache/range-validation-934277590-934902888.json": "19dd2692f08bc938126916a9973d8200c340bf89179e88d6269b30f52c8f1b52",
+    "artifacts/numerai-bounded-benchmark-v1/cache/range-validation_benchmark_models-6536637-13158737.json": "136489497a95099a26545f526a37ad82339278d92255d5654729351dad6820bf",
+    "artifacts/numerai-registered-preflight-v1.oiUltM/development-acquisition-v2/acquisition-complete.json": "511b38118324297a6ed40a5ed373a95cf3e6c8e29a4b1bc410688a35a875835d",
+    "research/reference-campaigns/numerai-audit-v1/official-audit.json": "cf65d4d2f4570d96960f1f762b492332f4e5531d677606aa3fb1b1d6df67095f"
+  },
+  "scope": "Whole-column chunks of this pinned validation release. Prior physical acquisition does not imply every date was scored. Other releases, projections and live-round-specific packaging require separate provenance.",
+  "scores_computed": 0,
+  "source_metadata_sha256": "f0dc8b360249cc06cbfd43e4a743aa5b1f65c4085f5855c87e9c5bb481842a9e",
+  "target_column_complete_historical_receipt_coverage": {
+    "2019_audit": [
+      0,
+      1
+    ],
+    "2022_23_audit": [
+      6,
+      7
+    ],
+    "2024_pilot": [
+      8,
+      9
+    ],
+    "registered_development": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "terminal_target_groups": [
+    10,
+    11,
+    12
+  ],
+  "unexcluded_fresh_comparator_groups": 0,
+  "validation_footer_sha256": "69d56a3676819a81a7d840f8a6fc16b20646560f571bd153b64c017ca37b959e",
+  "weekdays_strictly_between_terminal_end_and_cutoff": 104
+}

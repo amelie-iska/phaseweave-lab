@@ -1,0 +1,249 @@
+{
+  "alternate_files": [
+    {
+      "catalog_file_count": 14,
+      "catalog_sha256": "c46504cb7de0eae8b1e16bff066e841be7c776c974fd936c3bdf6b2ef916aa22",
+      "column_positions_and_date_boundary_geometry_match_classic": true,
+      "dates_and_group_sizes_match_classic": true,
+      "exact_footer_digest_matches_archived_classic_comparator": false,
+      "file": "v6.0/validation_example_preds.parquet",
+      "footer_sha256": "678b0caeb03ef981b751d42f320fbc6fa572d857320dd3b99b1da44e4e8e6176",
+      "groups": [
+        {
+          "chunks": [
+            {
+              "column": "numerai_ticker",
+              "compressed_end_exclusive": 1823372,
+              "compressed_start": 4,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "date",
+              "compressed_end_exclusive": 1828019,
+              "compressed_start": 1823372,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "signal",
+              "compressed_end_exclusive": 6536637,
+              "compressed_start": 1828019,
+              "has_column_index": false,
+              "has_offset_index": false
+            }
+          ],
+          "date_bounds": [
+            "2019-01-04",
+            "2022-01-28"
+          ],
+          "rows": 1048576
+        },
+        {
+          "chunks": [
+            {
+              "column": "numerai_ticker",
+              "compressed_end_exclusive": 8404909,
+              "compressed_start": 6536637,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "date",
+              "compressed_end_exclusive": 8409521,
+              "compressed_start": 8404909,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "signal",
+              "compressed_end_exclusive": 13158737,
+              "compressed_start": 8409521,
+              "has_column_index": false,
+              "has_offset_index": false
+            }
+          ],
+          "date_bounds": [
+            "2022-01-28",
+            "2025-01-31"
+          ],
+          "rows": 1048576
+        },
+        {
+          "chunks": [
+            {
+              "column": "numerai_ticker",
+              "compressed_end_exclusive": 14301269,
+              "compressed_start": 13158737,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "date",
+              "compressed_end_exclusive": 14304152,
+              "compressed_start": 14301269,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "signal",
+              "compressed_end_exclusive": 17428651,
+              "compressed_start": 14304152,
+              "has_column_index": false,
+              "has_offset_index": false
+            }
+          ],
+          "date_bounds": [
+            "2025-01-31",
+            "2026-11-13"
+          ],
+          "rows": 649096
+        }
+      ],
+      "listed": true,
+      "object_date_prefix": "20261119",
+      "rows": 2746248,
+      "s3_etag": "03100fb9694dc0a68be08895e51caaf6-3",
+      "schema": [
+        "numerai_ticker",
+        "date",
+        "signal"
+      ],
+      "size_bytes": 17431411,
+      "storage_bytes_transferred": 2768,
+      "tournament": 8,
+      "trailer_inclusive_footer_bytes": 2760
+    },
+    {
+      "catalog_file_count": 18,
+      "catalog_sha256": "f4cff2ae45cd0800b827ee8366f47b2d4dff2ef7a145cb8dc4b967155a05c0c8",
+      "column_positions_and_date_boundary_geometry_match_classic": true,
+      "dates_and_group_sizes_match_classic": true,
+      "exact_footer_digest_matches_archived_classic_comparator": true,
+      "file": "signals/v3.1/validation_benchmark_models.parquet",
+      "footer_sha256": "443c462f249407f4e86646c835dbde4e5ac717162d8fd4323fe876b43bdb50e4",
+      "groups": [
+        {
+          "chunks": [
+            {
+              "column": "numerai_ticker",
+              "compressed_end_exclusive": 1823372,
+              "compressed_start": 4,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "date",
+              "compressed_end_exclusive": 1828019,
+              "compressed_start": 1823372,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "lgbm_jupiter_60",
+              "compressed_end_exclusive": 6536637,
+              "compressed_start": 1828019,
+              "has_column_index": false,
+              "has_offset_index": false
+            }
+          ],
+          "date_bounds": [
+            "2019-01-04",
+            "2022-01-28"
+          ],
+          "rows": 1048576
+        },
+        {
+          "chunks": [
+            {
+              "column": "numerai_ticker",
+              "compressed_end_exclusive": 8404909,
+              "compressed_start": 6536637,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "date",
+              "compressed_end_exclusive": 8409521,
+              "compressed_start": 8404909,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "lgbm_jupiter_60",
+              "compressed_end_exclusive": 13158737,
+              "compressed_start": 8409521,
+              "has_column_index": false,
+              "has_offset_index": false
+            }
+          ],
+          "date_bounds": [
+            "2022-01-28",
+            "2025-01-31"
+          ],
+          "rows": 1048576
+        },
+        {
+          "chunks": [
+            {
+              "column": "numerai_ticker",
+              "compressed_end_exclusive": 14301269,
+              "compressed_start": 13158737,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "date",
+              "compressed_end_exclusive": 14304152,
+              "compressed_start": 14301269,
+              "has_column_index": false,
+              "has_offset_index": false
+            },
+            {
+              "column": "lgbm_jupiter_60",
+              "compressed_end_exclusive": 17428651,
+              "compressed_start": 14304152,
+              "has_column_index": false,
+              "has_offset_index": false
+            }
+          ],
+          "date_bounds": [
+            "2025-01-31",
+            "2026-11-13"
+          ],
+          "rows": 649096
+        }
+      ],
+      "listed": true,
+      "object_date_prefix": "20261119",
+      "rows": 2746248,
+      "s3_etag": "298680af3c90d1160e2276add29ee1e2-3",
+      "schema": [
+        "numerai_ticker",
+        "date",
+        "lgbm_jupiter_60"
+      ],
+      "size_bytes": 17431505,
+      "storage_bytes_transferred": 2862,
+      "tournament": 11,
+      "trailer_inclusive_footer_bytes": 2854
+    }
+  ],
+  "at_utc": "2026-11-21T06:33:05.753161+00:00",
+  "cell_value_identity_tested": false,
+  "data_page_bytes_read": 0,
+  "format": "phaseweave.numerai-alternate-benchmark-footers.v1",
+  "original_classic_benchmark_storage_endpoint_requests": 0,
+  "public_source_links": [
+    "https://docs.numer.ai/numerai-tournament/models",
+    "https://docs.numer.ai/numerai-signals/data",
+    "https://docs.numer.ai/numerai-tournament/scoring",
+    "https://github.com/numerai/example-scripts/blob/a72e0999a4cc407468a2e74c4b696ff5841841e7/numerai/v6_example_model.ipynb"
+  ],
+  "registered_classic_footer_sha256": "443c462f249407f4e86646c835dbde4e5ac717162d8fd4323fe876b43bdb50e4",
+  "registered_classic_metadata_sha256": "f0dc8b360249cc06cbfd43e4a743aa5b1f65c4085f5855c87e9c5bb481842a9e",
+  "scope": "Alternate footer inspection and isolated locally pinned Classic footer only. Equal footer bytes, chunk locations or labels cannot authenticate equality of unobserved prediction pages. Aggregate documentation of a shared live benchmark supplies no per-key historical value proof.",
+  "scores_computed": 0,
+  "storage_bytes_transferred": 5630,
+  "storage_cap_bytes_per_alternate_including_duplicate_trailer": 65536
+}
