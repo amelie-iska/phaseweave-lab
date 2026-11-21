@@ -53,6 +53,14 @@
    <p>Neutral contribution is evaluated against the published benchmark on the development set. Live NMMC uses the contemporaneous Numerai Meta Model. The 78 registered terminal dates remain sealed.</p>
    <p><a href="numerai-medium-development-v1.json">Verified aggregate and yearly results</a></p>
   </section>
+  <section class="arch-panel" id="feature-breadth"><h2>Matched 358-feature comparison</h2>
+   <p>Three HGB arms use the same training rows, target, seed, tree settings and width. The primary contrast replaces eight extra features from the Medium families with eight restored Signals features mapped to quintiles learned on training dates. A third arm uses those Signals values directly.</p>
+   <label>Development dates <select id="numerai-breadth-period"><option value="overall">2020–2021</option><option value="2020">2020</option><option value="2021">2021</option></select></label>
+   <p id="numerai-breadth-summary" role="status">Loading verified scores.</p>
+   <div class="arch-scroll" id="numerai-breadth-table"></div>
+   <p>The forward targets overlap. The reused 2020–2021 dates support development comparisons. The 2019 audit and the original 78 terminal dates remain unscored.</p>
+   <p><a href="numerai-breadth-development-v1.json">Verified aggregate, yearly and paired results</a> · <a href="https://docs.numer.ai/numerai-tournament/data">Numerai v6 features and targets</a></p>
+  </section>
   <section class="arch-panel"><h2>Public model leaderboard</h2>
    <label>Tournament <select id="numerai-tournament"><option value="classic">Classic</option><option value="signals">Signals</option><option value="crypto">Crypto</option></select></label>
    <p id="numerai-order"></p>

@@ -1,0 +1,440 @@
+{
+  "format": "phaseweave.numerai-breadth-development.v1",
+  "scope": "Offline matched feature-composition comparison on previously used Numerai Classic v6 development dates.",
+  "fit_finished_utc": "2026-11-21T00:16:03.815119+00:00",
+  "benchmark_id": "lgbm_jupiter_60",
+  "checkpoint_control_id": "medium-jupiter60-hgb",
+  "cohort": {
+    "training_rows": 4329443,
+    "training_dates": 835,
+    "training_window": [
+      "2003-01-03",
+      "2018-12-28"
+    ],
+    "development_rows": 699389,
+    "development_dates": 105,
+    "development_window": [
+      "2020-01-03",
+      "2021-12-31"
+    ],
+    "development_neutralizer_columns": 300,
+    "by_year": {
+      "2020": {
+        "dates": 52,
+        "rows": 332404
+      },
+      "2021": {
+        "dates": 53,
+        "rows": 366985
+      }
+    }
+  },
+  "experiment": {
+    "target": "target_jupiter_60",
+    "training_date_weights": "N / (D * n_date)",
+    "hgb_parameters": {
+      "loss": "squared_error",
+      "max_iter": 300,
+      "learning_rate": 0.05,
+      "max_depth": 5,
+      "max_leaf_nodes": 31,
+      "max_features": 0.2,
+      "min_samples_leaf": 512,
+      "l2_regularization": 4,
+      "early_stopping": false,
+      "random_state": 20261120
+    },
+    "restored_added_columns": 8,
+    "restored_encoding": {
+      "quantiles": [
+        0.2,
+        0.4,
+        0.6,
+        0.8
+      ],
+      "method": "linear",
+      "cut_side": "right",
+      "missing_bin": 2
+    },
+    "restored_input_coverage": [
+      {
+        "family": "adv",
+        "finite_training_rows": 4329439,
+        "finite_development_rows": 699389,
+        "distinct_training_cutpoints": 4
+      },
+      {
+        "family": "beta",
+        "finite_training_rows": 4274553,
+        "finite_development_rows": 693993,
+        "distinct_training_cutpoints": 4
+      },
+      {
+        "family": "book",
+        "finite_training_rows": 4329089,
+        "finite_development_rows": 699325,
+        "distinct_training_cutpoints": 4
+      },
+      {
+        "family": "growth",
+        "finite_training_rows": 4320794,
+        "finite_development_rows": 696794,
+        "distinct_training_cutpoints": 4
+      },
+      {
+        "family": "market",
+        "finite_training_rows": 4329443,
+        "finite_development_rows": 699389,
+        "distinct_training_cutpoints": 4
+      },
+      {
+        "family": "momentum",
+        "finite_training_rows": 4020273,
+        "finite_development_rows": 657611,
+        "distinct_training_cutpoints": 4
+      },
+      {
+        "family": "rsi",
+        "finite_training_rows": 4288632,
+        "finite_development_rows": 695345,
+        "distinct_training_cutpoints": 4
+      },
+      {
+        "family": "volatility",
+        "finite_training_rows": 4274553,
+        "finite_development_rows": 693993,
+        "distinct_training_cutpoints": 4
+      }
+    ],
+    "column_availability_scope": "Provider-reported point-in-time stock/date inputs, with training-only transform fitting.",
+    "metric_scope": "Benchmark-relative contribution uses the published LightGBM predictions. Live NMMC requires the round's contemporaneous Meta Model."
+  },
+  "primary_contrast": {
+    "left": "width358-restored-quintiles",
+    "right": "width358-same-family",
+    "metric": "Equal-date neutral CORR",
+    "overall": {
+      "compared_dates": 105,
+      "mean_paired_ncorr_delta": 0.004313957776202982,
+      "wins": 72,
+      "ties": 0,
+      "losses": 33
+    },
+    "by_year": {
+      "2020": {
+        "compared_dates": 52,
+        "mean_paired_ncorr_delta": 0.0050544124492912425,
+        "wins": 37,
+        "ties": 0,
+        "losses": 15
+      },
+      "2021": {
+        "compared_dates": 53,
+        "mean_paired_ncorr_delta": 0.0035874739460031797,
+        "wins": 35,
+        "ties": 0,
+        "losses": 18
+      }
+    }
+  },
+  "models": [
+    {
+      "id": "lgbm_jupiter_60",
+      "label": "Published LightGBM Jupiter 60",
+      "role": "published_benchmark",
+      "predictors": null,
+      "feature_name_groups": null,
+      "predictor_treatment": "Provider benchmark prediction",
+      "target": "target_jupiter_60",
+      "overall": {
+        "neutral_corr": 0.04596967115599026,
+        "raw_corr": 0.03855766346978559,
+        "benchmark_neutral_contribution": 4.2307464009382247e-19,
+        "neutral_corr_delta_vs_benchmark": 0.0,
+        "raw_corr_delta_vs_benchmark": 0.0,
+        "neutral_corr_wins_over_benchmark": 0,
+        "neutral_corr_ties_with_benchmark": 105,
+        "neutral_corr_losses_to_benchmark": 0
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.031079879452188184,
+          "raw_corr": 0.02434549353576249,
+          "benchmark_neutral_contribution": -2.1806809396987595e-19,
+          "neutral_corr_delta_vs_benchmark": 0.0,
+          "raw_corr_delta_vs_benchmark": 0.0,
+          "neutral_corr_wins_over_benchmark": 0,
+          "neutral_corr_ties_with_benchmark": 52,
+          "neutral_corr_losses_to_benchmark": 0
+        },
+        "2021": {
+          "neutral_corr": 0.06057852339368287,
+          "raw_corr": 0.052501679254110145,
+          "benchmark_neutral_contribution": 1.052120341439338e-18,
+          "neutral_corr_delta_vs_benchmark": 0.0,
+          "raw_corr_delta_vs_benchmark": 0.0,
+          "neutral_corr_wins_over_benchmark": 0,
+          "neutral_corr_ties_with_benchmark": 53,
+          "neutral_corr_losses_to_benchmark": 0
+        }
+      }
+    },
+    {
+      "id": "medium-jupiter60-hgb",
+      "label": "Medium Jupiter 60 HGB",
+      "role": "prior_control",
+      "predictors": 350,
+      "feature_name_groups": 8,
+      "predictor_treatment": "Official Medium v6 bins",
+      "target": "target_jupiter_60",
+      "overall": {
+        "neutral_corr": 0.02865023756037649,
+        "raw_corr": 0.024346977767398272,
+        "benchmark_neutral_contribution": -0.0017017780331512263,
+        "neutral_corr_delta_vs_benchmark": -0.017319433595613772,
+        "raw_corr_delta_vs_benchmark": -0.01421068570238732,
+        "neutral_corr_wins_over_benchmark": 13,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 92
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.015035999286018117,
+          "raw_corr": 0.011122487406063808,
+          "benchmark_neutral_contribution": -0.004908753842102839,
+          "neutral_corr_delta_vs_benchmark": -0.016043880166170067,
+          "raw_corr_delta_vs_benchmark": -0.013223006129698685,
+          "neutral_corr_wins_over_benchmark": 5,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 47
+        },
+        "2021": {
+          "neutral_corr": 0.042007603414463954,
+          "raw_corr": 0.037321949442669825,
+          "benchmark_neutral_contribution": 0.0014446887982729974,
+          "neutral_corr_delta_vs_benchmark": -0.01857091997921892,
+          "raw_corr_delta_vs_benchmark": -0.015179729811440322,
+          "neutral_corr_wins_over_benchmark": 8,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 45
+        }
+      },
+      "checkpoint_sha256": "093ef959eb24331726dcecc35bc0146d40812bd620ca7480365bcec450e84440",
+      "development_prediction_sha256": "b4cd34a17281b95699ac24640096cb55b74424114f68421dfaf7a8684a60d29e",
+      "fitted_iterations": 300
+    },
+    {
+      "id": "width358-same-family",
+      "label": "Same-family width 358",
+      "role": "matched_control",
+      "predictors": 358,
+      "feature_name_groups": 8,
+      "predictor_treatment": "One additional v6-binned predictor per Medium family",
+      "target": "target_jupiter_60",
+      "overall": {
+        "neutral_corr": 0.029980363797678704,
+        "raw_corr": 0.02557084238090167,
+        "benchmark_neutral_contribution": -0.0010051094295199917,
+        "neutral_corr_delta_vs_benchmark": -0.01598930735831156,
+        "raw_corr_delta_vs_benchmark": -0.012986821088883917,
+        "neutral_corr_wins_over_benchmark": 13,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 92
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.017934411935359943,
+          "raw_corr": 0.014436857509718775,
+          "benchmark_neutral_contribution": -0.0028221694782697765,
+          "neutral_corr_delta_vs_benchmark": -0.01314546751682824,
+          "raw_corr_delta_vs_benchmark": -0.009908636026043718,
+          "neutral_corr_wins_over_benchmark": 5,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 47
+        },
+        "2021": {
+          "neutral_corr": 0.04179903354938768,
+          "raw_corr": 0.03649475206583584,
+          "benchmark_neutral_contribution": 0.0007776664673665892,
+          "neutral_corr_delta_vs_benchmark": -0.018779489844295193,
+          "raw_corr_delta_vs_benchmark": -0.016006927188274303,
+          "neutral_corr_wins_over_benchmark": 8,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 45
+        }
+      },
+      "checkpoint_sha256": "1de32194f64b6a0ed7b0d23d84d29ca1ac46f893658b66becac5ae3b4e393004",
+      "development_prediction_sha256": "7f289e8cb14970915929b7aee9793be55b3840c1e7f4a9892a7c315988e9f82b",
+      "fitted_iterations": 300
+    },
+    {
+      "id": "width358-restored-quintiles",
+      "label": "Restored families, quintile bins",
+      "role": "primary_candidate",
+      "predictors": 358,
+      "feature_name_groups": 16,
+      "predictor_treatment": "Eight restored Signals predictors in training-only quintile bins",
+      "target": "target_jupiter_60",
+      "overall": {
+        "neutral_corr": 0.03429432157388169,
+        "raw_corr": 0.029459887246855342,
+        "benchmark_neutral_contribution": 0.0023526654207615028,
+        "neutral_corr_delta_vs_benchmark": -0.011675349582108576,
+        "raw_corr_delta_vs_benchmark": -0.009097776222930247,
+        "neutral_corr_wins_over_benchmark": 27,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 78
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.022988824384651187,
+          "raw_corr": 0.018443377319391822,
+          "benchmark_neutral_contribution": 0.0011442341015278654,
+          "neutral_corr_delta_vs_benchmark": -0.008091055067536997,
+          "raw_corr_delta_vs_benchmark": -0.005902116216370669,
+          "neutral_corr_wins_over_benchmark": 13,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 39
+        },
+        "2021": {
+          "neutral_corr": 0.04538650749539086,
+          "raw_corr": 0.0402685384964422,
+          "benchmark_neutral_contribution": 0.0035382961490662045,
+          "neutral_corr_delta_vs_benchmark": -0.015192015898292013,
+          "raw_corr_delta_vs_benchmark": -0.012233140757667946,
+          "neutral_corr_wins_over_benchmark": 14,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 39
+        }
+      },
+      "checkpoint_sha256": "e574744ad61679b38df37e996b3a03a6a6a98413a76c88282a9ec33696e3fbdc",
+      "development_prediction_sha256": "cc649f35fd3ddb22defd7899952421008b5bfd08845088b1620c5a0831dba7fd",
+      "fitted_iterations": 300
+    },
+    {
+      "id": "width358-restored-native",
+      "label": "Restored families, native values",
+      "role": "sensitivity",
+      "predictors": 358,
+      "feature_name_groups": 16,
+      "predictor_treatment": "Same eight Signals predictors with native numeric values and HGB missing routing",
+      "target": "target_jupiter_60",
+      "overall": {
+        "neutral_corr": 0.03356050342853927,
+        "raw_corr": 0.028799192045142294,
+        "benchmark_neutral_contribution": 0.0025031799288964944,
+        "neutral_corr_delta_vs_benchmark": -0.01240916772745099,
+        "raw_corr_delta_vs_benchmark": -0.009758471424643296,
+        "neutral_corr_wins_over_benchmark": 17,
+        "neutral_corr_ties_with_benchmark": 0,
+        "neutral_corr_losses_to_benchmark": 88
+      },
+      "by_year": {
+        "2020": {
+          "neutral_corr": 0.019245363328781566,
+          "raw_corr": 0.014733553121682886,
+          "benchmark_neutral_contribution": -0.0014433792186195904,
+          "neutral_corr_delta_vs_benchmark": -0.011834516123406618,
+          "raw_corr_delta_vs_benchmark": -0.009611940414079607,
+          "neutral_corr_wins_over_benchmark": 4,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 48
+        },
+        "2021": {
+          "neutral_corr": 0.04760554654528268,
+          "raw_corr": 0.042599441554951524,
+          "benchmark_neutral_contribution": 0.006375275696270766,
+          "neutral_corr_delta_vs_benchmark": -0.012972976848400186,
+          "raw_corr_delta_vs_benchmark": -0.009902237699158614,
+          "neutral_corr_wins_over_benchmark": 13,
+          "neutral_corr_ties_with_benchmark": 0,
+          "neutral_corr_losses_to_benchmark": 40
+        }
+      },
+      "checkpoint_sha256": "62e725c7c3d67a2a94ecb2ada333306010f7efc51971366623f589d634d483ea",
+      "development_prediction_sha256": "4b54990494bccfea6669ac655bd7ae265c17a3d3c7a21e882528c0c5da25dad7",
+      "fitted_iterations": 300
+    }
+  ],
+  "acquisition": {
+    "bytes_received": 258100630,
+    "authorized_maximum_bytes": 258100630,
+    "successful_ranges_including_footer_checks": 353,
+    "network_workers_maximum": 2,
+    "transport_mode": "Anonymous exact byte ranges without gap coalescing",
+    "by_source": {
+      "train": {
+        "received_bytes": 207986571,
+        "successful_ranges": 287,
+        "footer_recheck_bytes": 3244119,
+        "protected_overlap_bytes": 0
+      },
+      "validation": {
+        "received_bytes": 50114059,
+        "successful_ranges": 66,
+        "footer_recheck_bytes": 2239398,
+        "protected_overlap_bytes": 0
+      }
+    },
+    "new_validation_target_bytes": 0,
+    "terminal_bytes_acquired": 0,
+    "additional_2019_audit_target_or_neutralizer_bytes": 0,
+    "prospective_bytes": 0
+  },
+  "hashes": {
+    "preflight_sha256": "38cc1639dfcbb7411afaecb7bf036bba520f06c38221c6056e2f1c7744ebb585",
+    "execution_plan_sha256": "367b66a267cf9916bd5c5cd28763601d77053eace6febafcede8628076acfb3f",
+    "acquisition_sha256": "9b90243bd06fea37b1d890de81e40deb883f8ac048f7c53d7724b0ee4ef782ae",
+    "fit_input_audit_sha256": "f1593b72a648d59822f4fc428a4d84f05824bd8281bfd41ce71b052b0551e214",
+    "capacity_probe_receipt_sha256": "fb0b634b54338a3ef8a82f2d05414171cf19277e89c354f85282f41e8cf94ffe",
+    "fit_receipt_sha256": "eafee5aa250067d3d379f8473dfe66ddc6aa9dd586ac5070d9a6ac0265c528fb",
+    "training_runner_sha256": "948618692dafd9aad86c9d41975dda18bb8394489a618b8afbc1d44073211af8",
+    "acquisition_runner_sha256": "cd52762d0c6851048b5143ba5fdcaceed2a5e8956318c1fc765d033821976155",
+    "original_registration_sha256": "8efbec1aef4e670ea2461d3f1de50ab412ff6fbeda7cd6bc83c91e4b095d5efa",
+    "medium_prospective_proposal_sha256": "24c1eeb59763e855c499fa705e4747c347c27557ab6aa32ecd8731123593341b",
+    "medium_aggregate_sha256": "a3fc57732c5b3d28d62fb373858623ac122ffb1bf3f359becf66fd3efb8111a2",
+    "official_scorer_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+    "feature_metadata_sha256": "ee6c00bc9d5cb78aaab986630138512945301a3c588865ad61da5d0dea5ff634",
+    "source_metadata_sha256": "f0dc8b360249cc06cbfd43e4a743aa5b1f65c4085f5855c87e9c5bb481842a9e",
+    "prior_v1_development_acquisition_sha256": "511b38118324297a6ed40a5ed373a95cf3e6c8e29a4b1bc410688a35a875835d",
+    "prior_v2_development_acquisition_sha256": "30a2c5bf442bc5707fe6a1c9abf589cf756d61d8bb12a8d26bc18f71a60ce7d0",
+    "quintile_transform_sha256": "f1839e7eb1bdc0cb5f3f017ba73df6151a6bc78eb7bb9217041aff0bec389104"
+  },
+  "verification": {
+    "checkpoint_sha256_and_prediction_digests_reproduced": 3,
+    "frozen_medium_control_prediction_digest_reproduced": true,
+    "replayed_stock_date_keys": 699389,
+    "replayed_paired_dates": 105,
+    "replayed_neutralizer_columns": 300,
+    "all_models_scored_on_identical_keys": true,
+    "metric_replay_max_absolute_error": {
+      "neutral_corr": 0.0,
+      "raw_corr": 0.0,
+      "benchmark_neutral_contribution": 0.0
+    },
+    "all_year_aggregates_and_paired_counts_recomputed": true,
+    "contains_per_date_scores_or_sample_values": false
+  },
+  "boundaries": {
+    "retrospective_2019_audit": {
+      "dates_from_footer": 26,
+      "window": [
+        "2019-04-05",
+        "2019-09-27"
+      ],
+      "outcomes_scored_in_this_study": false,
+      "selection_use": "excluded"
+    },
+    "original_terminal": {
+      "sealed_dates": 78,
+      "outcomes_accessed": false
+    },
+    "medium_prospective": {
+      "protocol_rounds": 52,
+      "new_model_substituted": false,
+      "rounds_accessed": false
+    },
+    "new_target_diversity_or_postprocessing_arms_measured": false,
+    "official_submission": false
+  }
+}

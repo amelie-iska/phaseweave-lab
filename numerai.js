@@ -72,3 +72,35 @@ async function mediumComparison() {
   repaint();
 }
 mediumComparison().catch(()=>{get("numerai-medium-summary").textContent="The Medium comparison receipt could not load.";});
+
+async function breadthComparison() {
+  const response = await fetch("numerai-breadth-development-v1.json");
+  if (!response.ok) throw Error("Breadth comparison unavailable");
+  const report = await response.json();
+  const select = get("numerai-breadth-period");
+  const summary = get("numerai-breadth-summary");
+  const results = get("numerai-breadth-table");
+  function repaint() {
+    const period = select.value;
+    const stats = row => period === "overall" ? row.overall : row.by_year[period];
+    const contrast = stats(report.primary_contrast);
+    const delta = contrast.mean_paired_ncorr_delta;
+    const signed = (delta >= 0 ? "+" : "−") + num(Math.abs(delta));
+    const ordered = report.models.slice().sort((a, b) => stats(b).neutral_corr - stats(a).neutral_corr);
+    summary.textContent = "Restored quintiles vs same-family · " + signed + " mean neutral CORR · "
+      + contrast.wins + " wins, " + contrast.ties + " ties, " + contrast.losses + " losses across "
+      + contrast.compared_dates + " dates.";
+    results.replaceChildren(table(
+      ["Model", "Predictors", "Neutral CORR", "Raw CORR", "Benchmark-relative contribution", "Dates above LightGBM"],
+      ordered.map(row => {
+        const score = stats(row);
+        const wins = row.id === report.benchmark_id ? "—"
+          : score.neutral_corr_wins_over_benchmark + " / " + contrast.compared_dates;
+        return [row.label, row.predictors ?? "—", num(score.neutral_corr), num(score.raw_corr),
+          num(score.benchmark_neutral_contribution), wins];
+      })));
+  }
+  select.addEventListener("change", repaint);
+  repaint();
+}
+breadthComparison().catch(()=>{get("numerai-breadth-summary").textContent="The breadth comparison receipt could not load.";});
