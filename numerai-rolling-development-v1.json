@@ -1,0 +1,236 @@
+{
+  "comparison": "previously observed development",
+  "dates": 51,
+  "fit": {
+    "archive_receipt_sha256": {
+      "train": "997759a000908d88185d3a3b74366c679416cae3dc9ae7ea9f2066857685a887",
+      "validation": "9a14f467ad9d17c6abf894b0e285ff01ad4a14fee7558d8be1e6dee873682d32"
+    },
+    "capacity_peak_kib": 28929488,
+    "design_sha256": "8087a347d4a210b67a89492988750b736a7e2937f81cb784c4ac6e3970d84031",
+    "eligibility_key_sha256": {
+      "train": "22a9eb0b5fb46bd39e289a9712943882a816f79d55557fda78b3d2f2dd9e3cc2",
+      "validation": "d13bca386d1c5c2fc36b342576ff58eaa2b110968f8e1a87882fed705f494f60"
+    },
+    "iterations": 400,
+    "model_sha256": "0b61b4eadbd4bc341599e3656bc10d0de8c1f6604cfbb86c04bb2c7e83c27d8b",
+    "peak_kib": 28929488,
+    "training_dates": 873,
+    "training_keys": 4569861
+  },
+  "fit_sha256": "1d6deb434ad782c3ed19b4cda86d44719e658e6d5baf486d22b15b06044b052e",
+  "format": "phaseweave.numerai-rolling.v1",
+  "historical_score_sha256": "c8f33d463a9d83aaa024f410196b4fd534b27413d85ed42e62c04ba239724e5c",
+  "iterations": 400,
+  "keys": 353575,
+  "max_previous_score_difference": 4.163336342344337e-17,
+  "new_download_bytes": 0,
+  "overall": {
+    "all_numeric": {
+      "neutral_corr": 0.052933110951891627,
+      "neutral_corr_delta": -0.008441889793321408,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.016641820829323906,
+        0.00018807005478793814
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.016460162691239517,
+        -0.00028963170946126225
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 14,
+      "raw_corr": 0.04611631337444163,
+      "raw_corr_delta": -0.0072653145418142195
+    },
+    "lgbm_jupiter_60": {
+      "neutral_corr": 0.061375000745213036,
+      "neutral_corr_delta": 0.0,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_ties": 51,
+      "neutral_corr_wins": 0,
+      "raw_corr": 0.05338162791625585,
+      "raw_corr_delta": 0.0
+    },
+    "rolling_all_numeric": {
+      "neutral_corr": 0.053274804592550365,
+      "neutral_corr_delta": -0.008100196152662673,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.013144388027037067,
+        -0.0034069988079075595
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.012674063253001334,
+        -0.003477010615827846
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 10,
+      "raw_corr": 0.046356322110698824,
+      "raw_corr_delta": -0.007025305805557027
+    }
+  },
+  "parameters": {
+    "bagging_fraction": 0.75,
+    "bagging_freq": 1,
+    "deterministic": true,
+    "feature_fraction": 0.25,
+    "feature_pre_filter": false,
+    "force_col_wise": true,
+    "lambda_l2": 5.0,
+    "learning_rate": 0.035,
+    "max_bin": 6,
+    "max_depth": 6,
+    "min_data_in_leaf": 256,
+    "num_leaves": 31,
+    "num_threads": 12,
+    "objective": "regression",
+    "seed": 20261120,
+    "verbosity": -1
+  },
+  "peak_kib": 28929488,
+  "per_date_sha256": "542e532cbf32cfd12fff024b03a45844d0d67af16f120bb0c376e7077b17bdb4",
+  "plan_sha256": "486e52a74ad05490e7331445916048c8e481555e59260d444c68e0b0954cae89",
+  "purge": {
+    "basis": "NYSE proxy; provider per-stock historical publication clocks unavailable",
+    "horizon": 60,
+    "processing_allowance": 2,
+    "returns_lag": 2,
+    "session_62": "2020-12-16",
+    "session_64": "2020-12-18",
+    "sources": [
+      "https://docs.numer.ai/numerai-tournament/data",
+      "https://docs.numer.ai/numerai-tournament/scoring",
+      "https://ir.theice.com/press/news-details/2019/NYSE-Group-Announces-2020-2021-and-2022-Holiday-and-Early-Closings-Calendar/default.aspx"
+    ],
+    "strict_intervening_nyse_sessions": 81
+  },
+  "reference": "lgbm_jupiter_60",
+  "rolling": {
+    "additional_train": {
+      "dates": 38,
+      "first": "2020-01-03",
+      "last": "2020-09-18",
+      "stock_date_keys": 240418
+    },
+    "evaluation": {
+      "dates": 51,
+      "first": "2021-01-15",
+      "last": "2021-12-31",
+      "stock_date_keys": 353575
+    }
+  },
+  "score_dates": 51,
+  "score_key_sha256": "d640c0f93bc2679020dfbfac54ff87f292347630b8969eaf5338d8b4a405611f",
+  "score_keys": 353575,
+  "source_receipt_sha256": "f72eeacb2375661736e46d28224cf7a2717ddbcc6dd9fbe6db3b964db5f04132",
+  "source_sha256": "f0aa9f1e13488192badf9e61082aaee5f5346955d99808cc39d4a2db7c7cca09",
+  "terminal_read": false,
+  "training_target": "target_jupiter_60",
+  "versus_published": {
+    "all_numeric": {
+      "neutral_corr": 0.052933110951891627,
+      "neutral_corr_delta": -0.008441889793321408,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.016641820829323906,
+        0.00018807005478793814
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.016460162691239517,
+        -0.00028963170946126225
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 14,
+      "raw_corr": 0.04611631337444163,
+      "raw_corr_delta": -0.0072653145418142195
+    },
+    "lgbm_jupiter_60": {
+      "neutral_corr": 0.061375000745213036,
+      "neutral_corr_delta": 0.0,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_ties": 51,
+      "neutral_corr_wins": 0,
+      "raw_corr": 0.05338162791625585,
+      "raw_corr_delta": 0.0
+    },
+    "rolling_all_numeric": {
+      "neutral_corr": 0.053274804592550365,
+      "neutral_corr_delta": -0.008100196152662673,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.013144388027037067,
+        -0.0034069988079075595
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.012674063253001334,
+        -0.003477010615827846
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 10,
+      "raw_corr": 0.046356322110698824,
+      "raw_corr_delta": -0.007025305805557027
+    }
+  },
+  "versus_static": {
+    "all_numeric": {
+      "neutral_corr": 0.052933110951891627,
+      "neutral_corr_delta": 0.0,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_ties": 51,
+      "neutral_corr_wins": 0,
+      "raw_corr": 0.04611631337444163,
+      "raw_corr_delta": 0.0
+    },
+    "lgbm_jupiter_60": {
+      "neutral_corr": 0.061375000745213036,
+      "neutral_corr_delta": 0.008441889793321408,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.00018807005478794125,
+        0.016641820829323906
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.00028963170946126225,
+        0.016460162691239517
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 37,
+      "raw_corr": 0.05338162791625585,
+      "raw_corr_delta": 0.0072653145418142195
+    },
+    "rolling_all_numeric": {
+      "neutral_corr": 0.053274804592550365,
+      "neutral_corr_delta": 0.0003416936406587348,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.004374619133543257,
+        0.003819925727271216
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.00317459250521681,
+        0.0038124168344235592
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 31,
+      "raw_corr": 0.046356322110698824,
+      "raw_corr_delta": 0.00024000873625719217
+    }
+  },
+  "wheel_sha256": "cb19b5afea55b5b61cbb2131095f50538bd608a00655f23ad5d25ae3e3bf1c8d"
+}

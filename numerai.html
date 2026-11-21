@@ -22,11 +22,11 @@
   </section>
   <section class="arch-panel" id="fresh-validation"><h2>Fixed-candidate validation</h2>
    <p>The 2022–23 panel contains 60 weekly cross-sections and 402,488 matching stock-date keys. All 22 prediction vectors were sealed before targets and neutralizers were opened.</p>
-   <label>Scoring period <select id="numerai-fresh-period"><option value="audit">2022–23 · held-out candidates</option><option value="development">2020–21 · reused development with published LightGBM</option><option value="scale">2020–21 · 350 vs 1,017 vs 1,039 LightGBM inputs</option></select></label>
+   <label>Scoring period <select id="numerai-fresh-period"><option value="audit">2022–23 · held-out candidates</option><option value="development">2020–21 · reused development with published LightGBM</option><option value="scale">2020–21 · 350 vs 1,017 vs 1,039 LightGBM inputs</option><option value="rolling">2021 · rolling vs static training</option></select></label>
    <p id="numerai-fresh-summary" role="status">Loading the scored comparison.</p>
    <div class="arch-scroll" id="numerai-fresh-table"></div>
    <p>Paired intervals use circular 13-week resampling for overlapping outcomes. The 2022–23 comparison uses the fixed Medium tree blend as reference. Published LightGBM is available on the 2020–21 period shown here.</p>
-   <p><a href="numerai-2022-23-validation-v1.json">Held-out result</a> · <a href="numerai-neural-development-v1.json">Benchmark development results</a> · <a href="numerai-historical-uncertainty-v1.json">2019 and 2020–21 uncertainty</a> · <a href="numerai-scale-development-v1.json">Feature breadth results</a></p>
+   <p><a href="numerai-2022-23-validation-v1.json">Held-out result</a> · <a href="numerai-neural-development-v1.json">Benchmark development results</a> · <a href="numerai-historical-uncertainty-v1.json">2019 and 2020–21 uncertainty</a> · <a href="numerai-scale-development-v1.json">Feature breadth results</a> · <a href="numerai-rolling-development-v1.json">Matched 2021 recency results</a></p>
   </section>
   <section class="arch-panel" id="peer-freeze"><h2>Frozen Classic peer comparison</h2>
    <p>Ten public model IDs were fixed on November 21, 2026 at 02:24:47 UTC, in the provider’s MMC60 order. Rank 10, valois400_ty, had reputation 0.014322. The forward comparison begins with the first eligible Saturday opening after the freeze. Round scores must resolve at day 60 under the same Jupiter regime. PhaseWeave has no verified live rank.</p>
