@@ -30,3 +30,9 @@
 .surface-map-figure { margin: .55rem 0 .9rem; }
 #surface-map-chart { display: block; width: 100%; height: clamp(240px, 34vw, 370px); touch-action: none; }
 #surface-map-inspector[hidden] { display: none; }
+
+#surface-transport { border-top: 1px solid var(--line); margin-top: .8rem; padding-top: .8rem; }
+#surface-transport h3 { margin: 0 0 .35rem; }
+#surface-transport input[type="range"] { width: clamp(85px, 12vw, 155px); }
+#surface-transport p[data-walk] { margin: .3rem 0; }
+#surface-transport pre { columns: 2; max-width: 24rem; font-variant-numeric: tabular-nums; }

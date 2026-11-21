@@ -1,0 +1,238 @@
+{
+  "format": "phaseweave.binance-spot-k6-depth.v1",
+  "verified": true,
+  "assets": [
+    "BNB",
+    "BTC",
+    "ETH",
+    "SOL",
+    "USDC",
+    "USDT"
+  ],
+  "markets": {
+    "BNBBTC": [
+      "BNB",
+      "BTC"
+    ],
+    "BNBETH": [
+      "BNB",
+      "ETH"
+    ],
+    "BNBUSDC": [
+      "BNB",
+      "USDC"
+    ],
+    "BNBUSDT": [
+      "BNB",
+      "USDT"
+    ],
+    "BTCUSDC": [
+      "BTC",
+      "USDC"
+    ],
+    "BTCUSDT": [
+      "BTC",
+      "USDT"
+    ],
+    "ETHBTC": [
+      "ETH",
+      "BTC"
+    ],
+    "ETHUSDC": [
+      "ETH",
+      "USDC"
+    ],
+    "ETHUSDT": [
+      "ETH",
+      "USDT"
+    ],
+    "SOLBNB": [
+      "SOL",
+      "BNB"
+    ],
+    "SOLBTC": [
+      "SOL",
+      "BTC"
+    ],
+    "SOLETH": [
+      "SOL",
+      "ETH"
+    ],
+    "SOLUSDC": [
+      "SOL",
+      "USDC"
+    ],
+    "SOLUSDT": [
+      "SOL",
+      "USDT"
+    ],
+    "USDCUSDT": [
+      "USDC",
+      "USDT"
+    ]
+  },
+  "start_utc": "2026-11-21T05:02:30.186+00:00",
+  "end_utc": "2026-11-21T05:03:14.186+00:00",
+  "anchors": 45,
+  "anchor_interval_s": 1,
+  "sequence_aligned_k6": 4,
+  "fresh_k6": {
+    "1000": 1,
+    "250": 0,
+    "5000": 4
+  },
+  "coverage_by_market": {
+    "BNBBTC": {
+      "fresh_1000ms": 45,
+      "fresh_250ms": 31,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    },
+    "BNBETH": {
+      "fresh_1000ms": 42,
+      "fresh_250ms": 13,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    },
+    "BNBUSDC": {
+      "fresh_1000ms": 45,
+      "fresh_250ms": 40,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    },
+    "BNBUSDT": {
+      "fresh_1000ms": 45,
+      "fresh_250ms": 45,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    },
+    "BTCUSDC": {
+      "fresh_1000ms": 35,
+      "fresh_250ms": 33,
+      "fresh_5000ms": 35,
+      "sequence_aligned": 35
+    },
+    "BTCUSDT": {
+      "fresh_1000ms": 4,
+      "fresh_250ms": 4,
+      "fresh_5000ms": 4,
+      "sequence_aligned": 4
+    },
+    "ETHBTC": {
+      "fresh_1000ms": 45,
+      "fresh_250ms": 36,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    },
+    "ETHUSDC": {
+      "fresh_1000ms": 41,
+      "fresh_250ms": 41,
+      "fresh_5000ms": 41,
+      "sequence_aligned": 41
+    },
+    "ETHUSDT": {
+      "fresh_1000ms": 25,
+      "fresh_250ms": 25,
+      "fresh_5000ms": 25,
+      "sequence_aligned": 25
+    },
+    "SOLBNB": {
+      "fresh_1000ms": 28,
+      "fresh_250ms": 5,
+      "fresh_5000ms": 43,
+      "sequence_aligned": 45
+    },
+    "SOLBTC": {
+      "fresh_1000ms": 43,
+      "fresh_250ms": 24,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    },
+    "SOLETH": {
+      "fresh_1000ms": 45,
+      "fresh_250ms": 20,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    },
+    "SOLUSDC": {
+      "fresh_1000ms": 45,
+      "fresh_250ms": 44,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    },
+    "SOLUSDT": {
+      "fresh_1000ms": 45,
+      "fresh_250ms": 43,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    },
+    "USDCUSDT": {
+      "fresh_1000ms": 45,
+      "fresh_250ms": 37,
+      "fresh_5000ms": 45,
+      "sequence_aligned": 45
+    }
+  },
+  "source": {
+    "venue": "Binance Spot via Binance Vision",
+    "mode": "public sequence-aligned diff depth",
+    "listing_catalog_url": "https://data-api.binance.vision/api/v3/exchangeInfo?showPermissionSets=false&symbolStatus=TRADING",
+    "listing_catalog_observed_utc": "2026-11-21T04:56:34.162902+00:00",
+    "diff_stream": "wss://data-stream.binance.vision",
+    "bootstrap_endpoint": "https://data-api.binance.vision/api/v3/depth",
+    "bootstrap_levels_per_side": 100,
+    "checked_display_levels_per_side": 5,
+    "quote_clock": "Exchange event time, gated by strictly prior local monotonic receipt"
+  },
+  "stream": {
+    "updates": 6767,
+    "application_bytes": 5638031,
+    "bootstrap_requests": 15,
+    "bootstrap_successes": 15,
+    "bootstrap_failures": 0,
+    "rest_fallback_used": false,
+    "rest_fallback_venue_freshness": null
+  },
+  "integrity": {
+    "independently_verified_book_states": 600,
+    "sequence_gap_markets": [],
+    "future_event_pair_anchors": 0,
+    "stream_transport_errors": 0,
+    "book_rejection_counts": {
+      "BTCUSDC": {
+        "outside_snapshot_bound": 10
+      },
+      "BTCUSDT": {
+        "outside_snapshot_bound": 41
+      },
+      "ETHUSDC": {
+        "outside_snapshot_bound": 4
+      },
+      "ETHUSDT": {
+        "outside_snapshot_bound": 20
+      }
+    },
+    "complete_venue_event_spread_ms": {
+      "max": 2340,
+      "median": 1424.0
+    },
+    "max_complete_local_receipt_spread_ms": 2340,
+    "max_local_wall_monotonic_disagreement_ms": 1
+  },
+  "provenance": {
+    "listing_catalog_sha256": "d6469391ceed336b8da37927be7aad8ec785af5c5b2ff889f777d5110ba6bd31",
+    "capture_plan_sha256": "a22ea830e7e61bcbe964c3e5743f3805adeddd7b3e29b74ee257e0ae994a57dd",
+    "capture_receipt_sha256": "680652d899fbc250ee8f5061c005227155bb29a0b6efce2b5e4f12db9a7499c4",
+    "independent_receipt_sha256": "8936e34c2732b13e6d48d931d4329a8931488e32ced1cca7794737c5b767b017",
+    "registered_capture_runner_sha256": "c9ae47e43d29986bc8251eebb25f37205b97a59a59bc6293b77c37c9901f48c1",
+    "current_capture_runner_sha256": "ee5b2b795f44a8f4b66ee64be06a02f1744df34b53892c80822a999492b8e491",
+    "auditor_sha256": "2b160b58b9a69b83123ed220c3c5881594718dff4263c6aab54e4773b51d0c87"
+  },
+  "scope": {
+    "authentication": false,
+    "orders_sent": 0,
+    "raw_depth_published": false,
+    "displayed_depth_only": true,
+    "data_availability": "One short observed window, with bootstrap depth and fresh-event support explicitly masked"
+  }
+}

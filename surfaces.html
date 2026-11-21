@@ -8,7 +8,7 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="reasoning.css">
-  <link rel="stylesheet" href="surfaces.css?v=20261121-1">
+  <link rel="stylesheet" href="surfaces.css?v=20261121-2">
   <script defer src="core.js"></script>
   <script defer src="gate.js?v=20261121-2"></script>
   <script defer src="reasoning-core.js"></script>
@@ -16,7 +16,9 @@
   <script defer src="surface-genus-core.js?v=20261121-1"></script>
   <script defer src="surface-density.js"></script>
   <script defer src="complete-graph-rotation.js?v=20261121-1"></script>
-  <script defer src="surfaces.js?v=20261121-5"></script>
+  <script defer src="complete-map-gauge.js?v=20261121-2"></script>
+  <script defer src="complete-map-playback.js?v=20261121-4"></script>
+  <script defer src="surfaces.js?v=20261121-7"></script>
 </head>
 <body>
   <header class="top">
@@ -110,6 +112,34 @@
           </div>
           <figcaption>Rotate the two unfolded face incidences around their shared edge. Jade shows the current boundary, copper shows the other incidence, and blue marks the selected directed edge.</figcaption>
         </figure>
+        <section id="surface-transport" aria-labelledby="surface-walk-title">
+          <h3 id="surface-walk-title">Cyclic-qudit transport</h3>
+          <p><a href="complete-map-transport-v1.json">Exact qutrit verification</a></p>
+          <p>Choose phase coefficients on the certified graph. The clouds show populations on the two visible boundaries as the walker evolves on every directed edge.</p>
+          <div class="surface-map-controls">
+            <label>Levels <select data-walk="radix"><option>2</option><option selected>3</option><option>5</option><option>7</option></select></label>
+            <label>Connection <select data-walk="connection"><option value="flat" selected>Flat with global phase</option><option value="local">One link with local flux</option><option value="flat-local">Global phase + local flux</option><option value="zero">Zero field</option></select></label>
+            <label>Global loop <select data-walk="period"></select></label>
+            <label>Link exponent <input data-walk="exponent" type="range" min="0" max="2" value="1"></label>
+            <label>Vertex rephasing <input data-walk="gauge" type="range" min="0" max="2" value="0"></label>
+            <label>Operator <select data-walk="operator"><option value="coin">Vertex coin + phase + shift</option><option value="shift">Phase + shift</option></select></label>
+            <label>Population <select data-walk="measure"><option value="total">All charges</option></select></label>
+          </div>
+          <div class="surface-map-controls">
+            <button data-walk="play" type="button">Pause walk</button>
+            <button data-walk="start" type="button">Start at selected dart</button>
+            <button data-walk="inspect" type="button">Show marked edge</button>
+            <label>Time step <input data-walk="time" type="range" min="0" max="48" value="0"></label>
+            <label>Interval <select data-walk="speed"><option value="300">0.3 s</option><option value="650" selected>0.65 s</option><option value="1500">1.5 s</option></select></label>
+          </div>
+          <p data-walk="setup"></p>
+          <p data-walk="clock"></p>
+          <p data-walk="flux"></p>
+          <p data-walk="link"></p>
+          <p data-walk="invariants"></p>
+          <details><summary>Follow the selected transition</summary><p data-walk="trace"></p></details>
+          <details><summary>Population by vertex</summary><pre data-walk="masses"></pre></details>
+        </section>
         <details>
           <summary>All vertex rotations</summary>
           <pre id="surface-rotation" aria-label="Cyclic order of neighbors around each vertex"></pre>
@@ -130,6 +160,11 @@
         <h2>Complete trading graphs</h2>
         <p>For n ≥ 3 the minimum orientable genus of Kₙ is ⌈(n−3)(n−4)/12⌉. One and two assets need genus zero. The result counts each bidirectional pair as a single undirected edge. A five-asset complete graph needs one handle, an eight-asset graph needs two, and a 14-asset graph needs ten. For K₃ through K₁₃, the certificate derives every face from the ordered neighbors and checks both genus bounds. The eight-handle K₁₃ witness has 50 triangles and a hexagon. The quote-driven field above uses a separate cellular mesh.</p>
         <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC225066/">Ringel and Youngs’ proof</a> · <a href="fx-all-opportunities-v1.json">Five-asset all-route forecast results</a> · <a href="./#front-gate-basket">Live Gate basket</a></p>
+      </section>
+      <section>
+        <h2>Observed six-asset spot depth</h2>
+        <p>A Binance Vision capture covered the 15 direct markets linking BNB, BTC, ETH, SOL, USDC and USDT. Four of 45 common-clock cuts had sequence-aligned two-sided top-five books in every market. All 15 books were within one second at one cut. The coefficient controls above drive a separate mathematical walk.</p>
+        <p><a href="binance-k6-depth-v1.json">Measured depth and freshness</a></p>
       </section>
       <section>
         <h2>Density and time</h2>

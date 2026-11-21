@@ -277,6 +277,7 @@
   let completeMap;
   const mapChart=item("map-chart");
   const drawMap=Reasoning3D.bind(mapChart,item("map-camera"),renderMap,()=>{}, {yaw:-12,pitch:48});
+  const walkPlayback=CompleteMapPlayback.bind(item("transport"),document.getElementById("complete-map"),renderMap,setMapFace,reducedMotion);
   function polygonWalk(face, step, flipped) {
     const order=[...face.slice(step),...face.slice(0,step)];
     const radius=1.3, offset=radius*Math.sqrt(3)/2;
@@ -294,13 +295,15 @@
     const step=CompleteGraphRotation.dartStep(completeMap,faceIndex,index);
     const {u,v,next,opposite}=step;
     const same=opposite.face===faceIndex ? " (the same face)" : "";
-    item("map-step").textContent="Dart "+(index+1)+" of "+face.length+" · "+u+" → "+v+
+    const dartLabel="Dart "+(index+1)+" of "+face.length+" · "+u+" → "+v+
       " turns to "+v+" → "+next+" · The reverse belongs to face "+(opposite.face+1)+same+".";
+    if (item("map-step").textContent!==dartLabel) item("map-step").textContent=dartLabel;
     mapChart.setAttribute("aria-label","Unfolded face "+(faceIndex+1)+" and face "+(opposite.face+1)+
       " along directed edge "+u+" to "+v);
     const shown=polygonWalk(face,index,false);
     const other=polygonWalk(completeMap.faces[opposite.face],opposite.index,true);
     const scene={points:[],lines:[],faces:[],axes:[],grid:false,framingScale:.4};
+    const snapshot=walkPlayback.snapshot(faceIndex,opposite.face,u,v);
     for (const [walk,color] of [[shown,"jade"],[other,"copper"]]) {
       const {coords,order}=walk;
       scene.faces.push({coords,color,alpha:.16});
@@ -309,6 +312,10 @@
         if (walk===shown || i>=2) scene.points.push({
           point,color,radius:i<3 ? 3.2 : 1.5,label:i<3 ? String(order[i]) : "",
         });
+        if (snapshot && (walk===shown || i>=2)) {
+          const mass=snapshot.population[order[i]];
+          if (mass>1e-4) scene.points.push({point,color:snapshot.color,cloud:4+30*Math.sqrt(mass),radius:0,alpha:.76});
+        }
         if (item("map-dessin").checked && (walk===shown || i>0)) {
           const b=coords[(i+1)%coords.length];
           scene.points.push({point:point.map((x,k)=>(x+b[k])/2),color:"text",radius:1.8,alpha:.84});
@@ -341,6 +348,7 @@
     item("map-inspector").hidden=!CompleteGraphRotation.supported.includes(n);
     if (item("map-inspector").hidden) {
       completeMap=null;
+      walkPlayback.setup(null);
       message.textContent="This view includes verified rotation systems for three through thirteen assets.";
       return;
     }
@@ -353,6 +361,7 @@
       (faces.length===1 ? " face (" : " faces (")+counts+") · "+(2*genus)+" independent homology directions.";
     lines.textContent=rotation.map((row,i)=>i+" → "+row.join(" → ")+" → "+row[0]).join("\n");
     options(item("map-face"),faces.map((face,i)=>["Face "+(i+1)+" · "+face.length+" sides",i]));
+    walkPlayback.setup(completeMap);
     setMapFace(0);
   }
   const capacity = () => {
