@@ -1,14 +1,14 @@
 {
   "schema": "phaseweave.numerai-front.v1",
-  "checked_utc": "2026-11-21T07:15:39+00:00",
+  "checked_utc": "2026-11-21T19:20:52+00:00",
   "leaderboard_metric": "MMC60 reputation",
   "latest_round": {
-    "number": 1403,
+    "number": 1404,
     "target": "target_jupiter_60",
-    "dataDatestamp": 20261119,
-    "openTime": "2026-11-20T13:00:23Z",
-    "closeTime": "2026-11-21T12:00:00Z",
-    "resolveTime": "2027-02-17T16:00:00Z"
+    "dataDatestamp": 20261120,
+    "openTime": "2026-11-21T13:12:24Z",
+    "closeTime": "2026-11-24T12:00:00Z",
+    "resolveTime": "2027-02-18T16:00:00Z"
   },
   "latest_generally_resolved": {
     "dataDatestamp": 20260826,
