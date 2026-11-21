@@ -1,0 +1,82 @@
+{
+  "access": {
+    "benchmark_data_page_bytes": 0,
+    "network_bytes": 0,
+    "neutralizer_data_page_bytes": 0,
+    "target_data_page_bytes": 0,
+    "terminal_data_page_bytes": 0,
+    "terminal_predictions_generated": 0,
+    "terminal_scores": null
+  },
+  "acquisition_finished_utc": "2026-11-20T22:41:32.413593+00:00",
+  "archived_trainer_sha256": "5818952d306587475273044eae126bc944b4a877ee6d50f57ffa5da1baa475e2",
+  "checker_sha256": "2bfa6ed8d399d8c562ab59549de85934ea661427ae73afd0f8b00bdc8d4d5032",
+  "development_fixture": {
+    "allowed_development_payload_bytes": 51165373,
+    "allowed_ranges": 15,
+    "dates": 105,
+    "feature_ranges_all_covered_by_original_digests": true,
+    "guarded_arrow_reads": 652,
+    "inference_date_bounds": [
+      "2020-01-03",
+      "2021-12-31"
+    ],
+    "key_only_subranges_verified_by_decoded_keys": 4,
+    "keys": 699389,
+    "matches_original_candidate_prediction_bytes": true,
+    "prediction_float64_le_sha256": "b299d1f0f0b692a7c8927fce3cc202e01dfe132dd1888fd173de46bee96afe10",
+    "sorted_keys_sha256": "3c62b7103fbefa5766a4879c22607fffdaeae1b0def9ab5b4b1a8c2ba20e19ab",
+    "source_group_date_bounds": [
+      "2019-08-23",
+      "2022-07-15"
+    ]
+  },
+  "features": 128,
+  "format": "phaseweave.numerai-terminal-predictor-readiness.v1",
+  "inputs_sha256": {
+    "acquisition": "511b38118324297a6ed40a5ed373a95cf3e6c8e29a4b1bc410688a35a875835d",
+    "candidate": "cc512af0420a138ae9201b46650f65fbc0b2168b1ddeed6eb5d6d52fb4f84b90",
+    "input_audit": "28d9243d47ff57be54a2200ec317d885e990241484b45ae0bd65803e6d0e0dd2",
+    "key_receipt": "bcc5a5ca5988e57cd12288da04643d845be15fb9df43dad00ca29a60559a9bf2",
+    "plan": "166c19ae26553b6f818f03eb2abf41e3c0b4daea5bb5434c8722983543aa8c2e",
+    "selection": "5c5586682be2b508d9f33a211273906fda5e5d9079c4aa87f7aedd6f098e89fa"
+  },
+  "model_sha256": "43886adb679e22534a8ec9944e7740f74203bc701c322a881a9d314442e00649",
+  "ordered_feature_list_sha256": "9cc5c032c9024cfd322e7b3c5e67b4fe230e6de274c51dd7936fdee0b1fb2fd2",
+  "original_candidate": "hgb-f128-l31",
+  "original_development_benchmark_neutral_corr": 0.04596967115599025,
+  "original_development_neutral_corr": 0.01814713719962493,
+  "outstanding": [
+    "project-wide untouched-outcome attestation",
+    "historical predictor availability and target maturity verification",
+    "complete native key alignment across feeds",
+    "externally authorized predictor freeze and separate score release"
+  ],
+  "scope": "Original official-comparator readiness; no live round, official rank, return, or gate change.",
+  "selection_rule_reproduced": true,
+  "terminal_metadata": {
+    "benchmark_and_neutralizer_objects_separate": true,
+    "excluded_validation_column_overlap_bytes": 0,
+    "first": "2025-01-03",
+    "footer_only": true,
+    "last": "2026-06-26",
+    "physical_group_date_bounds": [
+      "2024-11-22",
+      "2026-07-31"
+    ],
+    "planned_dates": 78,
+    "planned_keys": 535930,
+    "planned_payload_bytes": 30878213,
+    "planned_ranges": 9,
+    "prior_physical_benchmark_overlap_reported_bytes": 6622100,
+    "validation_predictor_groups": [
+      10,
+      11,
+      12
+    ]
+  },
+  "training_audit_started_utc": "2026-11-20T22:41:51.706059+00:00",
+  "training_dates": 835,
+  "training_iterations": 160,
+  "training_rows": 4329443
+}

@@ -61,6 +61,15 @@
       </table></div>
       <p><a href="binance-k6-reference-health-v1.json">Verified market-by-market coverage and exact timestamps</a></p>
     </section>
+    <section class="arch-panel" aria-labelledby="k6-joint-title">
+      <h2 id="k6-joint-title">Depth and reference prices on the same clock</h2>
+      <p>One live connection recorded both sources at 90 common UTC cuts. Both were within one second at 1,126 of 1,350 market observations. The venue execution-rule evidence required to model fills remained unavailable.</p>
+      <div class="arch-scroll" role="region" aria-label="Route source coverage" tabindex="0"><table aria-label="Depth and reference support by replay timing">
+        <thead><tr><th scope="col">Coverage requirement</th><th scope="col">Paired route observations</th><th scope="col">Scheduled</th></tr></thead>
+        <tbody><tr><th scope="row">At route origin</th><td>11,042</td><td>28,800</td></tr><tr><th scope="row">At origin and next cut</th><td>8,674</td><td>28,480</td></tr><tr><th scope="row">At origin and each leg’s arrival</th><td>8,238</td><td>27,180</td></tr></tbody>
+      </table></div>
+      <p><a href="binance-k6-joint-source-v1.json">Verified coverage for all 320 routes</a></p>
+    </section>
     <section class="arch-panel" aria-labelledby="k6-source-title">
       <h2 id="k6-source-title">Market evidence</h2>
       <p>The replay spends divisible amounts, walks up to five recorded levels on each side, and deducts a hypothetical fee from the output of every leg. Margins use ordinary basis points. The scenarios do not include venue lot and minimum-order filters. The capture records books and modeled conversions. No orders were sent.</p>

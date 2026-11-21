@@ -1,0 +1,6545 @@
+{
+  "authentication": false,
+  "book_coverage": {
+    "fresh_depth_book_cuts": 1344,
+    "fresh_reference_book_cuts": 1132,
+    "full_15_depth_cuts": 84,
+    "full_15_paired_cuts": 0,
+    "full_15_reference_cuts": 0,
+    "paired_book_cuts": 1126,
+    "paired_book_cuts_from_null_fallback": 0
+  },
+  "by_route": {
+    "USDT\u2192BNB\u2192BTC\u2192ETH\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192ETH\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192SOL\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192SOL\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192USDC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192USDC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 87,
+        "with_depth": 81,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192BTC\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192BTC\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192SOL\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192SOL\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192USDC\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192USDC\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192BTC\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192BTC\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 78,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 74,
+        "scheduled": 86,
+        "with_depth": 74,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192ETH\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 74,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192ETH\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 73,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192USDC\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 74,
+        "scheduled": 85,
+        "with_depth": 74,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192USDC\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 81,
+        "scheduled": 87,
+        "with_depth": 81,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192BTC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192BTC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 84,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192ETH\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192ETH\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 78,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192SOL\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192SOL\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 87,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192ETH\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192ETH\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192SOL\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 75,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192SOL\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 75,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 86,
+        "with_depth": 76,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192USDC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192USDC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 87,
+        "with_depth": 83,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192BNB\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 75,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192BNB\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192SOL\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 75,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192SOL\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192USDC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192USDC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 87,
+        "with_depth": 83,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192BNB\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 85,
+        "with_depth": 75,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192BNB\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 74,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 75,
+        "scheduled": 85,
+        "with_depth": 75,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 76,
+        "scheduled": 86,
+        "with_depth": 76,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192ETH\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192ETH\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 81,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 82,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192USDC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 4,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 5
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 81,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192USDC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 4,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 5
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 81,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 82,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 83,
+        "scheduled": 87,
+        "with_depth": 83,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192BNB\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192BNB\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 74,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 75,
+        "scheduled": 85,
+        "with_depth": 75,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 82,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192ETH\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192ETH\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 74,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 81,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 82,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192SOL\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 4,
+        "scheduled": 84,
+        "with_depth": 74,
+        "with_reference": 5
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 75,
+        "scheduled": 85,
+        "with_depth": 75,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192SOL\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 4,
+        "scheduled": 84,
+        "with_depth": 80,
+        "with_reference": 5
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 81,
+        "scheduled": 85,
+        "with_depth": 81,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 82,
+        "scheduled": 86,
+        "with_depth": 82,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 83,
+        "scheduled": 87,
+        "with_depth": 83,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192BTC\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192BTC\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192SOL\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 4,
+        "scheduled": 85,
+        "with_depth": 74,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192SOL\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 4,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192USDC\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192USDC\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 6,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 6
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192BNB\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192BNB\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192SOL\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192SOL\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192USDC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192USDC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 87,
+        "with_depth": 81,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BNB\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 27,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 12,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 11,
+        "scheduled": 85,
+        "with_depth": 74,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BNB\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 73,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BTC\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 12,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 12,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BTC\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 84,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192USDC\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192USDC\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 87,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BNB\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 12,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 11,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BNB\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 73,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BTC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 27,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 11,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 12,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BTC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 78,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 84
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192SOL\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 9,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192SOL\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 87,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192BTC\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192BTC\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 27,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 27,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 86,
+        "with_depth": 74,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192ETH\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 74,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192ETH\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192USDC\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 74,
+        "scheduled": 85,
+        "with_depth": 74,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192USDC\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 81,
+        "scheduled": 87,
+        "with_depth": 81,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192BNB\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 2,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 2
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 2,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 2
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192BNB\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192ETH\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192ETH\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192USDC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 5
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192USDC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 5
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 81,
+        "scheduled": 87,
+        "with_depth": 81,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BNB\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BNB\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BTC\u2192BNB\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BTC\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BTC\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192USDC\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192USDC\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 87,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BNB\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 11,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BNB\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BTC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 12,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BTC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192ETH\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192ETH\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192SOL\u2192USDC\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 87,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192BTC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192BTC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 28,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192ETH\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192ETH\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192SOL\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 80,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 84,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 74,
+        "scheduled": 85,
+        "with_depth": 74,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192SOL\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192USDC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 87,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192BNB\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 2,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 2
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 2,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 2
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192BNB\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 27,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 7,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 27,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 7,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192ETH\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192ETH\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192SOL\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 5
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192SOL\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 5,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 5
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 85,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192USDC\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 81,
+        "scheduled": 87,
+        "with_depth": 81,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BNB\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BNB\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 22,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BTC\u2192BNB\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BTC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BTC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192SOL\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 9,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192SOL\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 10,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 10
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 79,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 85
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192USDC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 87,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 87
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BNB\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 9,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 26,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 11,
+        "scheduled": 85,
+        "with_depth": 74,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BNB\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 80,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 84,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 73,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 84,
+        "scheduled": 89,
+        "with_depth": 84,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BTC\u2192BNB\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 12,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 3,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 3
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 10,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 10
+      },
+      "same_cut": {
+        "paired": 29,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 29
+      },
+      "sequential_arrivals": {
+        "paired": 12,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 12
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BTC\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BTC\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 85,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 87,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 80,
+        "scheduled": 86,
+        "with_depth": 80,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192ETH\u2192BNB\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 1,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 1
+      },
+      "same_cut": {
+        "paired": 11,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 12
+      },
+      "sequential_arrivals": {
+        "paired": 1,
+        "scheduled": 84,
+        "with_depth": 78,
+        "with_reference": 1
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192ETH\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 5,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 5
+      },
+      "same_cut": {
+        "paired": 23,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 23
+      },
+      "sequential_arrivals": {
+        "paired": 8,
+        "scheduled": 85,
+        "with_depth": 85,
+        "with_reference": 8
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192ETH\u2192BTC\u2192BNB\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 84,
+        "with_depth": 84,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192ETH\u2192BTC\u2192USDT": {
+      "next_cut": {
+        "paired": 0,
+        "scheduled": 89,
+        "with_depth": 85,
+        "with_reference": 0
+      },
+      "same_cut": {
+        "paired": 0,
+        "scheduled": 90,
+        "with_depth": 87,
+        "with_reference": 0
+      },
+      "sequential_arrivals": {
+        "paired": 0,
+        "scheduled": 85,
+        "with_depth": 79,
+        "with_reference": 0
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192ETH\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 86,
+        "scheduled": 86,
+        "with_depth": 86,
+        "with_reference": 86
+      }
+    },
+    "USDT\u2192USDC\u2192SOL\u2192USDT": {
+      "next_cut": {
+        "paired": 89,
+        "scheduled": 89,
+        "with_depth": 89,
+        "with_reference": 89
+      },
+      "same_cut": {
+        "paired": 90,
+        "scheduled": 90,
+        "with_depth": 90,
+        "with_reference": 90
+      },
+      "sequential_arrivals": {
+        "paired": 87,
+        "scheduled": 87,
+        "with_depth": 87,
+        "with_reference": 87
+      }
+    }
+  },
+  "capture_sha256": "2bd15f06293a3d5675d640c044f1b6a51290049520b993b73c55b6561cccff2f",
+  "captured": {
+    "bootstrap_successes": 15,
+    "bytes": 28932388,
+    "eligible_depth_tape_temporal_span": 15829,
+    "messages": 20803,
+    "requests": 15,
+    "total_avgPrice": 1472,
+    "total_depthUpdate": 17426,
+    "total_referencePrice": 1905
+  },
+  "clock_max_divergence_ns": 7245,
+  "clock_max_sampling_bracket_ns": 15340,
+  "depth": {
+    "anchors": 90,
+    "capture_receipt_sha256": "0c62c979163ceac41783800eb32448ed81e294cf2272c4d541f7cbe0f374ec0a",
+    "complete_local_receipt_spread_max_ms": 2382,
+    "complete_venue_event_spread_max_ms": 2383,
+    "complete_venue_event_spread_median_ms": 183,
+    "exact_anchor_books": 1347,
+    "exchange_event_regressions": {},
+    "format": "phaseweave.binance-spot-k6-depth-long-independent.v1",
+    "fresh_complete_k6": {
+      "1000": 84,
+      "250": 31,
+      "5000": 87
+    },
+    "local_wall_projection_disagreement_max_ms": 1,
+    "plan_sha256": "9b7fd0232d9b74323f9f8039ab072bea46637e2781dcb20ef224c823d0f3748b",
+    "registered_markets": 15,
+    "sequence_anchors_sha256": "4dffc3a5a50184ec54cc6434444f97a2e15ccdaf12da385ff818f692851dabeb",
+    "sequence_complete_k6": 87,
+    "sequence_gap_events": {},
+    "snapshot_noncoverage_by_market": {
+      "BTCUSDT": 3
+    },
+    "verified": true,
+    "verifier_sha256": "88dbb69100a3db9136266871b5f81d03ea127dc297e826b24b40ed231fa86030"
+  },
+  "depth_independent_sha256": "553ee7b09edbcaefdc67c8c143f00ca8880d1a13182bff8c5d0d904e590e2ba5",
+  "execution_rule_metadata_acquired": false,
+  "fits": 0,
+  "format": "phaseweave.binance-k6-joint-source-diagnostic.v1",
+  "fully_execution_rule_eligible_routes": 0,
+  "join_verifier_sha256": "afad07b3ed04da521f209ab386ad8c862bcaddad2511ed44d3fdaf4a74a1f5bf",
+  "markets": 15,
+  "measurement_cuts": 90,
+  "measurement_first_utc_ms": 1795241832000,
+  "orders_sent": 0,
+  "oriented_routes": 320,
+  "overlap_age_ms": 1000,
+  "phase": "diagnostic only",
+  "plan_sha256": "9b7fd0232d9b74323f9f8039ab072bea46637e2781dcb20ef224c823d0f3748b",
+  "reference_drop_reasons": {},
+  "registered_market_cut_total": 1350,
+  "route_overlap_by_length": {
+    "3_legs/next_cut": {
+      "paired": 1250,
+      "scheduled": 1780,
+      "with_depth": 1738,
+      "with_reference": 1276
+    },
+    "3_legs/same_cut": {
+      "paired": 1344,
+      "scheduled": 1800,
+      "with_depth": 1770,
+      "with_reference": 1364
+    },
+    "3_legs/sequential_arrivals": {
+      "paired": 1210,
+      "scheduled": 1740,
+      "with_depth": 1688,
+      "with_reference": 1242
+    },
+    "4_legs/next_cut": {
+      "paired": 2702,
+      "scheduled": 5340,
+      "with_depth": 5184,
+      "with_reference": 2792
+    },
+    "4_legs/same_cut": {
+      "paired": 3070,
+      "scheduled": 5400,
+      "with_depth": 5292,
+      "with_reference": 3140
+    },
+    "4_legs/sequential_arrivals": {
+      "paired": 2571,
+      "scheduled": 5160,
+      "with_depth": 4968,
+      "with_reference": 2682
+    },
+    "5_legs/next_cut": {
+      "paired": 3362,
+      "scheduled": 10680,
+      "with_depth": 10308,
+      "with_reference": 3512
+    },
+    "5_legs/same_cut": {
+      "paired": 4248,
+      "scheduled": 10800,
+      "with_depth": 10548,
+      "with_reference": 4376
+    },
+    "5_legs/sequential_arrivals": {
+      "paired": 3188,
+      "scheduled": 10200,
+      "with_depth": 9752,
+      "with_reference": 3376
+    },
+    "6_legs/next_cut": {
+      "paired": 1360,
+      "scheduled": 10680,
+      "with_depth": 10248,
+      "with_reference": 1440
+    },
+    "6_legs/same_cut": {
+      "paired": 2380,
+      "scheduled": 10800,
+      "with_depth": 10512,
+      "with_reference": 2472
+    },
+    "6_legs/sequential_arrivals": {
+      "paired": 1269,
+      "scheduled": 10080,
+      "with_depth": 9564,
+      "with_reference": 1372
+    }
+  },
+  "scope": "Unscheduled source diagnostic outside the prospective benchmark, no credentials or orders",
+  "verified": true
+}
