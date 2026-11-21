@@ -1,0 +1,133 @@
+{
+  "benchmark_vector_bytes": 0,
+  "checked_raw_cells": 99,
+  "comparisons": {
+    "diverse-target-fullwidth-blend": {
+      "interval_95": {
+        "13": null,
+        "26": null
+      },
+      "losses": 8,
+      "mean_delta": -0.003918232820541986,
+      "ties": 0,
+      "wins": 3
+    },
+    "factor-neutral60-slot3": {
+      "interval_95": {
+        "13": null,
+        "26": null
+      },
+      "losses": 11,
+      "mean_delta": -0.021263079387536823,
+      "ties": 0,
+      "wins": 0
+    },
+    "jupiter20-slot2": {
+      "interval_95": {
+        "13": null,
+        "26": null
+      },
+      "losses": 7,
+      "mean_delta": -0.004966704973854398,
+      "ties": 0,
+      "wins": 4
+    },
+    "jupiter60-slot2": {
+      "interval_95": {
+        "13": null,
+        "26": null
+      },
+      "losses": 8,
+      "mean_delta": -0.005065773641233607,
+      "ties": 0,
+      "wins": 3
+    },
+    "jupiter60-slot3": {
+      "interval_95": {
+        "13": null,
+        "26": null
+      },
+      "losses": 6,
+      "mean_delta": 0.0005282302615233979,
+      "ties": 0,
+      "wins": 5
+    },
+    "rolling-all-1039": {
+      "interval_95": {
+        "13": null,
+        "26": null
+      },
+      "losses": 8,
+      "mean_delta": -0.00530652337179188,
+      "ties": 0,
+      "wins": 3
+    },
+    "same-target-fullwidth-blend": {
+      "interval_95": {
+        "13": null,
+        "26": null
+      },
+      "losses": 6,
+      "mean_delta": 0.0002406149712725655,
+      "ties": 0,
+      "wins": 5
+    },
+    "static-all-1039": {
+      "interval_95": {
+        "13": null,
+        "26": null
+      },
+      "losses": 4,
+      "mean_delta": 0.0008564144263247375,
+      "ties": 0,
+      "wins": 7
+    }
+  },
+  "data_registration_sha256": "d30e2db84333e83526321dc3b6dc8a2656cee587b329944c04867fe8c53b6469",
+  "dates": 11,
+  "forecast_file_sha256": "88ea47399cba4034d60507c84aa7f6f01a7b349d4e227fbb91ae5b8b13e3c042",
+  "forecast_seal_sha256": "8980a34d9bc051d99612fc55d157de054e9358d99e958af549a88cd8ddf51d9e",
+  "format": "phaseweave.numerai-spring-2024-published-score.v1",
+  "independent_raw_corr_max_abs": 1.3877787807814457e-16,
+  "interval_scope": "11 dates are shorter than either registered block",
+  "keys": 73074,
+  "materialized_target_rows": 73074,
+  "means": {
+    "diverse-target-fullwidth-blend": 0.02541651827254836,
+    "factor-neutral60-slot3": 0.008071671705553528,
+    "jupiter20-slot2": 0.024368046119235952,
+    "jupiter60-slot2": 0.024268977451856744,
+    "jupiter60-slot3": 0.02986298135461375,
+    "legacy-eight-feature-ridge": -0.009783784710961986,
+    "lgbm_jupiter_60": 0.02933475109309035,
+    "rolling-all-1039": 0.024028227721298468,
+    "same-target-fullwidth-blend": 0.02957536606436291,
+    "static-all-1039": 0.03019116551941509
+  },
+  "metric": "Numerai raw CORR, equal date weights",
+  "model_registration_sha256": "e3a0a5181746ba985fd1611767bade07ee7d294187b57d8866a527f6f6944b30",
+  "network_bytes": 0,
+  "neutralizer_bytes": 0,
+  "original_control_max_abs": 0.0,
+  "original_pilot_sha256": "2c4cb9639ea6b50ca4705858df9a75c7ce9febfaeb1fdbcdbe886e060f7e8cbe",
+  "original_target_chunk_sha256": "291a25364f44ec1c9c749e354643d36695f303ab8928f8833d9d10dd1993528a",
+  "per_date_sha256": "c52a229f49e6d9c610fe4570158b72f7fdcae5a85e7ed83c08e8f5ee506f2615",
+  "physical_target_chunk_bytes": 78289,
+  "primary": [
+    "diverse-target-fullwidth-blend",
+    "lgbm_jupiter_60"
+  ],
+  "ridge_file_sha256": "1e875946a98d9cfd7b37136fe92d34bd783c741029715dda2f1cc4b2515484cb",
+  "scope": "Fixed local 1,039-feature predictions versus original official benchmark score aggregates on previously scored dates",
+  "score_source_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+  "sorted_native_keys_sha256": "bae64dc2cb2f40145ec670539bc8cac56147bb6d220bb2651625a020f999b1d0",
+  "source_footer_sha256": "69d56a3676819a81a7d840f8a6fc16b20646560f571bd153b64c017ca37b959e",
+  "source_sha256": "a53c490b26dcbcd57113a73719c82e293e3f4b5e7d3eb4bbeaee2ce8b97cba80",
+  "target": "target_jupiter_60",
+  "target_row_group": 9,
+  "terminal_bytes": 0,
+  "window": [
+    "2024-04-19",
+    "2024-06-28"
+  ]
+}
