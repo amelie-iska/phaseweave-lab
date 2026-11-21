@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="circuit-depth.js"></script>
+ <title>Repeated qutrit layers · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Page controls">
+  <a class="button" href="circuit-radix.html">Circuit radix</a><a class="button" href="architecture.html">TokenGT walkthrough</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Repeated qutrit layers</h1><p class="arch-lead">Six wires, fixed model size and one, two or four repetitions of the learned circuit.</p></header>
+  <section class="arch-panel" aria-labelledby="depth-results-title">
+   <h2 id="depth-results-title">Depth and forecasting error</h2>
+   <p>Four entangling layers improved on one on the November afternoon and September stress panels, and increased error on the CHF panel. The one-layer product arm had the lowest two-seed mean on all five panels.</p>
+   <div class="arch-period-controls">
+    <label>Evaluation panel <select id="depth-panel"><option value="afternoon">Reused November afternoon</option><option value="test">Reused October</option><option value="new_asset">Reused CHF</option><option value="stress">Reused September stress</option><option value="validation">Checkpoint validation</option></select></label>
+    <label>Initialization <select id="depth-report-seed"><option value="mean">Mean of both seeds</option><option value="20261225">20261225</option><option value="20261226">20261226</option></select></label>
+    <label>Paired difference <select id="depth-contrast"><option value="product">Entangling − matched product</option><option value="one">Entangling − one layer</option><option value="maxplus">Entangling − matched max-plus</option></select></label>
+   </div>
+   <p id="depth-status" role="status">Loading verified forecasts.</p>
+   <div class="arch-scroll" id="depth-scores" role="region" aria-label="Repeated-layer forecast comparison" tabindex="0"></div>
+   <p>MAE is in log basis points. Negative changes favor the candidate. The intervals resample UTC days with the selected seeds fixed.</p>
+   <p><a href="manuscripts/stacked-clock-fx-v1/compact.pdf">Read the research note</a> · <a href="manuscripts/stacked-clock-fx-v1/sources.zip">Download LaTeX and score data</a></p>
+   <p><a href="stacked-clock-fx-v1.json">Forecast evidence and resource measurements</a> · <a href="stacked-clock-native-v1.json">Native cuTensorNet verification</a> · <a href="stacked-clock-independent-v1.json">Independent score replay</a></p>
+  </section>
+  <section class="arch-panel" aria-labelledby="depth-trace-title">
+   <h2 id="depth-trace-title">Inspect one observed input frame</h2>
+   <p>Each model uses the same observed FX training frame. The bars show the probability of measuring each of the three levels on each wire.</p>
+   <div class="arch-period-controls">
+    <label>Trace circuit <select id="depth-arm"><option value="entangling">Entangling</option><option value="product">Product</option><option value="dephased">Dephased</option><option value="maxplus">Max-plus</option></select></label>
+    <label>Circuit layers <select id="depth-layer"><option value="4">Four</option><option value="2">Two</option><option value="1">One</option></select></label>
+    <label>Trace seed <select id="depth-trace-seed"><option value="20261225">20261225</option><option value="20261226">20261226</option></select></label>
+    <label>Wire <select id="depth-wire" aria-label="Wire"><option value="0">1</option><option value="1">2</option><option value="2">3</option><option value="3">4</option><option value="4">5</option><option value="5">6</option></select></label>
+   </div>
+   <div class="arch-camera">
+    <button type="button" id="depth-play" aria-pressed="false">Play trace</button>
+    <label>Step <input type="range" id="depth-step" min="0" max="8" value="0"></label>
+    <label>View rotation <input type="range" id="depth-angle" min="-45" max="45" value="26"></label>
+   </div>
+   <p id="depth-trace-status" role="status">Loading trained circuit traces.</p>
+   <canvas id="depth-scene" style="height:280px;width:100%" role="img" aria-label="Three-dimensional qutrit measurement probabilities"></canvas>
+   <div class="arch-scroll" id="depth-levels" role="region" aria-label="Exact probabilities for selected wire" tabindex="0"></div>
+   <details><summary>Density and gate matrices for the selected wire</summary>
+    <p id="depth-matrix-note"></p>
+    <div class="arch-scroll" id="depth-density" role="region" aria-label="Selected wire density matrix" tabindex="0"></div>
+    <div class="arch-scroll" id="depth-mixer" role="region" aria-label="Selected wire gate matrix" tabindex="0"></div>
+   </details>
+   <p><a href="stacked-clock-traces-v1.json">Stage-by-stage values for all 24 selected models</a></p>
+  </section>
+ </main>
+</body>
+</html>

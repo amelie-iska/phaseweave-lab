@@ -1,0 +1,87 @@
+{
+  "absolute_tolerance": 2e-11,
+  "amplitudes_per_frame": 729,
+  "backend": "NVIDIA cuTensorNet",
+  "comparisons": [
+    {
+      "checkpoint_sha256": "e11d26c46503fbcea90626357b9f87a449f28c4f6603e105624d64ea74c3920d",
+      "depth": 2,
+      "max_errors": {
+        "angle_gradient_abs": 8.881784197001252e-16,
+        "clock_abs": 2.220446049250313e-16,
+        "coupling_gradient_abs": 1.9984014443252818e-15,
+        "joint_probability_abs": 5.551115123125783e-17,
+        "normalization_abs": 8.881784197001252e-16,
+        "state_amplitude_abs": 1.5700924586837752e-16
+      },
+      "model": "tokengt-w6-q3-d2-entangling-20261225",
+      "seed": 20261225,
+      "tensor_operands": 40
+    },
+    {
+      "checkpoint_sha256": "4ed6d0e12c59f7bd8b8d7f2be1833af0dd4c3d0330757c0949de8a7e5be16de3",
+      "depth": 2,
+      "max_errors": {
+        "angle_gradient_abs": 3.608224830031759e-16,
+        "clock_abs": 4.163336342344337e-16,
+        "coupling_gradient_abs": 1.5543122344752192e-15,
+        "joint_probability_abs": 2.7755575615628914e-17,
+        "normalization_abs": 1.3322676295501878e-15,
+        "state_amplitude_abs": 1.5363875474629503e-16
+      },
+      "model": "tokengt-w6-q3-d2-entangling-20261226",
+      "seed": 20261226,
+      "tensor_operands": 40
+    },
+    {
+      "checkpoint_sha256": "cfc3a580e58f97d521198173db289f90763c463ea2446a073077f8e667e3bc96",
+      "depth": 4,
+      "max_errors": {
+        "angle_gradient_abs": 8.881784197001252e-16,
+        "clock_abs": 5.273559366969494e-16,
+        "coupling_gradient_abs": 2.220446049250313e-15,
+        "joint_probability_abs": 2.949029909160572e-17,
+        "normalization_abs": 2.1094237467877974e-15,
+        "state_amplitude_abs": 4.0497527310531633e-16
+      },
+      "model": "tokengt-w6-q3-d4-entangling-20261225",
+      "seed": 20261225,
+      "tensor_operands": 74
+    },
+    {
+      "checkpoint_sha256": "a4b9a5559b1e891d145ca97df4945446c3a43ddd854868e07bc59ac49f04101c",
+      "depth": 4,
+      "max_errors": {
+        "angle_gradient_abs": 1.1657341758564144e-15,
+        "clock_abs": 2.7755575615628914e-16,
+        "coupling_gradient_abs": 1.7763568394002505e-15,
+        "joint_probability_abs": 3.642919299551295e-17,
+        "normalization_abs": 3.219646771412954e-15,
+        "state_amplitude_abs": 3.056265732929336e-16
+      },
+      "model": "tokengt-w6-q3-d4-entangling-20261226",
+      "seed": 20261226,
+      "tensor_operands": 74
+    }
+  ],
+  "cuda": "12.8",
+  "cuquantum": "26.9.0",
+  "fit_seal_sha256": "20fd07778546468215ed85bdad916b5080a15b2a81f01465b0dcd4d43db75201",
+  "format": "phaseweave.stacked-clock-cutensornet.v1",
+  "frame_selection": "last frame of the first four registered training rows",
+  "frames_per_fit": 4,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "optimizer_seed": 18110,
+  "precision": "complex128",
+  "radix": 3,
+  "registration_sha256": "e519ba14fdfdfc6f89de37dc001eef0356394ce2729d97ce342267c5f97b3de3",
+  "source_sha256": "dcf47133cf1638150d33f8abcf90fc68d37fff7ee159514f26940733e2a0c535",
+  "torch": "2.8.0+cu128",
+  "train_sample": {
+    "archive_sha256": "1c0a967ff6f4801751170481054a5caf42d478e82bd0735b94c3e9597dc49d5a",
+    "rows": 8192,
+    "sampled_indices_sha256": "33c0c1cab170b94a361d9c5177897f58016e5ec8e631e3b0fcbec1e4bd8f6141"
+  },
+  "validation_and_holdouts_opened": false,
+  "wires": 6
+}

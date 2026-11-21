@@ -1,0 +1,244 @@
+{
+  "format": "phaseweave.stacked-clock-independent-replay.v1",
+  "fit_sha256": "20fd07778546468215ed85bdad916b5080a15b2a81f01465b0dcd4d43db75201",
+  "prediction_sha256": "341882e7fd4b7e9ad3f40d2046466de0fcfa6c1e5d8613977f041c66990a808f",
+  "scored_sha256": "4fcd2858faab9eae2e5127bc3733f2d655c5a956295a3251f186c554ba31df00",
+  "forecasts_verified": 125,
+  "scalar_errors_reproduced": 250,
+  "paired_intervals_reproduced": 435,
+  "epoch_checkpoints_rehashed": 72,
+  "fit_records_verified": 24,
+  "max_score_discrepancy": 0.0,
+  "max_interval_or_mean_discrepancy": 0.0,
+  "max_fit_vs_replayed_validation_gap": 2.6382622309029102e-08,
+  "selected_epoch_counts": {
+    "3": 22,
+    "2": 2
+  },
+  "panels": {
+    "validation": {
+      "rows": 2048,
+      "day_blocks": 13,
+      "persistence_mae": 0.21958275174256414
+    },
+    "stress": {
+      "rows": 2048,
+      "day_blocks": 12,
+      "persistence_mae": 0.2073453795869824
+    },
+    "test": {
+      "rows": 2048,
+      "day_blocks": 26,
+      "persistence_mae": 0.206430101829028
+    },
+    "new_asset": {
+      "rows": 2048,
+      "day_blocks": 23,
+      "persistence_mae": 0.2185217708174605
+    },
+    "afternoon": {
+      "rows": 1329,
+      "day_blocks": 10,
+      "persistence_mae": 0.19697798208310427
+    }
+  },
+  "validation_mae_selected_depth": {
+    "entangling": 4,
+    "product": 1,
+    "dephased": 1,
+    "maxplus": 1
+  },
+  "entangling_at_validation_selected_depth": {
+    "validation": {
+      "persistence": {
+        "delta_mae_bps": -0.02043830389447976,
+        "lower_95": -0.023552524611432292,
+        "upper_95": -0.016947688760092602,
+        "utc_day_blocks": 13
+      },
+      "controls": {
+        "dephased": {
+          "delta_mae_bps": -0.020132329060288612,
+          "lower_95": -0.023024243342301375,
+          "upper_95": -0.016793329868777254,
+          "utc_day_blocks": 13
+        },
+        "maxplus": {
+          "delta_mae_bps": -0.005400444242695812,
+          "lower_95": -0.00697662010898168,
+          "upper_95": -0.0036582732392235516,
+          "utc_day_blocks": 13
+        },
+        "product": {
+          "delta_mae_bps": 0.0024036027170950547,
+          "lower_95": 0.0014708346757862948,
+          "upper_95": 0.003329636884053315,
+          "utc_day_blocks": 13
+        }
+      },
+      "depth_one": {
+        "delta_mae_bps": -0.001391334597428795,
+        "lower_95": -0.002903719256357973,
+        "upper_95": 5.757310632557337e-05,
+        "utc_day_blocks": 13
+      }
+    },
+    "stress": {
+      "persistence": {
+        "delta_mae_bps": -0.02102947404651445,
+        "lower_95": -0.024951706876565526,
+        "upper_95": -0.016707415142733977,
+        "utc_day_blocks": 12
+      },
+      "controls": {
+        "dephased": {
+          "delta_mae_bps": -0.020609501755927795,
+          "lower_95": -0.02431097798966366,
+          "upper_95": -0.016498420071826416,
+          "utc_day_blocks": 12
+        },
+        "maxplus": {
+          "delta_mae_bps": -0.005121658570431009,
+          "lower_95": -0.006937177600152531,
+          "upper_95": -0.0032518029087217994,
+          "utc_day_blocks": 12
+        },
+        "product": {
+          "delta_mae_bps": 0.0016085688066596049,
+          "lower_95": 0.0006164253969488699,
+          "upper_95": 0.002515903701662242,
+          "utc_day_blocks": 12
+        }
+      },
+      "depth_one": {
+        "delta_mae_bps": -0.0015373827028781761,
+        "lower_95": -0.0025694148453613906,
+        "upper_95": -0.0005723025404014033,
+        "utc_day_blocks": 12
+      }
+    },
+    "test": {
+      "persistence": {
+        "delta_mae_bps": -0.01791227683861507,
+        "lower_95": -0.020107585821220186,
+        "upper_95": -0.015448276255292194,
+        "utc_day_blocks": 26
+      },
+      "controls": {
+        "dephased": {
+          "delta_mae_bps": -0.017860354359072517,
+          "lower_95": -0.020073418341072655,
+          "upper_95": -0.015427800220296804,
+          "utc_day_blocks": 26
+        },
+        "maxplus": {
+          "delta_mae_bps": -0.004825427306968777,
+          "lower_95": -0.006176375125306647,
+          "upper_95": -0.0033570955871694537,
+          "utc_day_blocks": 26
+        },
+        "product": {
+          "delta_mae_bps": 0.0014789260449106223,
+          "lower_95": 0.0008212786761040364,
+          "upper_95": 0.002209643308359668,
+          "utc_day_blocks": 26
+        }
+      },
+      "depth_one": {
+        "delta_mae_bps": -0.0003643445752459229,
+        "lower_95": -0.0015885190333653247,
+        "upper_95": 0.000852102843088059,
+        "utc_day_blocks": 26
+      }
+    },
+    "new_asset": {
+      "persistence": {
+        "delta_mae_bps": -0.003042156960873399,
+        "lower_95": -0.007090664724090639,
+        "upper_95": 0.0021456701740509266,
+        "utc_day_blocks": 23
+      },
+      "controls": {
+        "dephased": {
+          "delta_mae_bps": -0.0030363853002199903,
+          "lower_95": -0.006732444916714679,
+          "upper_95": 0.001770704433254501,
+          "utc_day_blocks": 23
+        },
+        "maxplus": {
+          "delta_mae_bps": 0.0019286061869934201,
+          "lower_95": 0.0005426473640562143,
+          "upper_95": 0.0035974432272101874,
+          "utc_day_blocks": 23
+        },
+        "product": {
+          "delta_mae_bps": 0.009272003877413226,
+          "lower_95": 0.00822257410860937,
+          "upper_95": 0.010313195126656755,
+          "utc_day_blocks": 23
+        }
+      },
+      "depth_one": {
+        "delta_mae_bps": 0.00892679129174212,
+        "lower_95": 0.007418078046399142,
+        "upper_95": 0.010248096389604118,
+        "utc_day_blocks": 23
+      }
+    },
+    "afternoon": {
+      "persistence": {
+        "delta_mae_bps": -0.023248554722450118,
+        "lower_95": -0.026986037993552127,
+        "upper_95": -0.019810272752640006,
+        "utc_day_blocks": 10
+      },
+      "controls": {
+        "dephased": {
+          "delta_mae_bps": -0.02295184683719015,
+          "lower_95": -0.02637116615067315,
+          "upper_95": -0.019722511122454493,
+          "utc_day_blocks": 10
+        },
+        "maxplus": {
+          "delta_mae_bps": -0.009648576575037768,
+          "lower_95": -0.011553640116949399,
+          "upper_95": -0.007622728803943324,
+          "utc_day_blocks": 10
+        },
+        "product": {
+          "delta_mae_bps": 0.0006196687181611273,
+          "lower_95": -0.00014940898007087755,
+          "upper_95": 0.0013663603981693723,
+          "utc_day_blocks": 10
+        }
+      },
+      "depth_one": {
+        "delta_mae_bps": -0.0019148227985054142,
+        "lower_95": -0.0033018332096385527,
+        "upper_95": -0.0006119122897035736,
+        "utc_day_blocks": 10
+      }
+    }
+  },
+  "resource_bounds": {
+    "wall_seconds": [
+      3.9253985239192843,
+      5.245852267136797
+    ],
+    "peak_allocated_bytes": [
+      505826816,
+      595787264
+    ],
+    "peak_reserved_bytes": [
+      692060160,
+      694157312
+    ],
+    "process_lifetime_peak_rss_kib": [
+      1633672,
+      1662984
+    ],
+    "statm_snapshot_exceeding_ru_maxrss_count": 24,
+    "max_statm_snapshot_minus_ru_maxrss_bytes": 3325952
+  },
+  "scope": "Previously scored panels and fixed training seeds. Validation selected checkpoints and depth. No prospective or execution evidence."
+}
