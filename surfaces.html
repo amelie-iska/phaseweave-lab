@@ -8,15 +8,15 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="reasoning.css">
-  <link rel="stylesheet" href="surfaces.css">
+  <link rel="stylesheet" href="surfaces.css?v=20261121-1">
   <script defer src="core.js"></script>
   <script defer src="gate.js?v=20261121-2"></script>
   <script defer src="reasoning-core.js"></script>
   <script defer src="reasoning-3d.js?v=20261121-2"></script>
   <script defer src="surface-genus-core.js?v=20261121-1"></script>
   <script defer src="surface-density.js"></script>
-  <script defer src="complete-graph-rotation.js"></script>
-  <script defer src="surfaces.js?v=20261121-4"></script>
+  <script defer src="complete-graph-rotation.js?v=20261121-1"></script>
+  <script defer src="surfaces.js?v=20261121-5"></script>
 </head>
 <body>
   <header class="top">
@@ -88,11 +88,33 @@
       <strong id="surface-capacity"></strong>
       <button id="surface-load-genus" type="button">Show required genus</button>
     </section>
-    <details class="surface-certificate">
+    <details class="surface-certificate" id="complete-map">
       <summary>Complete graph embedding certificate</summary>
       <label>Cellular embedding <select id="surface-certificate-mode"><option value="minimum">Minimum genus</option><option value="maximum">Maximum genus</option></select></label>
       <p id="surface-certificate"></p>
-      <pre id="surface-rotation" aria-label="Cyclic order of neighbors around each vertex"></pre>
+      <section id="surface-map-inspector" aria-label="Inspect the face permutation">
+        <div class="surface-map-controls">
+          <label>Face <select id="surface-map-face"></select></label>
+          <label>Dart position <input id="surface-map-dart" type="range" min="1" max="3" value="1"></label>
+          <button id="surface-map-cross" type="button">Cross the selected edge</button>
+          <label><input id="surface-map-dessin" type="checkbox"> Show dessin midpoints</label>
+        </div>
+        <p id="surface-map-step" role="status"></p>
+        <figure class="surface-map-figure">
+          <canvas id="surface-map-chart" role="img" aria-label="Two oriented polygonal face incidences"></canvas>
+          <div class="latent-camera" id="surface-map-camera" aria-label="Face diagram camera">
+            <label>Yaw <input type="range" name="yaw" min="-180" max="180"></label>
+            <label>Pitch <input type="range" name="pitch" min="-85" max="85"></label>
+            <label>Zoom <input type="range" name="zoom" min=".65" max="1.45" step=".05"></label>
+            <button type="button">Reset diagram view</button>
+          </div>
+          <figcaption>Rotate the two unfolded face incidences around their shared edge. Jade shows the current boundary, copper shows the other incidence, and blue marks the selected directed edge.</figcaption>
+        </figure>
+        <details>
+          <summary>All vertex rotations</summary>
+          <pre id="surface-rotation" aria-label="Cyclic order of neighbors around each vertex"></pre>
+        </details>
+      </section>
     </details>
     <div class="latent-provenance">
       <section>
@@ -106,7 +128,7 @@
       </section>
       <section>
         <h2>Complete trading graphs</h2>
-        <p>For n ≥ 3 the minimum orientable genus of Kₙ is ⌈(n−3)(n−4)/12⌉. One and two assets need genus zero. The result counts each bidirectional pair as a single undirected edge. A five-asset complete graph needs one handle, an eight-asset graph needs two, and a 14-asset graph needs ten. For K₃ through K₈ the certificate verifies each face boundary from ordered neighbors. The rounded display uses a separate cellular mesh for the quote-driven field.</p>
+        <p>For n ≥ 3 the minimum orientable genus of Kₙ is ⌈(n−3)(n−4)/12⌉. One and two assets need genus zero. The result counts each bidirectional pair as a single undirected edge. A five-asset complete graph needs one handle, an eight-asset graph needs two, and a 14-asset graph needs ten. For K₃ through K₁₃, the certificate derives every face from the ordered neighbors and checks both genus bounds. The eight-handle K₁₃ witness has 50 triangles and a hexagon. The quote-driven field above uses a separate cellular mesh.</p>
         <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC225066/">Ringel and Youngs’ proof</a> · <a href="fx-all-opportunities-v1.json">Five-asset all-route forecast results</a> · <a href="./#front-gate-basket">Live Gate basket</a></p>
       </section>
       <section>

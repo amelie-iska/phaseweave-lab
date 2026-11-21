@@ -1,0 +1,313 @@
+{
+  "format": "phaseweave.numerai-preterminal-2024.v1",
+  "start": "2024-07-05",
+  "end": "2024-09-27",
+  "dates": 13,
+  "keys": 86276,
+  "target": "target_jupiter_60",
+  "neutralizers": 300,
+  "reference": "fixed-medium-blend",
+  "comparison": "Frozen forecasts on 13 previously unscored 2024 origins",
+  "models": {
+    "all_numeric": {
+      "name": "Static Jupiter 60 LightGBM",
+      "features": 1039,
+      "iterations": 400,
+      "target": "target_jupiter_60",
+      "seed": 20261120
+    },
+    "jupiter60-slot2": {
+      "name": "Jupiter 60 LightGBM, slot 2",
+      "features": 1039,
+      "iterations": 400,
+      "target": "target_jupiter_60",
+      "seed": 20261121
+    },
+    "jupiter20-slot2": {
+      "name": "Jupiter 20 LightGBM, slot 2",
+      "features": 1039,
+      "iterations": 400,
+      "target": "target_jupiter_20",
+      "seed": 20261121
+    },
+    "jupiter60-slot3": {
+      "name": "Jupiter 60 LightGBM, slot 3",
+      "features": 1039,
+      "iterations": 400,
+      "target": "target_jupiter_60",
+      "seed": 20261122
+    },
+    "factor-neutral60-slot3": {
+      "name": "Factor-neutral 60 LightGBM, slot 3",
+      "features": 1039,
+      "iterations": 400,
+      "target": "target_factor_neutral_60",
+      "seed": 20261122
+    },
+    "same-target-fullwidth-blend": {
+      "name": "Same-target full-width blend",
+      "features": 1039,
+      "members": [
+        "all_numeric",
+        "jupiter60-slot2",
+        "jupiter60-slot3"
+      ]
+    },
+    "diverse-target-fullwidth-blend": {
+      "name": "Diverse-target full-width blend",
+      "features": 1039,
+      "members": [
+        "all_numeric",
+        "jupiter20-slot2",
+        "factor-neutral60-slot3"
+      ]
+    },
+    "rolling-all-1039": {
+      "name": "Rolling Jupiter 60 LightGBM",
+      "features": 1039,
+      "iterations": 400,
+      "target": "target_jupiter_60",
+      "seed": 20261120,
+      "additional_train_dates": 38
+    },
+    "fixed-medium-blend": {
+      "name": "Fixed Medium HGB blend",
+      "features": 350
+    }
+  },
+  "overall": {
+    "all_numeric": {
+      "neutral_corr": 0.047575756749732086,
+      "neutral_corr_delta": 0.010956591214007145,
+      "neutral_corr_wins": 12,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": null,
+      "neutral_corr_paired_ci_26_weeks": null,
+      "raw_corr": 0.04446511164499538,
+      "raw_corr_delta": 0.014936179738646823,
+      "raw_corr_wins": 12,
+      "raw_corr_ties": 0,
+      "raw_corr_paired_ci_13_weeks": null,
+      "raw_corr_paired_ci_26_weeks": null
+    },
+    "jupiter60-slot2": {
+      "neutral_corr": 0.041907568969314295,
+      "neutral_corr_delta": 0.005288403433589357,
+      "neutral_corr_wins": 11,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": null,
+      "neutral_corr_paired_ci_26_weeks": null,
+      "raw_corr": 0.03852528977244894,
+      "raw_corr_delta": 0.008996357866100379,
+      "raw_corr_wins": 12,
+      "raw_corr_ties": 0,
+      "raw_corr_paired_ci_13_weeks": null,
+      "raw_corr_paired_ci_26_weeks": null
+    },
+    "jupiter20-slot2": {
+      "neutral_corr": 0.0433743747620141,
+      "neutral_corr_delta": 0.006755209226289154,
+      "neutral_corr_wins": 12,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": null,
+      "neutral_corr_paired_ci_26_weeks": null,
+      "raw_corr": 0.03719261253465242,
+      "raw_corr_delta": 0.0076636806283038655,
+      "raw_corr_wins": 12,
+      "raw_corr_ties": 0,
+      "raw_corr_paired_ci_13_weeks": null,
+      "raw_corr_paired_ci_26_weeks": null
+    },
+    "jupiter60-slot3": {
+      "neutral_corr": 0.05170407839999605,
+      "neutral_corr_delta": 0.015084912864271102,
+      "neutral_corr_wins": 13,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": null,
+      "neutral_corr_paired_ci_26_weeks": null,
+      "raw_corr": 0.047203766738366446,
+      "raw_corr_delta": 0.017674834832017868,
+      "raw_corr_wins": 13,
+      "raw_corr_ties": 0,
+      "raw_corr_paired_ci_13_weeks": null,
+      "raw_corr_paired_ci_26_weeks": null
+    },
+    "factor-neutral60-slot3": {
+      "neutral_corr": 0.04081869446648258,
+      "neutral_corr_delta": 0.00419952893075764,
+      "neutral_corr_wins": 8,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": null,
+      "neutral_corr_paired_ci_26_weeks": null,
+      "raw_corr": 0.02295755268749667,
+      "raw_corr_delta": -0.0065713792188518885,
+      "raw_corr_wins": 2,
+      "raw_corr_ties": 0,
+      "raw_corr_paired_ci_13_weeks": null,
+      "raw_corr_paired_ci_26_weeks": null
+    },
+    "same-target-fullwidth-blend": {
+      "neutral_corr": 0.04965064389559303,
+      "neutral_corr_delta": 0.013031478359868091,
+      "neutral_corr_wins": 13,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": null,
+      "neutral_corr_paired_ci_26_weeks": null,
+      "raw_corr": 0.04508881585944484,
+      "raw_corr_delta": 0.015559883953096284,
+      "raw_corr_wins": 13,
+      "raw_corr_ties": 0,
+      "raw_corr_paired_ci_13_weeks": null,
+      "raw_corr_paired_ci_26_weeks": null
+    },
+    "diverse-target-fullwidth-blend": {
+      "neutral_corr": 0.05034535932326281,
+      "neutral_corr_delta": 0.013726193787537859,
+      "neutral_corr_wins": 13,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": null,
+      "neutral_corr_paired_ci_26_weeks": null,
+      "raw_corr": 0.041911683009284564,
+      "raw_corr_delta": 0.012382751102936006,
+      "raw_corr_wins": 13,
+      "raw_corr_ties": 0,
+      "raw_corr_paired_ci_13_weeks": null,
+      "raw_corr_paired_ci_26_weeks": null
+    },
+    "rolling-all-1039": {
+      "neutral_corr": 0.046655038864525974,
+      "neutral_corr_delta": 0.010035873328801041,
+      "neutral_corr_wins": 13,
+      "neutral_corr_ties": 0,
+      "neutral_corr_paired_ci_13_weeks": null,
+      "neutral_corr_paired_ci_26_weeks": null,
+      "raw_corr": 0.039886685611092945,
+      "raw_corr_delta": 0.01035775370474438,
+      "raw_corr_wins": 12,
+      "raw_corr_ties": 0,
+      "raw_corr_paired_ci_13_weeks": null,
+      "raw_corr_paired_ci_26_weeks": null
+    },
+    "fixed-medium-blend": {
+      "neutral_corr": 0.036619165535724946,
+      "neutral_corr_delta": 0.0,
+      "neutral_corr_wins": 0,
+      "neutral_corr_ties": 13,
+      "neutral_corr_paired_ci_13_weeks": null,
+      "neutral_corr_paired_ci_26_weeks": null,
+      "raw_corr": 0.029528931906348557,
+      "raw_corr_delta": 0.0,
+      "raw_corr_wins": 0,
+      "raw_corr_ties": 13,
+      "raw_corr_paired_ci_13_weeks": null,
+      "raw_corr_paired_ci_26_weeks": null
+    }
+  },
+  "primary_comparison": [
+    "diverse-target-fullwidth-blend",
+    "same-target-fullwidth-blend"
+  ],
+  "primary": {
+    "neutral_corr": 0.05034535932326281,
+    "neutral_corr_delta": 0.0006947154276697662,
+    "neutral_corr_wins": 9,
+    "neutral_corr_ties": 0,
+    "neutral_corr_paired_ci_13_weeks": null,
+    "neutral_corr_paired_ci_26_weeks": null,
+    "raw_corr": 0.041911683009284564,
+    "raw_corr_delta": -0.0031771328501602756,
+    "raw_corr_wins": 1,
+    "raw_corr_ties": 0,
+    "raw_corr_paired_ci_13_weeks": null,
+    "raw_corr_paired_ci_26_weeks": null
+  },
+  "rolling_minus_static": {
+    "neutral_corr": 0.046655038864525974,
+    "neutral_corr_delta": -0.0009207178852061041,
+    "neutral_corr_wins": 5,
+    "neutral_corr_ties": 0,
+    "neutral_corr_paired_ci_13_weeks": null,
+    "neutral_corr_paired_ci_26_weeks": null,
+    "raw_corr": 0.039886685611092945,
+    "raw_corr_delta": -0.004578426033902444,
+    "raw_corr_wins": 1,
+    "raw_corr_ties": 0,
+    "raw_corr_paired_ci_13_weeks": null,
+    "raw_corr_paired_ci_26_weeks": null
+  },
+  "rank_weights": [
+    0.5,
+    0.25,
+    0.25
+  ],
+  "inference": {
+    "date_weight": "equal",
+    "block_weeks": [
+      13,
+      26
+    ],
+    "interval_reason": "13 observed weeks form one 13-week block; 26-week blocks are infeasible"
+  },
+  "chronology": {
+    "protected_start": "2025-01-03",
+    "minimum_full_nyse_sessions": 62,
+    "latest_origin_full_nyse_sessions": 64,
+    "latest_origin_session_62": "2024-12-30",
+    "exclude_early_closes": true,
+    "calendar_proxy": true
+  },
+  "previous_exposure": {
+    "legacy_score_sha256": "2c4cb9639ea6b50ca4705858df9a75c7ce9febfaeb1fdbcdbe886e060f7e8cbe",
+    "legacy_scoring_source_sha256": "bd23514e6d8eb2712c0f1be435e8dea1654f96d51b9ef631eb256bcfb1df84a6",
+    "legacy_last_scored_date": "2024-06-28",
+    "legacy_jupiter_page_cached_and_decoded": true,
+    "legacy_target_chunk_sha256": "291a25364f44ec1c9c749e354643d36695f303ab8928f8833d9d10dd1993528a",
+    "study_dates_previously_scored": false,
+    "legacy_return_windows_may_overlap_study_returns": true
+  },
+  "controls": {
+    "official_benchmark": false,
+    "protected_outcomes_opened": false,
+    "submitted": false
+  },
+  "transfer": {
+    "predictors": {
+      "network_bytes": 105514375,
+      "network_requests": 16,
+      "protected_payload_bytes": 0
+    },
+    "targets": {
+      "network_bytes": 0,
+      "network_requests": 0,
+      "protected_payload_bytes": 0,
+      "legacy_jupiter_bytes_reused": 78289
+    },
+    "exposures": {
+      "network_bytes": 161217958,
+      "network_requests": 28,
+      "protected_payload_bytes": 0
+    }
+  },
+  "independent": {
+    "forecast_values": 776484,
+    "max_forecast_abs_difference": 0.0,
+    "score_cells": 234,
+    "max_score_abs_difference": 4.58e-16,
+    "paired_metric_summaries": 22,
+    "max_paired_summary_abs_difference": 6.94e-17,
+    "methods": "Independent full checkpoint inference, reverse-order SciPy SVD projection, Gaussian ranks and Pearson correlation"
+  },
+  "provenance": {
+    "plan_sha256": "e7c031cb1ede0bb4a792da5a033102c694fee3f76fe5abd3009df227da95a76b",
+    "predictors_sha256": "8935a8f0fee939db50b3de817eebb3d828d9f83ac5811cbf4804e73af5085940",
+    "prediction_freeze_sha256": "d874599c0b18faf2e38192c7f3c7096288dacf66449373132fce3db93a521145",
+    "targets_sha256": "f619539c65c8526f5b68b530053c35621554c38be25afe5015a730cf1e86c85b",
+    "exposures_sha256": "22c7a5dc150d4b780da00a2a1774706acac29338c1f50769c26e0c25315578f7",
+    "score_sha256": "8709866497c4433de58c95e5ba060a39c075ce55aac03ca03c0a9dccdf32fac3",
+    "runner_sha256": "e40645296f174be97a7ce21be1a41dff76c2829bebcc46f11e8daa4a419cee81",
+    "official_scorer_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+    "fullwidth_design_sha256": "bcc5a5ca5988e57cd12288da04643d845be15fb9df43dad00ca29a60559a9bf2",
+    "fullwidth_fit_sha256": "c93b199ee93fb17adec723d2e39794471ee00642fde9677bec9a5fe2160013ad",
+    "independent_verification_sha256": "b9d21d396f19cb1368dcd0c0e0b70e6d03eb1ce88ed9296943b5cd990c2deaa4"
+  }
+}

@@ -108,6 +108,7 @@ breadthComparison().catch(()=>{get("numerai-breadth-summary").textContent="The b
 async function fixedCandidateComparison() {
   const paths = {
     wide: "numerai-wide-2022-23-v1.json",
+    preterminal: "numerai-preterminal-2024-v1.json",
     audit: "numerai-2022-23-validation-v1.json",
     development: "numerai-neural-development-v1.json",
     multitarget: "numerai-fullwidth-multitarget-v1.json",
@@ -131,6 +132,10 @@ async function fixedCandidateComparison() {
     all_numeric: "Static LightGBM Jupiter 60 · 1,039",
     "same-target-fullwidth-blend": "Wide same-target seed blend",
     "diverse-target-fullwidth-blend": "Wide diverse-target blend",
+    "jupiter60-slot2": "Wide Jupiter 60 · seed 20261121",
+    "jupiter20-slot2": "Wide Jupiter 20 · seed 20261121",
+    "jupiter60-slot3": "Wide Jupiter 60 · seed 20261122",
+    "factor-neutral60-slot3": "Wide factor-neutral 60 · seed 20261122",
     rolling_all_numeric: "Rolling LightGBM Jupiter 60 · 1,039",
     "fixed-medium-blend": "Fixed Medium tree blend",
     "static-all-1039": "Static LightGBM Jupiter 60 · 1,039",
@@ -144,11 +149,15 @@ async function fixedCandidateComparison() {
     const entries = Object.entries(report.overall).sort((a, b) => b[1].neutral_corr - a[1].neutral_corr);
     const boundsKey = "neutral_corr_paired_ci_"+block.value+"_weeks";
     const interval = score => score[boundsKey]?.map(num).join(" to ") ?? "Unavailable";
-    const contrast = {wide: "Rolling versus static", multitarget: "Diverse versus same-target"}[select.value];
+    const contrast = {wide: "Rolling versus static", multitarget: "Diverse versus same-target",
+      preterminal:"Diverse versus same-target"}[select.value];
     const primary = contrast ? " "+contrast+" "+num(report.primary.neutral_corr_delta)
-      +" neutral CORR ("+interval(report.primary)+")." : "";
+      +" neutral CORR." : "";
+    const precision = select.value === "preterminal"
+      ? " The 13-date panel cannot support either configured block interval."
+      : contrast ? " Paired 95% interval "+interval(report.primary)+"." : "";
     summary.textContent = report.dates + " matched dates · " + report.keys.toLocaleString("en-US")
-      + " stock-date keys · Reference " + (labels[report.reference] ?? report.reference) + "." + primary;
+      + " stock-date keys · Reference " + (labels[report.reference] ?? report.reference) + "." + primary + precision;
     results.replaceChildren(table(
       ["Forecast", "Neutral CORR", "Raw CORR", "Paired neutral Δ", block.value+"-week 95% interval", "Dates ahead"],
       entries.map(([key, score]) => [labels[key] ?? key, num(score.neutral_corr), num(score.raw_corr),

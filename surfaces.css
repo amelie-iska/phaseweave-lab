@@ -17,3 +17,16 @@
 .surface-certificate { margin: .85rem 0 1.25rem; border: 1px solid var(--line); padding: .75rem; }
 .surface-certificate label { display: block; margin-top: .7rem; }
 .surface-certificate pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .84rem; }
+
+.surface-map-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1rem;
+  align-items: center;
+  margin: .65rem 0;
+}
+.surface-map-controls label { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem; margin: 0; }
+#surface-map-dart { width: clamp(100px, 19vw, 200px); }
+.surface-map-figure { margin: .55rem 0 .9rem; }
+#surface-map-chart { display: block; width: 100%; height: clamp(240px, 34vw, 370px); touch-action: none; }
+#surface-map-inspector[hidden] { display: none; }

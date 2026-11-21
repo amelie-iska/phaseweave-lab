@@ -274,19 +274,86 @@
   item("geometry").addEventListener("change",selectGeometry);
   for (const name of ["handle","scale","gauge","edit","dessin","fee","cloud","channel","mixing","radius"]) item(name).addEventListener("input",render);
   item("reset-packet").addEventListener("click",()=>{ resetDensity(); render(); });
+  let completeMap;
+  const mapChart=item("map-chart");
+  const drawMap=Reasoning3D.bind(mapChart,item("map-camera"),renderMap,()=>{}, {yaw:-12,pitch:48});
+  function polygonWalk(face, step, flipped) {
+    const order=[...face.slice(step),...face.slice(0,step)];
+    const radius=1.3, offset=radius*Math.sqrt(3)/2;
+    const coords=order.map((_,i)=>{
+      const theta=i===0 ? 4*Math.PI/3 : -Math.PI/3+(i-1)/(order.length-1)*5*Math.PI/3;
+      const x=radius*Math.cos(theta), z=radius*Math.sin(theta)+offset;
+      return flipped ? [-x,.58*z,-.82*z] : [x,0,z];
+    });
+    return {order,coords};
+  }
+  function renderMap() {
+    if (!completeMap || item("map-inspector").hidden) return;
+    const faceIndex=value("map-face"), index=value("map-dart")-1;
+    const face=completeMap.faces[faceIndex];
+    const step=CompleteGraphRotation.dartStep(completeMap,faceIndex,index);
+    const {u,v,next,opposite}=step;
+    const same=opposite.face===faceIndex ? " (the same face)" : "";
+    item("map-step").textContent="Dart "+(index+1)+" of "+face.length+" · "+u+" → "+v+
+      " turns to "+v+" → "+next+" · The reverse belongs to face "+(opposite.face+1)+same+".";
+    mapChart.setAttribute("aria-label","Unfolded face "+(faceIndex+1)+" and face "+(opposite.face+1)+
+      " along directed edge "+u+" to "+v);
+    const shown=polygonWalk(face,index,false);
+    const other=polygonWalk(completeMap.faces[opposite.face],opposite.index,true);
+    const scene={points:[],lines:[],faces:[],axes:[],grid:false,framingScale:.4};
+    for (const [walk,color] of [[shown,"jade"],[other,"copper"]]) {
+      const {coords,order}=walk;
+      scene.faces.push({coords,color,alpha:.16});
+      scene.lines.push({coords:[...coords,coords[0]],color,width:1.6,alpha:.88});
+      coords.forEach((point,i)=>{
+        if (walk===shown || i>=2) scene.points.push({
+          point,color,radius:i<3 ? 3.2 : 1.5,label:i<3 ? String(order[i]) : "",
+        });
+        if (item("map-dessin").checked && (walk===shown || i>0)) {
+          const b=coords[(i+1)%coords.length];
+          scene.points.push({point:point.map((x,k)=>(x+b[k])/2),color:"text",radius:1.8,alpha:.84});
+        }
+      });
+    }
+    scene.lines.push({coords:shown.coords.slice(0,2),color:"blue",width:3,arrow:true});
+    drawMap(scene,palette());
+  }
+  function setMapFace(face,index=0) {
+    item("map-face").value=face;
+    const dial=item("map-dart");
+    dial.max=completeMap.faces[face].length;
+    dial.value=index+1;
+    renderMap();
+  }
+  item("map-face").addEventListener("change",()=>setMapFace(value("map-face")));
+  item("map-dart").addEventListener("input",renderMap);
+  item("map-dessin").addEventListener("change",renderMap);
+  item("map-cross").addEventListener("click",()=>{
+    const step=CompleteGraphRotation.dartStep(completeMap,value("map-face"),value("map-dart")-1);
+    setMapFace(step.opposite.face,step.opposite.index);
+  });
+  new ResizeObserver(renderMap).observe(mapChart);
+  new MutationObserver(renderMap).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+
   function certificate(n) {
     const message=item("certificate"), lines=item("rotation");
     lines.textContent="";
-    if (!Number.isInteger(n)||n<3||n>8) {
-      message.textContent="This view includes verified rotation systems for three through eight assets.";
+    item("map-inspector").hidden=!CompleteGraphRotation.supported.includes(n);
+    if (item("map-inspector").hidden) {
+      completeMap=null;
+      message.textContent="This view includes verified rotation systems for three through thirteen assets.";
       return;
     }
-    const result=CompleteGraphRotation.certificate(n,item("certificate-mode").value);
+    completeMap=CompleteGraphRotation.certificate(n,item("certificate-mode").value);
+    const {genus,chi,darts,faces,rotation}=completeMap;
     const sizes=new Map();
-    for (const face of result.faces) sizes.set(face.length, (sizes.get(face.length)??0)+1);
-    const faces=[...sizes].sort((a,b)=>a[0]-b[0]).map(([length,count])=>`${count} of length ${length}`).join(", ");
-    message.textContent=`Genus ${result.genus} · Euler characteristic ${result.chi} · ${result.darts} darts · ${result.faces.length} faces (${faces}).`;
-    lines.textContent=result.rotation.map((row,i)=>`${i} → ${row.join(" → ")} → ${row[0]}`).join("\n");
+    for (const face of faces) sizes.set(face.length,(sizes.get(face.length)??0)+1);
+    const counts=[...sizes].sort((a,b)=>a[0]-b[0]).map(([length,count])=>count+" of length "+length).join(", ");
+    message.textContent="Genus "+genus+" · Euler characteristic "+chi+" · "+darts+" darts · "+faces.length+
+      (faces.length===1 ? " face (" : " faces (")+counts+") · "+(2*genus)+" independent homology directions.";
+    lines.textContent=rotation.map((row,i)=>i+" → "+row.join(" → ")+" → "+row[0]).join("\n");
+    options(item("map-face"),faces.map((face,i)=>["Face "+(i+1)+" · "+face.length+" sides",i]));
+    setMapFace(0);
   }
   const capacity = () => {
     const n=value("assets");
@@ -306,6 +373,9 @@
     item("genus").value=SurfaceGenus.completeGenus(value("assets"));
     onSurface();
   });
+  const presetAssets=Number(params.get("assets"));
+  if (Number.isInteger(presetAssets) && presetAssets>=1 && presetAssets<=1000) item("assets").value=presetAssets;
+  if (location.hash==="#complete-map") document.getElementById("complete-map").open=true;
   capacity();
   item("episode").addEventListener("change",selectSource);
   item("frame").addEventListener("input",()=>{
