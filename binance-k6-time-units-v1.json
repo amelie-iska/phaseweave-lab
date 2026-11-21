@@ -1,0 +1,36 @@
+{
+  "asset_count": 6,
+  "capture_tape_sha256": "5c98dcabdd74ea2012db7bac42182d3713636250fe4bda0789087c8db8d4eb70",
+  "checks": {
+    "exact_leg_outputs": 144300,
+    "holding_links_checked": 45921,
+    "negative_control_changed_cash": 18207,
+    "negative_control_lower_cash": 18207
+  },
+  "cuts": 600,
+  "delayed_by_fee_bps": {
+    "0": 5900,
+    "5": 6153,
+    "10": 6154
+  },
+  "delayed_exact_terminal_cash_matches": 18207,
+  "directed_display_levels": 90000,
+  "exact_max_canonical_cash_difference": "0",
+  "format": "phaseweave.k6-time-units.v1",
+  "identical_delayed_rejections": {
+    "end_of_record": 89,
+    "insufficient_arrival_depth": 1780,
+    "leg_book_unavailable": 1299,
+    "whole_book_unavailable": 2016
+  },
+  "observed_books": 9000,
+  "observed_fills": 0,
+  "orders_sent": 0,
+  "registration_sha256": "4e26c0215427b926c7b849cc5a2c029faf277ba26b6d2cf40229cc6746faf14a",
+  "reported_simple_bps_decimal_places": 8,
+  "same_cut_exact_terminal_cash_matches": 23391,
+  "scenarios": 54,
+  "selected_trace_rows": 23391,
+  "trace_sha256": "70021112db399e03b2007030a383efa8d63853dd4d7b7582e13e9f2bf1ab9f53",
+  "verified": true
+}
