@@ -25,22 +25,23 @@
   <main class="architecture">
     <header>
       <h1>Get PhaseWeave</h1>
-      <p class="arch-lead">Explore markets from your browser, run trained forecasts, or download the local paper-trading workbench.</p>
+      <p class="arch-lead">Choose a PhaseWeave app. Each edition has its own desktop download and launch instructions.</p>
     </header>
     <div class="app-grid">
       <section class="arch-panel app-card" id="explorer">
         <h2>Explorer</h2>
-        <p>Use the interactive lab in a browser. Install Market Widgets on supported phones, tablets and desktops for spot, perpetual and reference FX observations.</p>
+        <p>Watch live spot executions, perpetual funding and published FX reference rates. Install the browser app on supported phones, tablets and desktops.</p>
         <ul class="app-actions">
-          <li><a class="button" href="./">Open the lab</a></li>
-          <li><a class="button" href="live-widgets.html">Open or install widgets</a></li>
+          <li><a class="button" href="https://github.com/amelie-iska/phaseweave-lab/releases/download/apps-v1/phaseweave-explorer-v1.zip">Download Explorer</a></li>
+          <li><a class="button" href="live-widgets.html">Open or install Explorer</a></li>
         </ul>
       </section>
       <section class="arch-panel app-card" id="research">
         <h2>Research</h2>
-        <p>Run trained FX forecasts, test input masks, and inspect reference forecasts and knowledge retrieval in the Hugging Face Space. Request access through the public cards for approved local downloads.</p>
+        <p>Run trained FX forecasts on Hugging Face using CPU or ZeroGPU. Inspect input masks, market graphs and knowledge retrieval.</p>
         <ul class="app-actions">
-          <li><a class="button" href="https://huggingface.co/spaces/AmelieSchreiber/PhaseWeave-Lab">Open Forecast Lab</a></li>
+          <li><a class="button" href="https://github.com/amelie-iska/phaseweave-lab/releases/download/apps-v1/phaseweave-research-v1.zip">Download Research</a></li>
+          <li><a class="button" href="forecast-app.html">Open Research</a></li>
           <li><a href="https://huggingface.co/AmelieSchreiber/PhaseWeave-FX-Pilot">Checkpoint card</a></li>
           <li><a href="https://huggingface.co/datasets/AmelieSchreiber/PhaseWeave-FX-Windows-Catalog">Dataset catalog</a></li>
         </ul>
@@ -49,24 +50,29 @@
         <h2>Paper Desk</h2>
         <p>Run the local paper desk on Windows, macOS or Linux. It simulates fills against live public quotes and can export the session as JSON. The ZIP includes launchers and requires Python 3.10 or later.</p>
         <ul class="app-actions">
-          <li><a class="button" href="https://amelie-iska.github.io/phaseweave-lab/downloads/phaseweave-trading-desk-v8.zip" download>Download Desk v8</a></li>
-          <li><a href="http://127.0.0.1:8132/desk.html">Open the running Paper Desk</a></li>
-          <li><a href="downloads/local-desk.md">Setup and controls</a></li>
+          <li><a class="button" href="https://github.com/amelie-iska/phaseweave-lab/releases/download/apps-v1/phaseweave-paper-desk-v1.zip">Download Paper Desk</a></li>
+          <li><a href="http://127.0.0.1:8163/desk.html">Open installed Paper Desk</a></li>
+          <li><a href="downloads/app-editions.md#paper-desk">Setup and controls</a></li>
         </ul>
       </section>
       <section class="arch-panel app-card" id="professional">
         <h2>Professional Workbench</h2>
-        <p>The same portable desk can read status from local Freqtrade and Hummingbot installations. Use the setup guide to add the optional connectors. Commercial deployment is licensed by agreement.</p>
+        <p>Run a local paper desk and monitor existing Freqtrade and Hummingbot instances through read-only connectors. Commercial deployment is licensed by agreement.</p>
         <ul class="app-actions">
-          <li><a class="button" href="https://amelie-iska.github.io/phaseweave-lab/downloads/phaseweave-trading-desk-v8.zip" download>Download the workbench</a></li>
-          <li><a href="http://127.0.0.1:8132/desk.html#desk-external-tools">Open connected tools</a></li>
-          <li><a href="downloads/local-desk.md#connect-an-existing-trading-ui">Connector setup</a></li>
+          <li><a class="button" href="https://github.com/amelie-iska/phaseweave-lab/releases/download/apps-v1/phaseweave-professional-workbench-v1.zip">Download Workbench</a></li>
+          <li><a href="http://127.0.0.1:8164/workbench.html">Open installed Workbench</a></li>
+          <li><a href="downloads/app-editions.md#professional-workbench">Connector setup</a></li>
           <li><a href="https://github.com/amelie-iska/phaseweave-lab/blob/main/COMMERCIAL.md">Commercial licensing</a></li>
         </ul>
       </section>
     </div>
     <section class="arch-panel">
-      <h2>Desktop versions</h2>
+      <h2>Install and verify</h2>
+      <p>Extract your edition and open <code>START-HERE.md</code>. The archives include unsigned macOS app bundles and portable Windows and Linux launchers. All require Python 3.10 or later.</p>
+      <p><a href="downloads/app-editions.md">Edition setup</a> · <a href="https://github.com/amelie-iska/phaseweave-lab/releases/download/apps-v1/SHA256SUMS">Download checksums</a> · <a href="https://github.com/amelie-iska/phaseweave-lab/releases/tag/apps-v1">Four-app release</a></p>
+    </section>
+    <section class="arch-panel">
+      <h2>Earlier desk versions</h2>
       <p>v8 adds Windows and macOS launchers and keeps the v7 desk engine. Extract the full archive, then open <code>START-HERE.md</code>. Earlier releases remain downloadable.</p>
       <p><a href="https://amelie-iska.github.io/phaseweave-lab/downloads/phaseweave-trading-desk-v8.zip.sha256">Verify the v8 download with SHA-256</a></p>
       <ul class="app-versions" aria-label="Desk versions">

@@ -8,9 +8,9 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
   <script defer src="gate.js"></script>
-  <link rel="stylesheet" href="density.css">
+  <link rel="stylesheet" href="density.css?v=20261121-1">
   <script defer src="density-cloud.js"></script>
-  <script defer src="density.js"></script>
+  <script defer src="density.js?v=20261121-1"></script>
   <style>
     .density-page { max-width: 1340px; padding: clamp(16px, 3vw, 32px) clamp(12px, 3vw, 32px); }
     .density-title { margin-bottom: 17px; }
@@ -101,7 +101,7 @@
       <button type="button" id="walk-reset" disabled>Reset walk</button>
     </section>
     <section class="density-panel density-cloud" aria-labelledby="cloud-heading">
-      <div class="cloud-header"><h2 id="cloud-heading">Probability cloud</h2><output id="cloud-step">Loading walk…</output></div>
+      <div class="cloud-header"><h2 id="cloud-heading">3D probability cloud</h2><output id="cloud-step">Loading walk…</output></div>
       <div class="cloud-body">
         <figure class="cloud-plot">
           <canvas id="cloud-view" width="640" height="364" role="img" aria-label="Projected probability cloud on three currency sites"></canvas>

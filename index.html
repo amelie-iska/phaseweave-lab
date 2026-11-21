@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="console.css">
   <link rel="stylesheet" href="front-brief.css">
   <script defer src="front-brief.js"></script>
-  <link rel="stylesheet" href="front-inference.css">
-  <script defer src="reasoning-3d.js"></script>
-  <script defer src="front-inference.js"></script>
+  <link rel="stylesheet" href="front-inference.css?v=20261121-1">
+  <script defer src="reasoning-3d.js?v=20261121-1"></script>
+  <script defer src="front-inference.js?v=20261121-1"></script>
   <script defer src="core.js"></script>
   <script defer src="gate.js"></script>
   <script defer src="replay-instruments.js"></script>
@@ -23,7 +23,7 @@
     <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
     <nav aria-label="Page controls">
       <a class="button" href="apps.html">Get the apps</a>
-      <a class="button" href="#inference">Inference</a>
+      <a class="button" href="#live-inference">Inference and 3D density</a>
       <a class="button" href="reasoning.html">Reasoning lab</a>
       <a class="button" href="desk.html">Trading desk</a>
       <a class="button" href="model-comparisons.html">Model comparisons</a>
@@ -43,13 +43,13 @@
       </div>
     </div>
     <nav class="project-downloads" aria-label="Launch the apps">
-      <a class="button" href="live-widgets.html">Open Market Widgets</a>
-      <a class="button" href="#inference">Open Forecast Lab</a>
-      <a class="button" href="http://127.0.0.1:8132/desk.html">Open Paper Desk</a>
-      <a class="button" href="http://127.0.0.1:8132/desk.html#desk-external-tools">Open Professional Workbench</a>
+      <a class="button" href="apps.html#explorer">Explorer app</a>
+      <a class="button" href="apps.html#research">Research app</a>
+      <a class="button" href="apps.html#paper">Paper Desk app</a>
+      <a class="button" href="apps.html#professional">Professional Workbench app</a>
     </nav>
     <nav class="project-downloads" aria-label="App versions and assets">
-      <a href="apps.html">All four editions</a>
+      <a href="apps.html">All four app downloads</a>
       <a href="https://github.com/amelie-iska/phaseweave-lab/releases">Desktop app releases</a>
       <a href="https://huggingface.co/spaces/AmelieSchreiber/PhaseWeave-Lab">Hugging Face Space</a>
       <a href="https://huggingface.co/AmelieSchreiber/PhaseWeave-FX-Pilot">Model files</a>
@@ -79,27 +79,58 @@
       </article>
     </section>
     <section class="front-card front-inference" id="live-inference" aria-labelledby="live-inference-title">
-      <div class="front-head"><h2 id="live-inference-title">Live inference</h2><span id="trace-state" role="status">Ready</span></div>
-      <p class="front-context">Compute a forecast on historical FX quotes and inspect every streamed stage. Longer-cycle inference aggregates the requested route length and tenor across October observations.</p>
+      <div class="front-head"><h2 id="live-inference-title">Live inference and 3D density</h2></div>
+      <div class="trace-controls trace-views" aria-label="Inference views">
+        <button type="button" id="trace-view-hosted" aria-pressed="true" aria-controls="inference">Hosted forecast</button>
+        <button type="button" id="trace-view-local" aria-pressed="false" aria-controls="trace-local">Local model trace</button>
+        <button type="button" id="trace-view-density" aria-pressed="false" aria-controls="trace-density">3D density</button>
+      </div>
+      <section id="inference" class="trace-hosted" aria-label="Hosted Forecast Lab">
+        <p class="front-context">Choose an observed FX window and checkpoint, then run on CPU or ZeroGPU. The Live spot tab observes current public crypto quotes.</p>
+        <iframe id="trace-hosted-frame" title="PhaseWeave hosted model inference" loading="lazy"
+          src="https://amelieschreiber-phaseweave-lab.hf.space/"></iframe>
+        <p class="front-context"><a href="forecast-app.html">Open the Research app</a> · <a href="https://huggingface.co/spaces/AmelieSchreiber/PhaseWeave-Lab">Open on Hugging Face</a></p>
+      </section>
+      <section id="trace-density" class="trace-hosted" aria-label="Three-dimensional density" hidden>
+        <p class="front-context">Follow the probability cloud on a graph driven by archived FX or live spot quotes. Change the color basis, camera angle and time step.</p>
+        <iframe id="trace-density-frame" title="Rotatable time-resolved three-dimensional density" loading="lazy"
+          data-src="density.html?embed=1"></iframe>
+        <p class="front-context"><a href="density.html#cloud-heading">Open the full density lab</a></p>
+      </section>
+      <section id="trace-local" aria-label="Local model computation trace" hidden>
+        <p id="trace-local-note" class="front-context" hidden>Open the installed local inference service for streamed forest, analogue, steering and cycle computations. <a href="http://127.0.0.1:8155/#live-inference">Open local inference</a></p>
+        <div id="trace-local-body">
+        <div class="front-head"><h3>Stream model computations</h3><span id="trace-state" role="status">Ready</span></div>
+      <p class="front-context">The joint model runs on archived FX quotes. Watch retrieval, concept edits, forest expansion, sampled flows and cycle readout in one request.</p>
       <div class="trace-controls" aria-label="Inference controls">
         <label>Method <select id="trace-method">
-          <option value="forest">Forest of Thought</option><option value="analogy">Analogical retrieval</option><option value="graphcg">GraphCG steering</option><option value="cycle">Trained FX cycles</option>
+          <option value="joint">Joint continuous model</option><option value="forest">Forest of Thought</option><option value="analogy">Analogical retrieval</option><option value="graphcg">GraphCG steering</option><option value="cycle">Trained FX cycles</option>
         </select></label>
-        <label id="trace-axis-control" hidden>Steering axis <select id="trace-axis">
+        <label id="trace-axis-control" hidden>Steering direction <select id="trace-axis">
           <option value="1">Axis 1</option><option value="2">Axis 2</option><option value="3" selected>Axis 3</option><option value="4">Axis 4</option>
         </select></label>
-        <label class="trace-forest-only">Trees <select id="trace-roots"><option>4</option><option selected>8</option><option>16</option></select></label>
-        <label class="trace-forest-only">Depth <select id="trace-depth"><option>2</option><option selected>4</option><option>8</option></select></label>
-        <label class="trace-forest-only">Children per parent <select id="trace-branch"><option>2</option><option selected>3</option><option>6</option></select></label>
-        <label class="trace-forest-only">Layout <select id="trace-layout"><option value="overlaid">Overlaid</option><option value="parallel">Parallel</option></select></label>
-        <label class="trace-cycle-only" hidden>Cycle assets <select id="trace-legs">
-          <option value="3">3</option><option value="4" selected>4</option><option value="5">5 · CHF extrapolation</option>
+        <div id="trace-concepts" class="trace-controls" aria-label="Concept axes" hidden>
+          <label>X concept <select id="trace-concept-x"></select></label>
+          <label>Y concept <select id="trace-concept-y"></select></label>
+          <label>Z concept <select id="trace-concept-z"></select></label>
+        </div>
+        <label class="trace-forest-only" hidden>Trees <select id="trace-roots"><option>4</option><option selected>8</option><option>16</option></select></label>
+        <label class="trace-forest-only" hidden>Depth <select id="trace-depth"><option>2</option><option selected>4</option><option>8</option></select></label>
+        <label class="trace-forest-only" hidden>Children per parent <select id="trace-branch"><option>2</option><option selected>3</option><option>6</option></select></label>
+        <label class="trace-forest-only" hidden>Layout <select id="trace-layout"><option value="overlaid">Overlaid</option><option value="parallel">Parallel</option></select></label>
+        <label class="trace-route-only">Cycle assets <select id="trace-legs">
+          <option value="3">3</option><option value="4">4</option><option value="5" selected>5</option>
         </select></label>
         <label class="trace-cycle-only" hidden>History spacing <select id="trace-cadence">
           <option value="1">1 s · 16 frames</option><option value="5">5 s · 4 frames</option>
         </select></label>
-        <label class="trace-cycle-only" hidden>Forecast tenor <select id="trace-tenor">
-          <option value="1">1 s</option><option value="5">5 s</option><option value="15">15 s</option><option value="60" selected>60 s</option><option value="300">300 s</option>
+        <label class="trace-route-only">Forecast tenor <select id="trace-tenor">
+          <option value="1" selected>1 s</option><option value="5">5 s</option><option value="15">15 s</option><option value="60">60 s</option><option value="300">300 s</option>
+        </select></label>
+        <label class="trace-joint-only">Concept offset <input id="trace-dose" type="range" min="-8" max="8" value="0" step="1"> <output id="trace-dose-value">0.00</output></label>
+        <label class="trace-joint-only">3D view <select id="trace-joint-view">
+          <option value="paths">Forest and sampled flow paths</option>
+          <option value="density">Qutrit probability density</option>
         </select></label>
         <label>Playback step <select id="trace-interval"><option value="50">50 ms</option><option value="100" selected>100 ms</option><option value="250">250 ms</option><option value="500">500 ms</option></select></label>
         <button id="trace-run" type="button">Run inference</button>
@@ -121,7 +152,9 @@
           <ol id="trace-events" aria-label="Received computation steps"></ol>
         </div>
       </div>
-      <p class="front-context"><a href="http://127.0.0.1:8155/#live-inference">Open the local inference runner</a> · <a href="reasoning.html">Inspect recorded reasoning studies</a> · <a href="density.html#cloud-heading">Open the time-sliced density cloud</a> · <a href="fx-cycles.html">Three- to five-leg results</a></p>
+      <p class="front-context"><a href="http://127.0.0.1:8155/#live-inference">Open the local inference runner</a> · <a href="reasoning.html">Inspect recorded reasoning studies</a> · <a href="density.html#cloud-heading">Open the time-sliced density cloud</a> · <a href="fx-cycles-k5.html">K5 cycle results</a> · <a href="downloads/joint-fx-reasoning.md">Joint model results</a></p>
+        </div>
+      </section>
     </section>
     <div class="workspace">
       <section class="visual" aria-label="Three-dimensional graph">
@@ -185,22 +218,6 @@
       <h2 id="history-title">Route margins over time</h2>
       <canvas id="history" aria-label="Time series of both indicative route margins. Use Replay time to select a timestamp."></canvas>
       <p id="history-status"></p>
-    </section>
-    <section id="inference" class="hosted-inference" aria-labelledby="inference-title">
-      <div class="result-title">
-        <div>
-          <h2 id="inference-title">Run a trained model</h2>
-          <p>Replay an observed FX window or open Reference forecast to compare the published holdouts and run your own exported window.</p>
-        </div>
-        <a class="button" href="https://huggingface.co/spaces/AmelieSchreiber/PhaseWeave-Lab">Open on Hugging Face</a>
-      </div>
-      <iframe title="PhaseWeave inference on Hugging Face" loading="lazy"
-        src="https://amelieschreiber-phaseweave-lab.hf.space/"></iframe>
-      <p class="resources"><a href="https://huggingface.co/AmelieSchreiber/PhaseWeave-FX-Pilot">Model card and download request</a>
-        <a href="https://huggingface.co/datasets/AmelieSchreiber/PhaseWeave-FX-Windows-Catalog">Dataset card</a>
-        <a href="results.html">Comparisons and ablations</a>
-        <a href="reasoning.html">Work through continuous reasoning examples</a>
-        <a href="data.html">Inspect sources and input examples</a></p>
     </section>
     <section id="competitions" class="research" aria-labelledby="competition-title">
       <h2 id="competition-title">Trading competitions</h2>

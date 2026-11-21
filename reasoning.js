@@ -23,7 +23,7 @@
     expansion: true, correction: true, consensus: true,
     source: -1, mapping: -1, strength: 1,
     seedIndex: 0, editMethod: "trained", axis: 1, dose: 1,
-    steeringProjection: "pca", concepts: [0,1,2],
+    steeringProjection: "concepts", concepts: [0,1,3],
     split: "test", stage: 2, count: 28, seed: 0, timer: null,
     forest: null, steering: null, flow: null,
     flowPath: ReasoningFlowPaths.choices.some(([id])=>id===qs.get("path")) ? qs.get("path") : "short",

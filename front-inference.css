@@ -12,3 +12,9 @@
 #trace-events li[aria-current=step] {color:var(--jade)}
 #trace-events button {font:inherit;color:inherit;padding:0;border:none;background:none;text-align:left}
 @media(max-width:760px) {.trace-grid {grid-template-columns:minmax(0,1fr)}}
+
+.front-inference [hidden] {display:none!important}
+.trace-views button[aria-pressed="true"] {border-color:var(--copper);color:var(--copper)}
+.trace-hosted iframe {width:100%;height:clamp(560px,76vh,830px);border:1px solid var(--line);background:var(--bg);margin-block:.6rem}
+#trace-concepts {flex-basis:100%;margin:.15rem 0}
+#trace-concepts label select {max-width:min(54vw,21ch)}

@@ -124,6 +124,10 @@ if (typeof document !== "undefined") {
   const liveSources = { "gate-eth": ["ETH", "BTC", "USDT"], "gate-xrp": ["XRP", "BTC", "USDT"] };
   const state = { examples: [], steps: [], index: 0, feed: null, timer: null, observe: null };
 
+  if (new URLSearchParams(location.search).get("embed") === "1") {
+    document.documentElement.classList.add("density-embed");
+    get("cloud-heading").closest("section").after(get("walk-timeline").closest("section"));
+  }
   const paintCloud = DensityCloud.build(get("cloud-view"));
   const cloud = { fraction: 1, previous: null, current: null, names: [], legendValues: [], animation: 0 };
   function cancelCloud() { cancelAnimationFrame(cloud.animation); cloud.animation = 0; }

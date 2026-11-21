@@ -126,6 +126,18 @@ const Reasoning3D = (() => {
         ctx.globalAlpha = node.alpha ?? 1;
         ctx.fillStyle = palette[node.color] || node.color;
         const size = node.radius ?? 3.5;
+        if (node.cloud) {
+          const radius = node.cloud;
+          const color = ctx.fillStyle;
+          ctx.save();
+          const gradient = ctx.createRadialGradient(x,y,0,x,y,radius);
+          gradient.addColorStop(0,color);
+          gradient.addColorStop(1,"transparent");
+          ctx.globalAlpha = .35 + .5 * (node.alpha ?? 1);
+          ctx.fillStyle = gradient;
+          ctx.fillRect(x-radius,y-radius,2*radius,2*radius);
+          ctx.restore();
+        }
         if (node.square) ctx.fillRect(x-size,y-size,size*2,size*2);
         else {
           ctx.beginPath();
