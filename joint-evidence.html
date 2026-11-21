@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><title>Joint model confirmation · PhaseWeave</title>
+ <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="joint-evidence.js"></script>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="View controls">
+  <a class="button" href="./#live-inference">Inference workspace</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Joint model confirmation</h1><p class="arch-lead">Frozen continuous reasoning models on eight October sessions and a separate live crypto snapshot experiment.</p></header>
+  <section class="arch-panel">
+   <h2>CHF route forecasts</h2>
+   <p>All eight arms use the same 16-frame input and score eligible directions on the same quote outcomes. The primary comparison is the full model against the encoder-only version on CHF pentagons. Some quote clocks were shared with earlier triangle work.</p>
+   <div id="arch-selectors">
+    <label>Route legs <select id="joint-length"><option value="3">3</option><option value="4">4</option><option value="5" selected>5</option></select></label>
+    <label>Target support <select id="joint-support"><option value="results">Native support</option><option value="common_history_results">Common to both history grids</option></select></label>
+   </div>
+   <p id="joint-status" role="status">Loading verified results.</p>
+   <div class="arch-scroll" id="joint-results"></div>
+   <p>The columns show MAE in log basis points at each physical forecast tenor. The macro column weights tenors equally. These are indicative margins with a fixed fee per leg.</p>
+  </section>
+  <section class="arch-panel">
+   <h2>Primary paired comparison</h2>
+   <p id="joint-primary"></p>
+   <div id="joint-plot"></div>
+   <div class="arch-scroll" id="joint-days"></div>
+   <p>Negative values favor the joint model. The day-block interval accounts for within-day overlap in this sample. The eight-day window limits generalization to other regimes.</p>
+   <p><a href="joint-fx-confirmation-v1.json">Aggregate score and independent verification</a> · <a href="downloads/joint-confirmation.md">Cohort, registration and reproduction</a></p>
+  </section>
+  <section class="arch-panel">
+   <h2>Live crypto quote shadow</h2>
+   <p>Three frozen FX models observed the public ETH/BTC/USDT order-book stream. A forecast was logged before its outcome. The feed had to supply three fresh updates strictly after issuance at each requested tenor.</p>
+   <p id="joint-live-status" role="status">Loading prospective evidence.</p>
+   <div class="arch-scroll" id="joint-live"></div>
+   <p>The live run measures cross-market quote forecasting and clock coverage. It uses a modeled fee and no order or fill data.</p>
+  </section>
+ </main>
+</body>
+</html>
