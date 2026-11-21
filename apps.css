@@ -1,0 +1,31 @@
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.app-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.app-actions, .app-versions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .65rem 1rem;
+  list-style: none;
+  padding: 0;
+}
+.app-actions {
+  margin: auto 0 0;
+}
+.app-actions a, .app-versions a {
+  display: inline-block;
+  padding-block: .35rem;
+}
+@media (max-width: 720px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}
