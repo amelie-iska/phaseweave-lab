@@ -1,0 +1,38 @@
+{
+  "forecast_names": [
+    "diverse-target-fullwidth-blend",
+    "factor-neutral60-slot3",
+    "jupiter20-slot2",
+    "jupiter60-slot2",
+    "jupiter60-slot3",
+    "rolling-all-1039",
+    "same-target-fullwidth-blend",
+    "static-all-1039"
+  ],
+  "format": "phaseweave.numerai-fullwidth-shadow-aggregate.v1",
+  "independent_rank_values": 56640,
+  "independent_sha256": "4d9da0321064db0e4615094137dd39e36104820f4febad4ee002ecd0c9af5733",
+  "model_count": 8,
+  "original_static_checkpoint_forecast_exact": true,
+  "predictor_columns": 1039,
+  "projected_source": {
+    "excluded_bytes": 75114,
+    "excluded_data_page_bytes": 0,
+    "network_bytes": 4326000,
+    "size_bytes": 4401106,
+    "source": "v6.0/live.parquet"
+  },
+  "receipt_sha256": "858f6773f28030bc8130ffe66c69c26edad9e6de1f41362bd9c17e89bbd48c55",
+  "registration_sha256": "e3a0a5181746ba985fd1611767bade07ee7d294187b57d8866a527f6f6944b30",
+  "rehearsal": {
+    "date": "2026-11-19",
+    "mode": "closed_round_rehearsal",
+    "official_score": null,
+    "official_upload": false,
+    "on_time_cutoff": "2026-11-20T14:04:12Z",
+    "payout": null,
+    "round": 1403,
+    "rows": 7080,
+    "sealed_utc": "2026-11-21T05:35:42.653647+00:00"
+  }
+}

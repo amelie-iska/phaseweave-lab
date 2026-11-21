@@ -7,6 +7,9 @@
 .architecture button,.architecture select,.architecture label, #arch-stage-label { font: .76rem/1.4 var(--mono); }
 .architecture label { display:flex; align-items:center; gap:5px; }
 .architecture label select { max-width:22ch; }
+.arch-period-controls { display:flex; flex-wrap:wrap; gap:.4rem .8rem; margin-block:.65rem; }
+.arch-period-controls label { min-width:0; flex-wrap:wrap; }
+.arch-period-controls label select { max-width:100%; min-width:0; text-overflow:ellipsis; }
 .architecture input[type="range"] { width:82px; }
 .architecture #arch-depth { width:clamp(140px,25vw,350px); }
 .arch-grid { display:grid; grid-template-columns:minmax(0,1.67fr) minmax(300px,1fr); gap:12px; }

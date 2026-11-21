@@ -105,6 +105,39 @@ async function breadthComparison() {
 }
 breadthComparison().catch(()=>{get("numerai-breadth-summary").textContent="The breadth comparison receipt could not load.";});
 
+function disagreementReport(source) {
+  const neutral = source.comparisons.neutral_corr;
+  const oppositeInterval = bounds => [-bounds[1], -bounds[0]];
+  const primary = neutral["diverse-target-fullwidth-blend"];
+  const overall = Object.fromEntries(Object.entries(source.means.neutral_corr).map(([id, score]) => {
+    const comparator = neutral[id];
+    return [id, {
+      neutral_corr: score,
+      raw_corr: source.means.raw_corr[id],
+      ...(comparator ? {
+        neutral_corr_delta: -comparator.delta,
+        neutral_corr_paired_ci_13_weeks: oppositeInterval(comparator.paired_ci13),
+        neutral_corr_paired_ci_26_weeks: oppositeInterval(comparator.paired_ci26),
+        neutral_corr_wins: source.scored_dates - comparator.wins - comparator.ties,
+      } : {}),
+    }];
+  }));
+  return {
+    dates: source.scored_dates,
+    keys: source.scored_stock_dates,
+    reference: "gate",
+    context: " Reused development dates. The rule selected the diverse blend on "
+      + source.choices["diverse-target-fullwidth-blend"] + " dates and the same-target blend on "
+      + source.choices["same-target-fullwidth-blend"] + ".",
+    overall,
+    primary: {
+      neutral_corr_delta: primary.delta,
+      neutral_corr_paired_ci_13_weeks: primary.paired_ci13,
+      neutral_corr_paired_ci_26_weeks: primary.paired_ci26,
+    },
+  };
+}
+
 async function fixedCandidateComparison() {
   const paths = {
     wide: "numerai-wide-2022-23-v1.json",
@@ -112,13 +145,15 @@ async function fixedCandidateComparison() {
     audit: "numerai-2022-23-validation-v1.json",
     development: "numerai-neural-development-v1.json",
     multitarget: "numerai-fullwidth-multitarget-v1.json",
+    disagreement: "numerai-development-disagreement-v1.json",
     scale: "numerai-scale-development-v1.json",
     rolling: "numerai-rolling-development-v1.json",
   };
   const reports = await Promise.all(Object.entries(paths).map(async ([key, path]) => {
     const response = await fetch(path);
     if (!response.ok) throw Error("Validation receipt unavailable");
-    return [key, await response.json()];
+    const body = await response.json();
+    return [key, key === "disagreement" ? disagreementReport(body) : body];
   }));
   const periods = Object.fromEntries(reports);
   const select = get("numerai-fresh-period");
@@ -127,6 +162,7 @@ async function fixedCandidateComparison() {
   const results = get("numerai-fresh-table");
   const labels = {
     lgbm_jupiter_60: "Published LightGBM Jupiter 60",
+    gate: "Predictor disagreement selector",
     "local-lightgbm-jupiter60": "Local LightGBM Jupiter 60 · 350",
     binned: "Local LightGBM Jupiter 60 · 1,017",
     all_numeric: "Static LightGBM Jupiter 60 · 1,039",
@@ -150,14 +186,14 @@ async function fixedCandidateComparison() {
     const boundsKey = "neutral_corr_paired_ci_"+block.value+"_weeks";
     const interval = score => score[boundsKey]?.map(num).join(" to ") ?? "Unavailable";
     const contrast = {wide: "Rolling versus static", multitarget: "Diverse versus same-target",
-      preterminal:"Diverse versus same-target"}[select.value];
+      preterminal:"Diverse versus same-target", disagreement:"Selector versus fixed diverse-target"}[select.value];
     const primary = contrast ? " "+contrast+" "+num(report.primary.neutral_corr_delta)
       +" neutral CORR." : "";
     const precision = select.value === "preterminal"
       ? " The 13-date panel cannot support either configured block interval."
       : contrast ? " Paired 95% interval "+interval(report.primary)+"." : "";
     summary.textContent = report.dates + " matched dates · " + report.keys.toLocaleString("en-US")
-      + " stock-date keys · Reference " + (labels[report.reference] ?? report.reference) + "." + primary + precision;
+      + " stock-date keys · Reference " + (labels[report.reference] ?? report.reference) + "." + primary + precision + (report.context ?? "");
     results.replaceChildren(table(
       ["Forecast", "Neutral CORR", "Raw CORR", "Paired neutral Δ", block.value+"-week 95% interval", "Dates ahead"],
       entries.map(([key, score]) => [labels[key] ?? key, num(score.neutral_corr), num(score.raw_corr),
