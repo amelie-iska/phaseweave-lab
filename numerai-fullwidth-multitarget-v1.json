@@ -1,0 +1,1360 @@
+{
+  "by_reference": {
+    "all_numeric": {
+      "all_numeric": {
+        "neutral_corr": 0.03804508213763359,
+        "neutral_corr_delta": 0.0,
+        "neutral_corr_paired_ci_13_weeks": [
+          0.0,
+          0.0
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          0.0,
+          0.0
+        ],
+        "neutral_corr_ties": 105,
+        "neutral_corr_wins": 0,
+        "raw_corr": 0.032265029944008,
+        "raw_corr_delta": 0.0
+      },
+      "diverse-target-fullwidth-blend": {
+        "neutral_corr": 0.04146781694080918,
+        "neutral_corr_delta": 0.0034227348031755822,
+        "neutral_corr_paired_ci_13_weeks": [
+          0.0008386183673232631,
+          0.006409620802153357
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          0.0010817364423449402,
+          0.0063815470101721864
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 77,
+        "raw_corr": 0.03325548337820866,
+        "raw_corr_delta": 0.000990453434200665
+      },
+      "factor-neutral60-slot3": {
+        "neutral_corr": 0.03335447363601452,
+        "neutral_corr_delta": -0.0046906085016190716,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.009002110426129417,
+          0.0005765890002000156
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.008553722859838226,
+          -0.0003461019160770883
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 28,
+        "raw_corr": 0.021542262899969793,
+        "raw_corr_delta": -0.010722767044038201
+      },
+      "jupiter20-slot2": {
+        "neutral_corr": 0.03901749155310153,
+        "neutral_corr_delta": 0.0009724094154679385,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.004734293040680826,
+          0.0074888407803160835
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.005289501594618328,
+          0.007580981762528268
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 53,
+        "raw_corr": 0.0335007531456289,
+        "raw_corr_delta": 0.001235723201620906
+      },
+      "jupiter60-slot2": {
+        "neutral_corr": 0.037795203468964145,
+        "neutral_corr_delta": -0.0002498786686694521,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.001952067219574808,
+          0.001648301446900602
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.001708264800853511,
+          0.0013985872912925564
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 53,
+        "raw_corr": 0.03279541367601279,
+        "raw_corr_delta": 0.0005303837320047986
+      },
+      "jupiter60-slot3": {
+        "neutral_corr": 0.04183081188928471,
+        "neutral_corr_delta": 0.0037857297516511123,
+        "neutral_corr_paired_ci_13_weeks": [
+          0.0010358628295073155,
+          0.0069549874407553985
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          0.00129023417873531,
+          0.007181818490540426
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 75,
+        "raw_corr": 0.03678220391546406,
+        "raw_corr_delta": 0.004517173971456067
+      },
+      "lgbm_jupiter_60": {
+        "neutral_corr": 0.04596967115599026,
+        "neutral_corr_delta": 0.007924589018356668,
+        "neutral_corr_paired_ci_13_weeks": [
+          0.003197513654023614,
+          0.01255972667173309
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          0.002856090819861219,
+          0.012755113901824352
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 81,
+        "raw_corr": 0.03855766346978559,
+        "raw_corr_delta": 0.006292633525777597
+      },
+      "same-target-fullwidth-blend": {
+        "neutral_corr": 0.04088492415399686,
+        "neutral_corr_delta": 0.0028398420163632684,
+        "neutral_corr_paired_ci_13_weeks": [
+          0.0019097660898771593,
+          0.0038944169509694286
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          0.0019858002436519166,
+          0.0039205457274428
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 90,
+        "raw_corr": 0.03497924455392685,
+        "raw_corr_delta": 0.0027142146099188515
+      }
+    },
+    "lgbm_jupiter_60": {
+      "all_numeric": {
+        "neutral_corr": 0.03804508213763359,
+        "neutral_corr_delta": -0.007924589018356668,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.012559726671733091,
+          -0.003197513654023618
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.012755113901824352,
+          -0.0028560908198612205
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 24,
+        "raw_corr": 0.032265029944008,
+        "raw_corr_delta": -0.006292633525777597
+      },
+      "diverse-target-fullwidth-blend": {
+        "neutral_corr": 0.04146781694080918,
+        "neutral_corr_delta": -0.004501854215181085,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.010905944895394955,
+          0.001487665009353994
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.010830522217244915,
+          0.0013328081232955801
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 44,
+        "raw_corr": 0.03325548337820866,
+        "raw_corr_delta": -0.005302180091576932
+      },
+      "factor-neutral60-slot3": {
+        "neutral_corr": 0.03335447363601452,
+        "neutral_corr_delta": -0.01261519751997574,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.01962693394285673,
+          -0.0057308252814347
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.019278888906518545,
+          -0.006827451240611845
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 28,
+        "raw_corr": 0.021542262899969793,
+        "raw_corr_delta": -0.0170154005698158
+      },
+      "jupiter20-slot2": {
+        "neutral_corr": 0.03901749155310153,
+        "neutral_corr_delta": -0.006952179602888729,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.01604996105885875,
+          0.0015668599518269463
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.01682703318240209,
+          0.0012844239382897998
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 40,
+        "raw_corr": 0.0335007531456289,
+        "raw_corr_delta": -0.0050569103241566915
+      },
+      "jupiter60-slot2": {
+        "neutral_corr": 0.037795203468964145,
+        "neutral_corr_delta": -0.00817446768702612,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.013173670885592266,
+          -0.003398580242946619
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.013369090595171263,
+          -0.003294411116722478
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 26,
+        "raw_corr": 0.03279541367601279,
+        "raw_corr_delta": -0.005762249793772798
+      },
+      "jupiter60-slot3": {
+        "neutral_corr": 0.04183081188928471,
+        "neutral_corr_delta": -0.004138859266705555,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.009244778989224215,
+          0.0007078301727854995
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.009530278230515516,
+          0.00056396105275163
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 37,
+        "raw_corr": 0.03678220391546406,
+        "raw_corr_delta": -0.0017754595543215301
+      },
+      "lgbm_jupiter_60": {
+        "neutral_corr": 0.04596967115599026,
+        "neutral_corr_delta": 0.0,
+        "neutral_corr_paired_ci_13_weeks": [
+          0.0,
+          0.0
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          0.0,
+          0.0
+        ],
+        "neutral_corr_ties": 105,
+        "neutral_corr_wins": 0,
+        "raw_corr": 0.03855766346978559,
+        "raw_corr_delta": 0.0
+      },
+      "same-target-fullwidth-blend": {
+        "neutral_corr": 0.04088492415399686,
+        "neutral_corr_delta": -0.0050847470019934,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.009735063849424982,
+          -0.0003741483527545457
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.00989878748554635,
+          -0.00025383885484398205
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 35,
+        "raw_corr": 0.03497924455392685,
+        "raw_corr_delta": -0.003578418915858746
+      }
+    },
+    "same-target-fullwidth-blend": {
+      "all_numeric": {
+        "neutral_corr": 0.03804508213763359,
+        "neutral_corr_delta": -0.0028398420163632684,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.0038944169509694286,
+          -0.00190976608987716
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.0039205457274428,
+          -0.001985800243651917
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 15,
+        "raw_corr": 0.032265029944008,
+        "raw_corr_delta": -0.0027142146099188515
+      },
+      "diverse-target-fullwidth-blend": {
+        "neutral_corr": 0.04146781694080918,
+        "neutral_corr_delta": 0.0005828927868123141,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.0017168532194801777,
+          0.002896457963294849
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.001415715926279953,
+          0.002830891389500718
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 56,
+        "raw_corr": 0.03325548337820866,
+        "raw_corr_delta": -0.0017237611757181862
+      },
+      "factor-neutral60-slot3": {
+        "neutral_corr": 0.03335447363601452,
+        "neutral_corr_delta": -0.0075304505179823395,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.011650918755137647,
+          -0.0026978349176643487
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.011137755788152159,
+          -0.0038749442961541754
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 24,
+        "raw_corr": 0.021542262899969793,
+        "raw_corr_delta": -0.01343698165395705
+      },
+      "jupiter20-slot2": {
+        "neutral_corr": 0.03901749155310153,
+        "neutral_corr_delta": -0.0018674326008953298,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.007174218154069759,
+          0.00391511740328763
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.00792868641456446,
+          0.003997392535220317
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 43,
+        "raw_corr": 0.0335007531456289,
+        "raw_corr_delta": -0.0014784914082979455
+      },
+      "jupiter60-slot2": {
+        "neutral_corr": 0.037795203468964145,
+        "neutral_corr_delta": -0.0030897206850327204,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.004279883883955998,
+          -0.0018373508769904878
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.004263443598664062,
+          -0.0019303745300222562
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 25,
+        "raw_corr": 0.03279541367601279,
+        "raw_corr_delta": -0.0021838308779140525
+      },
+      "jupiter60-slot3": {
+        "neutral_corr": 0.04183081188928471,
+        "neutral_corr_delta": 0.0009458877352878441,
+        "neutral_corr_paired_ci_13_weeks": [
+          -0.001229511478505489,
+          0.0034263024694099298
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          -0.0010595175983939078,
+          0.0035940732039844605
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 61,
+        "raw_corr": 0.03678220391546406,
+        "raw_corr_delta": 0.0018029593615372158
+      },
+      "lgbm_jupiter_60": {
+        "neutral_corr": 0.04596967115599026,
+        "neutral_corr_delta": 0.0050847470019934,
+        "neutral_corr_paired_ci_13_weeks": [
+          0.0003741483527545422,
+          0.009735063849424979
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          0.00025383885484398205,
+          0.009898787485546349
+        ],
+        "neutral_corr_ties": 0,
+        "neutral_corr_wins": 70,
+        "raw_corr": 0.03855766346978559,
+        "raw_corr_delta": 0.003578418915858746
+      },
+      "same-target-fullwidth-blend": {
+        "neutral_corr": 0.04088492415399686,
+        "neutral_corr_delta": 0.0,
+        "neutral_corr_paired_ci_13_weeks": [
+          0.0,
+          0.0
+        ],
+        "neutral_corr_paired_ci_26_weeks": [
+          0.0,
+          0.0
+        ],
+        "neutral_corr_ties": 105,
+        "neutral_corr_wins": 0,
+        "raw_corr": 0.03497924455392685,
+        "raw_corr_delta": 0.0
+      }
+    }
+  },
+  "by_year": {
+    "2020": {
+      "all_numeric": {
+        "all_numeric": {
+          "neutral_corr": 0.023653270638727852,
+          "neutral_corr_delta": 0.0,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_ties": 52,
+          "neutral_corr_wins": 0,
+          "raw_corr": 0.019127919301262453,
+          "raw_corr_delta": 0.0
+        },
+        "diverse-target-fullwidth-blend": {
+          "neutral_corr": 0.027316215488954024,
+          "neutral_corr_delta": 0.0036629448502261733,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.0001048315731920723,
+            0.007039237825329918
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0007325428446748999,
+            0.006593346855777447
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 39,
+          "raw_corr": 0.02140255289650006,
+          "raw_corr_delta": 0.002274633595237606
+        },
+        "factor-neutral60-slot3": {
+          "neutral_corr": 0.021547236205351542,
+          "neutral_corr_delta": -0.0021060344333763098,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.008904994024621703,
+            0.004996212572755908
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.004850629504967182,
+            0.0006272437517265845
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 16,
+          "raw_corr": 0.012815254989622642,
+          "raw_corr_delta": -0.0063126643116398085
+        },
+        "jupiter20-slot2": {
+          "neutral_corr": 0.028822901000914607,
+          "neutral_corr_delta": 0.005169630362186753,
+          "neutral_corr_paired_ci_13_weeks": [
+            -4.893860868591131e-05,
+            0.010111344378790509
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0009636799536411445,
+            0.00939344653755818
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 35,
+          "raw_corr": 0.025279231811041948,
+          "raw_corr_delta": 0.006151312509779496
+        },
+        "jupiter60-slot2": {
+          "neutral_corr": 0.024137874171366355,
+          "neutral_corr_delta": 0.000484603532638504,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.0011433945311586106,
+            0.0018687732277170937
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.000763133582722509,
+            0.0016758864638081615
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 29,
+          "raw_corr": 0.02043856060227391,
+          "raw_corr_delta": 0.001310641301011458
+        },
+        "jupiter60-slot3": {
+          "neutral_corr": 0.028436419182770102,
+          "neutral_corr_delta": 0.004783148544042248,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.00022742905960430732,
+            0.00939513179976339
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.00027974543285845776,
+            0.009161493527012659
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 37,
+          "raw_corr": 0.024593833429500563,
+          "raw_corr_delta": 0.005465914128238109
+        },
+        "lgbm_jupiter_60": {
+          "neutral_corr": 0.031079879452188184,
+          "neutral_corr_delta": 0.00742660881346033,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.003596502730668756,
+            0.011657463549454967
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0038651205464598254,
+            0.010984452454203762
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 42,
+          "raw_corr": 0.02434549353576249,
+          "raw_corr_delta": 0.005217574234500039
+        },
+        "same-target-fullwidth-blend": {
+          "neutral_corr": 0.0262896055585049,
+          "neutral_corr_delta": 0.002636334919777048,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.0011661986248179008,
+            0.0038788481778945258
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.001437548632960799,
+            0.003823663711467966
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 45,
+          "raw_corr": 0.021900302535931122,
+          "raw_corr_delta": 0.002772383234668674
+        }
+      },
+      "lgbm_jupiter_60": {
+        "all_numeric": {
+          "neutral_corr": 0.023653270638727852,
+          "neutral_corr_delta": -0.00742660881346033,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.011657463549454971,
+            -0.003596502730668756
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.010984452454203762,
+            -0.0038651205464598254
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 10,
+          "raw_corr": 0.019127919301262453,
+          "raw_corr_delta": -0.005217574234500039
+        },
+        "diverse-target-fullwidth-blend": {
+          "neutral_corr": 0.027316215488954024,
+          "neutral_corr_delta": -0.0037636639632341574,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.011276493566005678,
+            0.0025454635525760895
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.010126711441794016,
+            0.0025996518833428495
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 22,
+          "raw_corr": 0.02140255289650006,
+          "raw_corr_delta": -0.002942940639262433
+        },
+        "factor-neutral60-slot3": {
+          "neutral_corr": 0.021547236205351542,
+          "neutral_corr_delta": -0.00953264324683664,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.0195982710972616,
+            -0.0010103007728749132
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.015488666162886112,
+            -0.0035719263190692897
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 15,
+          "raw_corr": 0.012815254989622642,
+          "raw_corr_delta": -0.011530238546139847
+        },
+        "jupiter20-slot2": {
+          "neutral_corr": 0.028822901000914607,
+          "neutral_corr_delta": -0.0022569784512735764,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.010504160619393278,
+            0.0050377851142723775
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.009594846099221479,
+            0.005088784120075472
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 26,
+          "raw_corr": 0.025279231811041948,
+          "raw_corr_delta": 0.000933738275279457
+        },
+        "jupiter60-slot2": {
+          "neutral_corr": 0.024137874171366355,
+          "neutral_corr_delta": -0.006942005280821826,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.01181363734905662,
+            -0.002253817064911719
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.011558642276974793,
+            -0.002325782827770394
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 12,
+          "raw_corr": 0.02043856060227391,
+          "raw_corr_delta": -0.003906932933488581
+        },
+        "jupiter60-slot3": {
+          "neutral_corr": 0.028436419182770102,
+          "neutral_corr_delta": -0.0026434602694180827,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.006390223559004132,
+            0.0011000302955932074
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.006172610607322194,
+            0.000905679851554071
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 18,
+          "raw_corr": 0.024593833429500563,
+          "raw_corr_delta": 0.0002483398937380707
+        },
+        "lgbm_jupiter_60": {
+          "neutral_corr": 0.031079879452188184,
+          "neutral_corr_delta": 0.0,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_ties": 52,
+          "neutral_corr_wins": 0,
+          "raw_corr": 0.02434549353576249,
+          "raw_corr_delta": 0.0
+        },
+        "same-target-fullwidth-blend": {
+          "neutral_corr": 0.0262896055585049,
+          "neutral_corr_delta": -0.004790273893683282,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.009084929445728548,
+            -0.000753564907489861
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.008785240991210475,
+            -0.0007945672508379519
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 18,
+          "raw_corr": 0.021900302535931122,
+          "raw_corr_delta": -0.0024451909998313656
+        }
+      },
+      "same-target-fullwidth-blend": {
+        "all_numeric": {
+          "neutral_corr": 0.023653270638727852,
+          "neutral_corr_delta": -0.002636334919777048,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.0038788481778945258,
+            -0.0011661986248179012
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.003823663711467966,
+            -0.001437548632960799
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 7,
+          "raw_corr": 0.019127919301262453,
+          "raw_corr_delta": -0.002772383234668674
+        },
+        "diverse-target-fullwidth-blend": {
+          "neutral_corr": 0.027316215488954024,
+          "neutral_corr_delta": 0.0010266099304491252,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.002646831311250587,
+            0.0037255397328410855
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.0013938846717817222,
+            0.0034297274656273306
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 34,
+          "raw_corr": 0.02140255289650006,
+          "raw_corr_delta": -0.0004977496394310678
+        },
+        "factor-neutral60-slot3": {
+          "neutral_corr": 0.021547236205351542,
+          "neutral_corr_delta": -0.004742369353153358,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.011814779943353561,
+            0.002228328383216933
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.00690354256178692,
+            -0.0026158101220723415
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 16,
+          "raw_corr": 0.012815254989622642,
+          "raw_corr_delta": -0.009085047546308483
+        },
+        "jupiter20-slot2": {
+          "neutral_corr": 0.028822901000914607,
+          "neutral_corr_delta": 0.002533295442409706,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.0017842802394625224,
+            0.006517355665197254
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.0009080777735955621,
+            0.00599365461546646
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 32,
+          "raw_corr": 0.025279231811041948,
+          "raw_corr_delta": 0.0033789292751108227
+        },
+        "jupiter60-slot2": {
+          "neutral_corr": 0.024137874171366355,
+          "neutral_corr_delta": -0.0021517313871385444,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.0031892991023306652,
+            -0.0007651853140117822
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.003190897930385536,
+            -0.0011272317060118892
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 16,
+          "raw_corr": 0.02043856060227391,
+          "raw_corr_delta": -0.0014617419336572157
+        },
+        "jupiter60-slot3": {
+          "neutral_corr": 0.028436419182770102,
+          "neutral_corr_delta": 0.0021468136242652,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.0014625101113906142,
+            0.005740020244854603
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.0011770000803882534,
+            0.0054541611468206614
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 36,
+          "raw_corr": 0.024593833429500563,
+          "raw_corr_delta": 0.002693530893569436
+        },
+        "lgbm_jupiter_60": {
+          "neutral_corr": 0.031079879452188184,
+          "neutral_corr_delta": 0.004790273893683282,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.000753564907489859,
+            0.009084929445728548
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0007945672508379418,
+            0.008785240991210475
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 34,
+          "raw_corr": 0.02434549353576249,
+          "raw_corr_delta": 0.0024451909998313656
+        },
+        "same-target-fullwidth-blend": {
+          "neutral_corr": 0.0262896055585049,
+          "neutral_corr_delta": 0.0,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_ties": 52,
+          "neutral_corr_wins": 0,
+          "raw_corr": 0.021900302535931122,
+          "raw_corr_delta": 0.0
+        }
+      }
+    },
+    "2021": {
+      "all_numeric": {
+        "all_numeric": {
+          "neutral_corr": 0.05216535002335243,
+          "neutral_corr_delta": 0.0,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_ties": 53,
+          "neutral_corr_wins": 0,
+          "raw_corr": 0.04515427057462627,
+          "raw_corr_delta": 0.0
+        },
+        "diverse-target-fullwidth-blend": {
+          "neutral_corr": 0.05535240704451611,
+          "neutral_corr_delta": 0.003187057021163682,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.0004484528216192214,
+            0.00656197426647093
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.00045992483332477166,
+            0.005969721492659062
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 38,
+          "raw_corr": 0.04488477366214917,
+          "raw_corr_delta": -0.00026949691247708807
+        },
+        "factor-neutral60-slot3": {
+          "neutral_corr": 0.04493893300194801,
+          "neutral_corr_delta": -0.007226417021404422,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.010566201408429208,
+            -0.004017304285402991
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.009949334752076096,
+            -0.00460431906920155
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 12,
+          "raw_corr": 0.030104610283706625,
+          "raw_corr_delta": -0.01504966029091964
+        },
+        "jupiter20-slot2": {
+          "neutral_corr": 0.049019731340152854,
+          "neutral_corr_delta": -0.0031456186831995787,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.00938362803157519,
+            0.004647588358693107
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.008830060953386391,
+            0.0025958870555701586
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 18,
+          "raw_corr": 0.041567151436167044,
+          "raw_corr_delta": -0.003587119138459221
+        },
+        "jupiter60-slot2": {
+          "neutral_corr": 0.05119484730811669,
+          "neutral_corr_delta": -0.0009705027152357487,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.003230543502439522,
+            0.0014268340031113212
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.0019744094453400082,
+            -4.813128097997851e-05
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 24,
+          "raw_corr": 0.04491911857854906,
+          "raw_corr_delta": -0.00023515199607720687
+        },
+        "jupiter60-slot3": {
+          "neutral_corr": 0.054972480205110356,
+          "neutral_corr_delta": 0.0028071301817579226,
+          "neutral_corr_paired_ci_13_weeks": [
+            -5.4242054682911926e-05,
+            0.005375249365907946
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0011222312028670068,
+            0.004357645098851097
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 38,
+          "raw_corr": 0.04874060514697542,
+          "raw_corr_delta": 0.0035863345723491573
+        },
+        "lgbm_jupiter_60": {
+          "neutral_corr": 0.060578523393682866,
+          "neutral_corr_delta": 0.008413173370330432,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.00044237500064889327,
+            0.01606697487680462
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0007062758356374196,
+            0.016110318798419065
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 39,
+          "raw_corr": 0.052501679254110145,
+          "raw_corr_delta": 0.007347408679483881
+        },
+        "same-target-fullwidth-blend": {
+          "neutral_corr": 0.05520485937976256,
+          "neutral_corr_delta": 0.0030395093564101255,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.0021029130705801013,
+            0.004094495340894517
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0026008949247760633,
+            0.00344131549117568
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 45,
+          "raw_corr": 0.04781141408101698,
+          "raw_corr_delta": 0.0026571435063907235
+        }
+      },
+      "lgbm_jupiter_60": {
+        "all_numeric": {
+          "neutral_corr": 0.05216535002335243,
+          "neutral_corr_delta": -0.008413173370330432,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.016066974876804623,
+            -0.00044237500064889484
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.016110318798419065,
+            -0.0007062758356374217
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 14,
+          "raw_corr": 0.04515427057462627,
+          "raw_corr_delta": -0.007347408679483881
+        },
+        "diverse-target-fullwidth-blend": {
+          "neutral_corr": 0.05535240704451611,
+          "neutral_corr_delta": -0.005226116349166752,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.015353835959756033,
+            0.005185008454835932
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.015536520834870943,
+            0.00500627672303646
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 22,
+          "raw_corr": 0.04488477366214917,
+          "raw_corr_delta": -0.007616905591960968
+        },
+        "factor-neutral60-slot3": {
+          "neutral_corr": 0.04493893300194801,
+          "neutral_corr_delta": -0.015639590391734855,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.024658046933098133,
+            -0.006176718116283991
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.024977897195340906,
+            -0.0063979351233828296
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 13,
+          "raw_corr": 0.030104610283706625,
+          "raw_corr_delta": -0.022397068970403517
+        },
+        "jupiter20-slot2": {
+          "neutral_corr": 0.049019731340152854,
+          "neutral_corr_delta": -0.011558792053530012,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.02510688064314141,
+            0.0026193888726755475
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.02483539228414048,
+            0.0016723582803669628
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 14,
+          "raw_corr": 0.041567151436167044,
+          "raw_corr_delta": -0.0109345278179431
+        },
+        "jupiter60-slot2": {
+          "neutral_corr": 0.05119484730811669,
+          "neutral_corr_delta": -0.009383676085566181,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.01731533903010899,
+            -0.0009451972714564114
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.01721226116943552,
+            -0.0014158699612721007
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 14,
+          "raw_corr": 0.04491911857854906,
+          "raw_corr_delta": -0.0075825606755610874
+        },
+        "jupiter60-slot3": {
+          "neutral_corr": 0.054972480205110356,
+          "neutral_corr_delta": -0.005606043188572511,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.014087991606868551,
+            0.00339621021396941
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.0136114262199583,
+            0.0024808264075143376
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 19,
+          "raw_corr": 0.04874060514697542,
+          "raw_corr_delta": -0.003761074107134723
+        },
+        "lgbm_jupiter_60": {
+          "neutral_corr": 0.060578523393682866,
+          "neutral_corr_delta": 0.0,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_ties": 53,
+          "neutral_corr_wins": 0,
+          "raw_corr": 0.052501679254110145,
+          "raw_corr_delta": 0.0
+        },
+        "same-target-fullwidth-blend": {
+          "neutral_corr": 0.05520485937976256,
+          "neutral_corr_delta": -0.005373664013920308,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.013241659526842673,
+            0.00301243035203965
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.013275974476219013,
+            0.002616521918470928
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 17,
+          "raw_corr": 0.04781141408101698,
+          "raw_corr_delta": -0.004690265173093157
+        }
+      },
+      "same-target-fullwidth-blend": {
+        "all_numeric": {
+          "neutral_corr": 0.05216535002335243,
+          "neutral_corr_delta": -0.0030395093564101255,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.004094495340894517,
+            -0.0021029130705801018
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.00344131549117568,
+            -0.0026008949247760633
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 8,
+          "raw_corr": 0.04515427057462627,
+          "raw_corr_delta": -0.0026571435063907235
+        },
+        "diverse-target-fullwidth-blend": {
+          "neutral_corr": 0.05535240704451611,
+          "neutral_corr_delta": 0.0001475476647535561,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.00246350373013619,
+            0.0029586175799424025
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.002400628463725884,
+            0.002692270005623685
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 22,
+          "raw_corr": 0.04488477366214917,
+          "raw_corr_delta": -0.002926640418867812
+        },
+        "factor-neutral60-slot3": {
+          "neutral_corr": 0.04493893300194801,
+          "neutral_corr_delta": -0.010265926377814549,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.0133820742606393,
+            -0.00759557293756206
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.012901580452280981,
+            -0.007762581543862367
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 8,
+          "raw_corr": 0.030104610283706625,
+          "raw_corr_delta": -0.017706803797310364
+        },
+        "jupiter20-slot2": {
+          "neutral_corr": 0.049019731340152854,
+          "neutral_corr_delta": -0.006185128039609704,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.012062557860123821,
+            0.0008165433788713208
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.011652537486503318,
+            -0.0007419557708955584
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 11,
+          "raw_corr": 0.041567151436167044,
+          "raw_corr_delta": -0.006244262644849945
+        },
+        "jupiter60-slot2": {
+          "neutral_corr": 0.05119484730811669,
+          "neutral_corr_delta": -0.004010012071645874,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.005400636923562274,
+            -0.002638656629742655
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.004623946723602856,
+            -0.0034300515149991197
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 9,
+          "raw_corr": 0.04491911857854906,
+          "raw_corr_delta": -0.00289229550246793
+        },
+        "jupiter60-slot3": {
+          "neutral_corr": 0.054972480205110356,
+          "neutral_corr_delta": -0.00023237917465220294,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.002428410310406728,
+            0.0015494615405980427
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.001755892324413933,
+            0.0012147461151888605
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 25,
+          "raw_corr": 0.04874060514697542,
+          "raw_corr_delta": 0.0009291910659584337
+        },
+        "lgbm_jupiter_60": {
+          "neutral_corr": 0.060578523393682866,
+          "neutral_corr_delta": 0.005373664013920308,
+          "neutral_corr_paired_ci_13_weeks": [
+            -0.0030124303520396526,
+            0.013241659526842671
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            -0.0026165219184709314,
+            0.013275974476219013
+          ],
+          "neutral_corr_ties": 0,
+          "neutral_corr_wins": 36,
+          "raw_corr": 0.052501679254110145,
+          "raw_corr_delta": 0.004690265173093157
+        },
+        "same-target-fullwidth-blend": {
+          "neutral_corr": 0.05520485937976256,
+          "neutral_corr_delta": 0.0,
+          "neutral_corr_paired_ci_13_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_paired_ci_26_weeks": [
+            0.0,
+            0.0
+          ],
+          "neutral_corr_ties": 53,
+          "neutral_corr_wins": 0,
+          "raw_corr": 0.04781141408101698,
+          "raw_corr_delta": 0.0
+        }
+      }
+    }
+  },
+  "dates": 105,
+  "end": "2021-12-31",
+  "format": "phaseweave.numerai-fullwidth-multitarget-public.v1",
+  "keys": 699389,
+  "live": false,
+  "max_prior_fixed_score_discrepancy": 4.163336342344337e-17,
+  "official_score": null,
+  "overall": {
+    "all_numeric": {
+      "neutral_corr": 0.03804508213763359,
+      "neutral_corr_delta": -0.007924589018356668,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.012559726671733091,
+        -0.003197513654023618
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.012755113901824352,
+        -0.0028560908198612205
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 24,
+      "raw_corr": 0.032265029944008,
+      "raw_corr_delta": -0.006292633525777597
+    },
+    "diverse-target-fullwidth-blend": {
+      "neutral_corr": 0.04146781694080918,
+      "neutral_corr_delta": -0.004501854215181085,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.010905944895394955,
+        0.001487665009353994
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.010830522217244915,
+        0.0013328081232955801
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 44,
+      "raw_corr": 0.03325548337820866,
+      "raw_corr_delta": -0.005302180091576932
+    },
+    "factor-neutral60-slot3": {
+      "neutral_corr": 0.03335447363601452,
+      "neutral_corr_delta": -0.01261519751997574,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.01962693394285673,
+        -0.0057308252814347
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.019278888906518545,
+        -0.006827451240611845
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 28,
+      "raw_corr": 0.021542262899969793,
+      "raw_corr_delta": -0.0170154005698158
+    },
+    "jupiter20-slot2": {
+      "neutral_corr": 0.03901749155310153,
+      "neutral_corr_delta": -0.006952179602888729,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.01604996105885875,
+        0.0015668599518269463
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.01682703318240209,
+        0.0012844239382897998
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 40,
+      "raw_corr": 0.0335007531456289,
+      "raw_corr_delta": -0.0050569103241566915
+    },
+    "jupiter60-slot2": {
+      "neutral_corr": 0.037795203468964145,
+      "neutral_corr_delta": -0.00817446768702612,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.013173670885592266,
+        -0.003398580242946619
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.013369090595171263,
+        -0.003294411116722478
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 26,
+      "raw_corr": 0.03279541367601279,
+      "raw_corr_delta": -0.005762249793772798
+    },
+    "jupiter60-slot3": {
+      "neutral_corr": 0.04183081188928471,
+      "neutral_corr_delta": -0.004138859266705555,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.009244778989224215,
+        0.0007078301727854995
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.009530278230515516,
+        0.00056396105275163
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 37,
+      "raw_corr": 0.03678220391546406,
+      "raw_corr_delta": -0.0017754595543215301
+    },
+    "lgbm_jupiter_60": {
+      "neutral_corr": 0.04596967115599026,
+      "neutral_corr_delta": 0.0,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_ties": 105,
+      "neutral_corr_wins": 0,
+      "raw_corr": 0.03855766346978559,
+      "raw_corr_delta": 0.0
+    },
+    "same-target-fullwidth-blend": {
+      "neutral_corr": 0.04088492415399686,
+      "neutral_corr_delta": -0.0050847470019934,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.009735063849424982,
+        -0.0003741483527545457
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.00989878748554635,
+        -0.00025383885484398205
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 35,
+      "raw_corr": 0.03497924455392685,
+      "raw_corr_delta": -0.003578418915858746
+    }
+  },
+  "primary": {
+    "neutral_corr": 0.04146781694080918,
+    "neutral_corr_delta": 0.0005828927868123141,
+    "neutral_corr_paired_ci_13_weeks": [
+      -0.0017168532194801777,
+      0.002896457963294849
+    ],
+    "neutral_corr_paired_ci_26_weeks": [
+      -0.001415715926279953,
+      0.002830891389500718
+    ],
+    "neutral_corr_ties": 0,
+    "neutral_corr_wins": 56,
+    "raw_corr": 0.03325548337820866,
+    "raw_corr_delta": -0.0017237611757181862
+  },
+  "primary_comparison": [
+    "diverse-target-fullwidth-blend",
+    "same-target-fullwidth-blend"
+  ],
+  "provenance": {
+    "completed_score_sha256": "bc08de82746e336bb851d20964f02ceaec635689269a3d3391b2c84835d051f0",
+    "design_sha256": "bcc5a5ca5988e57cd12288da04643d845be15fb9df43dad00ca29a60559a9bf2",
+    "fit_seal_sha256": "c93b199ee93fb17adec723d2e39794471ee00642fde9677bec9a5fe2160013ad",
+    "forecast_sha256": "fe9d7e2ea609bdfb03ee2d19e74f2a135cefda1ef2f7e523ae18ed7f130eac03",
+    "independent_forecasts_sha256": "106ba8f1e2e1b852ac9e9a29517db03893f98fecb8f81df7f0e31744896181f9",
+    "independent_scores_sha256": "ff7b659d749b9bd6880256b66b86f5a66b44b9ba3a517b9b395cad6d5a99c192",
+    "model_hashes": {
+      "all_numeric": "764510c2422387111a6b0889028d49928ca6d93bb671a5a17e235428c9a4895c",
+      "factor-neutral60-slot3": "b702db492749521c9d3fed2cdd9a2f6a27e387042445877eab4b66abedbaa0c6",
+      "jupiter20-slot2": "6f6c4eda760d7048191b726df120c50b96021ae2d1f768227ca468e41e2d4e9d",
+      "jupiter60-slot2": "ce51dc94e5ae556f60fd25b86e75b6d8836fc76c5d8aec0c56001dfdbed796cf",
+      "jupiter60-slot3": "32dfb7deee494a7965b15c2e517c598c991afbfb67d307cd626032ad61e409e6"
+    },
+    "per_date_sha256": "eb99c918179a2c2a9b1bf6d44aefe0ac19dd6104264871fbd12432bb29c4c61b",
+    "training_inputs_sha256": "2ad22753f89a279dd8c37add395ef143f413fffa60ebc2386b27ee7283fbb381"
+  },
+  "reference": "lgbm_jupiter_60",
+  "scope": "Previously evaluated 2020\u20132021 development only. Neither design nor results promote a live model, establish a rank, or alter terminal eligibility.",
+  "start": "2020-01-03",
+  "terminal_accessed": false,
+  "training_dates": 835,
+  "training_keys": 4329443
+}

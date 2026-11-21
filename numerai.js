@@ -110,6 +110,7 @@ async function fixedCandidateComparison() {
     wide: "numerai-wide-2022-23-v1.json",
     audit: "numerai-2022-23-validation-v1.json",
     development: "numerai-neural-development-v1.json",
+    multitarget: "numerai-fullwidth-multitarget-v1.json",
     scale: "numerai-scale-development-v1.json",
     rolling: "numerai-rolling-development-v1.json",
   };
@@ -128,6 +129,8 @@ async function fixedCandidateComparison() {
     "local-lightgbm-jupiter60": "Local LightGBM Jupiter 60 · 350",
     binned: "Local LightGBM Jupiter 60 · 1,017",
     all_numeric: "Static LightGBM Jupiter 60 · 1,039",
+    "same-target-fullwidth-blend": "Wide same-target seed blend",
+    "diverse-target-fullwidth-blend": "Wide diverse-target blend",
     rolling_all_numeric: "Rolling LightGBM Jupiter 60 · 1,039",
     "fixed-medium-blend": "Fixed Medium tree blend",
     "static-all-1039": "Static LightGBM Jupiter 60 · 1,039",
@@ -141,7 +144,8 @@ async function fixedCandidateComparison() {
     const entries = Object.entries(report.overall).sort((a, b) => b[1].neutral_corr - a[1].neutral_corr);
     const boundsKey = "neutral_corr_paired_ci_"+block.value+"_weeks";
     const interval = score => score[boundsKey]?.map(num).join(" to ") ?? "Unavailable";
-    const primary = select.value === "wide" ? " Rolling versus static "+num(report.primary.neutral_corr_delta)
+    const contrast = {wide: "Rolling versus static", multitarget: "Diverse versus same-target"}[select.value];
+    const primary = contrast ? " "+contrast+" "+num(report.primary.neutral_corr_delta)
       +" neutral CORR ("+interval(report.primary)+")." : "";
     summary.textContent = report.dates + " matched dates · " + report.keys.toLocaleString("en-US")
       + " stock-date keys · Reference " + (labels[report.reference] ?? report.reference) + "." + primary;

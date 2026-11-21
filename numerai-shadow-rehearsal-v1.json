@@ -1,4 +1,21 @@
 {
+  "additional_rehearsals": [
+    {
+      "data_date": "2026-11-18",
+      "excluded_data_page_bytes": 0,
+      "mode": "closed_round_rehearsal",
+      "network_bytes": 4329097,
+      "official_rank": null,
+      "official_upload": false,
+      "on_time_cutoff_utc": "2026-11-19T14:06:38Z",
+      "payout": null,
+      "prediction_rows_per_model": 7086,
+      "receipt_sha256": "85db71214b0767e9b49411c971745bc399a3d8bf07ea58976c2c9a5636308757",
+      "round": 1402,
+      "sealed_utc": "2026-11-21T04:29:02.168519+00:00",
+      "source_size_bytes": 4404216
+    }
+  ],
   "data_date": "2026-11-19",
   "excluded_data_page_bytes": 0,
   "mode": "closed_round_rehearsal",
