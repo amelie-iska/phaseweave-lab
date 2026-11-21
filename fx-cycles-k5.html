@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><title>Training on five-leg FX routes · PhaseWeave</title>
+ <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="fx-cycles-k5.js"></script>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Controls">
+  <a class="button" href="fx-cycles.html">Earlier FX benchmark</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Training on five-leg FX routes</h1><p class="arch-lead">A fixed five-currency quote graph tests how adding pentagon labels changes forecasts.</p></header>
+  <section class="arch-panel">
+   <h2>September holdout</h2>
+   <p>Five-leg outcomes come from 21, 23, 25, 28 and 30 September 2026. Earlier experiments reused these dates for non-CHF triangles. Every model sees the same market graph and physical history for its chosen spacing.</p>
+   <div id="arch-selectors">
+    <label>Routes <select id="k5-scope"><option value="chf_routes">Containing CHF</option><option value="all_routes">All</option><option value="non_chf_routes">Without CHF</option></select></label>
+    <label>Legs <select id="k5-length"><option value="3">3</option><option value="4">4</option><option value="5" selected>5</option></select></label>
+    <label>Tenor <select id="k5-tenor"><option value="1">1 s</option><option value="5">5 s</option><option value="15">15 s</option><option value="60">60 s</option><option value="300">300 s</option></select></label>
+    <label>History <select id="k5-cadence"><option value="1">16 frames · 1 s</option><option value="5">4 frames · 5 s</option></select></label>
+    <label>Support <select id="k5-support"><option value="available">All eligible</option><option value="common">Common to both histories</option></select></label>
+    <label>Rows <select id="k5-detail"><option value="arm">Average of seeds</option><option value="seed">Each seed</option></select></label>
+   </div>
+   <p id="k5-status" role="status">Loading audited scores.</p>
+   <div class="arch-scroll" id="k5-results"></div>
+   <p>Targets are indicative quote margins after a modeled 0.1 log bp cost per leg. No fill or position-size data enters these scores.</p>
+  </section>
+  <section class="arch-panel">
+   <h2>Paired effects on routes containing CHF</h2>
+   <div id="arch-layer-bar">
+    <label>Contrast <select id="k5-contrast"><option value="five_leg_supervision">Five-leg supervision</option><option value="history_spacing">History spacing</option><option value="coherence">Coherence vs classical</option><option value="product_phase_minus_coherent">Product phase vs coherent</option><option value="dephased_minus_coherent">Dephased vs coherent</option><option value="maxplus_minus_coherent">Max-plus vs coherent</option><option value="radix_five_minus_three">Five levels vs three</option><option value="wires_six_minus_four">Six wires vs four</option><option value="tropical_attention">Tropical outer attention</option></select></label>
+   </div>
+   <p id="k5-paired-scope"></p>
+   <div id="k5-plot"></div>
+   <div class="arch-scroll" id="k5-paired"></div>
+   <p>Intervals resample UTC days. Five days give limited evidence about other periods and market regimes.</p>
+  </section>
+  <section class="arch-panel">
+   <h2>Observe the circuit at larger sizes</h2>
+   <p>The six-wire patch measures single-wire clock marginals after coherent, dephased or max-plus propagation. It contracts only neighboring phases, which preserves these marginals without materializing a joint statevector. The five-level coherent arm represents a Hilbert space with 15,625 basis states. The training runs used exact classical simulation on an RTX 4090.</p>
+   <p><a href="downloads/fx-cycles-k5.md">Protocol, math and reproduction</a> · <a href="fx-cycles-k5-v1.json">Aggregate result JSON</a> · <a href="manuscripts/fx-cycles-k5-v1/k5-addendum.pdf">Research addendum</a> · <a href="manuscripts/fx-cycles-k5-v1/k5-addendum-source.zip">TeX and receipts</a> · <a href="operators.html">Matrix and qudit workbench</a></p>
+  </section>
+ </main>
+</body>
+</html>
