@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><title>Longer FX cycles · PhaseWeave</title>
+ <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="fx-cycles.js"></script>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Controls">
+  <a class="button" href="model-comparisons.html">Full comparison</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Longer FX cycles</h1><p class="arch-lead">Forecast three- and four-leg margins on observed forex quote graphs. Explore transfer to five-leg CHF routes on a larger graph.</p></header>
+  <section class="arch-panel">
+   <h2>Matched holdout comparisons</h2>
+   <p>Boosted trees led on October four-leg routes at one second. Ridge led on five-leg CHF routes, where every neural fit trailed persistence. The neural models trained on three- and four-leg routes.</p>
+   <div class="arch-controls">
+    <label>Holdout <select id="cycle-fold"><option value="test">October K4</option><option value="stress">September stress K4</option><option value="new_asset">October CHF K5</option></select></label>
+    <label>Route legs <select id="cycle-length"><option value="3">3</option><option value="4" selected>4</option><option value="5" disabled>5</option></select></label>
+    <label>Forecast tenor <select id="cycle-tenor"><option value="1">1 s</option><option value="5">5 s</option><option value="15">15 s</option><option value="60">60 s</option><option value="300">300 s</option></select></label>
+    <label>History spacing <select id="cycle-cadence"><option value="1">1 s · 16 frames</option><option value="5">5 s · 4 frames</option></select></label>
+    <label>Scoring support <select id="cycle-cohort"><option value="native">All eligible</option><option value="common">Common to both spacings</option></select></label>
+    <label>Rows <select id="cycle-detail"><option value="avg">One row per arm</option><option value="seed">One row per seed</option></select></label>
+   </div>
+   <p id="cycle-status" role="status">Loading verified benchmark.</p>
+   <div class="arch-scroll" id="cycle-results"></div>
+   <p>All scores use indicative quote margins after an assumed cost of 0.1 log bp per leg. Eligibility requires a complete input history and a refreshed full route at the chosen target time.</p>
+   <p><a href="fx-cycles-v1.json">Aggregate results</a> · <a href="fx-cycle-pilot-audit-v1.json">Independent replay and paired intervals</a></p>
+  </section>
+  <section class="arch-panel">
+   <h2>What changes with graph size?</h2>
+   <p>The shared graph head sees current spreads and ages. Its route encoder sums the signed circulation and pools edge embeddings around a directed cycle. A classical patch and its coherent, dephased and tropical qutrit counterparts each feed the same residual head.</p>
+   <p><a href="k4-transport.html">Step through the exact four-currency Wilson witness</a> · <a href="./#live-inference">Run the local model trace</a> · <a href="downloads/fx-cycle-pilot.md">Dataset and protocol notes</a></p>
+  </section>
+ </main>
+</body>
+</html>

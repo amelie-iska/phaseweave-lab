@@ -60,13 +60,29 @@
     return {points,lines,axes:["PC 1","PC 2","PC 3"]};
   }
 
+  function cycleScene(events) {
+    const points = events.filter(event => event.stage === "tenor").map(({data:d})=>({
+      point:[d.canonical_log_bps,d.reverse_log_bps,Math.log1p(d.tenor_seconds)/2],
+      color:d.selected?"jade":"violet",radius:d.selected?5:3,label:d.selected?d.tenor_seconds+" s":undefined,
+    }));
+    const lines = points.slice(1).map((p,i)=>({coords:[points[i].point,p.point],color:"jade",alpha:.6}));
+    return {points,lines,axes:["Canonical margin","Reverse margin","log(1 + tenor) / 2"]};
+  }
+
   function description(event) {
     const d = event.data;
     switch (event.stage) {
       case "start": return d.method === "forest"
         ? d.roots + " trees · " + d.depth + " layers · up to " + d.branch + " children per parent."
+        : d.method === "cycle" ? d.legs+" assets · "+d.cadence+" s history spacing · "+d.tenor+" s forecast."
         : "Opened inference worker.";
-      case "input": return d.frames + " historical frames · " + d.edges + " directed edges · one-second forecast.";
+      case "input": return d.history_frames ? d.history_frames+" history frames · "+d.origins+" eligible October origins."
+        : d.frames+" historical frames · "+d.edges+" directed edges · one-second forecast.";
+      case "graph": return d.graph+" · "+d.eligible_route_origin_pairs+" paired route-origins"
+        + (d.structural_extrapolation ? " · unseen five-leg length." : ".");
+      case "tenor": return d.tenor_seconds+" s · two orientation means "+vector([d.canonical_log_bps,d.reverse_log_bps])
+        +" log bps · persistence "+Number(d.mean_persistence_log_bps).toFixed(4)+".";
+
       case "roots": return d.evaluated + " roots scored.";
       case "expansion": return "Depth " + d.depth + " · " + d.evaluated + " proposals · " + d.surviving + " retained.";
       case "repair": return d.evaluated + " learned edits scored · " + d.active_trees.length + " eligible votes.";
@@ -77,7 +93,10 @@
       case "transport": return "Analogue candidate " + vector(d.transport_forecast_log_bps) + " log bps · selected weight " + d.selected_weight + ".";
       case "dose": return "Axis " + d.axis + " · dose " + d.dose + " · forecast Δ "
         + vector(d.forecast_delta_log_bps) + " log bps · probe Δ " + vector(d.concept_delta_sd) + " σ.";
-      case "output": return "Forecast " + vector(d.forecast_log_bps) + " log bps, forward and reverse."
+      case "output": if (state.method === "cycle") return d.selected
+        ? "Selected "+d.selected.tenor_seconds+" s · mean net margin "+Number(d.selected.mean_log_bps).toFixed(4)+" log bps."
+        : (d.reason || "No eligible route history.");
+        return "Forecast " + vector(d.forecast_log_bps) + " log bps, forward and reverse."
         + (d.selected_weight === 0 ? " The selected forecast uses zero analogue weight." : "");
       case "end": return "Inference completed.";
       case "error": return d.message;
@@ -87,6 +106,7 @@
 
   function scene() {
     const visible = state.events.slice(0,state.cursor + 1);
+    if (state.method === "cycle") return cycleScene(visible);
     return state.method === "forest" ? forestScene(visible) : latentScene(visible,state.method === "analogy");
   }
 
@@ -174,8 +194,10 @@
     follow(true);
     render();
     try {
-      const query = new URLSearchParams({method:state.method,preset:corpus,axis:get("axis").value,
-        roots:get("roots").value,depth:get("depth").value,branch:get("branch").value});
+      const query = new URLSearchParams(state.method === "cycle"
+        ? {method:"cycle",preset:"fx-october-hour",legs:get("legs").value,cadence:get("cadence").value,tenor:get("tenor").value}
+        : {method:state.method,preset:corpus,axis:get("axis").value,roots:get("roots").value,
+          depth:get("depth").value,branch:get("branch").value});
       const response = await fetch(endpoint + "?" + query, {headers:{Accept:"application/x-ndjson"},signal:controller.signal});
       if (!response.ok || !response.headers.get("Content-Type")?.startsWith("application/x-ndjson")) throw Error("No model stream");
       const source = response.body.getReader();
@@ -207,8 +229,10 @@
 
   get("method").addEventListener("change",() => {
     get("axis-control").hidden = get("method").value !== "graphcg";
-    for (const control of document.querySelectorAll(".trace-forest-only")) {
-      control.hidden = get("method").value !== "forest";
+    for (const method of ["forest","cycle"]) {
+      for (const control of document.querySelectorAll(".trace-"+method+"-only")) {
+        control.hidden = get("method").value !== method;
+      }
     }
   });
   get("layout").addEventListener("change",render);

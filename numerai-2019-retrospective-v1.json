@@ -1,0 +1,222 @@
+{
+  "format": "phaseweave.numerai-2019-retrospective-audit.v1",
+  "completed_utc": "2026-11-21T01:04:07.816172+00:00",
+  "cohort": {
+    "start": "2019-04-05",
+    "end": "2019-09-27",
+    "dates": 26,
+    "unique_stock_date_keys": 159982,
+    "neutralizer_columns": 300
+  },
+  "target": "target_jupiter_60",
+  "benchmark": "lgbm_jupiter_60",
+  "overall": {
+    "width358-same-family": {
+      "neutral_corr": 0.02619842798453431,
+      "raw_corr": 0.022632038112835245,
+      "benchmark_neutral_contribution": 0.0022428255980221205,
+      "mean_paired_ncorr_delta": -0.007660132580709613,
+      "wins": 6,
+      "ties": 0,
+      "losses": 20
+    },
+    "width358-restored-quintiles": {
+      "neutral_corr": 0.02511519979157641,
+      "raw_corr": 0.02419192105386258,
+      "benchmark_neutral_contribution": 0.0012484663823964523,
+      "mean_paired_ncorr_delta": -0.008743360773667514,
+      "wins": 2,
+      "ties": 0,
+      "losses": 24
+    },
+    "width358-restored-native": {
+      "neutral_corr": 0.031089933635643455,
+      "raw_corr": 0.026269149080236483,
+      "benchmark_neutral_contribution": 0.006424089860448317,
+      "mean_paired_ncorr_delta": -0.0027686269296004692,
+      "wins": 11,
+      "ties": 0,
+      "losses": 15
+    },
+    "medium-jupiter60-hgb": {
+      "neutral_corr": 0.022746499528258076,
+      "raw_corr": 0.020606474799607657,
+      "benchmark_neutral_contribution": -0.0002748448524513177,
+      "mean_paired_ncorr_delta": -0.01111206103698585,
+      "wins": 0,
+      "ties": 0,
+      "losses": 26
+    },
+    "medium-jupiter20-hgb": {
+      "neutral_corr": 0.03245448044579843,
+      "raw_corr": 0.031203834159500614,
+      "benchmark_neutral_contribution": 0.009606558881635332,
+      "mean_paired_ncorr_delta": -0.001404080119445498,
+      "wins": 13,
+      "ties": 0,
+      "losses": 13
+    },
+    "medium-factor-neutral60-hgb": {
+      "neutral_corr": 0.015468114976963892,
+      "raw_corr": 0.010167852142251547,
+      "benchmark_neutral_contribution": -0.0017319900201178625,
+      "mean_paired_ncorr_delta": -0.018390445588280034,
+      "wins": 0,
+      "ties": 0,
+      "losses": 26
+    },
+    "same-20261121": {
+      "neutral_corr": 0.0245060996804905,
+      "raw_corr": 0.021149466600874352,
+      "benchmark_neutral_contribution": 0.0012074244231569907,
+      "mean_paired_ncorr_delta": -0.009352460884753423,
+      "wins": 2,
+      "ties": 0,
+      "losses": 24
+    },
+    "same-20261122": {
+      "neutral_corr": 0.023682889739471243,
+      "raw_corr": 0.020591995519073078,
+      "benchmark_neutral_contribution": 0.0004753829095602461,
+      "mean_paired_ncorr_delta": -0.010175670825772682,
+      "wins": 1,
+      "ties": 0,
+      "losses": 25
+    },
+    "diverse-20261121": {
+      "neutral_corr": 0.02634090376598302,
+      "raw_corr": 0.024263798861353245,
+      "benchmark_neutral_contribution": 0.00448749971327604,
+      "mean_paired_ncorr_delta": -0.007517656799260909,
+      "wins": 7,
+      "ties": 0,
+      "losses": 19
+    },
+    "diverse-20261122": {
+      "neutral_corr": 0.014637589800141024,
+      "raw_corr": 0.009067523495703422,
+      "benchmark_neutral_contribution": -0.002230549523340562,
+      "mean_paired_ncorr_delta": -0.019220970765102898,
+      "wins": 0,
+      "ties": 0,
+      "losses": 26
+    },
+    "fixed-medium-blend": {
+      "neutral_corr": 0.026544045155794997,
+      "raw_corr": 0.023161883287871964,
+      "benchmark_neutral_contribution": 0.0020964077440508147,
+      "mean_paired_ncorr_delta": -0.007314515409448931,
+      "wins": 4,
+      "ties": 0,
+      "losses": 22
+    },
+    "same-target-medium-blend": {
+      "neutral_corr": 0.0248752487668269,
+      "raw_corr": 0.021651699236714058,
+      "benchmark_neutral_contribution": 0.00035335545257426275,
+      "mean_paired_ncorr_delta": -0.008983311798417026,
+      "wins": 2,
+      "ties": 0,
+      "losses": 24
+    },
+    "diverse-target-medium-blend": {
+      "neutral_corr": 0.02458137382634936,
+      "raw_corr": 0.020957869560710333,
+      "benchmark_neutral_contribution": 0.0005273698449909052,
+      "mean_paired_ncorr_delta": -0.009277186738894562,
+      "wins": 2,
+      "ties": 0,
+      "losses": 24
+    },
+    "lgbm_jupiter_60": {
+      "neutral_corr": 0.033858560565243924,
+      "raw_corr": 0.02911586453575438,
+      "benchmark_neutral_contribution": -1.6286355990833269e-19,
+      "mean_paired_ncorr_delta": 0.0,
+      "wins": 0,
+      "ties": 26,
+      "losses": 0
+    },
+    "lightgbm-gaussian-rank": {
+      "neutral_corr": 0.033858560565243924,
+      "raw_corr": 0.02911586453575438,
+      "benchmark_neutral_contribution": -1.6286355990833269e-19,
+      "mean_paired_ncorr_delta": 0.0,
+      "wins": 0,
+      "ties": 26,
+      "losses": 0
+    },
+    "lightgbm-plus-medium-direct": {
+      "neutral_corr": 0.034025792365960435,
+      "raw_corr": 0.028976020104783975,
+      "benchmark_neutral_contribution": 0.00042621769500363,
+      "mean_paired_ncorr_delta": 0.0001672318007165099,
+      "wins": 14,
+      "ties": 0,
+      "losses": 12
+    },
+    "lightgbm-plus-medium-residual": {
+      "neutral_corr": 0.03400072840309,
+      "raw_corr": 0.02887899800598735,
+      "benchmark_neutral_contribution": 0.0005152628245898701,
+      "mean_paired_ncorr_delta": 0.00014216783784607869,
+      "wins": 14,
+      "ties": 0,
+      "losses": 12
+    }
+  },
+  "primary_contrasts": [
+    {
+      "left": "width358-restored-quintiles",
+      "right": "width358-same-family",
+      "dates": 26,
+      "mean_paired_ncorr_delta": -0.0010832281929579015,
+      "wins": 12,
+      "ties": 0,
+      "losses": 14
+    },
+    {
+      "left": "diverse-target-medium-blend",
+      "right": "same-target-medium-blend",
+      "dates": 26,
+      "mean_paired_ncorr_delta": -0.00029387494047753646,
+      "wins": 17,
+      "ties": 0,
+      "losses": 9
+    },
+    {
+      "left": "lightgbm-plus-medium-residual",
+      "right": "lightgbm-plus-medium-direct",
+      "dates": 26,
+      "mean_paired_ncorr_delta": -2.5063962870431204e-05,
+      "wins": 13,
+      "ties": 0,
+      "losses": 13
+    }
+  ],
+  "score_aggregation": "equal-weight date mean",
+  "reference": "Official pinned Numerai tools neutral CORR, CORR and neutral contribution relative to the published LightGBM benchmark",
+  "controls": {
+    "predictor_only_models": 13,
+    "reference_vectors": 1,
+    "derived_comparison_vectors": 3,
+    "submission": false,
+    "original_terminal_scored": false,
+    "prospective_scored": false,
+    "model_selection": false
+  },
+  "protected_data_page_bytes": 0,
+  "new_parquet_bytes": 288943615,
+  "new_range_requests": 31,
+  "source_sha256": "2fbe18517a0615e2e04a77408bf02e084d86693dce6feeef3986e363f48e0a5b",
+  "scorer_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+  "plan_sha256": "6b93da3ae51d994591c768c8d9bc51c2b499adb02fac619e4671f06e5bcca0c1",
+  "prediction_freeze_sha256": "3ca659a012a09e7dd9a90a8dfb1666aae48bc2ee75dd6de38e10d230dd9088ed",
+  "comparison_seal_sha256": "5ca10f9d677e794d28baad8fe8211e44beddcb71515d0008b4b4e2761c66728e",
+  "private_date_scores_sha256": "cbe70aa8ac039c2c3b99151aeebeb9206c1cf865e14851e6eb0e815835852324",
+  "source_receipts": {
+    "validation_benchmark_models": "4e4f1e06509bdb97282023432ee061b71dc47b17b450d6a3186038a3c01851dd",
+    "validation_neutralizer": "5cec3f4015a2623cfe600fed38729a6405e269e54299f2cdcec800ea447717cc",
+    "validation": "4fb40a1a87f52014a00e8a471b2c24ed1d3927ef367efebbeabf8da908b2cfaf"
+  }
+}

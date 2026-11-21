@@ -80,10 +80,10 @@
     </section>
     <section class="front-card front-inference" id="live-inference" aria-labelledby="live-inference-title">
       <div class="front-head"><h2 id="live-inference-title">Live inference</h2><span id="trace-state" role="status">Ready</span></div>
-      <p class="front-context">Run a trained model on the released EUR/USD/JPY window ending 30 October 2026 at 12:00:16 UTC. The quote input is historical and the model computations run now. This checkpoint forecasts one second ahead on three-asset cycles.</p>
+      <p class="front-context">Compute a forecast on historical FX quotes and inspect every streamed stage. Longer-cycle inference aggregates the requested route length and tenor across October observations.</p>
       <div class="trace-controls" aria-label="Inference controls">
         <label>Method <select id="trace-method">
-          <option value="forest">Forest of Thought</option><option value="analogy">Analogical retrieval</option><option value="graphcg">GraphCG steering</option>
+          <option value="forest">Forest of Thought</option><option value="analogy">Analogical retrieval</option><option value="graphcg">GraphCG steering</option><option value="cycle">Trained FX cycles</option>
         </select></label>
         <label id="trace-axis-control" hidden>Steering axis <select id="trace-axis">
           <option value="1">Axis 1</option><option value="2">Axis 2</option><option value="3" selected>Axis 3</option><option value="4">Axis 4</option>
@@ -92,6 +92,15 @@
         <label class="trace-forest-only">Depth <select id="trace-depth"><option>2</option><option selected>4</option><option>8</option></select></label>
         <label class="trace-forest-only">Children per parent <select id="trace-branch"><option>2</option><option selected>3</option><option>6</option></select></label>
         <label class="trace-forest-only">Layout <select id="trace-layout"><option value="overlaid">Overlaid</option><option value="parallel">Parallel</option></select></label>
+        <label class="trace-cycle-only" hidden>Cycle assets <select id="trace-legs">
+          <option value="3">3</option><option value="4" selected>4</option><option value="5">5 · CHF extrapolation</option>
+        </select></label>
+        <label class="trace-cycle-only" hidden>History spacing <select id="trace-cadence">
+          <option value="1">1 s · 16 frames</option><option value="5">5 s · 4 frames</option>
+        </select></label>
+        <label class="trace-cycle-only" hidden>Forecast tenor <select id="trace-tenor">
+          <option value="1">1 s</option><option value="5">5 s</option><option value="15">15 s</option><option value="60" selected>60 s</option><option value="300">300 s</option>
+        </select></label>
         <label>Playback step <select id="trace-interval"><option value="50">50 ms</option><option value="100" selected>100 ms</option><option value="250">250 ms</option><option value="500">500 ms</option></select></label>
         <button id="trace-run" type="button">Run inference</button>
         <button id="trace-cancel" type="button" disabled>Cancel</button>
@@ -112,7 +121,7 @@
           <ol id="trace-events" aria-label="Received computation steps"></ol>
         </div>
       </div>
-      <p class="front-context"><a href="http://127.0.0.1:8155/#live-inference">Open the local inference runner</a> · <a href="reasoning.html">Inspect recorded reasoning studies</a> · <a href="density.html#cloud-heading">Open the time-sliced density cloud</a></p>
+      <p class="front-context"><a href="http://127.0.0.1:8155/#live-inference">Open the local inference runner</a> · <a href="reasoning.html">Inspect recorded reasoning studies</a> · <a href="density.html#cloud-heading">Open the time-sliced density cloud</a> · <a href="fx-cycles.html">Three- to five-leg results</a></p>
     </section>
     <div class="workspace">
       <section class="visual" aria-label="Three-dimensional graph">

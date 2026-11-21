@@ -58,7 +58,7 @@
    <label>Development dates <select id="numerai-breadth-period"><option value="overall">2020–2021</option><option value="2020">2020</option><option value="2021">2021</option></select></label>
    <p id="numerai-breadth-summary" role="status">Loading verified scores.</p>
    <div class="arch-scroll" id="numerai-breadth-table"></div>
-   <p>The restored-quintile fit is second among these five entries on reused 2020–2021 dates. The official live leaderboard uses a different metric and a separate model field. The 2019 audit and the original 78 terminal dates remain unscored.</p>
+   <p>The restored-quintile fit is second among these five entries on reused 2020–2021 dates. The official live leaderboard uses a different metric and a separate model field. The separate 2019 audit is reported below. The original 78 terminal dates remain sealed.</p>
    <p><a href="numerai-breadth-development-v1.json">Verified aggregate, yearly and paired results</a> · <a href="https://docs.numer.ai/numerai-tournament/data">Numerai v6 features and targets</a></p>
   </section>
   <section class="arch-panel"><h2>Target diversity and benchmark additions</h2>
@@ -71,6 +71,17 @@
     <tr><th scope="row">Same-target Medium blend</th><td>0.030769</td></tr>
    </tbody></table></div>
    <p><a href="numerai-medium-controls-v1.json">Verified scores, prediction hashes and matched settings</a></p>
+  </section>
+  <section class="arch-panel" id="audit-2019"><h2>Separate 2019 retrospective audit</h2>
+   <p>Thirteen predictions were frozen before outcomes were opened. All 159,982 stock-date keys matched across 26 dates. The largest standalone mean was 0.032454 against published LightGBM’s 0.033859.</p>
+   <div class="arch-scroll"><table><thead><tr><th scope="col">Forecast</th><th scope="col">Mean neutral CORR</th><th scope="col">Dates ahead of LightGBM</th></tr></thead><tbody>
+    <tr><th scope="row">LightGBM plus fixed Medium blend</th><td>0.034026</td><td>14 / 26</td></tr>
+    <tr><th scope="row">LightGBM plus residualized Medium blend</th><td>0.034001</td><td>14 / 26</td></tr>
+    <tr><th scope="row">Published LightGBM</th><td>0.033859</td><td>Reference</td></tr>
+    <tr><th scope="row">Medium Jupiter 20 HGB</th><td>0.032454</td><td>13 / 26</td></tr>
+   </tbody></table></div>
+   <p>Two development effects reversed by mean on these 26 dates. Restored quintiles lost 0.001083 to the equal-width same-family control, and the diverse-target blend lost 0.000294 to its matched same-target control. These dates have overlapping forward targets.</p>
+   <p><a href="numerai-2019-retrospective-v1.json">Verified audit scores and scope</a></p>
   </section>
   <section class="arch-panel"><h2>Public model leaderboard</h2>
    <label>Tournament <select id="numerai-tournament"><option value="classic">Classic</option><option value="signals">Signals</option><option value="crypto">Crypto</option></select></label>

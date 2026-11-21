@@ -1,0 +1,21 @@
+.k4-page{max-width:1250px;margin:auto;padding:24px clamp(14px,3vw,36px) 44px}
+.k4-page .latent-heading{margin-bottom:20px}
+.k4-workspace,.k4-secondary{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(290px,1fr);gap:16px;align-items:stretch}
+.k4-figure,.k4-panel{min-width:0;margin:0;border:1px solid var(--faint);background:var(--surface)}
+.k4-figure{display:flex;flex-direction:column}
+.k4-figure-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;padding:13px 16px;border-bottom:1px solid var(--faint)}
+.k4-figure-head strong{font-size:21px}.k4-figure-head span,.k4-scrub output,.k4-table td,.k4-panel td{font-family:var(--mono)}
+#k4-view{height:clamp(255px,35vw,395px);min-height:0;background:var(--canvas);flex:1 0 auto}
+.k4-figure .latent-camera{margin:0;padding:10px 14px;border-block:1px solid var(--faint)}
+.k4-figure figcaption{padding:10px 16px;color:var(--muted);font-size:13px}
+.k4-last{color:var(--copper)}.k4-before{color:var(--jade)}.k4-chord{color:var(--violet)}
+.k4-panel{padding:15px 18px}.k4-panel h2,.k4-secondary h2{margin:0 0 12px;font-size:24px}
+.k4-picks{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}.k4-picks label{display:grid;gap:3px;color:var(--muted);font-size:14px}
+.k4-picks select{min-width:0;width:100%}.k4-scrub{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;margin:14px 0;color:var(--muted);font-size:14px}.k4-scrub input{width:100%;accent-color:var(--jade)}
+.k4-word{display:block;font:clamp(19px,2.6vw,30px)/1.4 var(--mono);color:var(--copper);overflow-wrap:anywhere}
+.k4-panel p,.k4-secondary p{margin:8px 0;color:var(--muted);font-size:15px}
+.k4-panel table,.k4-secondary table{width:100%;border-collapse:collapse}.k4-panel th,.k4-panel td,.k4-secondary td,.k4-secondary th{text-align:left;border-bottom:1px solid var(--faint);padding:6px 5px}.k4-panel th,.k4-secondary th{font-size:14px}
+.k4-secondary{grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr);margin-top:22px;gap:clamp(20px,5vw,56px)}
+.k4-table button{font:inherit;min-height:24px;padding:1px 6px;border-color:transparent}.k4-table tr[data-selected=true]{background:var(--table)}
+@media(max-width:760px){.k4-workspace,.k4-secondary{grid-template-columns:1fr}.k4-figure .latent-camera{flex-wrap:wrap}#k4-view{height:300px;flex-grow:0}}
+@media(max-width:410px){.k4-picks{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.k4-panel{padding:12px}.k4-picks select{font-size:14px}}
