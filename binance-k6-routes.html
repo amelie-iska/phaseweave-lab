@@ -52,6 +52,15 @@
       <p>Re-expressing all six asset denominations at each cut preserved exact normalized USDT cash on 23,391 same-cut paths and 18,207 completed delayed paths. Every delayed rejection kept its original reason. The holdings between legs use the next cut’s units.</p>
       <p><a href="binance-k6-time-units-v1.json">Exact rational audit and evidence hashes</a></p>
     </section>
+    <section class="arch-panel" aria-labelledby="k6-ref-title">
+      <h2 id="k6-ref-title">Live reference-price coverage</h2>
+      <p>Independent replay verified 180 one-second cuts on November 21. A timely reference must arrive before the local cut and meet the stated exchange-event age limit.</p>
+      <div class="arch-scroll"><table aria-label="Fresh reference observations">
+        <thead><tr><th scope="col">Maximum age</th><th scope="col">Fresh market observations</th><th scope="col">Cuts with all 15 fresh</th></tr></thead>
+        <tbody><tr><th scope="row">250 ms</th><td>184 / 2,700</td><td>0 / 180</td></tr><tr><th scope="row">1,000 ms</th><td>2,172 / 2,700</td><td>0 / 180</td></tr><tr><th scope="row">5,000 ms</th><td>2,700 / 2,700</td><td>180 / 180</td></tr></tbody>
+      </table></div>
+      <p><a href="binance-k6-reference-health-v1.json">Verified market-by-market coverage and exact timestamps</a></p>
+    </section>
     <section class="arch-panel" aria-labelledby="k6-source-title">
       <h2 id="k6-source-title">Market evidence</h2>
       <p>The replay spends divisible amounts, walks up to five recorded levels on each side, and deducts a hypothetical fee from the output of every leg. Margins use ordinary basis points. The scenarios do not include venue lot and minimum-order filters. The capture records books and modeled conversions. No orders were sent.</p>

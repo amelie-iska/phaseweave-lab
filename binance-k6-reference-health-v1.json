@@ -1,0 +1,170 @@
+{
+  "application_bytes": 538995,
+  "capture_sha256": "2fa25a4885c7e93a0096debb559190a95aafd1594c1fda4301acbab4f9cac6ec",
+  "coverage": {
+    "1000": {
+      "average_event_5m": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 1536
+      },
+      "average_last_trade_5m": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 705
+      },
+      "reference_explicit_null": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 0
+      },
+      "reference_value": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 2172
+      },
+      "resolved_reference_or_null_fallback": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 2172
+      }
+    },
+    "250": {
+      "average_event_5m": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 155
+      },
+      "average_last_trade_5m": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 17
+      },
+      "reference_explicit_null": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 0
+      },
+      "reference_value": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 184
+      },
+      "resolved_reference_or_null_fallback": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 184
+      }
+    },
+    "5000": {
+      "average_event_5m": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 2042
+      },
+      "average_last_trade_5m": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 2008
+      },
+      "reference_explicit_null": {
+        "all_15_cuts": 0,
+        "supported_symbol_cuts": 0
+      },
+      "reference_value": {
+        "all_15_cuts": 180,
+        "supported_symbol_cuts": 2700
+      },
+      "resolved_reference_or_null_fallback": {
+        "all_15_cuts": 180,
+        "supported_symbol_cuts": 2700
+      }
+    }
+  },
+  "cuts": 180,
+  "event_stream_sha256": "0809af8843bda6c69829c70f51a7169dfcafc7db026dcc8b9552719bd0831733",
+  "failure_type": null,
+  "first_cut_utc": "2026-11-21T05:56:38+00:00",
+  "format": "phaseweave.binance-k6-reference-health.v1",
+  "last_cut_utc": "2026-11-21T05:59:37+00:00",
+  "markets": 15,
+  "max_absolute_local_clock_disagreement_ns": 16150,
+  "max_local_clock_sample_bracket_ns": 34880,
+  "messages": 4472,
+  "observed_valid_schema_messages": {
+    "avgPrice": 1619,
+    "referencePrice": 2853
+  },
+  "orders_sent": 0,
+  "origin": "wss://data-stream.binance.vision:443",
+  "per_symbol_cuts_at_1000ms": {
+    "BNBBTC": {
+      "average_event_1000ms": 47,
+      "average_trade_1000ms": 1,
+      "reference_value_1000ms": 13
+    },
+    "BNBETH": {
+      "average_event_1000ms": 10,
+      "average_trade_1000ms": 0,
+      "reference_value_1000ms": 7
+    },
+    "BNBUSDC": {
+      "average_event_1000ms": 71,
+      "average_trade_1000ms": 42,
+      "reference_value_1000ms": 178
+    },
+    "BNBUSDT": {
+      "average_event_1000ms": 170,
+      "average_trade_1000ms": 63,
+      "reference_value_1000ms": 178
+    },
+    "BTCUSDC": {
+      "average_event_1000ms": 150,
+      "average_trade_1000ms": 104,
+      "reference_value_1000ms": 180
+    },
+    "BTCUSDT": {
+      "average_event_1000ms": 180,
+      "average_trade_1000ms": 28,
+      "reference_value_1000ms": 180
+    },
+    "ETHBTC": {
+      "average_event_1000ms": 169,
+      "average_trade_1000ms": 0,
+      "reference_value_1000ms": 0
+    },
+    "ETHUSDC": {
+      "average_event_1000ms": 140,
+      "average_trade_1000ms": 87,
+      "reference_value_1000ms": 180
+    },
+    "ETHUSDT": {
+      "average_event_1000ms": 180,
+      "average_trade_1000ms": 14,
+      "reference_value_1000ms": 177
+    },
+    "SOLBNB": {
+      "average_event_1000ms": 2,
+      "average_trade_1000ms": 1,
+      "reference_value_1000ms": 180
+    },
+    "SOLBTC": {
+      "average_event_1000ms": 15,
+      "average_trade_1000ms": 15,
+      "reference_value_1000ms": 180
+    },
+    "SOLETH": {
+      "average_event_1000ms": 2,
+      "average_trade_1000ms": 2,
+      "reference_value_1000ms": 180
+    },
+    "SOLUSDC": {
+      "average_event_1000ms": 82,
+      "average_trade_1000ms": 59,
+      "reference_value_1000ms": 180
+    },
+    "SOLUSDT": {
+      "average_event_1000ms": 138,
+      "average_trade_1000ms": 122,
+      "reference_value_1000ms": 180
+    },
+    "USDCUSDT": {
+      "average_event_1000ms": 180,
+      "average_trade_1000ms": 167,
+      "reference_value_1000ms": 179
+    }
+  },
+  "plan_sha256": "34dd9e90317a71e53360f694f917cf941e088e1f7a07e273dd99590f99676727",
+  "quality": {},
+  "role": "infrastructure diagnostic outside operational study calendar",
+  "source_sha256": "4f4753bc12f613df8129344f35690b7b55abc492e821297b9add51a567e0dafe",
+  "symbol_cuts_denominator": 2700
+}
