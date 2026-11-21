@@ -1,0 +1,27 @@
+{
+  "adapter_sha256": "6a5a9f71f6c8723177d605969686dfc58ef93247da21444472c7cb649e6b31ca",
+  "bridge_sha256": "ba7173cb943540f16f5bc6a1a54680a32776c208049275f6fc7496a28e2f4dbc",
+  "broker_account_reads": 0,
+  "broker_order_calls": 0,
+  "conflicting_revisions_rejected": 88,
+  "cycle_stream_sha256": "0c5b61b652d1306cb36b3ad8cd0e23bc7c75907b704fa3bb308ababc2812e8ec",
+  "cycles": 88,
+  "decisions": {
+    "eligible": 39,
+    "signal_cash": 41,
+    "stale_or_missing_quote": 8
+  },
+  "finrl_pin": "4409abe925c904e570be78ebfb5e77ac3491dff8",
+  "identical_immediate_retries": 88,
+  "intents": {
+    "cash": 41,
+    "entry": 39,
+    "flatten": 39
+  },
+  "newly_journaled": 88,
+  "qualifying_paper_sessions": 0,
+  "release_sha256": "79de1cea4aa139e1822cbd9f79063838edc8b4689446c26061595f82b952946c",
+  "sample_manifest_sha256": "6d2b4834e818f8daa6a70053ef1b295b4fcb0aaf07bf029b38435f6575ce3b3e",
+  "schema": "phaseweave.ai4finance-intent-bridge.v1",
+  "sessions": 8
+}

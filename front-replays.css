@@ -1,0 +1,37 @@
+.front-replays {margin:0 0 17px}
+.replay-panels {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.replay-panels article {display:flex;flex-direction:column;min-width:0}
+.replay-panels .front-head {align-items:baseline}
+.replay-panels .front-head h3 {font-size:clamp(1.1rem,2vw,1.42rem)}
+.replay-panels .replay-source {min-height:2.9em;font-size:.83rem}
+.replay-plot {display:block;width:100%;height:clamp(185px,18vw,245px);min-height:0;flex:none;background:var(--canvas);border:1px solid var(--faint);border-radius:5px;box-sizing:border-box}
+canvas.replay-plot {touch-action:pan-y}
+#replay-forest-plot {touch-action:none;cursor:grab}
+.replay-panels .trace-controls {gap:5px 12px;font-size:.82rem}
+.replay-panels .trace-controls label {flex-wrap:wrap}
+.replay-panels .trace-controls input[type=range] {width:min(105px,30vw)}
+.replay-panels .trace-controls select {min-width:0;max-width:min(275px,82vw);font-size:.79rem}
+.replay-timeline {display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 9px;align-items:center;margin-top:.45rem;font:11px/1.4 var(--mono)}
+.replay-timeline input {min-width:0;width:100%;margin:0;}
+.replay-timeline button {grid-row:1/3;font-size:.8rem;padding:4px 7px}
+.replay-timeline time {overflow-wrap:anywhere;color:var(--muted)}
+.replay-readout {min-height:2.8em;margin:.45rem 0 .2rem;font:11px/1.4 var(--mono);color:var(--jade)}
+.replay-panels .front-link {margin-top:auto}
+.replay-map-node {fill:var(--surface);stroke:var(--faint)}
+.replay-map-density {fill:var(--jade);fill-opacity:.34;stroke:var(--jade)}
+.replay-map-edge {fill:none;stroke:var(--faint);stroke-width:1}
+.replay-map-active {fill:none;stroke:currentColor;stroke-linecap:round}
+.replay-map-label {fill:var(--text);font:12px var(--mono);text-anchor:middle}
+.replay-map-forward {color:var(--copper)}
+.replay-map-reverse {color:var(--jade)}
+@media(max-width:1000px) {.replay-panels {grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px) {.replay-panels {grid-template-columns:minmax(0,1fr)}.replay-panels .replay-source{min-height:0}}
+
+.replay-provider {margin:0 0 8px}
+
+.front-gate-basket {margin:0 0 17px}
+.front-gate-basket time {color:var(--muted);font:11px/1.3 var(--mono)}
+.front-gate-basket input[type=number] {width:5.5rem;padding:.35rem;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:3px}
+.basket-scroll {overflow-x:auto;margin-top:.45rem}
+.basket-scroll th,.basket-scroll td {white-space:nowrap}
+.basket-scroll table {width:100%}

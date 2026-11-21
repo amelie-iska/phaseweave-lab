@@ -1,0 +1,964 @@
+{
+  "schema": "phaseweave.numerai-historical-uncertainty.v1",
+  "target": "target_jupiter_60",
+  "benchmark": "lgbm_jupiter_60",
+  "cohorts": {
+    "2019": {
+      "date_range": [
+        "2019-04-05",
+        "2019-09-27"
+      ],
+      "dates": 26,
+      "stock_date_keys": 159982,
+      "neutralizer_columns": 300,
+      "date_count_over_block_length": {
+        "13": 2.0,
+        "26": 1.0
+      }
+    },
+    "2020_2021": {
+      "date_range": [
+        "2020-01-03",
+        "2021-12-31"
+      ],
+      "dates": 105,
+      "stock_date_keys": 699389,
+      "neutralizer_columns": 300,
+      "date_count_over_block_length": {
+        "13": 8.076923076923077,
+        "26": 4.038461538461538
+      }
+    }
+  },
+  "inputs_sha256": {
+    "audit": "cbe70aa8ac039c2c3b99151aeebeb9206c1cf865e14851e6eb0e815835852324",
+    "additions": "7131226d1f8f1740b06a91babb63d87fbfbefe57cec40bf4ab37d0248250f8f5",
+    "targets": "2fc207324a6bca0497f8de43876ea6af895b4fffe0e7c64a069523b02aff3546",
+    "breadth": "eafee5aa250067d3d379f8473dfe66ddc6aa9dd586ac5070d9a6ac0265c528fb"
+  },
+  "design": {
+    "statistic": "equal-date mean paired difference, left minus right",
+    "resampler": "circular moving blocks, truncate to original count",
+    "rng": "PCG64",
+    "seed": 20261120,
+    "draws": 10000,
+    "block_weeks": [
+      13,
+      26
+    ],
+    "interval": "percentile, linear quantiles; null for n=block",
+    "scope": "exploratory retrospective contrasts, no joint multiplicity adjustment"
+  },
+  "contrasts": {
+    "direct_vs_benchmark": {
+      "left": "lightgbm-plus-medium-direct",
+      "right": "lgbm_jupiter_60",
+      "2019": {
+        "neutral_corr": {
+          "left_mean": 0.034025792365960435,
+          "right_mean": 0.033858560565243924,
+          "mean_difference": 0.0001672318007165099,
+          "wins_ties_losses": [
+            14,
+            0,
+            12
+          ],
+          "min_contiguous_13_week_mean": -0.0004843187119930811,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0003071068819774214,
+              0.0006415704834104412
+            ],
+            "26": null
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.028976020104783975,
+          "right_mean": 0.029115864535754377,
+          "mean_difference": -0.00013984443097040267,
+          "wins_ties_losses": [
+            12,
+            0,
+            14
+          ],
+          "min_contiguous_13_week_mean": -0.00030126671038035194,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0005511283841365291,
+              0.00027143952219572384
+            ],
+            "26": null
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.00042621769500363,
+          "right_mean": -1.6286355990833269e-19,
+          "mean_difference": 0.0004262176950036302,
+          "wins_ties_losses": [
+            16,
+            0,
+            10
+          ],
+          "min_contiguous_13_week_mean": -0.0001315969722300668,
+          "percentile_95_intervals": {
+            "13": [
+              1.485127541389261e-05,
+              0.0008375841145933678
+            ],
+            "26": null
+          }
+        }
+      },
+      "2020_2021": {
+        "neutral_corr": {
+          "left_mean": 0.04540029691199667,
+          "right_mean": 0.04596967115599025,
+          "mean_difference": -0.0005693742439935981,
+          "wins_ties_losses": [
+            44,
+            0,
+            61
+          ],
+          "min_contiguous_13_week_mean": -0.004919077231246504,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0021282452500525155,
+              0.0008933503424733128
+            ],
+            "26": [
+              -0.0020524135981531233,
+              0.0007327649575158125
+            ]
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.03738051199274993,
+          "right_mean": 0.038557663469785584,
+          "mean_difference": -0.0011771514770356616,
+          "wins_ties_losses": [
+            35,
+            0,
+            70
+          ],
+          "min_contiguous_13_week_mean": -0.0049851097809899755,
+          "percentile_95_intervals": {
+            "13": [
+              -0.002513208908853856,
+              7.414878340571989e-05
+            ],
+            "26": [
+              -0.002479137819224047,
+              -0.00010675318723798262
+            ]
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": -5.421870945047871e-05,
+          "right_mean": 4.230746400938226e-19,
+          "mean_difference": -5.421870945047913e-05,
+          "wins_ties_losses": [
+            50,
+            0,
+            55
+          ],
+          "min_contiguous_13_week_mean": -0.003608293169282363,
+          "percentile_95_intervals": {
+            "13": [
+              -0.001330847803056299,
+              0.0011008242997072703
+            ],
+            "26": [
+              -0.0012932395014110165,
+              0.0009949979072029376
+            ]
+          }
+        }
+      },
+      "development_minus_audit_descriptive": {
+        "neutral_corr": -0.000736606044710108,
+        "raw_corr": -0.001037307046065259,
+        "benchmark_neutral_contribution": -0.00048043640445410936
+      }
+    },
+    "residual_vs_benchmark": {
+      "left": "lightgbm-plus-medium-residual",
+      "right": "lgbm_jupiter_60",
+      "2019": {
+        "neutral_corr": {
+          "left_mean": 0.03400072840309,
+          "right_mean": 0.033858560565243924,
+          "mean_difference": 0.00014216783784607869,
+          "wins_ties_losses": [
+            14,
+            0,
+            12
+          ],
+          "min_contiguous_13_week_mean": -0.0005782014425591308,
+          "percentile_95_intervals": {
+            "13": [
+              -0.00039703427516920214,
+              0.0006813699508613595
+            ],
+            "26": null
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.02887899800598735,
+          "right_mean": 0.029115864535754377,
+          "mean_difference": -0.00023686652976702833,
+          "wins_ties_losses": [
+            12,
+            0,
+            14
+          ],
+          "min_contiguous_13_week_mean": -0.00045015123720359247,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0004693320399066899,
+              -2.2024012001405774e-06
+            ],
+            "26": null
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.0005152628245898701,
+          "right_mean": -1.6286355990833269e-19,
+          "mean_difference": 0.0005152628245898703,
+          "wins_ties_losses": [
+            17,
+            0,
+            9
+          ],
+          "min_contiguous_13_week_mean": -0.0001130650242023053,
+          "percentile_95_intervals": {
+            "13": [
+              3.751117163943694e-05,
+              0.0009930144775403037
+            ],
+            "26": null
+          }
+        }
+      },
+      "2020_2021": {
+        "neutral_corr": {
+          "left_mean": 0.04518787385561766,
+          "right_mean": 0.04596967115599025,
+          "mean_difference": -0.0007817973003725985,
+          "wins_ties_losses": [
+            44,
+            0,
+            61
+          ],
+          "min_contiguous_13_week_mean": -0.005758741568486669,
+          "percentile_95_intervals": {
+            "13": [
+              -0.002566070977902282,
+              0.000901424643124496
+            ],
+            "26": [
+              -0.0024848877018410834,
+              0.0007031814380271281
+            ]
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.03784911089660144,
+          "right_mean": 0.038557663469785584,
+          "mean_difference": -0.0007085525731841571,
+          "wins_ties_losses": [
+            44,
+            0,
+            61
+          ],
+          "min_contiguous_13_week_mean": -0.005790078451331292,
+          "percentile_95_intervals": {
+            "13": [
+              -0.002468905432377875,
+              0.0009212271085147878
+            ],
+            "26": [
+              -0.0024674921959180465,
+              0.0007338834280483478
+            ]
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": -8.082540958764382e-05,
+          "right_mean": 4.230746400938226e-19,
+          "mean_difference": -8.08254095876442e-05,
+          "wins_ties_losses": [
+            49,
+            0,
+            56
+          ],
+          "min_contiguous_13_week_mean": -0.0042141644449478375,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0015668782799839512,
+              0.001266353752074335
+            ],
+            "26": [
+              -0.0015288565238661283,
+              0.001136429803139812
+            ]
+          }
+        }
+      },
+      "development_minus_audit_descriptive": {
+        "neutral_corr": -0.0009239651382186772,
+        "raw_corr": -0.0004716860434171288,
+        "benchmark_neutral_contribution": -0.0005960882341775144
+      }
+    },
+    "residual_vs_direct": {
+      "left": "lightgbm-plus-medium-residual",
+      "right": "lightgbm-plus-medium-direct",
+      "2019": {
+        "neutral_corr": {
+          "left_mean": 0.03400072840309,
+          "right_mean": 0.034025792365960435,
+          "mean_difference": -2.5063962870431204e-05,
+          "wins_ties_losses": [
+            13,
+            0,
+            13
+          ],
+          "min_contiguous_13_week_mean": -0.00012178590880420077,
+          "percentile_95_intervals": {
+            "13": [
+              -0.00010061894256054547,
+              5.0491016819683065e-05
+            ],
+            "26": null
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.02887899800598735,
+          "right_mean": 0.028976020104783975,
+          "mean_difference": -9.702209879662567e-05,
+          "wins_ties_losses": [
+            13,
+            0,
+            13
+          ],
+          "min_contiguous_13_week_mean": -0.00037517725788837865,
+          "percentile_95_intervals": {
+            "13": [
+              -0.00034367716910801364,
+              0.0001554751907100032
+            ],
+            "26": null
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.0005152628245898701,
+          "right_mean": 0.00042621769500363,
+          "mean_difference": 8.904512958624008e-05,
+          "wins_ties_losses": [
+            17,
+            0,
+            9
+          ],
+          "min_contiguous_13_week_mean": -1.537052985187872e-06,
+          "percentile_95_intervals": {
+            "13": [
+              1.9068223816719614e-05,
+              0.000159767554476298
+            ],
+            "26": null
+          }
+        }
+      },
+      "2020_2021": {
+        "neutral_corr": {
+          "left_mean": 0.04518787385561766,
+          "right_mean": 0.04540029691199667,
+          "mean_difference": -0.00021242305637900034,
+          "wins_ties_losses": [
+            38,
+            0,
+            67
+          ],
+          "min_contiguous_13_week_mean": -0.0008396643372401655,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0004402123135861712,
+              5.82751084449544e-06
+            ],
+            "26": [
+              -0.0004332849445556892,
+              -2.8315440780529778e-05
+            ]
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.03784911089660144,
+          "right_mean": 0.03738051199274993,
+          "mean_difference": 0.00046859890385150463,
+          "wins_ties_losses": [
+            68,
+            0,
+            37
+          ],
+          "min_contiguous_13_week_mean": -0.0008049686703413177,
+          "percentile_95_intervals": {
+            "13": [
+              -2.100591100425962e-05,
+              0.0009589942804979197
+            ],
+            "26": [
+              -4.9354451369404515e-05,
+              0.0009649580505923994
+            ]
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": -8.082540958764382e-05,
+          "right_mean": -5.421870945047871e-05,
+          "mean_difference": -2.6606700137165053e-05,
+          "wins_ties_losses": [
+            53,
+            0,
+            52
+          ],
+          "min_contiguous_13_week_mean": -0.000605871275665474,
+          "percentile_95_intervals": {
+            "13": [
+              -0.00023331653956944,
+              0.0001629518440488024
+            ],
+            "26": [
+              -0.00023457421225397268,
+              0.00014052472221957275
+            ]
+          }
+        }
+      },
+      "development_minus_audit_descriptive": {
+        "neutral_corr": -0.00018735909350856914,
+        "raw_corr": 0.0005656210026481303,
+        "benchmark_neutral_contribution": -0.00011565182972340513
+      }
+    },
+    "medium_standalone_vs_benchmark": {
+      "left": "fixed-medium-blend",
+      "right": "lgbm_jupiter_60",
+      "2019": {
+        "neutral_corr": {
+          "left_mean": 0.02654404515579499,
+          "right_mean": 0.033858560565243924,
+          "mean_difference": -0.00731451540944893,
+          "wins_ties_losses": [
+            4,
+            0,
+            22
+          ],
+          "min_contiguous_13_week_mean": -0.009456280443590617,
+          "percentile_95_intervals": {
+            "13": [
+              -0.009086613113571352,
+              -0.005546829862637201
+            ],
+            "26": null
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.023161883287871967,
+          "right_mean": 0.029115864535754377,
+          "mean_difference": -0.005953981247882415,
+          "wins_ties_losses": [
+            3,
+            0,
+            23
+          ],
+          "min_contiguous_13_week_mean": -0.007211349824665436,
+          "percentile_95_intervals": {
+            "13": [
+              -0.007371857940697958,
+              -0.004549496163821687
+            ],
+            "26": null
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.0020964077440508147,
+          "right_mean": -1.6286355990833269e-19,
+          "mean_difference": 0.002096407744050815,
+          "wins_ties_losses": [
+            16,
+            0,
+            10
+          ],
+          "min_contiguous_13_week_mean": -0.0006667343092916077,
+          "percentile_95_intervals": {
+            "13": [
+              3.095042391971691e-05,
+              0.004167658711809017
+            ],
+            "26": null
+          }
+        }
+      },
+      "2020_2021": {
+        "neutral_corr": {
+          "left_mean": 0.03138485610449332,
+          "right_mean": 0.04596967115599025,
+          "mean_difference": -0.014584815051496941,
+          "wins_ties_losses": [
+            18,
+            0,
+            87
+          ],
+          "min_contiguous_13_week_mean": -0.031500016160617934,
+          "percentile_95_intervals": {
+            "13": [
+              -0.021530644838175968,
+              -0.007334236757971211
+            ],
+            "26": [
+              -0.020868611413312265,
+              -0.008495993697153422
+            ]
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.024540281671989336,
+          "right_mean": 0.038557663469785584,
+          "mean_difference": -0.014017381797796255,
+          "wins_ties_losses": [
+            16,
+            0,
+            89
+          ],
+          "min_contiguous_13_week_mean": -0.031247239116667845,
+          "percentile_95_intervals": {
+            "13": [
+              -0.019819727676719794,
+              -0.007980794659644137
+            ],
+            "26": [
+              -0.01898939051379905,
+              -0.009003957022407109
+            ]
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": -0.00028077544384463626,
+          "right_mean": 4.230746400938226e-19,
+          "mean_difference": -0.00028077544384463713,
+          "wins_ties_losses": [
+            49,
+            0,
+            56
+          ],
+          "min_contiguous_13_week_mean": -0.017425395409141908,
+          "percentile_95_intervals": {
+            "13": [
+              -0.006409475212212048,
+              0.005289973408309323
+            ],
+            "26": [
+              -0.0062730708494506265,
+              0.004776248741187098
+            ]
+          }
+        }
+      },
+      "development_minus_audit_descriptive": {
+        "neutral_corr": -0.007270299642048011,
+        "raw_corr": -0.00806340054991384,
+        "benchmark_neutral_contribution": -0.0023771831878954524
+      }
+    },
+    "diverse_vs_same_target": {
+      "left": "diverse-target-medium-blend",
+      "right": "same-target-medium-blend",
+      "2019": {
+        "neutral_corr": {
+          "left_mean": 0.02458137382634936,
+          "right_mean": 0.024875248766826896,
+          "mean_difference": -0.00029387494047753646,
+          "wins_ties_losses": [
+            17,
+            0,
+            9
+          ],
+          "min_contiguous_13_week_mean": -0.0010727872952633727,
+          "percentile_95_intervals": {
+            "13": [
+              -0.002951036220949252,
+              0.0023674995870509507
+            ],
+            "26": null
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.02095786956071033,
+          "right_mean": 0.021651699236714058,
+          "mean_difference": -0.0006938296760037228,
+          "wins_ties_losses": [
+            12,
+            0,
+            14
+          ],
+          "min_contiguous_13_week_mean": -0.001473702546699878,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0036576018360498317,
+              0.0022104466187182364
+            ],
+            "26": null
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.0005273698449909052,
+          "right_mean": 0.0003533554525742628,
+          "mean_difference": 0.00017401439241664253,
+          "wins_ties_losses": [
+            17,
+            0,
+            9
+          ],
+          "min_contiguous_13_week_mean": -0.0004867314863759075,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0019671900410885854,
+              0.0023197153227460564
+            ],
+            "26": null
+          }
+        }
+      },
+      "2020_2021": {
+        "neutral_corr": {
+          "left_mean": 0.03249195314073977,
+          "right_mean": 0.030769325862378998,
+          "mean_difference": 0.0017226272783607732,
+          "wins_ties_losses": [
+            61,
+            0,
+            44
+          ],
+          "min_contiguous_13_week_mean": -0.0030094955544392463,
+          "percentile_95_intervals": {
+            "13": [
+              -0.000498454783161445,
+              0.004217983359083616
+            ],
+            "26": [
+              -0.00029359918895865403,
+              0.004533863049059155
+            ]
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.025339872942214556,
+          "right_mean": 0.02559532823673384,
+          "mean_difference": -0.0002554552945192807,
+          "wins_ties_losses": [
+            47,
+            0,
+            58
+          ],
+          "min_contiguous_13_week_mean": -0.0042207623805232885,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0018032965080889852,
+              0.0014067065447864273
+            ],
+            "26": [
+              -0.0016254051260203239,
+              0.0014140480332534577
+            ]
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.0005607112682422955,
+          "right_mean": -0.0015074686804741125,
+          "mean_difference": 0.002068179948716408,
+          "wins_ties_losses": [
+            73,
+            0,
+            32
+          ],
+          "min_contiguous_13_week_mean": -0.0015982112864093769,
+          "percentile_95_intervals": {
+            "13": [
+              0.00040367346462510614,
+              0.0039147915908381795
+            ],
+            "26": [
+              0.0005004078902946346,
+              0.004221136955293125
+            ]
+          }
+        }
+      },
+      "development_minus_audit_descriptive": {
+        "neutral_corr": 0.0020165022188383098,
+        "raw_corr": 0.0004383743814844421,
+        "benchmark_neutral_contribution": 0.0018941655562997653
+      }
+    },
+    "restored_vs_same_family": {
+      "left": "width358-restored-quintiles",
+      "right": "width358-same-family",
+      "2019": {
+        "neutral_corr": {
+          "left_mean": 0.025115199791576413,
+          "right_mean": 0.02619842798453431,
+          "mean_difference": -0.0010832281929579015,
+          "wins_ties_losses": [
+            12,
+            0,
+            14
+          ],
+          "min_contiguous_13_week_mean": -0.007010246307328212,
+          "percentile_95_intervals": {
+            "13": [
+              -0.005805060879992131,
+              0.0037405455778044103
+            ],
+            "26": null
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.02419192105386258,
+          "right_mean": 0.022632038112835245,
+          "mean_difference": 0.001559882941027333,
+          "wins_ties_losses": [
+            15,
+            0,
+            11
+          ],
+          "min_contiguous_13_week_mean": -0.0012330392889134134,
+          "percentile_95_intervals": {
+            "13": [
+              -0.0008126037599324094,
+              0.004063344199883217
+            ],
+            "26": null
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.0012484663823964523,
+          "right_mean": 0.00224282559802212,
+          "mean_difference": -0.0009943592156256681,
+          "wins_ties_losses": [
+            12,
+            0,
+            14
+          ],
+          "min_contiguous_13_week_mean": -0.005829830134292251,
+          "percentile_95_intervals": {
+            "13": [
+              -0.00485029687515457,
+              0.002945101794402712
+            ],
+            "26": null
+          }
+        }
+      },
+      "2020_2021": {
+        "neutral_corr": {
+          "left_mean": 0.03429432157388169,
+          "right_mean": 0.029980363797678704,
+          "mean_difference": 0.004313957776202982,
+          "wins_ties_losses": [
+            72,
+            0,
+            33
+          ],
+          "min_contiguous_13_week_mean": -0.0037285817480965837,
+          "percentile_95_intervals": {
+            "13": [
+              0.0017908802600688203,
+              0.006773485997595596
+            ],
+            "26": [
+              0.002286977090153689,
+              0.006457581075078276
+            ]
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.029459887246855342,
+          "right_mean": 0.025570842380901675,
+          "mean_difference": 0.0038890448659536702,
+          "wins_ties_losses": [
+            69,
+            0,
+            36
+          ],
+          "min_contiguous_13_week_mean": -0.0030405729939578436,
+          "percentile_95_intervals": {
+            "13": [
+              0.0013737893438915247,
+              0.006555067735465651
+            ],
+            "26": [
+              0.0017734358842044458,
+              0.006407012624183463
+            ]
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.0023526654207615028,
+          "right_mean": -0.001005109429519992,
+          "mean_difference": 0.003357774850281495,
+          "wins_ties_losses": [
+            71,
+            0,
+            34
+          ],
+          "min_contiguous_13_week_mean": -0.0031218780799800194,
+          "percentile_95_intervals": {
+            "13": [
+              0.0013162203452877284,
+              0.005360244357085096
+            ],
+            "26": [
+              0.0017433005868467241,
+              0.005050583810727291
+            ]
+          }
+        }
+      },
+      "development_minus_audit_descriptive": {
+        "neutral_corr": 0.005397185969160884,
+        "raw_corr": 0.0023291619249263375,
+        "benchmark_neutral_contribution": 0.004352134065907163
+      }
+    },
+    "restored_standalone_vs_benchmark": {
+      "left": "width358-restored-quintiles",
+      "right": "lgbm_jupiter_60",
+      "2019": {
+        "neutral_corr": {
+          "left_mean": 0.025115199791576413,
+          "right_mean": 0.033858560565243924,
+          "mean_difference": -0.008743360773667516,
+          "wins_ties_losses": [
+            2,
+            0,
+            24
+          ],
+          "min_contiguous_13_week_mean": -0.014134685930724837,
+          "percentile_95_intervals": {
+            "13": [
+              -0.01297222226238035,
+              -0.0045157577763213245
+            ],
+            "26": null
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.02419192105386258,
+          "right_mean": 0.029115864535754377,
+          "mean_difference": -0.0049239434818918034,
+          "wins_ties_losses": [
+            6,
+            0,
+            20
+          ],
+          "min_contiguous_13_week_mean": -0.0077359186632258445,
+          "percentile_95_intervals": {
+            "13": [
+              -0.00704734866684149,
+              -0.0028834373179301687
+            ],
+            "26": null
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.0012484663823964523,
+          "right_mean": -1.6286355990833269e-19,
+          "mean_difference": 0.0012484663823964526,
+          "wins_ties_losses": [
+            16,
+            0,
+            10
+          ],
+          "min_contiguous_13_week_mean": -0.0019034225080610426,
+          "percentile_95_intervals": {
+            "13": [
+              -0.001329173575189109,
+              0.0038136381414456805
+            ],
+            "26": null
+          }
+        }
+      },
+      "2020_2021": {
+        "neutral_corr": {
+          "left_mean": 0.03429432157388169,
+          "right_mean": 0.04596967115599025,
+          "mean_difference": -0.011675349582108576,
+          "wins_ties_losses": [
+            27,
+            0,
+            78
+          ],
+          "min_contiguous_13_week_mean": -0.02932987986178043,
+          "percentile_95_intervals": {
+            "13": [
+              -0.01884717262755884,
+              -0.004865317193062049
+            ],
+            "26": [
+              -0.0188461809254859,
+              -0.005559264273589398
+            ]
+          }
+        },
+        "raw_corr": {
+          "left_mean": 0.029459887246855342,
+          "right_mean": 0.038557663469785584,
+          "mean_difference": -0.009097776222930247,
+          "wins_ties_losses": [
+            27,
+            0,
+            78
+          ],
+          "min_contiguous_13_week_mean": -0.026389622355143305,
+          "percentile_95_intervals": {
+            "13": [
+              -0.015031039983983495,
+              -0.0030845284703583985
+            ],
+            "26": [
+              -0.01444397453499034,
+              -0.0037969361453066217
+            ]
+          }
+        },
+        "benchmark_neutral_contribution": {
+          "left_mean": 0.0023526654207615028,
+          "right_mean": 4.230746400938226e-19,
+          "mean_difference": 0.0023526654207615028,
+          "wins_ties_losses": [
+            60,
+            0,
+            45
+          ],
+          "min_contiguous_13_week_mean": -0.009781837889881182,
+          "percentile_95_intervals": {
+            "13": [
+              -0.002648183302980672,
+              0.007371510899174614
+            ],
+            "26": [
+              -0.002123576140854417,
+              0.006929214256789064
+            ]
+          }
+        }
+      },
+      "development_minus_audit_descriptive": {
+        "neutral_corr": -0.0029319888084410606,
+        "raw_corr": -0.004173832741038444,
+        "benchmark_neutral_contribution": 0.0011041990383650502
+      }
+    }
+  }
+}

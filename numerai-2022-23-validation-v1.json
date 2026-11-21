@@ -1,0 +1,407 @@
+{
+  "controls": {
+    "live": false,
+    "official_benchmark_present": false,
+    "protected_temporal_cohort_scored": false,
+    "submitted": false
+  },
+  "dates": 60,
+  "end": "2023-09-08",
+  "finished_utc": "2026-11-21T02:34:45.496530+00:00",
+  "format": "phaseweave.numerai-2022-23-fixed-validation.v1",
+  "independent_replay": {
+    "audit_sha256": "a6e3fa969d0df35fef38f293ad1aaa47b82bc6d7f1cb6e11d1ef3484e6901277",
+    "dates": 60,
+    "forecast_sha256": "82a730d8f17ed7678e0c811da4625471c5d550fc55d1eaf936eddb1f2e6f673f",
+    "format": "phaseweave.numerai-2022-23-independent.v1",
+    "keys": 402488,
+    "max_abs_difference": {
+      "neutral_corr": 6.245004513516506e-16,
+      "raw_corr": 1.3183898417423734e-16
+    },
+    "protected_data_page_bytes": 0,
+    "score_cells": 2640,
+    "scorer_method": "independent average ties, SVD projector and Pearson",
+    "verifier_sha256": "31a3ac5901bc3f58ffb8c52489ec9a672666a6b96b26545075da96c3e28b80ae"
+  },
+  "inference": {
+    "block_weeks": [
+      13,
+      26
+    ],
+    "draws": 10000,
+    "multiple_comparisons": "primary paired comparison fixed; other intervals descriptive",
+    "score_weight": "equal date",
+    "seed": 20261120
+  },
+  "keys": 402488,
+  "neutralizers": 300,
+  "overall": {
+    "diverse-20261121": {
+      "neutral_corr": 0.02862674573810603,
+      "neutral_corr_delta": -0.006216751647989533,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.011738684925053998,
+        -0.00021692003059753734
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.011495709940387703,
+        -0.0002948741748102264
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 15,
+      "raw_corr": 0.02363064066847187,
+      "raw_corr_delta": -0.0039418057880558025
+    },
+    "diverse-20261122": {
+      "neutral_corr": 0.030945688669214037,
+      "neutral_corr_delta": -0.0038978087168815264,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.00918436993079708,
+        0.0015273087222821553
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.006419232856650484,
+        -0.0011930540362453462
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 17,
+      "raw_corr": 0.020115690357670794,
+      "raw_corr_delta": -0.0074567560988568786
+    },
+    "diverse-target-medium-blend": {
+      "neutral_corr": 0.03643347332035106,
+      "neutral_corr_delta": 0.001589975934255496,
+      "neutral_corr_paired_ci_13_weeks": [
+        -6.775967064747996e-05,
+        0.0031790920309339543
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -6.153434449108023e-05,
+        0.003201189644042462
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 44,
+      "raw_corr": 0.02849673456104497,
+      "raw_corr_delta": 0.0009242881045172963
+    },
+    "fixed-medium-blend": {
+      "neutral_corr": 0.034843497386095566,
+      "neutral_corr_delta": 0.0,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_ties": 60,
+      "neutral_corr_wins": 0,
+      "raw_corr": 0.027572446456527674,
+      "raw_corr_delta": 0.0
+    },
+    "local-lightgbm-factor-neutral60": {
+      "neutral_corr": 0.02979505764823213,
+      "neutral_corr_delta": -0.0050484397378634345,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.009180032240703016,
+        -0.00093669470688888
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.00694905077942255,
+        -0.0029505699276226264
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 17,
+      "raw_corr": 0.018215282979581592,
+      "raw_corr_delta": -0.00935716347694608
+    },
+    "local-lightgbm-jupiter20": {
+      "neutral_corr": 0.02715169799610591,
+      "neutral_corr_delta": -0.007691799389989653,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.01080087840703218,
+        -0.004748412626567479
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.010197876221459274,
+        -0.005016871887970018
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 7,
+      "raw_corr": 0.0226824733593512,
+      "raw_corr_delta": -0.004889973097176475
+    },
+    "local-lightgbm-jupiter60": {
+      "neutral_corr": 0.031568605665610594,
+      "neutral_corr_delta": -0.0032748917204849693,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.005932693742557802,
+        -0.0005251109328390113
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.005851549374048435,
+        -0.0008140499839630099
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 19,
+      "raw_corr": 0.026117200767723985,
+      "raw_corr_delta": -0.00145524568880369
+    },
+    "local-lightgbm-multitarget": {
+      "neutral_corr": 0.033514383988754025,
+      "neutral_corr_delta": -0.00132911339734154,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.0033305487282257826,
+        0.0006423022685762943
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.002493561868758735,
+        -0.000333768880625377
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 24,
+      "raw_corr": 0.026317417281442376,
+      "raw_corr_delta": -0.0012550291750852971
+    },
+    "medium-factor-neutral60-hgb": {
+      "neutral_corr": 0.02936903921576665,
+      "neutral_corr_delta": -0.005474458170328913,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.010573846298249572,
+        0.0003498735193105292
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.009640150732446421,
+        -0.00046424057994736193
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 13,
+      "raw_corr": 0.018385329770898066,
+      "raw_corr_delta": -0.009187116685629606
+    },
+    "medium-jupiter20-hgb": {
+      "neutral_corr": 0.024202556503696796,
+      "neutral_corr_delta": -0.010640940882398765,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.013780984266628807,
+        -0.00827964946423444
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.013238825683706512,
+        -0.008326035968867305
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 2,
+      "raw_corr": 0.020927896132448446,
+      "raw_corr_delta": -0.006644550324079225
+    },
+    "medium-jupiter60-hgb": {
+      "neutral_corr": 0.03511636499390757,
+      "neutral_corr_delta": 0.0002728676078120085,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.001317877053785344,
+        0.0018667946026565579
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.0007493243179825007,
+        0.001416420307321877
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 28,
+      "raw_corr": 0.029512632432849364,
+      "raw_corr_delta": 0.0019401859763216933
+    },
+    "neural-factor-neutral60": {
+      "neutral_corr": 0.00786318490929711,
+      "neutral_corr_delta": -0.02698031247679845,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.03381878667910166,
+        -0.020342067301749523
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.0312703665699781,
+        -0.02231942526222068
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 1,
+      "raw_corr": 0.004467730671629069,
+      "raw_corr_delta": -0.023104715784898602
+    },
+    "neural-jupiter20": {
+      "neutral_corr": 0.01098387725886792,
+      "neutral_corr_delta": -0.023859620127227643,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.03233992099018473,
+        -0.015961640554015673
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.028623279025578922,
+        -0.019381244337540328
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 3,
+      "raw_corr": 0.009037861029194407,
+      "raw_corr_delta": -0.018534585427333265
+    },
+    "neural-jupiter60": {
+      "neutral_corr": 0.010626759806339344,
+      "neutral_corr_delta": -0.02421673757975622,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.03209466099800042,
+        -0.01684629508309638
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.02855647194041789,
+        -0.019947370666260393
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 2,
+      "raw_corr": 0.008534292920368837,
+      "raw_corr_delta": -0.019038153536158835
+    },
+    "neural-multitarget-blend": {
+      "neutral_corr": 0.010278924134104916,
+      "neutral_corr_delta": -0.024564573251990646,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.03221195219679254,
+        -0.01736666741893294
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.028786410321917786,
+        -0.02033603484614926
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 2,
+      "raw_corr": 0.007770019633125471,
+      "raw_corr_delta": -0.019802426823402202
+    },
+    "same-20261121": {
+      "neutral_corr": 0.03280924609112882,
+      "neutral_corr_delta": -0.0020342512949667424,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.0041937763227122464,
+        0.0006274956594522334
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.0036321042368261908,
+        -0.00024895391950887155
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 23,
+      "raw_corr": 0.02699533196456381,
+      "raw_corr_delta": -0.0005771144919638635
+    },
+    "same-20261122": {
+      "neutral_corr": 0.03320210958695301,
+      "neutral_corr_delta": -0.0016413877991425581,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.004632191152206162,
+        0.0014115195334395696
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.004572806926780944,
+        0.0008208809849984176
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 24,
+      "raw_corr": 0.027448678230184525,
+      "raw_corr_delta": -0.00012376822634314815
+    },
+    "same-target-medium-blend": {
+      "neutral_corr": 0.036170946365377744,
+      "neutral_corr_delta": 0.0013274489792821811,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.00021713621594660667,
+        0.002617886250351503
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.0002194419724714805,
+        0.0023586689483890803
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 37,
+      "raw_corr": 0.029977906186706878,
+      "raw_corr_delta": 0.002405459730179205
+    },
+    "tree-neural-blend": {
+      "neutral_corr": 0.03459568791136087,
+      "neutral_corr_delta": -0.0002478094747346966,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.001762998519896047,
+        0.0013202960832460874
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.0014080404831418388,
+        0.000929832435508577
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 28,
+      "raw_corr": 0.02660916643752843,
+      "raw_corr_delta": -0.0009632800189992418
+    },
+    "width358-restored-native": {
+      "neutral_corr": 0.03468595121266886,
+      "neutral_corr_delta": -0.00015754617342670287,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.0019493831038240553,
+        0.001615617077017012
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.0016289718571771592,
+        0.001251907727210828
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 30,
+      "raw_corr": 0.028958728948546862,
+      "raw_corr_delta": 0.0013862824920191897
+    },
+    "width358-restored-quintiles": {
+      "neutral_corr": 0.032768787366059905,
+      "neutral_corr_delta": -0.00207471002003566,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.006188629407115535,
+        0.0016704611751902102
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.004946939612244383,
+        0.0008195280611131639
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 23,
+      "raw_corr": 0.02852365227221421,
+      "raw_corr_delta": 0.0009512058156865371
+    },
+    "width358-same-family": {
+      "neutral_corr": 0.03237556155244609,
+      "neutral_corr_delta": -0.002467935833649471,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.00561980703317966,
+        0.0016907613014640155
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.005599999820846964,
+        0.0011727012654858548
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 19,
+      "raw_corr": 0.027765563544517372,
+      "raw_corr_delta": 0.00019311708798969984
+    }
+  },
+  "primary_comparison": [
+    "tree-neural-blend",
+    "fixed-medium-blend"
+  ],
+  "provenance": {
+    "exposures_receipt_sha256": "8cf5e852603dd94a1d583404cb9e991e74afdffe8af28599961db677e2a7f901",
+    "per_date_sha256": "7b51a3ed5cc0ab3ab0343003ed3ca33e98dced6c57b41e7420b060110d087a7e",
+    "prediction_freeze_sha256": "2e35a61a7974712b80ce9e18005e599194850f2129bcafd68d8a19d20f829e55",
+    "scorer_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+    "target_receipt_sha256": "7430c058cbb2432ca2c5f36a99b4e94ccb10d5b0f4013bc7c96e5ae5c9e32682"
+  },
+  "reference": "fixed-medium-blend",
+  "start": "2022-07-22",
+  "target": "target_jupiter_60"
+}

@@ -5,7 +5,7 @@ const SurfaceGenus = (() => {
   const edgeKey = (a,b) => a < b ? `${a}:${b}` : `${b}:${a}`;
   const require = (condition,message) => { if (!condition) throw new Error(message); };
 
-  function verify(mesh) {
+  function verify(mesh, {unitLattice = true} = {}) {
     const {vertices,edges,faces,handles} = mesh;
     const incidence = new Map();
     const links = vertices.map(() => new Map());
@@ -28,7 +28,7 @@ const SurfaceGenus = (() => {
       require(entries.length === 2,"Each edge must have exactly two incident faces");
       const [[a,b],[otherB,otherA]] = entries;
       require(a === otherA && b === otherB,"Incident faces traverse an edge in opposite directions");
-      require(vertices[a].reduce((sum,value,i) => sum + Math.abs(value-vertices[b][i]),0) === 1,
+      require(!unitLattice || vertices[a].reduce((sum,value,i) => sum + Math.abs(value-vertices[b][i]),0) === 1,
         "Every boundary edge must be a unit lattice segment");
       adjacent[a].push(b);
       adjacent[b].push(a);
@@ -155,7 +155,71 @@ const SurfaceGenus = (() => {
     return {vertices,edges,faces,colors,genus:mesh.genus,chi:mesh.chi};
   }
 
-  return Object.freeze({build,verify,cleanDessin,MAX_GENUS});
+  const mean = points => [0,1,2].map(axis => points.reduce((sum,p) => sum+p[axis],0)/points.length);
+
+  function rounded(mesh, levels = 1) {
+    require(Number.isInteger(levels) && levels >= 1 && levels <= 2,"Choose one or two rounding levels");
+    let vertices = mesh.vertices, edges = mesh.edges, faces = mesh.faces, handles = mesh.handles;
+    let parents = faces.map((_,i) => i);
+    const paths = new Map(edges.map(([a,b])=>[edgeKey(a,b),[a,b]]));
+    for(let step = 0; step < levels; step++) {
+      const centers = faces.map(face => mean(face.map(id=>vertices[id])));
+      const atVertex = vertices.map(()=>({faces:[],neighbors:[]}));
+      const records = new Map();
+      edges.forEach(([a,b],i) => {
+        records.set(edgeKey(a,b),{id:vertices.length+i,faces:[],a,b});
+        atVertex[a].neighbors.push(b);
+        atVertex[b].neighbors.push(a);
+      });
+      faces.forEach((face, i) => face.forEach((a,j) => {
+        atVertex[a].faces.push(i);
+        records.get(edgeKey(a,face[(j+1)%4])).faces.push(i);
+      }));
+      const next = vertices.map((p, id) => {
+        const local = atVertex[id], n = local.neighbors.length;
+        const f = mean(local.faces.map(i=>centers[i]));
+        const r = mean(local.neighbors.map(i=>mean([p,vertices[i]])));
+        return p.map((x,i)=>(f[i]+2*r[i]+(n-3)*x)/n);
+      });
+      for (const {a,b,faces:incident} of records.values()) {
+        require(incident.length === 2,"Rounding requires a closed two-manifold");
+        next.push(mean([vertices[a],vertices[b],...incident.map(i=>centers[i])]));
+      }
+      const firstCenter = next.length;
+      next.push(...centers);
+      const nextFaces = faces.flatMap((face,i)=>face.map((a,j)=>[
+        a, records.get(edgeKey(a,face[(j+1)%4])).id, firstCenter+i,
+        records.get(edgeKey(a,face[(j+3)%4])).id,
+      ]));
+      const nextEdges = new Map();
+      nextFaces.forEach(face=>face.forEach((a,i)=>{
+        const b=face[(i+1)%4];
+        nextEdges.set(edgeKey(a,b),a < b ? [a,b] : [b,a]);
+      }));
+      const refineCycle = path => path.flatMap((a,i) => [a,records.get(edgeKey(a,path[(i+1)%path.length])).id]);
+      handles = handles.map(h=>({...h,meridian:refineCycle(h.meridian),longitude:refineCycle(h.longitude)}));
+      for (const [key,path] of paths) {
+        paths.set(key, path.slice(0,-1).flatMap((a,i)=>[a,records.get(edgeKey(a,path[i+1])).id]).concat(path.at(-1)));
+      }
+      vertices=next; edges=[...nextEdges.values()]; faces=nextFaces;
+      parents=parents.flatMap(i=>[i,i,i,i]);
+    }
+    const result = {vertices,edges,faces,handles,parents};
+    const check = verify(result,{unitLattice:false});
+    require(check.genus === mesh.genus && check.intersections.every(s=>s===1),"Rounding changed the handle basis");
+    const path = (a,b) => {
+      const points=paths.get(edgeKey(a,b));
+      return a === points[0] ? points : [...points].reverse();
+    };
+    return {...result,path,genus:check.genus,chi:check.chi,intersections:check.intersections};
+  }
+
+  function completeGenus(n) {
+    require(Number.isInteger(n) && n >= 1 && n <= 1000,"Choose an asset count from 1 to 1000");
+    return n <= 4 ? 0 : Math.ceil((n-3)*(n-4)/12);
+  }
+
+  return Object.freeze({build,verify,cleanDessin,rounded,completeGenus,MAX_GENUS});
 })();
 
 if (typeof module !== "undefined" && module.exports) module.exports = SurfaceGenus;

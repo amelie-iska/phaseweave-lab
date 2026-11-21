@@ -4,14 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark light">
-  <title>Higher-genus surfaces · PhaseWeave</title>
+  <title>N-holed tori · PhaseWeave</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="reasoning.css">
+  <link rel="stylesheet" href="surfaces.css">
+  <script defer src="core.js"></script>
+  <script defer src="gate.js?v=20261121-2"></script>
   <script defer src="reasoning-core.js"></script>
   <script defer src="reasoning-3d.js"></script>
-  <script defer src="surface-genus-core.js"></script>
-  <script defer src="surfaces.js"></script>
+  <script defer src="surface-genus-core.js?v=20261121-1"></script>
+  <script defer src="surface-density.js"></script>
+  <script defer src="surfaces.js?v=20261121-2"></script>
 </head>
 <body>
   <header class="top">
@@ -28,56 +32,81 @@
   <main class="latent-page">
     <div class="latent-heading">
       <div>
-        <h1>Higher-genus market surfaces</h1>
-        <p class="standfirst">Follow loops through a surface with several handles and compare local face phases with periods along longer loops.</p>
+        <h1>N-holed tori</h1>
+        <p class="standfirst">Follow live conversion cycles across a torus, double torus and surfaces with up to eight handles. Compare local face phases with periods around individual holes.</p>
         <p><a href="bifiltration.html">Explore the genus-two persistence witness</a></p>
       </div>
     </div>
-    <section class="latent-inputs" aria-label="Recorded market input">
-      <label>Recorded episode <select id="surface-episode"></select></label>
-      <label>Recorded second <input id="surface-frame" type="range" min="0" max="30" value="0"></label>
+    <section class="latent-inputs" aria-label="Market input and playback">
+      <label>Quote source <select id="surface-episode"></select></label>
+      <label>Displayed frame <input id="surface-frame" type="range" min="0" max="0" value="0"></label>
+      <label>Step interval <select id="surface-interval"><option value="500">0.5 s</option><option value="1000" selected>1 s</option><option value="2000">2 s</option><option value="4000">4 s</option></select></label>
+      <label>Cost per leg, bps <input id="surface-fee" type="number" min="0" max="100" value="10" step=".1"></label>
       <time id="surface-clock"></time>
     </section>
     <section class="latent-workspace" aria-labelledby="surface-title">
       <div class="latent-grid">
         <figure class="latent-figure">
-          <div class="latent-chart-header"><strong id="surface-title">Cubical surface and oriented cycles</strong></div>
-          <canvas id="latent-chart" role="img" aria-label="Rotatable higher-genus cubical surface with marked meridian and longitude"></canvas>
+          <div class="latent-chart-header"><strong id="surface-title">Rounded surface and oriented cycles</strong></div>
+          <canvas id="latent-chart" role="img" aria-label="Rotatable n-holed torus with marked meridian and longitude"></canvas>
           <div class="latent-camera" id="surface-camera" aria-label="3D camera">
             <label>Yaw <input type="range" name="yaw" min="-180" max="180" value="-32"></label>
             <label>Pitch <input type="range" name="pitch" min="-85" max="85" value="24"></label>
             <label>Zoom <input type="range" name="zoom" min=".65" max="1.45" step=".05" value="1"></label>
             <button type="button">Reset view</button>
           </div>
-          <figcaption>Jade marks the loop that winds around a hole. Copper marks its companion loop across the slab. White points mark the selected loop vertices.</figcaption>
+          <figcaption>Jade marks the loop that winds around a hole. Copper marks its companion loop through the handle. White points mark the selected loop vertices.</figcaption>
         </figure>
         <div class="latent-panel">
           <h2>Cellulation and gauge</h2>
           <div id="latent-controls">
-            <label>Genus <select id="surface-genus"></select></label>
+            <label>Number of holes <select id="surface-genus"></select></label>
+            <label>Geometry <select id="surface-geometry"><option value="rounded">Rounded torus</option><option value="cells">Cubical cellulation</option></select></label>
             <label>Handle <select id="surface-handle"></select></label>
             <label>Quote-to-phase scale <input id="surface-scale" type="range" min="0" max="2" value=".7" step=".05"></label>
             <label>Vertex gauge change <input id="surface-gauge" type="range" min="0" max="3" value="0" step=".05"></label>
             <label>Selected link edit, rad <input id="surface-edit" type="range" min="-2" max="2" value="0" step=".05"></label>
-            <label><input id="surface-dessin" type="checkbox"> Show clean dessin subdivision</label>
-            <button id="surface-play" type="button" aria-pressed="false">Play recorded seconds</button>
+            <label><input id="surface-dessin" type="checkbox" checked> Show clean dessin subdivision</label>
+            <button id="surface-play" type="button" aria-pressed="false">Play</button>
           </div>
-          <div id="surface-readout" aria-live="polite"></div>
+          <h2>Time-evolving density</h2>
+          <div class="surface-density-controls">
+            <label><input id="surface-cloud" type="checkbox" checked> Show 3D density cloud</label>
+            <label>Density color <select id="surface-channel"><option value="channels">Three charge channels</option><option value="total">Total probability</option><option value="signed">Signed charge weight</option></select></label>
+            <label>Link mixing <input id="surface-mixing" type="range" min="0" max=".7" step=".01" value=".32"></label>
+            <label>Cloud radius <input id="surface-radius" type="range" min=".45" max="2" step=".05" value="1"></label>
+            <button type="button" id="surface-reset-packet">Reset cloud at selected hole</button>
+          </div>
+          <div id="surface-readout"></div>
         </div>
       </div>
+    </section>
+    <section class="latent-inputs" aria-label="Complete graph genus calculator">
+      <label>Assets in complete graph <input id="surface-assets" type="number" min="1" max="1000" step="1" value="5"></label>
+      <strong id="surface-capacity"></strong>
+      <button id="surface-load-genus" type="button">Show required genus</button>
     </section>
     <div class="latent-provenance">
       <section>
         <h2>How the graph cellulates the surface</h2>
-        <p>The mesh is the oriented boundary of a slab whose vertical holes pass through both sheets. Every edge has two oppositely oriented incident faces. For the clean dessin view, put a white vertex at the midpoint of each edge and color the original vertices black. The faces and Euler characteristic stay the same.</p>
+        <p>The mesh is the oriented boundary of a slab whose vertical holes pass through both sheets. Every edge has two oppositely oriented incident faces. For the clean dessin view, put a white vertex at the midpoint of each edge and color the original vertices black. The faces and Euler characteristic stay the same. The rounded view subdivides and interpolates the same mesh. Phase calculations use the original cells and oriented cycles.</p>
       </section>
       <section>
         <h2>Why phases can disagree</h2>
-        <p>The link phase integrates angular change around the selected hole, with amplitude set by an observed cycle margin. In the flat case each contractible face has zero holonomy while a winding loop can have a nonzero period. A vertex gauge change cancels around a closed walk. Editing one link changes the local curvature on its two adjacent faces.</p>
+        <p>The link phase integrates angular change around the selected hole, with amplitude set by the cost-adjusted quote margin of the forward conversion cycle. The displayed phase is a visualization of observed quotes. In the flat case each contractible face has zero holonomy while a winding loop can have a nonzero period. A vertex gauge change cancels around a closed walk. Editing one link changes the local curvature on its two adjacent faces.</p>
         <p><a href="replay.json">Recorded quote windows</a> · <a href="density.html">Unitary gauge transport</a></p>
       </section>
+      <section>
+        <h2>Complete trading graphs</h2>
+        <p>For n ≥ 3 the minimum orientable genus of Kₙ is ⌈(n−3)(n−4)/12⌉. One and two assets need genus zero. The result counts each bidirectional pair as a single undirected edge. A five-asset complete graph needs one handle, an eight-asset graph needs two, and a 14-asset graph needs ten. The display builds a surface of that genus. Its slab-derived cells carry the quote-driven field.</p>
+        <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC225066/">Ringel and Youngs’ proof</a> · <a href="fx-all-opportunities-v1.json">Five-asset all-route forecast results</a> · <a href="./#front-gate-basket">Live Gate basket</a></p>
+      </section>
+      <section>
+        <h2>Density and time</h2>
+        <p>One unitary sweep moves a three-channel amplitude across the mesh on each new observed or replayed quote frame. The cloud shows probability weights around the vertices in 3D; signed mode shows the difference of the two charged channels. The density is a graph field driven by the observed conversion margin.</p>
+      </section>
     </div>
-    <p id="surface-status" role="status"></p>
+    <p id="surface-status" role="status">Connecting to public quotes…</p>
   </main>
 </body>
 </html>

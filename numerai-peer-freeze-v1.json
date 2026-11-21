@@ -1,0 +1,132 @@
+{
+  "boundary_peer": {
+    "id": "e02fe177-12a2-41ea-af8b-f7f2cef05b69",
+    "mmc60Rep": 0.01355383767273269,
+    "rank": 11,
+    "storedRank": 11,
+    "username": "glas007"
+  },
+  "boundary_score_tied": false,
+  "clock_rule": "first 12 consecutive actual Saturday UTC opens strictly after response completion",
+  "eligible_rounds": 12,
+  "evidence": {
+    "endpoint": "https://api-tournament.numer.ai",
+    "finished_utc": "2026-11-21T02:24:47.770893+00:00",
+    "query": "query ClassicPeerFreeze {\n  leaders:v2Leaderboard(limit:11,offset:0,orderBy:\"mmc60Rep\",direction:\"desc\"){\n    id username rank storedRank mmc60Rep }\n  rounds(tournament:8,limit:1){number tournament target openTime closeStakingTime closeTime resolveTime dataDatestamp\n roundScoreConfigs { name displayName version universe returnsLagDays dataDelayDays totalScoreDays\n                     defaultMultiplier isPayout isCanonScore }} }",
+    "response_sha256": "6521cf7389cf7a9f5ca64f0ae592ebd32e7b8b507cedd545287007e6a0298122",
+    "response_utf8": "{\"data\":{\"leaders\":[{\"id\":\"b49bb6f1-6782-4a67-add7-b685f426b3ae\",\"mmc60Rep\":0.01724237073870876,\"rank\":1,\"storedRank\":1,\"username\":\"valois300_1024\"},{\"id\":\"90db4038-d391-4908-bf04-382f913a8ce9\",\"mmc60Rep\":0.01700161416427803,\"rank\":2,\"storedRank\":2,\"username\":\"hypochlorous\"},{\"id\":\"d7427996-8abd-40af-a4fb-5ec8e8e517c4\",\"mmc60Rep\":0.016771311792406943,\"rank\":3,\"storedRank\":3,\"username\":\"valois200_1024\"},{\"id\":\"be45b584-2630-49a8-965e-595fe6f90cb8\",\"mmc60Rep\":0.015937808403636518,\"rank\":4,\"storedRank\":4,\"username\":\"tdd_model24\"},{\"id\":\"324be173-4429-4722-ba30-5d93f49a0076\",\"mmc60Rep\":0.015202988562928533,\"rank\":5,\"storedRank\":5,\"username\":\"valois400_1024\"},{\"id\":\"27491c8e-b8d2-46b3-917a-886d4d0fde0a\",\"mmc60Rep\":0.01485356815364867,\"rank\":6,\"storedRank\":6,\"username\":\"kodama_ov\"},{\"id\":\"2809aba2-9e67-42f0-8e6f-ef35f1d4f3e6\",\"mmc60Rep\":0.014785731565783082,\"rank\":7,\"storedRank\":7,\"username\":\"tdd_model34\"},{\"id\":\"1226a475-c5b0-4732-8678-851bb216aede\",\"mmc60Rep\":0.014734420769042113,\"rank\":8,\"storedRank\":8,\"username\":\"tdd_model31\"},{\"id\":\"06f0296d-9348-4847-b5cc-296b03502d7a\",\"mmc60Rep\":0.014380636675247561,\"rank\":9,\"storedRank\":9,\"username\":\"dtf200_ov\"},{\"id\":\"16f47e4d-f914-4360-ada4-a3dc08daadd4\",\"mmc60Rep\":0.01432213192870269,\"rank\":10,\"storedRank\":10,\"username\":\"valois400_ty\"},{\"id\":\"e02fe177-12a2-41ea-af8b-f7f2cef05b69\",\"mmc60Rep\":0.01355383767273269,\"rank\":11,\"storedRank\":11,\"username\":\"glas007\"}],\"rounds\":[{\"closeStakingTime\":\"2026-11-20T14:04:12Z\",\"closeTime\":\"2026-11-21T12:00:00Z\",\"dataDatestamp\":20261119,\"number\":1403,\"openTime\":\"2026-11-20T13:00:23Z\",\"resolveTime\":\"2027-02-17T16:00:00Z\",\"roundScoreConfigs\":[{\"dataDelayDays\":2,\"defaultMultiplier\":0.0,\"displayName\":\"canon_neutral_bmc\",\"isCanonScore\":true,\"isPayout\":false,\"name\":\"neutral_benchmark_contribution\",\"returnsLagDays\":2,\"totalScoreDays\":60,\"universe\":null,\"version\":\"0\"},{\"dataDelayDays\":2,\"defaultMultiplier\":0.0,\"displayName\":\"neutral_bmc\",\"isCanonScore\":false,\"isPayout\":false,\"name\":\"neutral_benchmark_contribution\",\"returnsLagDays\":2,\"totalScoreDays\":60,\"universe\":\"GIANT_UNIVERSE_V2\",\"version\":\"1\"},{\"dataDelayDays\":2,\"defaultMultiplier\":0.0,\"displayName\":\"canon_neutral_mmc\",\"isCanonScore\":true,\"isPayout\":false,\"name\":\"neutral_contribution\",\"returnsLagDays\":2,\"totalScoreDays\":60,\"universe\":null,\"version\":\"0\"},{\"dataDelayDays\":2,\"defaultMultiplier\":32.0,\"displayName\":\"neutral_mmc\",\"isCanonScore\":false,\"isPayout\":true,\"name\":\"neutral_contribution\",\"returnsLagDays\":2,\"totalScoreDays\":60,\"universe\":\"GIANT_UNIVERSE_V2\",\"version\":\"1\"},{\"dataDelayDays\":2,\"defaultMultiplier\":0.0,\"displayName\":\"canon_neutral_corr\",\"isCanonScore\":true,\"isPayout\":false,\"name\":\"neutral_correlation\",\"returnsLagDays\":2,\"totalScoreDays\":60,\"universe\":null,\"version\":\"0\"},{\"dataDelayDays\":2,\"defaultMultiplier\":8.0,\"displayName\":\"neutral_corr\",\"isCanonScore\":false,\"isPayout\":true,\"name\":\"neutral_correlation\",\"returnsLagDays\":2,\"totalScoreDays\":60,\"universe\":\"GIANT_UNIVERSE_V2\",\"version\":\"1\"},{\"dataDelayDays\":2,\"defaultMultiplier\":0.0,\"displayName\":\"season_score\",\"isCanonScore\":true,\"isPayout\":false,\"name\":\"season_score\",\"returnsLagDays\":2,\"totalScoreDays\":60,\"universe\":null,\"version\":\"0\"}],\"target\":\"target_jupiter_60\",\"tournament\":8}]}}",
+    "started_utc": "2026-11-21T02:24:47.553142+00:00"
+  },
+  "format": "phaseweave.numerai-peer-freeze.v1",
+  "frozen_utc": "2026-11-21T02:24:47.770893+00:00",
+  "latest_observed_round": {
+    "closeStakingTime": "2026-11-20T14:04:12Z",
+    "closeTime": "2026-11-21T12:00:00Z",
+    "dataDatestamp": 20261119,
+    "number": 1403,
+    "openTime": "2026-11-20T13:00:23Z",
+    "payout_scores": [
+      {
+        "dataDelayDays": 2,
+        "defaultMultiplier": 8.0,
+        "displayName": "neutral_corr",
+        "isCanonScore": false,
+        "isPayout": true,
+        "name": "neutral_correlation",
+        "returnsLagDays": 2,
+        "totalScoreDays": 60,
+        "universe": "GIANT_UNIVERSE_V2",
+        "version": "1"
+      },
+      {
+        "dataDelayDays": 2,
+        "defaultMultiplier": 32.0,
+        "displayName": "neutral_mmc",
+        "isCanonScore": false,
+        "isPayout": true,
+        "name": "neutral_contribution",
+        "returnsLagDays": 2,
+        "totalScoreDays": 60,
+        "universe": "GIANT_UNIVERSE_V2",
+        "version": "1"
+      }
+    ],
+    "resolveTime": "2027-02-17T16:00:00Z",
+    "target": "target_jupiter_60",
+    "tournament": 8
+  },
+  "members": [
+    {
+      "id": "b49bb6f1-6782-4a67-add7-b685f426b3ae",
+      "mmc60Rep": 0.01724237073870876,
+      "rank": 1,
+      "storedRank": 1,
+      "username": "valois300_1024"
+    },
+    {
+      "id": "90db4038-d391-4908-bf04-382f913a8ce9",
+      "mmc60Rep": 0.01700161416427803,
+      "rank": 2,
+      "storedRank": 2,
+      "username": "hypochlorous"
+    },
+    {
+      "id": "d7427996-8abd-40af-a4fb-5ec8e8e517c4",
+      "mmc60Rep": 0.016771311792406943,
+      "rank": 3,
+      "storedRank": 3,
+      "username": "valois200_1024"
+    },
+    {
+      "id": "be45b584-2630-49a8-965e-595fe6f90cb8",
+      "mmc60Rep": 0.015937808403636518,
+      "rank": 4,
+      "storedRank": 4,
+      "username": "tdd_model24"
+    },
+    {
+      "id": "324be173-4429-4722-ba30-5d93f49a0076",
+      "mmc60Rep": 0.015202988562928533,
+      "rank": 5,
+      "storedRank": 5,
+      "username": "valois400_1024"
+    },
+    {
+      "id": "27491c8e-b8d2-46b3-917a-886d4d0fde0a",
+      "mmc60Rep": 0.01485356815364867,
+      "rank": 6,
+      "storedRank": 6,
+      "username": "kodama_ov"
+    },
+    {
+      "id": "2809aba2-9e67-42f0-8e6f-ef35f1d4f3e6",
+      "mmc60Rep": 0.014785731565783082,
+      "rank": 7,
+      "storedRank": 7,
+      "username": "tdd_model34"
+    },
+    {
+      "id": "1226a475-c5b0-4732-8678-851bb216aede",
+      "mmc60Rep": 0.014734420769042113,
+      "rank": 8,
+      "storedRank": 8,
+      "username": "tdd_model31"
+    },
+    {
+      "id": "06f0296d-9348-4847-b5cc-296b03502d7a",
+      "mmc60Rep": 0.014380636675247561,
+      "rank": 9,
+      "storedRank": 9,
+      "username": "dtf200_ov"
+    },
+    {
+      "id": "16f47e4d-f914-4360-ada4-a3dc08daadd4",
+      "mmc60Rep": 0.01432213192870269,
+      "rank": 10,
+      "storedRank": 10,
+      "username": "valois400_ty"
+    }
+  ],
+  "metric": "mmc60Rep",
+  "registration_sha256": "8efbec1aef4e670ea2461d3f1de50ab412ff6fbeda7cd6bc83c91e4b095d5efa"
+}

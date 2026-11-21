@@ -104,3 +104,43 @@ async function breadthComparison() {
   repaint();
 }
 breadthComparison().catch(()=>{get("numerai-breadth-summary").textContent="The breadth comparison receipt could not load.";});
+
+async function fixedCandidateComparison() {
+  const paths = {
+    audit: "numerai-2022-23-validation-v1.json",
+    development: "numerai-neural-development-v1.json",
+  };
+  const reports = await Promise.all(Object.entries(paths).map(async ([key, path]) => {
+    const response = await fetch(path);
+    if (!response.ok) throw Error("Validation receipt unavailable");
+    return [key, await response.json()];
+  }));
+  const periods = Object.fromEntries(reports);
+  const select = get("numerai-fresh-period");
+  const summary = get("numerai-fresh-summary");
+  const results = get("numerai-fresh-table");
+  const labels = {
+    lgbm_jupiter_60: "Published LightGBM Jupiter 60",
+    "fixed-medium-blend": "Fixed Medium tree blend",
+    "neural-multitarget-blend": "Multitarget residual MLP blend",
+    "tree-neural-blend": "75% Medium HGB + 25% residual MLP",
+    "local-lightgbm-multitarget": "Locally trained LightGBM multitarget blend",
+  };
+  function repaint() {
+    const report = periods[select.value];
+    const entries = Object.entries(report.overall).sort((a, b) => b[1].neutral_corr - a[1].neutral_corr);
+    summary.textContent = report.dates + " matched dates · " + report.keys.toLocaleString("en-US")
+      + " stock-date keys · Reference " + (labels[report.reference] ?? report.reference) + ".";
+    results.replaceChildren(table(
+      ["Forecast", "Neutral CORR", "Raw CORR", "Paired neutral Δ", "13-week 95% interval", "Dates ahead"],
+      entries.map(([key, score]) => [labels[key] ?? key, num(score.neutral_corr), num(score.raw_corr),
+        key === report.reference ? "—" : num(score.neutral_corr_delta),
+        key === report.reference ? "—" : score.neutral_corr_paired_ci_13_weeks.map(num).join(" to "),
+        key === report.reference ? "Reference" : score.neutral_corr_wins + " / " + report.dates])));
+  }
+  select.addEventListener("change", repaint);
+  repaint();
+}
+fixedCandidateComparison().catch(() => {
+  get("numerai-fresh-summary").textContent = "The fixed-candidate results could not load.";
+});

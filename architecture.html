@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="architecture.css">
   <script defer src="reasoning-3d.js"></script>
+  <script defer src="architecture-math.js"></script>
+  <script defer src="architecture-coverage.js"></script>
   <script defer src="architecture.js"></script>
 </head>
 <body>
@@ -27,8 +29,9 @@
   <main class="architecture">
     <header>
       <h1>Inside the forecast</h1>
-      <p class="arch-lead">Step through a recorded quote window and inspect the computations from trained model weights.</p>
+      <p class="arch-lead">Inspect a trained network on one recorded quote window, or find the available computation evidence for another model.</p>
     </header>
+    <p><a href="#arch-catalog">Find a model in the architecture index ↓</a></p>
     <p id="architecture-status" role="status">Loading the saved computation trace.</p>
     <div class="arch-tabs" aria-label="Computation trace">
       <button type="button" id="arch-network" aria-pressed="true">Attention network</button>
@@ -63,7 +66,7 @@
       <p id="arch-matrix-note"></p>
       <div id="arch-matrix" class="arch-scroll"></div>
     </section>
-    <section class="arch-panel" aria-labelledby="arch-readout-title">
+    <section class="arch-panel" id="arch-output-panel" aria-labelledby="arch-readout-title">
       <div class="arch-heading"><h2 id="arch-readout-title">Forecast readout</h2><label>Output <select id="arch-output"></select></label></div>
       <p id="arch-readout-note"></p>
       <div id="arch-readout" class="arch-scroll"></div>
@@ -71,8 +74,16 @@
     <section class="arch-panel" aria-labelledby="arch-methods-title">
       <h2 id="arch-methods-title">Reproduce this trace</h2>
       <p id="arch-provenance"></p>
-      <p><a href="replay.json">Public quote sequence</a> · <a href="horizons-deep-trace-v1.json">Full network tensors</a> · <a href="horizons-surface-trace-v1.json">Full surface tensors</a> · <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md">Reproduction protocol</a></p>
+      <p><a href="replay.json">Public quote sequence</a> · <a href="horizons-deep-trace-v1.json">Recorded network stages</a> · <a href="horizons-surface-trace-v1.json">Recorded surface branch</a> · <a href="https://github.com/amelie-iska/PhaseWeave/blob/main/docs/FX_HORIZONS.md">Reproduction protocol</a></p>
     </section>
-  </main>
+  <section class="arch-panel" id="arch-catalog" aria-labelledby="arch-catalog-title">
+      <h2 id="arch-catalog-title" tabindex="-1">Architecture evidence by model</h2>
+      <p>Look up an exact checkpoint, a measured comparison row, or a release control. The same checkpoint can contribute to several comparisons. Each entry identifies what was recorded.</p>
+      <div id="arch-catalog-controls"><label>Find model <input id="arch-catalog-search" type="search" placeholder="Model, seed, width or cohort"></label>
+      <label>Evidence <select id="arch-catalog-kind"><option value="">All evidence</option></select></label>
+      <label>Roster <select id="arch-catalog-family"><option value="">All rosters</option></select></label></div>
+      <p id="arch-catalog-status" role="status">Loading architecture evidence.</p>
+      <div id="arch-catalog-rows"></div><nav id="arch-catalog-pages" aria-label="Architecture evidence pages"></nav>
+    </section></main>
 </body>
 </html>

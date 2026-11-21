@@ -1,0 +1,260 @@
+{
+  "calendar_sessions": 8,
+  "complete_origins": 1234,
+  "complete_origins_by_date_utc": {
+    "2026-10-05": 224,
+    "2026-10-07": 159,
+    "2026-10-12": 96,
+    "2026-10-15": 136,
+    "2026-10-19": 137,
+    "2026-10-22": 211,
+    "2026-10-27": 99,
+    "2026-10-29": 172
+  },
+  "confirmation_prediction_seal_sha256": "4d00adafb31d435427defabf6932e959189f08de80c44b29993dabec509cc502",
+  "directed_edges": 20,
+  "excluded_execution_effects": "Depth, latency, funding, size impact, inventory and fills unobserved.",
+  "forecast_cells_per_arm": 456580,
+  "format": "phaseweave.k5-quote-opportunity-census.v1",
+  "model_sha256": "d8d9542b4ddc0926d56b0879015b5f3d7c426a796b84fca178db954623ebcbe6",
+  "orders": 0,
+  "outcome_payloads_read": 0,
+  "routes_per_origin": 74,
+  "scenarios": {
+    "ordinary_one_bp": {
+      "arms": {
+        "all_disabled": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        },
+        "joint": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        },
+        "mpnn": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        },
+        "persistence": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        }
+      },
+      "fee_log_bp_per_leg": 1.0000500033335835
+    },
+    "trained": {
+      "arms": {
+        "all_disabled": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        },
+        "joint": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        },
+        "mpnn": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        },
+        "persistence": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        }
+      },
+      "fee_log_bp_per_leg": 0.1
+    },
+    "zero_fee_sensitivity": {
+      "arms": {
+        "all_disabled": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        },
+        "joint": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        },
+        "mpnn": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        },
+        "persistence": {
+          "origins_with_any_positive": 0,
+          "positive_counts_per_length": {
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "positive_counts_per_tenor": {
+            "1": 0,
+            "15": 0,
+            "300": 0,
+            "5": 0,
+            "60": 0
+          },
+          "positive_route_tenor_cells": 0,
+          "same_cell_positive_with_persistence": 0,
+          "utc_sessions_with_any_positive": 0
+        }
+      },
+      "fee_log_bp_per_leg": 0.0
+    }
+  },
+  "score": "Simultaneous closed-cycle forecast above zero after the declared fee; overlapping routes and tenors.",
+  "selection": "Every confirmation origin where all 74 observed routes passed the native common-input eligibility check.",
+  "source_sha256": "b7372c116de776b0ceebe67ee57a267b139ad40581f2efe61419813b0096de77",
+  "total_origins": 4096
+}

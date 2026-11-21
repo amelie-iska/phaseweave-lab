@@ -110,10 +110,11 @@ class GatePublicFeed {
     }
   }
 
-  snapshot(now = Date.now()) {
-    const rates = this.quotes;
-    const [base, bridge, market] = this.assets;
-    const [first, second] = this.pairs;
+  snapshot(now = Date.now(), assets = this.assets) {
+    const [base, bridge, market] = assets;
+    const first = base + "_" + bridge, second = bridge + "_" + market, third = base + "_" + market;
+    const rates = new Map([first, second, third].filter(pair => this.quotes.has(pair))
+      .map(pair => [pair, this.quotes.get(pair)]));
     const gauge = { [base]: 0, [bridge]: 0, [market]: 0 };
     if (rates.has(first) && rates.has(second)) {
       gauge[bridge] = -Math.log(rates.get(first).bid);
@@ -131,10 +132,42 @@ class GatePublicFeed {
       ];
     });
     return {
-      utc: new Date(now).toISOString(), assets: this.assets, edges,
+      utc: new Date(now).toISOString(), assets, edges,
       source: this.mode, bookCount: rates.size, clockSkew: edges.some((edge) => edge.updated > now + 1000),
     };
   }
 }
 
 if (typeof module !== "undefined") module.exports = GatePublicFeed;
+
+// Anonymous spot top-of-book markets. Every triangle has all three direct books.
+const GateSpotSources = (() => {
+  const markets = new Map(["ETH", "XRP", "DOGE", "LTC", "ADA"]
+    .map(asset => ["gate-" + asset.toLowerCase(), [asset, "BTC", "USDT"]]));
+  const has = id => markets.has(id);
+  const assets = id => markets.get(id);
+  const entries = () => [...markets].map(([id, coins]) => [id, "Live Gate · " + coins.join("/")]);
+  function start(feed) {
+    try { feed.start(); } catch { feed.stop(); }
+    return feed;
+  }
+  function connect(id) {
+    return has(id) ? start(new GatePublicFeed(() => {}, assets(id))) : null;
+  }
+  function connectBasket() {
+    const feed = new GatePublicFeed(() => {});
+    feed.pairs = [...new Set([...markets.values()].flatMap(([a, b, c]) =>
+      [a + "_" + b, b + "_" + c, a + "_" + c]))];
+    return start(feed);
+  }
+  function snapshot(feed, maxAgeMs = 5000, id, now = Date.now()) {
+    if (!feed || (id && !has(id))) return null;
+    const frame = feed.snapshot(now, assets(id));
+    if (frame.bookCount !== 3 || frame.edges.length !== 6 || frame.clockSkew ||
+        !frame.edges.every(edge => Number.isFinite(edge.bps) && Number.isFinite(edge.updated) &&
+          edge.updated <= now && edge.age <= maxAgeMs)) return null;
+    const key = frame.edges.map(edge => `${edge.from}/${edge.to}/${edge.updated}/${edge.bps}`).sort().join("|");
+    return {frame, id: key};
+  }
+  return {has, assets, entries, connect, connectBasket, snapshot};
+})();

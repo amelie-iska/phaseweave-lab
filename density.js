@@ -113,7 +113,7 @@ const DensityWalk = (() => {
 
 if (typeof module !== "undefined") module.exports = DensityWalk;
 
-if (typeof document !== "undefined") {
+if (typeof document !== "undefined" && document.getElementById("walk-map")) {
   const get = (id) => document.getElementById(id);
   const escape = (value) => String(value).replace(/[&<>"']/g, (letter) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",

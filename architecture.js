@@ -4,15 +4,19 @@ const el=id=>document.getElementById(id);
 const num=(n,digits=5)=>Number.isFinite(n)?n.toFixed(digits):"—";
 const sequence=n=>Array.from({length:n},(_,i)=>i);
 const options=(n,prefix)=>sequence(n).map(i=>[i,prefix+" "+(i+1)]);
-const state={network:null,surface:null,mode:"network",step:0,head:0,query:0,key:0,channel:0,history:15,output:0,cell:0,timer:null};
+const state={network:null,surface:null,mode:"network",step:0,head:0,query:0,key:0,channel:0,subchannel:0,history:15,output:0,cell:0,timer:null};
 const current=()=>state[state.mode];
 const palette=()=>{
   const css=getComputedStyle(document.documentElement);
   return Object.fromEntries(["line","faint","muted","text","copper","jade","violet"].map(k=>[k,css.getPropertyValue("--"+k).trim()]));
 };
-const dot=(a,b)=>a.reduce((s,n,i)=>s+n*b[i],0);
-const matrix=(stage)=>stage.domain==="spatial"&&stage.history_attention?
-  stage.history_attention[state.history][state.head]:stage.attention[state.head];
+function frame(stage) {
+  if(stage.domain!=="spatial")return stage;
+  const fields=state.networkFrames[stage.layer-1], t=state.history;
+  return {...stage,...Object.fromEntries(Object.entries(fields).map(([k,v])=>[k,v[t]])),
+    mask:state.network.input.token_mask[t],attention:stage.history_attention[t]};
+}
+const matrix=stage=>frame(stage).attention[state.head];
 
 function networkScene(){
   if(!state.network)return {axes:[],points:[],lines:[],grid:false};
@@ -21,19 +25,19 @@ function networkScene(){
   const selected=stages[state.step], channel=state.channel;
   const points=[],lines=[];
   const row=(stage,index,j)=>[(index-(stages.length-1)/2)*.45,
-    ((stage.labels.length-1)/2-j)*.145,Math.tanh(stage.hidden_out[j][channel])*.78];
+    ((stage.labels.length-1)/2-j)*.145,Math.tanh(frame(stage).hidden_out[j][channel])*.78];
   for(const [i,stage] of visible.entries()){
     for(const [j,label] of stage.labels.entries()){
       const active=i===state.step&&j===state.query;
       const showLabel=i===state.step&&(active||j===state.key);
       const point=row(stage,i,j);
-      points.push({id:i===state.step?j:null,point,color:!stage.mask[j]?"muted":active?"copper":stage.domain==="spatial"?"jade":"violet",
-                   alpha:stage.mask[j]?1:.30,radius:active?7:3.6,label:showLabel?label:null});
+      points.push({id:i===state.step?j:null,point,color:!frame(stage).mask[j]?"muted":active?"copper":stage.domain==="spatial"?"jade":"violet",
+                   alpha:frame(stage).mask[j]?1:.30,radius:active?7:3.6,label:showLabel?label:null});
       if(i>0&&stages[i-1].domain===stage.domain)
         lines.push({coords:[row(stages[i-1],i-1,j),point],color:"line",alpha:.38});
     }
   }
-  if(state.history===15||selected.domain==="temporal"){
+  {
     for(const [key,weight] of matrix(selected)[state.query].entries()){
       if(weight<.00001||key===state.query)continue;
       const q=row(selected,state.step,state.query),k=row(selected,state.step,key);
@@ -149,49 +153,46 @@ function networkInspector(){
   const data=state.network,stage=data.stages[state.step];
   const labels=stage.labels.map((name,i)=>[i,name]);
   const inputs=[pick("head","Head",options(stage.shape.heads,"Head")),pick("query","Query",labels),
-    pick("key","Key",labels),pick("channel","Hidden channel",options(stage.shape.channels,"Channel"))];
+    pick("key","Key",labels),pick("subchannel","Head component",options(stage.shape.head_channels,"Component")),
+    pick("channel","Residual channel",options(stage.shape.channels,"Channel"))];
   if(stage.domain==="spatial")inputs.push(pick("history","Spatial frame",data.input.frame_utc.map((utc,i)=>[i,utc.slice(11,19)+" UTC"])));
   el("arch-selectors").replaceChildren(...inputs);
   const channel=state.channel, head=state.head;
   const [q,k]=[state.query,state.key];
   const weight=matrix(stage)[q][k];
-  const fullDetail=stage.domain==="temporal"||state.history===15;
-  const component=channel%stage.shape.head_channels;
-  const label=stage.domain==="temporal"?data.input.frame_utc[q]:data.input.frame_utc[15];
-  const metrics=[["Stage shape",`${stage.shape.tokens} tokens × ${stage.shape.channels} · ${stage.shape.heads} heads`],
-    ["Selected attention",num(weight,7)],["Selected row sum",num(matrix(stage)[q].reduce((a,b)=>a+b,0),7)]];
-  if(fullDetail){
-    const QVector=stage.q[head][q], KVector=stage.k[head][k], VVector=stage.v[head][k];
-    metrics.push(["Computation time",label],["Key availability",stage.mask[k]?"Observed token":"Masked token"],
-      ["Q · K × score scale",stage.mask[k]?num(dot(QVector,KVector)*stage.score_multiplier,7):"Masked"],
-      ["Head gate",num(stage.gate[head],7)],["Head subchannel",String(component+1)],
-      ["Q component",num(QVector[component])],["K component",num(KVector[component])],
-      ["V component",num(VVector[component])],["Attention × V",num(weight*VVector[component],7)],
-      ["Input → attention → FFN → output",
-        [stage.hidden_in[q][channel],stage.attention_delta[q][channel],stage.ffn_delta[q][channel],stage.hidden_out[q][channel]].map(v=>num(v)).join("  ·  ")]);
-  }else metrics.push(["Frame scope","This frame exposes native attention. Select the final frame for Q, K, V and residual values."]);
+  const record=frame(stage), component=state.subchannel, time=data.input.frame_utc;
+  const label=stage.domain==="temporal"?time[q]:time[state.history];
+  const h=ArchitectureMath.headDetails(record,q,k,head,component,record.attention);
+  const valid=record.mask[q]&&record.mask[k];
+  const metrics=[["Stage shape",`${stage.shape.tokens} tokens × ${stage.shape.channels} · ${stage.shape.heads} heads × ${stage.shape.head_channels}`],
+    ["Frame represented by query",label],["Query / key masks",`${record.mask[q]} / ${record.mask[k]}`],
+    ["Normalized Q component",num(record.q[head][q][component],7)],["Normalized K component",num(record.k[head][k][component],7)],
+    ["V component",num(record.v[head][k][component],7)],["Allowed Q · K × scale",valid?num(h.logit,7):"Masked"],
+    ["Attention weight A[q,k]",num(weight,7)],["Attention row sum",num(matrix(stage)[q].reduce((a,b)=>a+b,0),7)],
+    ["One key’s A[q,k] × V[k,c]",num(h.term,7)],["Sum over all keys (A × V)[q,c]",num(h.context,7)],
+    ["Sigmoid head gate",num(record.gate[head],7)],["Gated head component",num(h.gated,7)],
+    ["Residual input",num(record.hidden_in[q][channel],7)],["Projected attention update",num(record.attention_delta[q][channel],7)],
+    ["FFN update",num(record.ffn_delta[q][channel],7)],["Residual output = input + updates",num(record.hidden_out[q][channel],7)]];
   if(stage.domain==="temporal"&&state.step===data.stages.findIndex(s=>s.domain==="temporal")){
     const pool=data.pooling;
     metrics.push(["Mean pooled channel",num(pool.frame_vectors[q][channel])],
       ["Learned position channel",num(pool.position[q][channel])],
       ["Actual temporal input",num(pool.temporal_input[q][channel])]);
   }
-  if(stage.domain==="spatial"&&fullDetail&&state.step===0){
-    const vector=data.input.tokenized_anchor[q];
+  if(stage.domain==="spatial"&&state.step===0){
+    const vector=record.hidden_in[q];
     metrics.push(["Tokenized channel",num(vector?.[channel])],
       ["Token kind",data.input.token_kind[q]]);
     if(q>=3){
-      const values=data.input.features[15][q-3];
-      metrics.push(["Raw edge input",values.map(v=>num(v)).join(" · ")]);
+      const values=data.input.features[state.history][q-3];
+      metrics.push(["Gauge-fixed edge channels (log bps, age / cap, available)",values.map(v=>num(v)).join(" · ")]);
     }
   }
   detail(metrics);
   el("arch-matrix-title").textContent="Native attention weights";
-  el("arch-matrix-note").textContent=fullDetail?
-    "Choose a cell to inspect its query, key and value. The 3D view links the keys feeding the highlighted query.":
-    "The 3D residual states remain at the final spatial frame. The heatmap uses the selected history frame.";
+  el("arch-matrix-note").textContent="Q and K are centered by their own maximum and L2-normalized before scoring. Softmax is taken over allowed keys. A selected cell contributes one term to the gated head sum. The output projection mixes all heads.";
   el("arch-matrix").replaceChildren(heatmap(stage));
-  el("arch-scene-description").textContent="Horizontal position is layer depth. The vertical rows are tokens. Height in the third dimension is the selected hidden channel.";
+  el("arch-scene-description").textContent="Horizontal position is layer depth. The vertical rows are tokens. Depth shows tanh of the selected residual output channel. Spatial layers use the selected history frame. Temporal layers span all 16 frames of the same forecast window.";
   return stage.domain+" block "+stage.layer+" / "+(stage.domain==="spatial"?data.run.graph_layers:data.run.time_layers);
 }
 
@@ -209,8 +210,9 @@ function surfaceInspector(){
   const {mesh,n,layer,label}=surfaceStep();
   const edgeOpts=mesh.edge_index.map(([a,b],i)=>[i,`Edge ${i} · ${a} → ${b}`]);
   if(state.cell>=edgeOpts.length)state.cell=0;
-  if(state.channel>=32)state.channel=0;
-  el("arch-selectors").replaceChildren(pick("cell","Edge",edgeOpts),pick("channel","Hidden channel",options(32,"Channel")));
+  const width=mesh.layers[0].edge_out[0].length;
+  if(state.channel>=width)state.channel=0;
+  el("arch-selectors").replaceChildren(pick("cell","Edge",edgeOpts),pick("channel","Hidden channel",options(width,"Channel")));
   const i=state.cell,ch=state.channel;
   const metrics=[["Periodic cells",`${mesh.vertices.length} vertices · ${mesh.edge_index.length} edges · ${mesh.face_boundaries.length} faces`],
     ["Edge connection",num(mesh.connection[i],7)+" log bps"],
@@ -218,11 +220,11 @@ function surfaceInspector(){
   if(layer){
     const [a,b]=mesh.edge_index[i];
     metrics.push(["Input edge channel",num(layer.edge_in[i][ch])],["Tail vertex message",num(layer.vertex_message[a][ch])],
-     ["Head vertex message",num(layer.vertex_message[b][ch])],["Output edge channel",num(layer.edge_out[i][ch])]);
+     ["Head vertex message",num(layer.vertex_message[b][ch])],["Edge update",num(layer.edge_update[i][ch])],["Output edge channel",num(layer.edge_out[i][ch])]);
   }
   if(n===2&&data.restriction?.edge_map){
     const row=data.restriction.edge_map[i];
-    metrics.push(["Fine edge path",row.map((value,j)=>value?j:null).filter(j=>j!==null).join(" + ")]);
+    metrics.push(["Fine edge path",row.flatMap((value,j)=>value?[String(value)+" × e"+j]:[]).join(" + ")]);
   }
   detail(metrics);
   el("arch-matrix-title").textContent="Face circulation and loop holonomy";
@@ -268,6 +270,9 @@ function readout(){
     const table=fields.every(Array.isArray)?plainTable(["Channel","Temporal","Surface","Corrected"],
       fields[0].map((v,i)=>[String(i+1),num(v,7),num(fields[1][i],7),num(fields[2][i],7)])):null;
     const ablation=plainTable(["Within-checkpoint control","Log bps"],[
+      ["Temporal contribution at full normalization",num(r.temporal_terms[state.output],7)],
+      ["Surface contribution at full normalization",num(r.surface_terms[state.output],7)],
+      ["Normalization and readout bias",num(r.normalization_and_readout_bias[state.output],7)],
       ["Run with surface vector disabled",num(selected.same_weights_surface_disabled_log_bp,7)],
       ["Full minus disabled",num(selected.branch_disabling_difference_log_bp,7)]]);
     el("arch-readout").replaceChildren(...(table?[main,ablation,table]:[main,ablation]));
@@ -319,6 +324,7 @@ async function switchMode(mode){
   pause();
   state.mode=mode;state.step=0;state.channel=0;
   for(const key of Object.keys(traces))el("arch-"+key).setAttribute("aria-pressed",String(mode===key));
+  for(const panel of document.querySelectorAll(".arch-grid,#arch-matrix-panel,#arch-output-panel"))panel.hidden=!state[mode];
   try{
     if(!state[mode]){
       el("architecture-status").textContent="Loading the saved computation trace.";
@@ -332,9 +338,23 @@ async function switchMode(mode){
       const trace=JSON.parse(new TextDecoder().decode(bytes));
       const expected=mode==="network"?"phaseweave.trained-horizon-trace.v1":"phaseweave.trained-surface-trace.v1";
       if(trace.format!==expected)throw new Error("Trace format changed");
+      if(mode==="network"){
+        const supplement=await fetch("architecture-spatial-frames-v1.json");
+        if(!supplement.ok)throw new Error("Frame tensors unavailable");
+        const raw=await supplement.arrayBuffer();
+        const digest=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",raw)),v=>v.toString(16).padStart(2,"0")).join("");
+        if(digest!=="33171972b0d6268fd399f65421130209ffcdc5f18fc39694c381db9ce155fa00")throw new Error("Frame tensor digest changed");
+        const f=JSON.parse(new TextDecoder().decode(raw));
+        if(f.checkpoint_sha256!==trace.run.checkpoint_sha256||f.replay_sha256!==trace.input.source_sha256||
+           JSON.stringify(f.frame_utc)!==JSON.stringify(trace.input.frame_utc))throw new Error("Frame source differs");
+        state.networkFrames=f.spatial_stages.map(fields=>Object.fromEntries(Object.entries(fields).map(([k,v])=>[k,ArchitectureMath.unpack(v)])));
+      }
       state[mode]=trace;
     }
-    if(state.mode===mode)render();
+    if(state.mode===mode){
+      for(const panel of document.querySelectorAll(".arch-grid,#arch-matrix-panel,#arch-output-panel"))panel.hidden=false;
+      render();
+    }
   }catch{
     if(state.mode===mode)el("architecture-status").textContent="This saved trace is unavailable.";
   }

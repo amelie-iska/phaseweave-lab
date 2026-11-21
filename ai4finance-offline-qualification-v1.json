@@ -1,0 +1,50 @@
+{
+  "all_signal_decisions": {
+    "eligible": 39,
+    "signal_cash": 41,
+    "stale_or_missing_quote": 8
+  },
+  "broker_orders": 0,
+  "candidate_positive_allocation_on_paired_slots": 39,
+  "fee_sensitivity_per_side_bps": 1.0,
+  "first_session": "2026-10-21",
+  "framework_base_sha256": "9eef583bf44256391f3c4097e986a0e82da411c22de03fa594bfe8605803e314",
+  "framework_pin": "4409abe925c904e570be78ebfb5e77ac3491dff8",
+  "hold_minutes": 15,
+  "last_session": "2026-10-30",
+  "lookback_minutes": 30,
+  "manifest_sha256": "6d2b4834e818f8daa6a70053ef1b295b4fcb0aaf07bf029b38435f6575ce3b3e",
+  "max_allocation": 0.25,
+  "official_challenge_score": null,
+  "official_paper_sessions": 0,
+  "outcomes": {
+    "candidate": {
+      "max_drawdown_at_interval_end": 0.02085606201477752,
+      "mean_session_return": -0.00204737196666685,
+      "negative_sessions": 6,
+      "positive_sessions": 2,
+      "terminal_quote_marked_return": -0.016289535896685026
+    },
+    "cash": {
+      "max_drawdown_at_interval_end": 0.0,
+      "mean_session_return": 0.0,
+      "negative_sessions": 0,
+      "positive_sessions": 0,
+      "terminal_quote_marked_return": 0.0
+    },
+    "fixed_cap_wdc": {
+      "max_drawdown_at_interval_end": 0.03380184966811872,
+      "mean_session_return": -0.0038385498573988014,
+      "negative_sessions": 7,
+      "positive_sessions": 1,
+      "terminal_quote_marked_return": -0.03033623657597362
+    }
+  },
+  "paired_quote_marked_slots": 88,
+  "planned_slots": 88,
+  "reference_etf": "IVE",
+  "schema": "phaseweave.ai4finance-offline-qualification.v1",
+  "sessions": 8,
+  "target_equity": "WDC",
+  "unmarked_slots": 0
+}

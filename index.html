@@ -14,9 +14,15 @@
   <script defer src="reasoning-3d.js?v=20261121-1"></script>
   <script defer src="front-inference.js?v=20261121-1"></script>
   <script defer src="core.js"></script>
-  <script defer src="gate.js"></script>
+  <script defer src="gate.js?v=20261121-3"></script>
   <script defer src="replay-instruments.js"></script>
   <script defer src="lab.js"></script>
+  <link rel="stylesheet" href="front-replays.css?v=20261121-2">
+  <script defer src="density-cloud.js"></script>
+  <script defer src="density.js?v=20261121-2"></script>
+  <script defer src="reasoning-parallel.js"></script>
+  <script defer src="front-gate-basket.js?v=20261121-1"></script>
+  <script defer src="front-replays.js?v=20261121-2"></script>
 </head>
 <body class="market-console">
   <header class="top">
@@ -77,6 +83,74 @@
         <a class="front-link" href="numerai.html">Full results and leaderboard ↗</a>
         <a class="front-link" href="#competitions">Trading competition entry plans ↗</a>
       </article>
+    </section>
+    <section class="front-replays" id="continuous-replays" aria-label="Continuous market and model views">
+      <p class="front-context replay-provider"><a href="https://www.gate.com/docs/developers/apiv4/en/#order-book">Gate public spot books</a> · <a href="live-widgets.html">Live market widgets</a> · <a href="data.html">FX replay provenance</a></p>
+      <div class="replay-panels">
+        <article class="front-card" id="replay-density" aria-labelledby="replay-density-title">
+          <div class="front-head"><h3 id="replay-density-title">3D probability density</h3><span data-role="state">Loading</span></div>
+          <p class="front-context replay-source" data-role="source">Waiting for public quotes.</p>
+          <canvas class="replay-plot" data-role="plot" width="480" height="245" role="img" aria-label="Three-dimensional density on the three currency sites"></canvas>
+          <div class="trace-controls" aria-label="Density parameters">
+            <label>Source <select data-role="example" disabled></select></label>
+            <label>Color <select data-role="color"><option value="site">By site</option><option value="basis">By component</option></select></label>
+            <label>Angle <input type="range" data-role="angle" min="-180" max="180" value="8" step="2"></label>
+            <label>Mixing <input type="range" data-role="mix" min="0" max="1.2" value="0.63" step="0.01"></label>
+            <label>Interval <select data-role="rate"><option value="400">0.4 s</option><option value="800" selected>0.8 s</option><option value="1600">1.6 s</option></select></label>
+          </div>
+          <div data-role="timeline" class="replay-timeline"></div>
+          <p data-role="readout" class="replay-readout"></p>
+          <a class="front-link" href="density.html#cloud-heading">Density lab and method ↗</a>
+        </article>
+        <article class="front-card" id="replay-walk" aria-labelledby="replay-walk-title">
+          <div class="front-head"><h3 id="replay-walk-title">Quote-driven graph walk</h3><span data-role="state">Loading</span></div>
+          <p class="front-context replay-source" data-role="source">Waiting for public quotes.</p>
+          <svg class="replay-plot" data-role="plot" viewBox="0 0 320 200" role="img" aria-label="Currency sites and arrows showing the direction and relative size of probability transfer"></svg>
+          <div class="trace-controls" aria-label="Graph walk parameters">
+            <label>Source <select data-role="example" disabled></select></label>
+            <label>Initial site <select data-role="site" disabled></select></label>
+            <label>Phase <input type="range" data-role="phase" min="0" max="3" value="1" step="0.05"></label>
+            <label>Mixing <input type="range" data-role="mix" min="0" max="1.2" value="0.63" step="0.01"></label>
+            <label>Interval <select data-role="rate"><option value="400">0.4 s</option><option value="1100" selected>1.1 s</option><option value="1600">1.6 s</option></select></label>
+          </div>
+          <div data-role="timeline" class="replay-timeline"></div>
+          <p data-role="readout" class="replay-readout"></p>
+          <a class="front-link" href="density.html#map-title">Walk and link flux ↗</a>
+        </article>
+        <article class="front-card" id="replay-forest" aria-labelledby="replay-forest-title">
+          <div class="front-head"><h3 id="replay-forest-title">Forest of Thought</h3><span data-role="state">Loading</span></div>
+          <p class="front-context replay-source" data-role="source">Checking the model trace source.</p>
+          <canvas class="replay-plot" id="replay-forest-plot" data-role="plot" width="480" height="245" role="img" aria-label="Model proposals and retained forest branches by layer"></canvas>
+          <div class="trace-controls" aria-label="Forest settings">
+            <label>Profile <select data-role="example" disabled></select></label>
+            <label>Tree <select data-role="tree"><option value="all">All trees</option></select></label>
+            <label>Interval <select data-role="rate"><option value="400">0.4 s</option><option value="900" selected>0.9 s</option><option value="1800">1.8 s</option></select></label>
+          </div>
+          <div class="trace-controls" data-role="camera" aria-label="Forest camera">
+            <label>Yaw <input type="range" name="yaw" min="-180" max="180" value="-32"></label>
+            <label>Pitch <input type="range" name="pitch" min="-85" max="85" value="24"></label>
+            <button type="button">Reset view</button>
+          </div>
+          <div data-role="timeline" class="replay-timeline"></div>
+          <p data-role="readout" class="replay-readout"></p>
+          <a class="front-link" href="reasoning.html?mode=forest">Full forest lab ↗</a>
+        </article>
+      </div>
+    </section>
+    <section class="front-card front-gate-basket" id="front-gate-basket" aria-labelledby="gate-basket-title">
+      <div class="front-head"><h2 id="gate-basket-title">Live Gate triangle comparison</h2><time></time></div>
+      <p class="front-context">Rank the two directions of five spot triangles by observed bid/ask margin. All rows use the same book snapshot and a hypothetical per-leg cost. Top-of-book size is indicative.</p>
+      <div class="trace-controls" aria-label="Spot triangle assumptions">
+        <label>Cost per leg (log bps) <input id="gate-basket-fee" type="number" min="0" max="100" step="0.1" value="10"></label>
+        <label>Max quote age <select id="gate-basket-age"><option value="1000">1 s</option><option value="5000" selected>5 s</option><option value="15000">15 s</option></select></label>
+      </div>
+      <p class="front-context" data-basket-state>Waiting for fresh public order books.</p>
+      <div class="basket-scroll" tabindex="0" role="region" aria-label="Observed spot triangle rankings">
+        <table>
+          <thead><tr><th scope="col">Rank</th><th scope="col">USDT route</th><th scope="col">Net log bps</th><th scope="col">Indicative size, USDT</th><th scope="col">Oldest quote age</th><th scope="col">Oldest source timestamp</th></tr></thead>
+          <tbody><tr><td colspan="6">Waiting for books.</td></tr></tbody>
+        </table>
+      </div>
     </section>
     <section class="front-card front-inference" id="live-inference" aria-labelledby="live-inference-title">
       <div class="front-head"><h2 id="live-inference-title">Live inference and 3D density</h2></div>

@@ -37,3 +37,15 @@
   .arch-camera input[type="range"] { width:58px; }
   .architecture #arch-depth { width:145px; }
 }
+.architecture [hidden] { display:none!important; }
+#arch-catalog-controls,#arch-catalog-pages,#arch-catalog-rows article header { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1rem; }
+#arch-catalog-controls { margin:1rem 0 .6rem; }
+#arch-catalog-controls input,#arch-catalog-controls select { max-width:min(32ch,100%); min-width:0; }
+#arch-catalog-rows { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,355px),1fr)); gap:.7rem; margin:.8rem 0; }
+#arch-catalog-rows article { padding:.75rem 1rem; border:1px solid var(--line); overflow-wrap:anywhere; }
+#arch-catalog-rows h3 { margin:0; font-size:1rem; }
+#arch-catalog-rows small,.arch-badge { font: .72rem/1.4 var(--mono); color:var(--muted); }
+.arch-badge { color:var(--copper); }
+.arch-badge.arch-stages,.arch-badge.arch-operators,.arch-badge.arch-branch { color:var(--jade); }
+#arch-catalog-title { scroll-margin-top:5rem; }
+@media(max-width:500px){ #arch-catalog-controls label { width:100%; display:grid; grid-template-columns:5rem minmax(0,1fr); } }

@@ -19,6 +19,25 @@
    <p>PhaseWeave has no live Numerai rank. The top-10 submission condition is unmet. FX and GRT forecast errors use different markets, horizons and metrics. A Classic v6 evaluation needs common dates, Numerai’s official targets and neutralizers, published benchmarks, and a resolved live submission to establish rank.</p>
    <p><a href="https://docs.numer.ai/numerai-tournament/data">Classic data and targets</a> · <a href="https://docs.numer.ai/numerai-tournament/scoring">Scoring and reputation</a> · <a href="https://docs.numer.ai/numerai-tournament/submissions">Round windows and submission format</a></p>
   </section>
+  <section class="arch-panel" id="fresh-validation"><h2>Fixed-candidate validation</h2>
+   <p>The 2022–23 panel contains 60 weekly cross-sections and 402,488 matching stock-date keys. All 22 prediction vectors were sealed before targets and neutralizers were opened.</p>
+   <label>Scoring period <select id="numerai-fresh-period"><option value="audit">2022–23 · held-out candidates</option><option value="development">2020–21 · reused development with published LightGBM</option></select></label>
+   <p id="numerai-fresh-summary" role="status">Loading the scored comparison.</p>
+   <div class="arch-scroll" id="numerai-fresh-table"></div>
+   <p>Paired intervals use circular 13-week resampling for overlapping outcomes. The 2022–23 comparison uses the fixed Medium tree blend as reference. Published LightGBM is available on the 2020–21 period shown here.</p>
+   <p><a href="numerai-2022-23-validation-v1.json">Held-out result</a> · <a href="numerai-neural-development-v1.json">Benchmark development results</a> · <a href="numerai-historical-uncertainty-v1.json">2019 and 2020–21 uncertainty</a></p>
+  </section>
+  <section class="arch-panel" id="peer-freeze"><h2>Frozen Classic peer comparison</h2>
+   <p>Ten public model IDs were fixed on November 21, 2026 at 02:24:47 UTC, in the provider’s MMC60 order. Rank 10, valois400_ty, had reputation 0.014322. The forward comparison begins with the first eligible Saturday opening after the freeze. Round scores must resolve at day 60 under the same Jupiter regime. PhaseWeave has no verified live rank.</p>
+   <p><a href="numerai-peer-freeze-v1.json">Public provider roster and timestamps</a> · <a href="https://numer.ai/leaderboard">Numerai leaderboard</a></p>
+  </section>
+  <section class="arch-panel" id="other-venues"><h2>Quantiacs and AI4Finance</h2>
+   <div class="arch-scroll"><table><thead><tr><th scope="col">Venue</th><th scope="col">Measured replay</th><th scope="col">Comparator</th><th scope="col">Entry stage</th></tr></thead><tbody>
+   <tr><th scope="row">Quantiacs Q25</th><td>Graph policy −9.11% over 50 elapsed days</td><td>Matched no-graph −9.08%</td><td>Q25 closed to entry. Organizer precheck pending.</td></tr>
+   <tr><th scope="row">AI4Finance</th><td>FinRL-Trading candidate −1.63% over eight sessions</td><td>Fixed exposure −3.03%. Cash 0%.</td><td>0 of 30 qualifying paper sessions.</td></tr>
+   </tbody></table></div>
+   <p><a href="quantiacs-q25-v1.json">Quantiacs results</a> · <a href="ai4finance-offline-qualification-v1.json">AI4Finance results</a> · <a href="downloads/trading-competitions.md">Venue rules and iterative entry plan</a></p>
+  </section>
   <section class="arch-panel"><h2>Matched offline Classic v6 pilot</h2>
    <p>Eight-feature ridge and the published LightGBM benchmark were scored on 171,478 matching stock/date rows across 26 held-out weekly dates. The fit used 677,820 earlier rows and 1,834 days of purge.</p>
    <div class="arch-scroll"><table><thead><tr><th scope="col">Scoring cohort</th><th scope="col">PhaseWeave pilot</th><th scope="col">Published benchmark</th></tr></thead><tbody>
