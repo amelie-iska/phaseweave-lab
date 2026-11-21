@@ -38,7 +38,7 @@
    <p id="numerai-fresh-summary" role="status">Loading the scored comparison.</p>
    <div class="arch-scroll" id="numerai-fresh-table" role="region" aria-label="Matched scores" tabindex="0"></div>
    <p>Paired intervals use circular weekly-block resampling for overlapping outcomes. The 2022–23 and 2024 comparisons use the fixed Medium tree blend as reference. Published LightGBM is available on the 2020–21 periods shown here.</p>
-   <p><a href="numerai-preterminal-2024-v1.json">July–September 2024 frozen audit</a> · <a href="numerai-wide-2022-23-v1.json">Wide recency result</a> · <a href="numerai-2022-23-validation-v1.json">Original candidate audit</a> · <a href="numerai-fullwidth-multitarget-v1.json">Wide target diversity</a> · <a href="numerai-development-disagreement-v1.json">Disagreement selector</a> · <a href="numerai-neural-development-v1.json">Benchmark development results</a> · <a href="numerai-historical-uncertainty-v1.json">2019 and 2020–21 uncertainty</a> · <a href="numerai-scale-development-v1.json">Feature breadth results</a> · <a href="numerai-rolling-development-v1.json">Matched 2021 recency results</a></p>
+   <p><a href="numerai-preterminal-2024-v1.json">July–September 2024 frozen audit</a> · <a href="numerai-wide-2022-23-v1.json">Wide recency result</a> · <a href="numerai-2022-23-validation-v1.json">Original candidate audit</a> · <a href="numerai-fullwidth-multitarget-v1.json">Wide target diversity</a> · <a href="#fullwidth-benchmark-addition">Wide benchmark addition</a> · <a href="numerai-development-disagreement-v1.json">Disagreement selector</a> · <a href="numerai-neural-development-v1.json">Benchmark development results</a> · <a href="numerai-historical-uncertainty-v1.json">2019 and 2020–21 uncertainty</a> · <a href="numerai-scale-development-v1.json">Feature breadth results</a> · <a href="numerai-rolling-development-v1.json">Matched 2021 recency results</a></p>
   </section>
   <section class="arch-panel" id="peer-freeze"><h2>Frozen Classic peer comparison</h2>
    <p>Ten public model IDs were fixed on November 21, 2026 at 02:24:47 UTC, in the provider’s MMC60 order. Rank 10, valois400_ty, had reputation 0.014322. The forward comparison begins with the first eligible Saturday opening after the freeze. Round scores must resolve at day 60 under the same Jupiter regime. PhaseWeave has no verified live rank.</p>
@@ -103,6 +103,40 @@
     <tr><th scope="row">Same-target Medium blend</th><td>0.030769</td></tr>
    </tbody></table></div>
    <p><a href="numerai-medium-controls-v1.json">Verified scores, prediction hashes and matched settings</a></p>
+  </section>
+  <section class="arch-panel" id="fullwidth-benchmark-addition">
+   <h2>1,039-feature benchmark addition</h2>
+   <p>The fixed diverse addition averaged 0.046908 neutral CORR versus 0.045970 for published LightGBM. It improved on 68 of 105 reused 2020–21 development dates. Both paired 95% intervals include zero.</p>
+   <div class="arch-scroll" role="region" aria-label="Full-width benchmark scores" tabindex="0">
+   <table><caption>Equal-date means across 699,389 matched stock-date keys</caption>
+    <thead><tr><th scope="col">Forecast</th><th scope="col">Neutral CORR</th><th scope="col">Raw CORR</th></tr></thead>
+    <tbody>
+    <tr><th scope="row">Published LightGBM Jupiter 60</th><td>0.045970</td><td>0.038558</td></tr>
+    <tr><th scope="row">Standalone diverse-target blend</th><td>0.041468</td><td>0.033255</td></tr>
+    <tr><th scope="row">Standalone same-target blend</th><td>0.040885</td><td>0.034979</td></tr>
+    <tr><th scope="row">LightGBM + diverse blend</th><td>0.046908</td><td>0.038852</td></tr>
+    <tr><th scope="row">LightGBM + same-target blend</th><td>0.046588</td><td>0.038964</td></tr>
+    <tr><th scope="row">LightGBM + residualized diverse blend</th><td>0.046966</td><td>0.039579</td></tr>
+    </tbody>
+   </table></div>
+   <details>
+    <summary>Paired differences and 95% intervals</summary>
+    <p>Intervals use 10,000 circular resamples of consecutive weekly blocks to account for overlapping target horizons.</p>
+    <div class="arch-scroll" role="region" aria-label="Paired neutral CORR intervals" tabindex="0">
+    <table><caption>Mean neutral CORR changes</caption>
+     <thead><tr><th scope="col">Contrast</th><th scope="col">Mean change</th><th scope="col">13 weeks</th><th scope="col">26 weeks</th></tr></thead>
+     <tbody>
+     <tr><th scope="row">Diverse addition vs. published</th><td>+0.000938</td><td>[−0.000375, +0.002160]</td><td>[−0.000323, +0.002150]</td></tr>
+     <tr><th scope="row">Same-target addition vs. published</th><td>+0.000619</td><td>[−0.000349, +0.001611]</td><td>[−0.000369, +0.001641]</td></tr>
+     <tr><th scope="row">Residualized diverse addition vs. published</th><td>+0.000996</td><td>[−0.000524, +0.002413]</td><td>[−0.000461, +0.002405]</td></tr>
+     <tr><th scope="row">Diverse vs. same-target addition</th><td>+0.000319</td><td>[−0.000144, +0.000774]</td><td>[−0.000064, +0.000768]</td></tr>
+     <tr><th scope="row">Residualized vs. direct diverse addition</th><td>+0.000059</td><td>[−0.000151, +0.000258]</td><td>[−0.000140, +0.000259]</td></tr>
+     </tbody>
+    </table></div>
+    <p>For the primary diverse addition against the published benchmark, mean raw CORR changed by +0.000295. Its 13- and 26-week intervals were [−0.000737, +0.001263] and [−0.000676, +0.001234], respectively.</p>
+   </details>
+   <p>Each direct hybrid adds 0.25 times the local blend to the published forecast after daily Gaussian-rank standardization. These hybrids depend on the complete same-date published forecast being available before cutoff. The residualized control additionally needs all 300 official exposures at that cutoff. The terminal and live score gates remain pending.</p>
+   <p><a href="numerai-fullwidth-benchmark-addition-v1.json">Verified full-width benchmark addition and replay receipt</a></p>
   </section>
   <section class="arch-panel" id="audit-2019"><h2>Separate 2019 retrospective audit</h2>
    <p>Thirteen predictions were frozen before outcomes were opened. All 159,982 stock-date keys matched across 26 dates. The largest standalone mean was 0.032454 against published LightGBM’s 0.033859.</p>

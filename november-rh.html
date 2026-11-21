@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script>
+ <title>November RH verification evidence · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+  <nav aria-label="Page controls">
+   <a class="button" href="book/evidence-v1/">Research book</a>
+   <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+  </nav>
+ </header>
+ <main class="architecture">
+  <header><h1>November RH verification evidence</h1>
+   <p class="arch-lead">An audit of the five formal statements and published verification records for the November 20, 2026 Alpöge–Claude submission.</p>
+  </header>
+  <section class="arch-panel" aria-labelledby="rh-statements">
+   <h2 id="rh-statements">What the exported statements say</h2>
+   <div class="arch-scroll" role="region" aria-label="Five verified challenge signatures" tabindex="0">
+    <table><thead><tr><th scope="col">Lean declaration</th><th scope="col">Scope</th></tr></thead><tbody>
+     <tr><th scope="row"><code>riemannHypothesis</code></th><td>Mathlib’s Riemann hypothesis for zeta.</td></tr>
+     <tr><th scope="row"><code>riemannZeta_eq_zero_re</code></th><td>Explicit zeta critical-line statement, with the trivial zeros and pole excluded.</td></tr>
+     <tr><th scope="row"><code>LFunction_ne_zero_of_half_lt_re</code></th><td>Dirichlet nonvanishing for Re(s) &gt; 1/2, excluding the principal pole.</td></tr>
+     <tr><th scope="row"><code>LFunction_eq_zero_re</code></th><td>Critical-strip zeros of every Dirichlet character lie on Re(s) = 1/2.</td></tr>
+     <tr><th scope="row"><code>LFunction_eq_zero_re_of_isPrimitive</code></th><td>The critical-line result with an explicit primitivity hypothesis.</td></tr>
+    </tbody></table>
+   </div>
+   <p>PhaseWeave matched all five exported types to the pinned Mathlib-only challenge and verified both archive hashes. The statement export uses proof placeholders. The submitted theorem bodies are supplied in a separate solution.</p>
+   <p><a href="november-rh-verification-v1.json">Audit receipt</a> · <a href="downloads/verify_november_rh_evidence.py">Replay source</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/b81a2baace751ad4c7c9c285fdbb8e3c8a567332/src/Challenge.lean">Pinned challenge source</a></p>
+  </section>
+  <section class="arch-panel" aria-labelledby="rh-checks">
+   <h2 id="rh-checks">Published proof checks</h2>
+   <p>Andrew Sutherland’s November 20 dossier reports 175,187 compiled and kernel-replayed modules. Nanoda and con-leche accepted the solution export. The separate con-leche comparison matched the five challenge targets. The solution’s five statements use only the three standard Lean axioms.</p>
+   <p>The dossier listed the full Comparator run and Lean replay of the export as in progress at 22:05 UTC. PhaseWeave’s local verification covered the challenge and published logs. Clay’s problem page still listed RH as unsolved on November 21.</p>
+   <p><a href="https://math.mit.edu/~drew/grh/">MIT verification dossier</a> · <a href="https://math.mit.edu/~drew/grh/con-leche-compare.log">Statement comparison log</a> · <a href="https://www.claymath.org/millennium/riemann-hypothesis/">Clay problem page</a></p>
+  </section>
+  <section class="arch-panel" aria-labelledby="rh-scope">
+   <h2 id="rh-scope">How this relates to the earlier results</h2>
+   <p>Alpöge describes an automorphic multiplicity argument using theta lifts. The November formal targets cover zeta and Dirichlet L-functions. OpenAI’s separate October result gives zero-free bounds to the right of 7/8 for those families and a specified finite-order Eisenstein Hecke family. PhaseWeave’s finite arithmetic and gauge models have their own exact claims.</p>
+   <p><a href="https://alpo.ge/remark.pdf">Author’s account</a> · <a href="https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/docs/003.md">OpenAI’s pinned theorem family</a> · <a href="ribbon.html">Finite ribbon-graph examples</a></p>
+  </section>
+ </main>
+</body>
+</html>

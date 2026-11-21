@@ -1,0 +1,634 @@
+{
+  "computed_utc": "2026-11-21T07:18:36.379151+00:00",
+  "fixed_component_forecasts_sha256": "fe9d7e2ea609bdfb03ee2d19e74f2a135cefda1ef2f7e523ae18ed7f130eac03",
+  "forecast_file_sha256": "14279cf0586ab2c59b48aa8203cbd6e4dc7e73b4905b616f8cf6976d850d30e8",
+  "format": "phaseweave.numerai-wide-benchmark-addition-score.v1",
+  "independent_receipt_sha256": "99c4b2083c5bf644fccfa8364d77b4e22f2a02db3e8555d8c5cb2182cfe0dead",
+  "independent_replay": {
+    "aggregate_sha256": "cefafdb097e23ad7e29d605ec619075a883ec0a4d73b91fbbfbc6fd14dad1375",
+    "dates": 105,
+    "forecast_sha256": "14279cf0586ab2c59b48aa8203cbd6e4dc7e73b4905b616f8cf6976d850d30e8",
+    "independent_forecast_max_abs": 7.288614156664153e-14,
+    "independent_interval_max_abs": 1.3010426069826053e-18,
+    "independent_scores_max_abs": 5.273559366969494e-16,
+    "method": "Reversed ticker/factor orders; average tie ranks, LAPACK SVD projectors; Pearson and multiplicity-based circular week bootstrap",
+    "metric_cells": 1470,
+    "period_block_metric_contrast_intervals": 60,
+    "row_count": 699389,
+    "verified_derived_forecasts": 4
+  },
+  "independent_replay_source_sha256": "f4c5c0bfd0773a1401c6724dbc8c7d8bcf8a2120fd343e6cedc197599a1a8487",
+  "interpretation": "Descriptive on development dates already used in model development and earlier comparisons. Weekly Jupiter return horizons overlap. Fixed-benchmark auxiliary signal comparison; no independent terminal, live-rank or standalone outperformance result.",
+  "intervals": {
+    "circular_week_blocks": [
+      13,
+      26
+    ],
+    "draws": 10000,
+    "percentile": [
+      0.025,
+      0.975
+    ],
+    "seed": 20261120
+  },
+  "keys_sha256": "3c62b7103fbefa5766a4879c22607fffdaeae1b0def9ab5b4b1a8c2ba20e19ab",
+  "limitations": "Reused development outcomes. Hybrid requires contemporaneous published forecast; residual also requires contemporaneous official exposures. No independent dates, submissions, terminal evaluation or payouts.",
+  "new_network_bytes": 0,
+  "original_score_sha256": "cefafdb097e23ad7e29d605ec619075a883ec0a4d73b91fbbfbc6fd14dad1375",
+  "overall": {
+    "dates": 105,
+    "keys": 699389,
+    "metrics": {
+      "neutral_corr": {
+        "comparisons": {
+          "published-plus-diverse-direct vs lightgbm-gaussian-rank": {
+            "interval_95": {
+              "13": [
+                -0.00037508876069273107,
+                0.0021600626181081757
+              ],
+              "26": [
+                -0.0003227958828166466,
+                0.0021502985186617547
+              ]
+            },
+            "losses": 37,
+            "mean_delta": 0.0009378907256165065,
+            "ties": 0,
+            "wins": 68
+          },
+          "published-plus-diverse-direct vs published-plus-same-target-direct": {
+            "interval_95": {
+              "13": [
+                -0.00014440237822349833,
+                0.0007736957641458504
+              ],
+              "26": [
+                -6.44096121169067e-05,
+                0.0007677576065898897
+              ]
+            },
+            "losses": 40,
+            "mean_delta": 0.00031931075844874565,
+            "ties": 0,
+            "wins": 65
+          },
+          "published-plus-diverse-residual vs lightgbm-gaussian-rank": {
+            "interval_95": {
+              "13": [
+                -0.000524107269780784,
+                0.002413271929670607
+              ],
+              "26": [
+                -0.0004609895172196703,
+                0.002404726078511062
+              ]
+            },
+            "losses": 38,
+            "mean_delta": 0.000996476281094255,
+            "ties": 0,
+            "wins": 67
+          },
+          "published-plus-diverse-residual vs published-plus-diverse-direct": {
+            "interval_95": {
+              "13": [
+                -0.0001512530858196399,
+                0.00025770026217840505
+              ],
+              "26": [
+                -0.00013977118494737164,
+                0.0002588552630161758
+              ]
+            },
+            "losses": 45,
+            "mean_delta": 5.8585555477748274e-05,
+            "ties": 0,
+            "wins": 60
+          },
+          "published-plus-same-target-direct vs lightgbm-gaussian-rank": {
+            "interval_95": {
+              "13": [
+                -0.0003494644592841424,
+                0.0016106360346072892
+              ],
+              "26": [
+                -0.00036863633621921505,
+                0.0016411917573570369
+              ]
+            },
+            "losses": 39,
+            "mean_delta": 0.000618579967167761,
+            "ties": 0,
+            "wins": 66
+          }
+        },
+        "means": {
+          "diverse-target-fullwidth-blend": 0.04146781694080918,
+          "lgbm_jupiter_60": 0.04596967115599025,
+          "lightgbm-gaussian-rank": 0.04596967115599025,
+          "published-plus-diverse-direct": 0.04690756188160677,
+          "published-plus-diverse-residual": 0.046966147437084514,
+          "published-plus-same-target-direct": 0.04658825112315802,
+          "same-target-fullwidth-blend": 0.040884924153996846
+        }
+      },
+      "raw_corr": {
+        "comparisons": {
+          "published-plus-diverse-direct vs lightgbm-gaussian-rank": {
+            "interval_95": {
+              "13": [
+                -0.0007374515567917124,
+                0.0012628355866523798
+              ],
+              "26": [
+                -0.0006762044533092152,
+                0.0012343563067728396
+              ]
+            },
+            "losses": 48,
+            "mean_delta": 0.00029459057179716995,
+            "ties": 0,
+            "wins": 57
+          },
+          "published-plus-diverse-direct vs published-plus-same-target-direct": {
+            "interval_95": {
+              "13": [
+                -0.0004690675619476372,
+                0.00022767840108376872
+              ],
+              "26": [
+                -0.0004525608881882585,
+                0.0002200372021506648
+              ]
+            },
+            "losses": 58,
+            "mean_delta": -0.00011191203996199817,
+            "ties": 0,
+            "wins": 47
+          },
+          "published-plus-diverse-residual vs lightgbm-gaussian-rank": {
+            "interval_95": {
+              "13": [
+                -0.0003656624660138878,
+                0.00234515621482787
+              ],
+              "26": [
+                -0.00030251791688795844,
+                0.002271414712062863
+              ]
+            },
+            "losses": 37,
+            "mean_delta": 0.0010209314690724368,
+            "ties": 0,
+            "wins": 68
+          },
+          "published-plus-diverse-residual vs published-plus-diverse-direct": {
+            "interval_95": {
+              "13": [
+                0.0003204863585584865,
+                0.0011375904442133915
+              ],
+              "26": [
+                0.00032827012776077085,
+                0.0011001864081315361
+              ]
+            },
+            "losses": 27,
+            "mean_delta": 0.000726340897275267,
+            "ties": 0,
+            "wins": 78
+          },
+          "published-plus-same-target-direct vs lightgbm-gaussian-rank": {
+            "interval_95": {
+              "13": [
+                -0.0004052911752568786,
+                0.0012146061693599187
+              ],
+              "26": [
+                -0.00041142567199878684,
+                0.001212952724020583
+              ]
+            },
+            "losses": 43,
+            "mean_delta": 0.00040650261175916805,
+            "ties": 0,
+            "wins": 62
+          }
+        },
+        "means": {
+          "diverse-target-fullwidth-blend": 0.03325548337820866,
+          "lgbm_jupiter_60": 0.038557663469785584,
+          "lightgbm-gaussian-rank": 0.038557663469785584,
+          "published-plus-diverse-direct": 0.03885225404158277,
+          "published-plus-diverse-residual": 0.039578594938858035,
+          "published-plus-same-target-direct": 0.038964166081544765,
+          "same-target-fullwidth-blend": 0.03497924455392685
+        }
+      }
+    }
+  },
+  "per_date_sha256": "2369b29381f1b38aa4d5a1ea4bb890008f420ef9ac4a2bba414140cfb6534ba3",
+  "prediction_seal_sha256": "f436cc71fc165f2ac44a37596472e0fc0627030eaff651c4b62ddb6b49299f1e",
+  "predictions_sealed_utc": "2026-11-21T07:18:16.497250+00:00",
+  "primary": [
+    "published-plus-diverse-direct",
+    "lightgbm-gaussian-rank"
+  ],
+  "prior_matched_score_replay_max_abs": 1.0408340855860843e-16,
+  "published_input_dependency": "Direct use requires the same-date full eligible stock cross-section of published lgbm_jupiter_60 predictions before cutoff, plus the frozen local heads. The official model weights are not part of the archive; no local reproduction of that benchmark was assumed or verified. The residualized control additionally requires all 300 contemporaneous neutralizers.",
+  "registered_utc": "2026-11-21T07:18:03.129074+00:00",
+  "registration_sha256": "d00e9a0544cd4a1851bfe870e2f1f412bb07ad1d34e0541dce08b212e85fa3f5",
+  "rule": "Average tie rank, inverse normal and population standardization within complete date; direct sum. Residual uses prior 300-exposure plus incumbent and intercept least-squares.",
+  "source_sha256": "0aaa4950c074c166256f3f83594dd4f7e63e4f50dcabb812e5e41b31bdc63cb2",
+  "terminal_scored": false,
+  "window": [
+    "2020-01-03",
+    "2021-12-31"
+  ],
+  "years": {
+    "2020": {
+      "dates": 52,
+      "keys": 332404,
+      "metrics": {
+        "neutral_corr": {
+          "comparisons": {
+            "published-plus-diverse-direct vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.0013739383589615641,
+                  0.002020800871872218
+                ],
+                "26": [
+                  -0.001172688321943192,
+                  0.002026293377261662
+                ]
+              },
+              "losses": 19,
+              "mean_delta": 0.00042778692795421,
+              "ties": 0,
+              "wins": 33
+            },
+            "published-plus-diverse-direct vs published-plus-same-target-direct": {
+              "interval_95": {
+                "13": [
+                  -0.0003952637940193426,
+                  0.0009020060326741832
+                ],
+                "26": [
+                  -0.00016419377487727452,
+                  0.0008688785967349218
+                ]
+              },
+              "losses": 15,
+              "mean_delta": 0.00035514099344189477,
+              "ties": 0,
+              "wins": 37
+            },
+            "published-plus-diverse-residual vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.0016691175473834054,
+                  0.002271821646750102
+                ],
+                "26": [
+                  -0.0014244639796202998,
+                  0.0022672306387297027
+                ]
+              },
+              "losses": 18,
+              "mean_delta": 0.0004256480258656512,
+              "ties": 0,
+              "wins": 34
+            },
+            "published-plus-diverse-residual vs published-plus-diverse-direct": {
+              "interval_95": {
+                "13": [
+                  -0.00029629829735365284,
+                  0.0002508763420962164
+                ],
+                "26": [
+                  -0.0002498685879203083,
+                  0.0002466740527796743
+                ]
+              },
+              "losses": 20,
+              "mean_delta": -2.138902088558728e-06,
+              "ties": 0,
+              "wins": 32
+            },
+            "published-plus-same-target-direct vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.00111067201421711,
+                  0.001176395775510943
+                ],
+                "26": [
+                  -0.0010122292334707851,
+                  0.0011575211024954155
+                ]
+              },
+              "losses": 23,
+              "mean_delta": 7.26459345123152e-05,
+              "ties": 0,
+              "wins": 29
+            }
+          },
+          "means": {
+            "diverse-target-fullwidth-blend": 0.027316215488954024,
+            "lgbm_jupiter_60": 0.031079879452188184,
+            "lightgbm-gaussian-rank": 0.031079879452188184,
+            "published-plus-diverse-direct": 0.0315076663801424,
+            "published-plus-diverse-residual": 0.03150552747805383,
+            "published-plus-same-target-direct": 0.0311525253867005,
+            "same-target-fullwidth-blend": 0.026289605558504896
+          }
+        },
+        "raw_corr": {
+          "comparisons": {
+            "published-plus-diverse-direct vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.0013955787023798981,
+                  0.001262920553664453
+                ],
+                "26": [
+                  -0.0012526582045404716,
+                  0.001271631037700753
+                ]
+              },
+              "losses": 23,
+              "mean_delta": 9.486416580140707e-06,
+              "ties": 0,
+              "wins": 29
+            },
+            "published-plus-diverse-direct vs published-plus-same-target-direct": {
+              "interval_95": {
+                "13": [
+                  -0.0004947355824347758,
+                  0.000456562360040575
+                ],
+                "26": [
+                  -0.0003024790688048726,
+                  0.00040558305121759516
+                ]
+              },
+              "losses": 24,
+              "mean_delta": 5.450633968209118e-05,
+              "ties": 0,
+              "wins": 28
+            },
+            "published-plus-diverse-residual vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.0014176612089453363,
+                  0.0017579375596664473
+                ],
+                "26": [
+                  -0.0012265364378940143,
+                  0.0017832336050155441
+                ]
+              },
+              "losses": 18,
+              "mean_delta": 0.0002788992059896681,
+              "ties": 0,
+              "wins": 34
+            },
+            "published-plus-diverse-residual vs published-plus-diverse-direct": {
+              "interval_95": {
+                "13": [
+                  -6.819825036945497e-05,
+                  0.0006159982316330192
+                ],
+                "26": [
+                  1.8945772646542503e-05,
+                  0.0005187860159200527
+                ]
+              },
+              "losses": 21,
+              "mean_delta": 0.00026941278940952745,
+              "ties": 0,
+              "wins": 31
+            },
+            "published-plus-same-target-direct vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.0010522369419753402,
+                  0.0008789306924777276
+                ],
+                "26": [
+                  -0.0009631977003802359,
+                  0.0008777994943814278
+                ]
+              },
+              "losses": 26,
+              "mean_delta": -4.501992310195045e-05,
+              "ties": 0,
+              "wins": 26
+            }
+          },
+          "means": {
+            "diverse-target-fullwidth-blend": 0.021402552896500057,
+            "lgbm_jupiter_60": 0.02434549353576249,
+            "lightgbm-gaussian-rank": 0.02434549353576249,
+            "published-plus-diverse-direct": 0.024354979952342627,
+            "published-plus-diverse-residual": 0.024624392741752155,
+            "published-plus-same-target-direct": 0.024300473612660543,
+            "same-target-fullwidth-blend": 0.021900302535931133
+          }
+        }
+      }
+    },
+    "2021": {
+      "dates": 53,
+      "keys": 366985,
+      "metrics": {
+        "neutral_corr": {
+          "comparisons": {
+            "published-plus-diverse-direct vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.000364905291308405,
+                  0.0032583900787103897
+                ],
+                "26": [
+                  -0.0004125992133119182,
+                  0.0032856649998508902
+                ]
+              },
+              "losses": 18,
+              "mean_delta": 0.0014383699233229106,
+              "ties": 0,
+              "wins": 35
+            },
+            "published-plus-diverse-direct vs published-plus-same-target-direct": {
+              "interval_95": {
+                "13": [
+                  -0.00019580563872107902,
+                  0.0008180871775695072
+                ],
+                "26": [
+                  -0.00017668165583599132,
+                  0.0007459980900621118
+                ]
+              },
+              "losses": 25,
+              "mean_delta": 0.0002841565656252786,
+              "ties": 0,
+              "wins": 28
+            },
+            "published-plus-diverse-residual vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.0005305325770435306,
+                  0.003671321339710736
+                ],
+                "26": [
+                  -0.0005947150285975736,
+                  0.0036928700327367417
+                ]
+              },
+              "losses": 20,
+              "mean_delta": 0.0015565341918845831,
+              "ties": 0,
+              "wins": 33
+            },
+            "published-plus-diverse-residual vs published-plus-diverse-direct": {
+              "interval_95": {
+                "13": [
+                  -0.0001732146786211988,
+                  0.0004120812430545505
+                ],
+                "26": [
+                  -0.00017621292673754255,
+                  0.00040774861225085384
+                ]
+              },
+              "losses": 25,
+              "mean_delta": 0.00011816426856167212,
+              "ties": 0,
+              "wins": 28
+            },
+            "published-plus-same-target-direct vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.0002528526864979908,
+                  0.002608398301603236
+                ],
+                "26": [
+                  -0.0002912442987370172,
+                  0.002598026850817568
+                ]
+              },
+              "losses": 16,
+              "mean_delta": 0.0011542133576976322,
+              "ties": 0,
+              "wins": 37
+            }
+          },
+          "means": {
+            "diverse-target-fullwidth-blend": 0.055352407044516105,
+            "lgbm_jupiter_60": 0.06057852339368287,
+            "lightgbm-gaussian-rank": 0.06057852339368287,
+            "published-plus-diverse-direct": 0.062016893317005786,
+            "published-plus-diverse-residual": 0.06213505758556745,
+            "published-plus-same-target-direct": 0.0617327367513805,
+            "same-target-fullwidth-blend": 0.05520485937976256
+          }
+        },
+        "raw_corr": {
+          "comparisons": {
+            "published-plus-diverse-direct vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.0008498113253523008,
+                  0.0020021958039458123
+                ],
+                "26": [
+                  -0.0008944723396541976,
+                  0.0020239077480867784
+                ]
+              },
+              "losses": 25,
+              "mean_delta": 0.0005743154033308589,
+              "ties": 0,
+              "wins": 28
+            },
+            "published-plus-diverse-direct vs published-plus-same-target-direct": {
+              "interval_95": {
+                "13": [
+                  -0.0006914648395366414,
+                  0.00014050041710513586
+                ],
+                "26": [
+                  -0.0006575630169648039,
+                  0.00010044648671997439
+                ]
+              },
+              "losses": 34,
+              "mean_delta": -0.0002751904501788405,
+              "ties": 0,
+              "wins": 19
+            },
+            "published-plus-diverse-residual vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.00022293457745836917,
+                  0.0037114927930167628
+                ],
+                "26": [
+                  -0.0002628905769681202,
+                  0.003736004334457436
+                ]
+              },
+              "losses": 19,
+              "mean_delta": 0.0017489631234177947,
+              "ties": 0,
+              "wins": 34
+            },
+            "published-plus-diverse-residual vs published-plus-diverse-direct": {
+              "interval_95": {
+                "13": [
+                  0.0006240128079297811,
+                  0.0017121664595733134
+                ],
+                "26": [
+                  0.0006249906375139242,
+                  0.0017125187864200074
+                ]
+              },
+              "losses": 6,
+              "mean_delta": 0.0011746477200869358,
+              "ties": 0,
+              "wins": 47
+            },
+            "published-plus-same-target-direct vs lightgbm-gaussian-rank": {
+              "interval_95": {
+                "13": [
+                  -0.000264314374450675,
+                  0.001968186213595796
+                ],
+                "26": [
+                  -0.0002903403934586931,
+                  0.001990357156640954
+                ]
+              },
+              "losses": 17,
+              "mean_delta": 0.0008495058535096995,
+              "ties": 0,
+              "wins": 36
+            }
+          },
+          "means": {
+            "diverse-target-fullwidth-blend": 0.044884773662149186,
+            "lgbm_jupiter_60": 0.05250167925411013,
+            "lightgbm-gaussian-rank": 0.05250167925411013,
+            "published-plus-diverse-direct": 0.053075994657441006,
+            "published-plus-diverse-residual": 0.05425064237752794,
+            "published-plus-same-target-direct": 0.053351185107619846,
+            "same-target-fullwidth-blend": 0.04781141408101698
+          }
+        }
+      }
+    }
+  }
+}
