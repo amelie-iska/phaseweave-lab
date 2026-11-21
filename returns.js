@@ -11,7 +11,8 @@
   const text=value=>typeof value==="string"&&value.length>0;
   const number=value=>text(value)&&amount.test(value)&&Number.isFinite(Number(value));
   const timestamp=value=>text(value)&&value.endsWith("Z")&&Number.isFinite(Date.parse(value));
-  const description=series=>[series.venue,series.mode,series.currency,series.portfolio,series.model].join(" · ");
+  const identity=series=>[series.venue,series.mode,series.currency,series.portfolio,series.model];
+  const description=series=>identity(series).join(" · ");
 
   function checkedPoint(point) {
     return timestamp(point?.utc)&&text(point.kind)&&number(point.delta_net)&&number(point.cumulative_net)
@@ -24,6 +25,39 @@
       &&Array.isArray(series.points)&&series.points.every(checkedPoint)
       &&series.points.every((p,i)=>i===0||Date.parse(p.utc)>=Date.parse(series.points[i-1].utc));
   }
+  function batchClosures(points) {
+    return points.filter((point,index)=>point.utc!==points[index+1]?.utc);
+  }
+
+  function checkCrossings(raw) {
+    const candidate=raw.profit_crossings;
+    if (candidate===undefined) return;
+    if (!Array.isArray(candidate)) throw Error("The export has an invalid profit archive.");
+    const expected=new Map();
+    for (const series of raw.series) {
+      let before="0", start=0;
+      for (const [i,point] of series.points.entries()) {
+        if (point.utc===series.points[i+1]?.utc) continue;
+        if (Number(before)<=0&&Number(point.cumulative_net)>0) {
+          const key=JSON.stringify([...identity(series),point.utc]);
+          const proofs=series.points.slice(start,i+1).map(record=>record.provenance_sha256);
+          expected.set(key, [before,point.cumulative_net,point.return_pct,proofs]);
+        }
+        before=point.cumulative_net; start=i+1;
+      }
+    }
+    for (const crossing of candidate) {
+      if (!crossing||!timestamp(crossing.utc)||!number(crossing.delta_net)||Number(crossing.delta_net)<=0)
+        throw Error("The export has an invalid profit crossing.");
+      const key=JSON.stringify([...identity(crossing),crossing.utc]);
+      const actual=[crossing.prior_net,crossing.cumulative_net,crossing.return_pct,crossing.provenance_sha256];
+      if (!expected.has(key)||JSON.stringify(actual)!==JSON.stringify(expected.get(key)))
+        throw Error("Profit crossings and event series disagree.");
+      expected.delete(key);
+    }
+    if (expected.size) throw Error("The export omits profit crossings.");
+  }
+
   function parse(raw) {
     if (raw?.schema!=="phaseweave.realized-returns.v1"||!Array.isArray(raw.series)||!Array.isArray(raw.positive_archive)
       ||!raw.series.every(checkedSeries)) throw Error("The export has an unexpected schema.");
@@ -35,6 +69,7 @@
     }).sort();
     if (included.length!==positive.length||included.some((x,i)=>x!==positive[i]))
       throw Error("Positive archive and event series disagree.");
+    checkCrossings(raw);
     return raw;
   }
 
@@ -62,7 +97,7 @@
     ctx.scale(scale,scale);
     const style=getComputedStyle(document.documentElement);
     const color=name=>style.getPropertyValue("--"+name).trim();
-    const data=series.points;
+    const data=batchClosures(series.points);
     const origin=Date.parse(data[0].utc), elapsed=Math.max(1,Date.parse(data.at(-1).utc)-origin);
     let lo=0,hi=0;
     for(const record of data) { const value=Number(record.cumulative_net); lo=Math.min(lo,value); hi=Math.max(hi,value); }
@@ -92,6 +127,13 @@
     chart.hidden=!series.points.length;
     draw(series);
     table(element("events"),eventColumns,series.points.map(eventRow),"No settled events for this series.");
+    if (view.value==="crossings") {
+      table(element("positive"),["Portfolio and unit","UTC","Prior net","Net change","Cumulative net","Return %","Source SHA-256 prefixes"],
+        (exported.profit_crossings??[]).map(p=>[description(p),p.utc,p.prior_net,p.delta_net,p.cumulative_net,p.return_pct,
+          p.provenance_sha256.map(proof=>proof.slice(0,12)).join(", ")]),
+        exported.profit_crossings===undefined?"Open a fresh export to view net-profit crossings.":"No series crossed into net profit.");
+      return;
+    }
     const archive=view.value==="delta" ? exported.positive_archive
       : exported.series.flatMap(s=>{
         const last=s.points.at(-1); return last&&Number(last.cumulative_net)>0?[{...last,...s}]:[];
@@ -107,7 +149,8 @@
       selector.replaceChildren(...exported.series.map((row,i)=>new Option(description(row),i)));
       selector.disabled=!exported.series.length; view.disabled=selector.disabled;
       content.hidden=selector.disabled;
-      status.textContent=exported.series.length+" separate return series · "+exported.positive_archive.length+" positive closures.";
+      status.textContent=exported.series.length+" separate return series · "+exported.positive_archive.length+" positive closures"
+        +(exported.profit_crossings===undefined?".":" · "+exported.profit_crossings.length+" net-profit crossings.");
       render();
     } catch(error) {
       exported=null; selector.replaceChildren(); selector.disabled=true; view.disabled=true; content.hidden=true;

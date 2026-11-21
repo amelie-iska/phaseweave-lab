@@ -13,14 +13,14 @@
   <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
  </nav></header>
  <main class="architecture">
-  <header><h1>Private return archive</h1><p class="arch-lead">Inspect settled return series, positive closures and cumulative gains by venue, model and denomination.</p></header>
+  <header><h1>Private return archive</h1><p class="arch-lead">Find the results that took a portfolio into profit, and trace the return history for each model and denomination.</p></header>
   <section class="arch-panel" aria-labelledby="ledger-title">
    <h2 id="ledger-title">Imported ledger</h2>
    <p>Choose the local export from the Numerai portfolio folder. Your browser reads the file on this device.</p>
    <div class="return-controls">
     <label>Return export <input type="file" id="returns-file" accept="application/json,.json"></label>
     <label>Venue and portfolio <select id="returns-series" disabled></select></label>
-    <label>Positive archive <select id="returns-mode" disabled><option value="delta">Positive realized closures</option><option value="cumulative">Series currently above zero</option></select></label>
+    <label>Positive archive <select id="returns-mode" disabled><option value="crossings">Crossed into net profit</option><option value="delta">Positive realized closures</option><option value="cumulative">Series currently above zero</option></select></label>
    </div>
    <p id="returns-status" role="status">Choose a local returns export to begin.</p>
    <div id="returns-content" hidden>
