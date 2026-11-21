@@ -137,16 +137,19 @@
     ctx.stroke();
     ctx.fillStyle=color("muted"); ctx.font="12px system-ui";
     ctx.fillText(series.currency+" realized net",12,17);
-    ctx.fillText(data[0].utc.slice(0,10),46,bounds.height-13);
-    if(data.length>1) ctx.fillText(data.at(-1).utc.slice(0,10),Math.max(152,bounds.width-94),bounds.height-13);
+    const first=data[0], last=data.at(-1);
+    const sameDay=first.utc.slice(0,10)===last.utc.slice(0,10);
+    const tick=record=>sameDay?record.utc.slice(11,19)+"Z":record.utc.slice(0,10);
+    ctx.fillText(tick(first),46,bounds.height-13);
+    if(data.length>1) ctx.fillText(tick(last),Math.max(152,bounds.width-94),bounds.height-13);
     ctx.fillText("0",29,y(0)+4);
-    const last=data.at(-1);
     chart.setAttribute("aria-label","Cumulative realized net in "+series.currency+" ending at "+last.cumulative_net+" on "+last.utc);
   }
   function render() {
     if (!exported) return;
     const series=exported.series[Number(selector.value)];
     if (!series) return;
+    element("selected").textContent=description(series);
     chart.hidden=!series.points.length;
     draw(series);
     table(element("events"),eventColumns,series.points.map(eventRow),"No settled events for this series.");
