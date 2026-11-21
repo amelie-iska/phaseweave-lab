@@ -1,0 +1,299 @@
+{
+  "acquisition_sha256": "ebb51f5b28e08e1b588a374d01591306d8e35ea5c87e2584ac759d4d651911dd",
+  "benchmark_vector_bytes": 0,
+  "format": "phaseweave.numerai-2024-complement-score.v1",
+  "fresh_score_cells": 135,
+  "incremental_control_max_abs": 0.0,
+  "independent_raw_corr_max_abs": 1.6653345369377348e-16,
+  "intervals": {
+    "draws": 10000,
+    "interpretation": "13-week block spans 1.15 and 2.00 per panel respectively; 26-week intervals unavailable",
+    "method": "paired circular weekly moving blocks; percentile 95%; only block < sample length",
+    "seed": 20261120
+  },
+  "legacy_range_receipt_sha256": "9118d597d803b4d8b16a356c7506fb8ec8ecf2ba344388b3c235172c17551e7f",
+  "matched_original_control_dates": 26,
+  "materialized_target_rows": 98404,
+  "metric": "equal-date-weight Numerai raw CORR",
+  "network_bytes": 0,
+  "neutralizer_bytes": 0,
+  "original_pilot_sha256": "2c4cb9639ea6b50ca4705858df9a75c7ce9febfaeb1fdbcdbe886e060f7e8cbe",
+  "per_date_sha256": "da4480e2fe7f2cde611993af837927165c1feedabab633b84b9d26830c436dfd",
+  "prediction_seal_sha256": "d6369134385d898e58eee9161a7f4ba315e1cd346ce9cc8da81e49678be6ea39",
+  "primary_incremental_15": {
+    "comparisons": {
+      "diverse-target-fullwidth-blend": {
+        "interval_95": {
+          "13": [
+            -0.005035518939624823,
+            -0.0011495399800449918
+          ],
+          "26": null
+        },
+        "losses": 9,
+        "mean_delta": -0.0030762363890442968,
+        "ties": 0,
+        "wins": 6
+      },
+      "factor-neutral60-slot3": {
+        "interval_95": {
+          "13": [
+            -0.023697588521597493,
+            -0.016040313555651175
+          ],
+          "26": null
+        },
+        "losses": 15,
+        "mean_delta": -0.01986895103862433,
+        "ties": 0,
+        "wins": 0
+      },
+      "jupiter20-slot2": {
+        "interval_95": {
+          "13": [
+            -0.0029778752794978325,
+            0.0018629561002236191
+          ],
+          "26": null
+        },
+        "losses": 8,
+        "mean_delta": -0.0005574595896371067,
+        "ties": 0,
+        "wins": 7
+      },
+      "jupiter60-slot2": {
+        "interval_95": {
+          "13": [
+            -0.008869536986760625,
+            -0.0027774812424157884
+          ],
+          "26": null
+        },
+        "losses": 11,
+        "mean_delta": -0.005823509114588208,
+        "ties": 0,
+        "wins": 4
+      },
+      "jupiter60-slot3": {
+        "interval_95": {
+          "13": [
+            -0.005245333687346804,
+            -0.0020359253851041956
+          ],
+          "26": null
+        },
+        "losses": 11,
+        "mean_delta": -0.0036406295362255,
+        "ties": 0,
+        "wins": 4
+      },
+      "rolling-all-1039": {
+        "interval_95": {
+          "13": [
+            -0.007453684701127794,
+            -0.004299100452185071
+          ],
+          "26": null
+        },
+        "losses": 12,
+        "mean_delta": -0.005876392576656433,
+        "ties": 0,
+        "wins": 3
+      },
+      "same-target-fullwidth-blend": {
+        "interval_95": {
+          "13": [
+            -0.004318235960652014,
+            -0.000583450165894261
+          ],
+          "26": null
+        },
+        "losses": 10,
+        "mean_delta": -0.002450843063273138,
+        "ties": 0,
+        "wins": 5
+      },
+      "static-all-1039": {
+        "interval_95": {
+          "13": [
+            -0.0054190426447562655,
+            -0.0015371974768198648
+          ],
+          "26": null
+        },
+        "losses": 10,
+        "mean_delta": -0.003478120060788065,
+        "ties": 0,
+        "wins": 5
+      }
+    },
+    "dates": 15,
+    "keys": 98404,
+    "means": {
+      "diverse-target-fullwidth-blend": 0.0392728658222791,
+      "factor-neutral60-slot3": 0.022480151172699074,
+      "jupiter20-slot2": 0.0417916426216863,
+      "jupiter60-slot2": 0.0365255930967352,
+      "jupiter60-slot3": 0.03870847267509791,
+      "legacy-eight-feature-ridge": -0.006235827061789096,
+      "lgbm_jupiter_60": 0.0423491022113234,
+      "rolling-all-1039": 0.03647270963466697,
+      "same-target-fullwidth-blend": 0.03989825914805027,
+      "static-all-1039": 0.03887098215053533
+    },
+    "window": [
+      "2024-01-05",
+      "2024-04-12"
+    ]
+  },
+  "primary_pair": [
+    "diverse-target-fullwidth-blend",
+    "lgbm_jupiter_60"
+  ],
+  "prior_per_date_sha256": "c52a229f49e6d9c610fe4570158b72f7fdcae5a85e7ed83c08e8f5ee506f2615",
+  "prior_score_sha256": "2cd3b5fa45463206e3285176b9b95abced8eb7b8e8ae0018cf7bb6c99a8882bf",
+  "prior_target_rows_reopened": 0,
+  "registration_sha256": "dfc10dfa9ae78839e413bbec617dffd6db72167fef823f14453e0a2d1eb73f1f",
+  "scope": "Retrospective reuse of already scored nonterminal date/ticker population; published benchmark comparator from dated matched aggregate only",
+  "score_source_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+  "scored_utc": "2026-11-21T09:16:21.355255+00:00",
+  "secondary_combined_26": {
+    "comparisons": {
+      "diverse-target-fullwidth-blend": {
+        "interval_95": {
+          "13": [
+            -0.005667214895243001,
+            -0.0012253062671653593
+          ],
+          "26": null
+        },
+        "losses": 17,
+        "mean_delta": -0.003432465648524088,
+        "ties": 0,
+        "wins": 9
+      },
+      "factor-neutral60-slot3": {
+        "interval_95": {
+          "13": [
+            -0.025517978391811705,
+            -0.015399570749901373
+          ],
+          "26": null
+        },
+        "losses": 26,
+        "mean_delta": -0.02045877457085654,
+        "ties": 0,
+        "wins": 0
+      },
+      "jupiter20-slot2": {
+        "interval_95": {
+          "13": [
+            -0.006144138456460545,
+            0.0012983193366947776
+          ],
+          "26": null
+        },
+        "losses": 15,
+        "mean_delta": -0.0024229095598828835,
+        "ties": 0,
+        "wins": 11
+      },
+      "jupiter60-slot2": {
+        "interval_95": {
+          "13": [
+            -0.009916195053469216,
+            -0.0010934673163479338
+          ],
+          "26": null
+        },
+        "losses": 19,
+        "mean_delta": -0.005502928722015106,
+        "ties": 0,
+        "wins": 7
+      },
+      "jupiter60-slot3": {
+        "interval_95": {
+          "13": [
+            -0.003562415059136352,
+            -0.00017851864379596523
+          ],
+          "26": null
+        },
+        "losses": 17,
+        "mean_delta": -0.0018768811602548124,
+        "ties": 0,
+        "wins": 9
+      },
+      "rolling-all-1039": {
+        "interval_95": {
+          "13": [
+            -0.008322084607965505,
+            -0.0030383777670191766
+          ],
+          "26": null
+        },
+        "losses": 20,
+        "mean_delta": -0.005635294066906045,
+        "ties": 0,
+        "wins": 6
+      },
+      "same-target-fullwidth-blend": {
+        "interval_95": {
+          "13": [
+            -0.0034446630875888625,
+            0.0008203645287351059
+          ],
+          "26": null
+        },
+        "losses": 16,
+        "mean_delta": -0.0013121492794268786,
+        "ties": 0,
+        "wins": 10
+      },
+      "static-all-1039": {
+        "interval_95": {
+          "13": [
+            -0.0038708149052083226,
+            0.0006385226274552153
+          ],
+          "26": null
+        },
+        "losses": 14,
+        "mean_delta": -0.0016442785470095719,
+        "ties": 0,
+        "wins": 12
+      }
+    },
+    "dates": 26,
+    "keys": 171478,
+    "means": {
+      "diverse-target-fullwidth-blend": 0.033410564935854564,
+      "factor-neutral60-slot3": 0.01638425601352211,
+      "jupiter20-slot2": 0.034420121024495764,
+      "jupiter60-slot2": 0.031340101862363544,
+      "jupiter60-slot3": 0.03496614942412384,
+      "legacy-eight-feature-ridge": -0.007736886067208395,
+      "lgbm_jupiter_60": 0.03684303058437865,
+      "rolling-all-1039": 0.031207736517472606,
+      "same-target-fullwidth-blend": 0.03553088130495177,
+      "static-all-1039": 0.03519875203736908
+    },
+    "window": [
+      "2024-01-05",
+      "2024-06-28"
+    ]
+  },
+  "skipped_rows": 104369,
+  "source_footer_sha256": "69d56a3676819a81a7d840f8a6fc16b20646560f571bd153b64c017ca37b959e",
+  "source_sha256": "69cdb8fcbf515bc32ca4905ec9a8d2c853e6f6bb5f63d886530bc6a9c1df5614",
+  "target": "target_jupiter_60",
+  "target_chunk_sha256": "e73d88db82c35acd0ff40312408320320570781c586a5f27fd9ce9be3178df79",
+  "target_group": 8,
+  "target_range": [
+    933321139,
+    933398240
+  ],
+  "target_reader_binary_sha256": "d63fdbf4d33be370e574c6aeb8b9f3e70eb613f44f40f40ec9b6d9526e8017b5",
+  "target_reader_source_sha256": "6304cf8d4c52e073d6c69307df8920e56cec8bbff978cd436d23391d50889a03",
+  "terminal_bytes": 0
+}

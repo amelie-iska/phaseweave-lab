@@ -73,6 +73,28 @@
    </table></div>
    <p>Each Friday has equal weight. Eleven observations with overlapping targets are too short for the registered 13- and 26-week intervals. The benchmark scores come from the matched historical pilot. The reconstructed ridge reproduced every archived raw CORR on these dates. <a href="numerai-spring-2024-published-v1.json">Verified raw scores and comparison boundaries</a></p>
   </section>
+  <section class="arch-panel" id="full-first-half-2024" aria-labelledby="first-half-2024-title">
+   <h2 id="first-half-2024-title">Full first-half 2024 published benchmark</h2>
+   <p>The frozen diverse-target blend trailed published LightGBM by <strong>0.003076 raw CORR</strong> on 15 additional Fridays and by <strong>0.003432</strong> across all 26. It led on 6 of 15 and 9 of 26 dates. Each of the eight local recipes had lower mean raw CORR than the published model on both panels.</p>
+   <p>98,404 keys across 15 dates and 171,478 keys across 26 dates.</p>
+   <div class="arch-scroll" role="region" aria-label="Raw CORR on the complementary and combined periods" tabindex="0">
+   <table>
+    <thead><tr><th scope="col">Forecast</th><th scope="col">Jan 5–Apr 12</th><th scope="col">Jan 5–Jun 28</th><th scope="col">Combined difference from published</th></tr></thead>
+    <tbody>
+    <tr><th scope="row">Published LightGBM Jupiter 60</th><td>0.042349</td><td>0.036843</td><td>—</td></tr>
+    <tr><th scope="row">Same-target blend</th><td>0.039898</td><td>0.035531</td><td>−0.001312</td></tr>
+    <tr><th scope="row">Static Jupiter 60 · seed 20261120</th><td>0.038871</td><td>0.035199</td><td>−0.001644</td></tr>
+    <tr><th scope="row">Jupiter 60 · seed 20261122</th><td>0.038708</td><td>0.034966</td><td>−0.001877</td></tr>
+    <tr><th scope="row">Jupiter 20 · seed 20261121</th><td>0.041792</td><td>0.034420</td><td>−0.002423</td></tr>
+    <tr><th scope="row">Diverse-target blend · primary contrast</th><td>0.039273</td><td>0.033411</td><td>−0.003432</td></tr>
+    <tr><th scope="row">Jupiter 60 · seed 20261121</th><td>0.036526</td><td>0.031340</td><td>−0.005503</td></tr>
+    <tr><th scope="row">Rolling Jupiter 60 · seed 20261120</th><td>0.036473</td><td>0.031208</td><td>−0.005635</td></tr>
+    <tr><th scope="row">Factor Neutral 60 · seed 20261122</th><td>0.022480</td><td>0.016384</td><td>−0.020459</td></tr>
+    <tr><th scope="row">Eight-feature ridge · score bridge</th><td>−0.006236</td><td>−0.007737</td><td>−0.044580</td></tr>
+    </tbody>
+   </table></div>
+   <p>The primary 13-week interval is [−0.005036, −0.001150]. The combined interval is [−0.005667, −0.001225]. These panels contain only 1.15 and 2 block lengths. All outcomes were previously released for this historical population. <a href="numerai-2024-published-complement-v1.json">Verified evidence and exact intervals</a></p>
+  </section>
   <section class="arch-panel" id="peer-freeze"><h2>Frozen Classic peer comparison</h2>
    <p>Ten public model IDs were fixed on November 21, 2026 at 02:24:47 UTC, in the provider’s MMC60 order. Rank 10, valois400_ty, had reputation 0.014322. The forward comparison begins with the first eligible Saturday opening after the freeze. Round scores must resolve at day 60 under the same Jupiter regime. PhaseWeave has no verified live rank.</p>
    <p><a href="numerai-peer-freeze-v1.json">Public provider roster and timestamps</a> · <a href="https://numer.ai/leaderboard">Numerai leaderboard</a></p>

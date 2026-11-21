@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="gate-clock-transfer.js"></script>
+ <title>Gate spot circuit transfer · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Controls">
+  <a class="button" href="circuit-backbones.html">FX circuit benchmark</a><a class="button" href="paper-tournament.html">Virtual trading desk</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Frozen FX models on Gate spot</h1><p class="arch-lead">An archived ETH–BTC–USDT quote replay with the same 144 checkpoints used on FX.</p></header>
+  <section class="arch-panel" aria-labelledby="gate-selected-title">
+   <h2 id="gate-selected-title">FX-selected model versus persistence</h2>
+   <p id="gate-transfer-summary" role="status">Loading the sealed Gate replay.</p>
+   <p id="gate-transfer-roster"></p>
+   <canvas id="gate-transfer-hours" style="width:100%;height:205px" role="img" aria-label="Hourly error differences against persistence"></canvas>
+   <p>Bars show mean absolute error change in log basis points. Values below zero favor the model selected on FX validation. Hour blocks come from one UTC date.</p>
+   <details><summary>Exact hourly scores</summary>
+    <div class="arch-scroll" id="gate-transfer-hour-table" role="region" aria-label="Exact hourly errors and support" tabindex="0"></div>
+   </details>
+  </section>
+  <section class="arch-panel" aria-labelledby="gate-scores-title">
+   <h2 id="gate-scores-title">All frozen circuit forecasts</h2>
+   <div class="arch-period-controls">
+    <label>Backbone <select id="gate-transfer-backbone" aria-label="Backbone"><option value="gcn">GCN</option><option value="gcn_tokengt">GCN → TokenGT</option><option value="tokengt">TokenGT</option></select></label>
+    <label>Attention <select id="gate-transfer-attention" aria-label="Attention"><option value="softmax">Softmax</option><option value="tropical">Tropical</option></select></label>
+    <label>Initialization <select id="gate-transfer-seed" aria-label="Initialization"><option value="mean">Mean of both seeds</option><option value="20261225">20261225</option><option value="20261226">20261226</option></select></label>
+    <label>Error metric <select id="gate-transfer-metric" aria-label="Error metric"><option value="mae_bps">MAE</option><option value="rmse_bps">RMSE</option><option value="mean_bias_bps">Mean bias</option></select></label>
+   </div>
+   <div class="arch-scroll" id="gate-transfer-scores" role="region" aria-label="Gate forecast scores by circuit depth and propagation" tabindex="0"></div>
+   <p>The model forecasts one-second top-of-book route margins. The calculation uses the FX fee convention of 0.3 log bp per cycle. The chart evaluates indicative quotes before execution.</p>
+   <p><a href="gate-clock-transfer-v1.json">Scores, counts and provenance</a> · <a href="gate-clock-transfer-independent-v1.json">Independent verification</a></p>
+  </section>
+ </main>
+</body>
+</html>
