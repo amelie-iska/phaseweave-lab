@@ -1,0 +1,165 @@
+{
+  "benchmark_vector_bytes": 0,
+  "comparisons": {
+    "diverse-target-fullwidth-blend": {
+      "losses": 1,
+      "mean_delta": 0.0010973986332937277,
+      "ties": 0,
+      "wins": 1
+    },
+    "factor-neutral60-slot3": {
+      "losses": 2,
+      "mean_delta": -0.01304459625011268,
+      "ties": 0,
+      "wins": 0
+    },
+    "jupiter20-slot2": {
+      "losses": 1,
+      "mean_delta": -0.001122866566830862,
+      "ties": 0,
+      "wins": 1
+    },
+    "jupiter60-slot2": {
+      "losses": 1,
+      "mean_delta": -0.007387771324624724,
+      "ties": 0,
+      "wins": 1
+    },
+    "jupiter60-slot3": {
+      "losses": 1,
+      "mean_delta": 0.0047033343576681225,
+      "ties": 0,
+      "wins": 1
+    },
+    "rolling-all-1039": {
+      "losses": 1,
+      "mean_delta": -0.0022868029464547836,
+      "ties": 0,
+      "wins": 1
+    },
+    "same-target-fullwidth-blend": {
+      "losses": 1,
+      "mean_delta": 0.0014458694511428703,
+      "ties": 0,
+      "wins": 1
+    },
+    "static-all-1039": {
+      "losses": 1,
+      "mean_delta": 0.0003539684625226726,
+      "ties": 0,
+      "wins": 1
+    }
+  },
+  "daily": [
+    {
+      "date": "2024-01-05",
+      "keys": 6529,
+      "neutral_corr": {
+        "diverse-target-fullwidth-blend": 0.05442987674509676,
+        "factor-neutral60-slot3": 0.03924899723697196,
+        "jupiter20-slot2": 0.0478741335402368,
+        "jupiter60-slot2": 0.04030604325258958,
+        "jupiter60-slot3": 0.048687898156844926,
+        "legacy-eight-feature-ridge": -0.00883505215184601,
+        "lgbm_jupiter_60": 0.0601298497573892,
+        "rolling-all-1039": 0.04846127319572107,
+        "same-target-fullwidth-blend": 0.05156736422504844,
+        "static-all-1039": 0.05360828943211208
+      }
+    },
+    {
+      "date": "2024-06-28",
+      "keys": 6646,
+      "neutral_corr": {
+        "diverse-target-fullwidth-blend": 0.027611483645787055,
+        "factor-neutral60-slot3": 0.014508373387099042,
+        "jupiter20-slot2": 0.029726696450397834,
+        "jupiter60-slot2": 0.024764977222457327,
+        "jupiter60-slot3": 0.040565333682787676,
+        "legacy-eight-feature-ridge": -0.03523381578210508,
+        "lgbm_jupiter_60": 0.019716713366907158,
+        "rolling-all-1039": 0.02681168403566572,
+        "same-target-fullwidth-blend": 0.031170937801533655,
+        "static-all-1039": 0.026946210617229623
+      }
+    }
+  ],
+  "dates": [
+    "2024-01-05",
+    "2024-06-28"
+  ],
+  "exact_finite_mask": true,
+  "exposure_columns": 300,
+  "exposure_footer_sha256": "fb360ccb67b21c6ef0a9cdcbb800a62a80c539780e26110a4ac2c236448b3e02",
+  "exposure_projection_bytes": 22392592,
+  "exposure_row_groups": [
+    261,
+    286
+  ],
+  "exposure_transport_sha256": [
+    "6e40a8fc06405bac2e2f386d89fb40bab1aeb6cd2207387293fee498237aaabb",
+    "06cee5010a723839baecc915de9bfa74cedf571785a5576f21bcdf4d6e9ca4c1"
+  ],
+  "forecast_file_sha256": "31561dad56e06a50f3bf1fa6d3910c439eb2f21e52eae2f389a8334888974bb3",
+  "format": "phaseweave.numerai-two-date-neutral-score.v1",
+  "independent_svd_cells": 18,
+  "independent_svd_max_abs": 2.914335439641036e-16,
+  "interval_95": null,
+  "keys": 13175,
+  "keys_by_date": [
+    6529,
+    6646
+  ],
+  "legacy_ridge_max_abs": 3.8163916471489756e-17,
+  "means": {
+    "diverse-target-fullwidth-blend": 0.0410206801954419,
+    "factor-neutral60-slot3": 0.0268786853120355,
+    "jupiter20-slot2": 0.03880041499531732,
+    "jupiter60-slot2": 0.032535510237523456,
+    "jupiter60-slot3": 0.0446266159198163,
+    "legacy-eight-feature-ridge": -0.022034433966975544,
+    "lgbm_jupiter_60": 0.03992328156214818,
+    "rolling-all-1039": 0.03763647861569339,
+    "same-target-fullwidth-blend": 0.04136915101329105,
+    "static-all-1039": 0.04027725002467085
+  },
+  "metric": "Numerai neutral CORR to target_jupiter_60, equal weights across dates",
+  "native_reader_source_sha256": "0e552fdb23c08496f43fe8d0d525671951a5b5f91cdae2a4951b268fb210e340",
+  "network_bytes": 0,
+  "official_scorer_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+  "original_pilot_sha256": "2c4cb9639ea6b50ca4705858df9a75c7ce9febfaeb1fdbcdbe886e060f7e8cbe",
+  "prediction_seal_sha256": "4e6bc63fdcd543880c01f0ef142a3f801d80b56d43999d57c4a48f82e64c2238",
+  "primary": [
+    "diverse-target-fullwidth-blend",
+    "lgbm_jupiter_60"
+  ],
+  "registration_sha256": "c559013362869c1b01f2b2ec90a3b471d5b2756e625b26c2f947d8e364f45eac",
+  "score_source_sha256": "bec3f7162005159e8f978530ace6ccf9f10355863420ee9ab3c9149853f93974",
+  "sorted_native_keys_sha256": "c164a58194682b308f81379369dd8a1d25b1f38cdc18bb19688d203c9444a391",
+  "target_chunk_bytes": 155390,
+  "target_materialized_rows": [
+    6529,
+    6646
+  ],
+  "target_positions_half_open": [
+    [
+      104369,
+      110898
+    ],
+    [
+      66428,
+      73074
+    ]
+  ],
+  "target_sha256": [
+    "e73d88db82c35acd0ff40312408320320570781c586a5f27fd9ce9be3178df79",
+    "291a25364f44ec1c9c749e354643d36695f303ab8928f8833d9d10dd1993528a"
+  ],
+  "terminal_bytes": 0,
+  "uncertainty": "Two endpoints from the original historical pilot; report each date with no sampling interval.",
+  "validation_footer_sha256": "69d56a3676819a81a7d840f8a6fc16b20646560f571bd153b64c017ca37b959e",
+  "validation_row_groups": [
+    8,
+    9
+  ]
+}

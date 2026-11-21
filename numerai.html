@@ -95,6 +95,28 @@
    </table></div>
    <p>The primary 13-week interval is [−0.005036, −0.001150]. The combined interval is [−0.005667, −0.001225]. These panels contain only 1.15 and 2 block lengths. All outcomes were previously released for this historical population. <a href="numerai-2024-published-complement-v1.json">Verified evidence and exact intervals</a></p>
   </section>
+  <section class="arch-panel" id="two-date-neutral" aria-labelledby="two-date-neutral-title">
+   <h2 id="two-date-neutral-title">Published neutral CORR on two original dates</h2>
+   <p>The diverse-target blend averaged <strong>0.041021</strong> against published LightGBM’s <strong>0.039923</strong>. It trailed on January 5 and led on June 28. Two observations leave the consistency of the difference unresolved.</p>
+   <p>13,175 matched keys with all 300 official neutralizer exposures.</p>
+   <div class="arch-scroll" role="region" aria-label="Neutral CORR against the published benchmark on January 5 and June 28" tabindex="0">
+   <table>
+    <thead><tr><th scope="col">Forecast</th><th scope="col">Jan 5</th><th scope="col">Jun 28</th><th scope="col">Mean</th><th scope="col">Difference from published</th></tr></thead>
+    <tbody>
+    <tr><th scope="row">Jupiter 60 · seed 20261122</th><td>0.048688</td><td>0.040565</td><td>0.044627</td><td>+0.004703</td></tr>
+    <tr><th scope="row">Same-target blend</th><td>0.051567</td><td>0.031171</td><td>0.041369</td><td>+0.001446</td></tr>
+    <tr><th scope="row">Diverse-target blend · primary</th><td>0.054430</td><td>0.027611</td><td>0.041021</td><td>+0.001097</td></tr>
+    <tr><th scope="row">Static Jupiter 60 · seed 20261120</th><td>0.053608</td><td>0.026946</td><td>0.040277</td><td>+0.000354</td></tr>
+    <tr><th scope="row">Published LightGBM Jupiter 60</th><td>0.060130</td><td>0.019717</td><td>0.039923</td><td>—</td></tr>
+    <tr><th scope="row">Jupiter 20 · seed 20261121</th><td>0.047874</td><td>0.029727</td><td>0.038800</td><td>−0.001123</td></tr>
+    <tr><th scope="row">Rolling Jupiter 60 · seed 20261120</th><td>0.048461</td><td>0.026812</td><td>0.037636</td><td>−0.002287</td></tr>
+    <tr><th scope="row">Jupiter 60 · seed 20261121</th><td>0.040306</td><td>0.024765</td><td>0.032536</td><td>−0.007388</td></tr>
+    <tr><th scope="row">Factor Neutral 60 · seed 20261122</th><td>0.039249</td><td>0.014508</td><td>0.026879</td><td>−0.013045</td></tr>
+    <tr><th scope="row">Eight-feature ridge · score bridge</th><td>−0.008835</td><td>−0.035234</td><td>−0.022034</td><td>−0.061958</td></tr>
+    </tbody>
+   </table></div>
+   <p>Each date carries equal weight. Published scores come from the two original neutralization checks on these same keys. The dates are too few for a 13- or 26-week interval. <a href="numerai-two-date-neutral-v1.json">Independent neutralization evidence</a></p>
+  </section>
   <section class="arch-panel" id="peer-freeze"><h2>Frozen Classic peer comparison</h2>
    <p>Ten public model IDs were fixed on November 21, 2026 at 02:24:47 UTC, in the provider’s MMC60 order. Rank 10, valois400_ty, had reputation 0.014322. The forward comparison begins with the first eligible Saturday opening after the freeze. Round scores must resolve at day 60 under the same Jupiter regime. PhaseWeave has no verified live rank.</p>
    <p><a href="numerai-peer-freeze-v1.json">Public provider roster and timestamps</a> · <a href="https://numer.ai/leaderboard">Numerai leaderboard</a></p>
