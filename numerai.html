@@ -4,7 +4,7 @@
  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
  <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
- <script defer src="market-modality-theme.js"></script><script defer src="numerai.js"></script>
+ <script defer src="market-modality-theme.js"></script><script defer src="numerai.js"></script><script defer src="numerai-2019-transfer.js"></script>
  <title>Numerai leaderboard audit · PhaseWeave</title>
 </head>
 <body>
@@ -137,6 +137,20 @@
    </details>
    <p>Each direct hybrid adds 0.25 times the local blend to the published forecast after daily Gaussian-rank standardization. These hybrids depend on the complete same-date published forecast being available before cutoff. The residualized control additionally needs all 300 official exposures at that cutoff. The terminal and live score gates remain pending.</p>
    <p><a href="numerai-fullwidth-benchmark-addition-v1.json">Verified full-width benchmark addition and replay receipt</a></p>
+  </section>
+  <section class="arch-panel" id="fullwidth-2019-transfer">
+   <h2>2019 transfer of the 1,039-feature addition</h2>
+   <p>The fixed diverse hybrid’s mean neutral CORR changed by <strong>−0.001167</strong> against published LightGBM on 26 reused 2019 dates. The same recipe gained +0.000938 in the <a href="#fullwidth-benchmark-addition">2020–21 development panel</a>. The mean changed sign across the two periods.</p>
+   <div class="arch-period-controls">
+    <label>2019 score <select id="wide-2019-metric"><option value="neutral_corr">Neutral CORR</option><option value="raw_corr">Raw CORR</option></select></label>
+    <label>2019 forecast <select id="wide-2019-model"><option value="published-plus-diverse-direct">Diverse addition</option><option value="published-plus-same-target-direct">Same-target addition</option><option value="published-plus-diverse-residual">Residualized diverse addition</option><option value="published-plus-original-medium-direct">Original Medium addition</option></select></label>
+   </div>
+   <p id="wide-2019-status" role="status">Loading the matched weekly scores.</p>
+   <canvas id="wide-2019-plot" style="width:100%;height:190px" role="img" aria-label="Weekly differences against published LightGBM"></canvas>
+   <p>Each bar is one 2019 Friday. Positive values favor the selected addition. The complete panel has 159,982 stock-date keys with overlapping 60-business-day targets.</p>
+   <details><summary>Exact scores by date</summary><div class="arch-scroll" id="wide-2019-weekly" role="region" aria-label="Exact paired weekly scores" tabindex="0"></div></details>
+   <details><summary>Mean scores across all model variants</summary><div class="arch-scroll" id="wide-2019-overall" role="region" aria-label="All model score averages" tabindex="0"></div></details>
+   <p>Static training ended December 28, 2018. All comparisons retain the original blend weights. A 26-week block spans the entire sample, leaving its interval undefined. <a href="numerai-fullwidth-2019-v1.json">Aggregate and date-level evidence</a></p>
   </section>
   <section class="arch-panel" id="audit-2019"><h2>Separate 2019 retrospective audit</h2>
    <p>Thirteen predictions were frozen before outcomes were opened. All 159,982 stock-date keys matched across 26 dates. The largest standalone mean was 0.032454 against published LightGBM’s 0.033859.</p>
