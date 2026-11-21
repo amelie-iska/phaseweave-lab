@@ -1,0 +1,7 @@
+.gauge-controls { display: flex; flex-wrap: wrap; gap: .75rem 1.2rem; margin-block: .75rem; }
+.gauge-controls label { display: grid; gap: .35rem; min-width: 0; }
+.gauge-controls select { width: 100%; }
+.gauge-accuracy { white-space: nowrap; }
+.gauge-accuracy meter { display: inline-block; width: clamp(4rem, 10vw, 9rem); accent-color: var(--jade); vertical-align: middle; margin-inline-end: .6rem; }
+#gauge-cohort, #gauge-metric-note { color: var(--muted); }
+#gauge-table th, #gauge-table td { text-align: left; font-variant-numeric: tabular-nums; }

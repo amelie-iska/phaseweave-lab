@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <title>Gauge covariance benchmark · PhaseWeave</title>
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <link rel="stylesheet" href="gauge-benchmark.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="gauge-benchmark.js"></script>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+  <nav aria-label="Page controls">
+   <a class="button" href="nonabelian.html">Wilson loop lab</a>
+   <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+  </nav>
+ </header>
+ <main class="architecture">
+  <header><h1>Recovering a signed Wilson loop</h1><p class="arch-lead">Compare learned graph models with ordered operator readouts under changes of local frame on a fixed four-vertex graph.</p></header>
+  <section class="arch-panel" aria-labelledby="gauge-results-title">
+   <h2 id="gauge-results-title">Measured accuracy and frame consistency</h2>
+   <div class="gauge-controls">
+    <label>Evaluation set <select id="gauge-split"><option value="test">Q8 held-out orbits</option><option value="validation">Q8 checkpoint selection</option><option value="su2">SU(2) reflection challenge</option><option value="su2_alternate">SU(2) alternate local frames</option></select></label>
+    <label>Fitted model view <select id="gauge-seed"><option value="mean">Mean of three seeds</option></select></label>
+    <label>Rank by <select id="gauge-sort"><option value="accuracy">Accuracy</option><option value="secondary">Orbit or pair metric</option><option value="agreement">Local frame agreement</option></select></label>
+   </div>
+   <p id="gauge-cohort" role="status">Loading the verified comparison.</p>
+   <div class="arch-scroll" id="gauge-table"></div>
+   <p id="gauge-metric-note"></p>
+  </section>
+  <section class="arch-panel">
+   <h2>Why the signed amplitude matters</h2>
+   <p>Traversing 1 → 2 → 3 → 1 multiplies U₁₃⁻¹ U₂₃ U₁₂. A four-level register starts at the quaternion identity and applies each link by left multiplication. The signed real amplitude is the normalized Wilson trace. A computational-basis population loses its sign. The dephased control removes coherence after each link.</p>
+   <p>Local basis changes conjugate the closed product. The continuous challenge contains 256 reflection pairs with the same rooted chord Gram matrix and opposite signed trace. An alternate presentation applies a different independent frame to every vertex of every sample.</p>
+   <p>The engineered orientation model sees the ordered triple product that determines the label on these fixtures. The two-parameter coherent model calibrates the exact operator. The four-level register was simulated on a conventional GPU.</p>
+   <p><a href="gauge-benchmark-v1.json">Verified aggregate</a> · <a href="manuscripts/gauge-benchmark-v1/compact.pdf">Compact manuscript</a> · <a href="manuscripts/gauge-benchmark-v1/extended.pdf">Technical supplement</a> · <a href="manuscripts/gauge-benchmark-v1/sources.zip">LaTeX sources</a> · <a href="https://arxiv.org/abs/2012.12901">Lattice gauge-equivariant convolution</a></p>
+  </section>
+ </main>
+</body>
+</html>
