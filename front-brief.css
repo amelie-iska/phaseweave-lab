@@ -13,3 +13,6 @@
 .front-benchmark {margin:7px 0 0;font:13px/1.5 var(--mono);color:var(--text);overflow-wrap:anywhere}
 .front-link {display:inline-block;margin-top:7px;text-underline-offset:3px}
 @media(max-width:760px){.front-brief{grid-template-columns:minmax(0,1fr)}}
+
+.project-downloads {display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1rem;margin:0 0 .75rem}
+.project-downloads a:not(.button) {display:inline-block;padding:.3rem 0;font:.80rem/1.3 var(--mono);text-underline-offset:.2em}

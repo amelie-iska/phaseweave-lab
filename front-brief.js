@@ -67,6 +67,18 @@
     }
   }
 
+  function refreshInterval(id, initial, refresh) {
+    const select = $(id);
+    if (select) select.value = String(initial);
+    let timer;
+    const schedule = () => {
+      clearInterval(timer);
+      timer = setInterval(() => { if (!document.hidden) refresh(); },Number(select?.value) || initial);
+    };
+    select?.addEventListener("change",schedule);
+    schedule();
+  }
+
   function publicTradeFeed() {
     let socket;
     let retry;
@@ -105,15 +117,15 @@
         }
       };
     }
-    setInterval(() => {
-      if (document.hidden || !lastObserved) return;
+    refreshInterval("front-activity-interval",1000,() => {
+      if (!lastObserved) return;
       const stale = Date.now()-lastObserved > 15000;
       if (socket) clock("front-activity-clock",(stale ? "Last trade " : "Live · ") + shortClock(lastObserved),stale);
       if (lastObserved !== lastPaint) {
         lastPaint = lastObserved;
         showEvents(trades);
       }
-    },1000);
+    });
     document.addEventListener("visibilitychange",() => {
       if (document.hidden) {
         clearTimeout(retry);
@@ -126,6 +138,14 @@
   }
 
   async function development() {
+    try {
+      const result = await get("numerai-breadth-development-v1.json");
+      const restored = result.models.find(row=>row.id===result.primary_contrast.left);
+      const benchmark = result.models.find(row=>row.id===result.benchmark_id);
+      text("front-benchmark","Development neutral CORR · PhaseWeave " + number(restored.overall.neutral_corr,5) +
+        " · LightGBM " + number(benchmark.overall.neutral_corr,5) + " · " + result.cohort.development_dates + " dates");
+      return;
+    } catch {}
     try {
       const result = await get("numerai-medium-development-v1.json");
       const winner = result.models.find(row=>row.id===result.selection.winner);
@@ -165,9 +185,9 @@
   if (hosted) publicTradeFeed();
   else {
     showPaper();
-    setInterval(() => { if (!document.hidden) showPaper(); },2200);
+    refreshInterval("front-activity-interval",2200,showPaper);
   }
   development();
   numerai();
-  setInterval(() => { if (!document.hidden) { numerai(); development(); } },hosted ? 15*60e3 : 30e3);
+  refreshInterval("front-numerai-interval",hosted ? 900000 : 30000,() => { numerai(); development(); });
 })();

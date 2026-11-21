@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="console.css">
   <link rel="stylesheet" href="front-brief.css">
   <script defer src="front-brief.js"></script>
+  <link rel="stylesheet" href="front-inference.css">
+  <script defer src="reasoning-3d.js"></script>
+  <script defer src="front-inference.js"></script>
   <script defer src="core.js"></script>
   <script defer src="gate.js"></script>
   <script defer src="replay-instruments.js"></script>
@@ -39,11 +42,27 @@
         <label>Surface <select id="surface"><option value="torus">Torus</option><option value="sphere">Sphere</option></select></label>
       </div>
     </div>
+    <nav class="project-downloads" aria-label="Launch the apps">
+      <a class="button" href="live-widgets.html">Open Market Widgets</a>
+      <a class="button" href="#inference">Open Forecast Lab</a>
+      <a class="button" href="http://127.0.0.1:8132/desk.html">Open Paper Desk</a>
+      <a class="button" href="http://127.0.0.1:8132/desk.html#desk-external-tools">Open Professional Workbench</a>
+    </nav>
+    <nav class="project-downloads" aria-label="App versions and assets">
+      <a href="apps.html">All four editions</a>
+      <a href="https://github.com/amelie-iska/phaseweave-lab/releases">Desktop app releases</a>
+      <a href="https://huggingface.co/spaces/AmelieSchreiber/PhaseWeave-Lab">Hugging Face Space</a>
+      <a href="https://huggingface.co/AmelieSchreiber/PhaseWeave-FX-Pilot">Model files</a>
+      <a href="https://huggingface.co/datasets/AmelieSchreiber/PhaseWeave-FX-Windows-Catalog">Dataset catalog</a>
+    </nav>
     <section class="front-brief" aria-label="Live activity and assessment">
       <article class="front-card">
         <div class="front-head"><h2>Live activity</h2><span id="front-activity-clock">Waiting for feed</span></div>
         <p class="front-context" id="front-activity-source">Connecting to the activity source.</p>
         <ol class="front-events" id="front-events"><li>Waiting for observations.</li></ol>
+        <div class="trace-controls"><label>Display interval <select id="front-activity-interval">
+          <option value="1000">1 s</option><option value="2200">2.2 s</option><option value="5000">5 s</option><option value="15000">15 s</option>
+        </select></label></div>
         <a class="front-link" href="http://127.0.0.1:8144/paper-tournament.html">Paper trading dashboard ↗</a>
       </article>
       <article class="front-card">
@@ -52,8 +71,48 @@
         <p class="front-context" id="front-numerai-round"></p>
         <p class="front-context" id="front-numerai-leading"></p>
         <p class="front-context">PhaseWeave has no verified live rank. Terminal outcomes remain sealed.</p>
+        <div class="trace-controls"><label>Check interval <select id="front-numerai-interval">
+          <option value="30000">30 s</option><option value="300000">5 min</option><option value="900000" selected>15 min</option><option value="3600000">1 h</option>
+        </select></label></div>
         <a class="front-link" href="numerai.html">Full results and leaderboard ↗</a>
+        <a class="front-link" href="#competitions">Other competition targets ↗</a>
       </article>
+    </section>
+    <section class="front-card front-inference" id="live-inference" aria-labelledby="live-inference-title">
+      <div class="front-head"><h2 id="live-inference-title">Live inference</h2><span id="trace-state" role="status">Ready</span></div>
+      <p class="front-context">Run a trained model on the released EUR/USD/JPY window ending 30 October 2026 at 12:00:16 UTC. The quote input is historical and the model computations run now. This checkpoint forecasts one second ahead on three-asset cycles.</p>
+      <div class="trace-controls" aria-label="Inference controls">
+        <label>Method <select id="trace-method">
+          <option value="forest">Forest of Thought</option><option value="analogy">Analogical retrieval</option><option value="graphcg">GraphCG steering</option>
+        </select></label>
+        <label id="trace-axis-control" hidden>Steering axis <select id="trace-axis">
+          <option value="1">Axis 1</option><option value="2">Axis 2</option><option value="3" selected>Axis 3</option><option value="4">Axis 4</option>
+        </select></label>
+        <label class="trace-forest-only">Trees <select id="trace-roots"><option>4</option><option selected>8</option><option>16</option></select></label>
+        <label class="trace-forest-only">Depth <select id="trace-depth"><option>2</option><option selected>4</option><option>8</option></select></label>
+        <label class="trace-forest-only">Children per parent <select id="trace-branch"><option>2</option><option selected>3</option><option>6</option></select></label>
+        <label class="trace-forest-only">Layout <select id="trace-layout"><option value="overlaid">Overlaid</option><option value="parallel">Parallel</option></select></label>
+        <label>Playback step <select id="trace-interval"><option value="50">50 ms</option><option value="100" selected>100 ms</option><option value="250">250 ms</option><option value="500">500 ms</option></select></label>
+        <button id="trace-run" type="button">Run inference</button>
+        <button id="trace-cancel" type="button" disabled>Cancel</button>
+        <button id="trace-follow" type="button" aria-pressed="true" disabled>Follow steps</button>
+      </div>
+      <div class="trace-grid">
+        <div class="trace-plot">
+          <canvas id="trace-canvas" role="img" aria-label="Three-dimensional path of the model computations"></canvas>
+          <div id="trace-camera" class="trace-controls" aria-label="Inference camera">
+            <label>Yaw <input type="range" name="yaw" min="-180" max="180" value="-32"></label>
+            <label>Pitch <input type="range" name="pitch" min="-85" max="85" value="24"></label>
+            <button type="button">Reset view</button>
+          </div>
+        </div>
+        <div class="trace-readout">
+          <label>Step <input id="trace-step" type="range" min="0" max="0" value="0" disabled></label>
+          <p id="trace-detail">Run a model to inspect intermediate steps and the result.</p>
+          <ol id="trace-events" aria-label="Received computation steps"></ol>
+        </div>
+      </div>
+      <p class="front-context"><a href="http://127.0.0.1:8155/#live-inference">Open the local inference runner</a> · <a href="reasoning.html">Inspect recorded reasoning studies</a> · <a href="density.html#cloud-heading">Open the time-sliced density cloud</a></p>
     </section>
     <div class="workspace">
       <section class="visual" aria-label="Three-dimensional graph">
@@ -133,6 +192,12 @@
         <a href="results.html">Comparisons and ablations</a>
         <a href="reasoning.html">Work through continuous reasoning examples</a>
         <a href="data.html">Inspect sources and input examples</a></p>
+    </section>
+    <section id="competitions" class="research" aria-labelledby="competition-title">
+      <h2 id="competition-title">Trading competitions</h2>
+      <p><strong>Quantiacs.</strong> Prepare an allocation strategy for the next compatible edition. Q25 is already in out-of-sample evaluation. <a href="https://quantiacs.io/contest">Official schedule</a></p>
+      <p><strong>AI4Finance Open Trading Challenge.</strong> Qualify a U.S. equity strategy with 30 trading days on Alpaca Paper under FinRL-Trading. <a href="https://ai4finance.org/competition">Official rules</a></p>
+      <p><a href="downloads/trading-competitions.md">Entry criteria and PhaseWeave evaluation plan</a></p>
     </section>
     <section id="research" class="research">
       <h2>Research</h2>

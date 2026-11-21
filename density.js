@@ -124,6 +124,74 @@ if (typeof document !== "undefined") {
   const liveSources = { "gate-eth": ["ETH", "BTC", "USDT"], "gate-xrp": ["XRP", "BTC", "USDT"] };
   const state = { examples: [], steps: [], index: 0, feed: null, timer: null, observe: null };
 
+  const paintCloud = DensityCloud.build(get("cloud-view"));
+  const cloud = { fraction: 1, previous: null, current: null, names: [], legendValues: [], animation: 0 };
+  function cancelCloud() { cancelAnimationFrame(cloud.animation); cloud.animation = 0; }
+  function updateCloud() {
+    if (!cloud.current) return;
+    const mode = get("cloud-mode").value;
+    const angle = Number(get("cloud-angle").value);
+    const rows = DensityCloud.blend(cloud.previous, cloud.current, cloud.fraction);
+    const totals = rows.map(row => DensityWalk.total(row));
+    const step = state.steps[state.index];
+    const residual = state.index ? DensityCloud.continuity(cloud.previous, rows, step.links, step.flux, cloud.fraction) : 0;
+    const isolated = mode.startsWith("component-") ? Number(mode.slice(-1)) : null;
+    const mass = isolated === null ? DensityWalk.total(totals) : DensityWalk.total(rows.map(row=>row[isolated]));
+    for (const {index, value} of cloud.legendValues) {
+      const amount=mode==="site"?totals[index]:DensityWalk.total(rows.map(row=>row[index]));
+      value.textContent=(100*amount).toFixed(1)+"%";
+    }
+    get("cloud-mass").textContent = mass.toFixed(8);
+    get("cloud-continuity").textContent = residual.toExponential(2);
+    get("cloud-angle-label").textContent = angle + "°";
+    get("cloud-blend").disabled = state.index === 0;
+    get("cloud-blend").value = Math.round(100*cloud.fraction);
+    get("cloud-blend-label").textContent = Math.round(100*cloud.fraction) + "%";
+    get("cloud-step").textContent = state.index ? "Step " + state.steps[state.index-1].index + " → " + step.index : (step.index === 0 ? "Initial state · step 0" : "Oldest retained step " + step.index);
+    paintCloud(rows, cloud.names, mode, angle, document.documentElement.dataset.theme === "light");
+  }
+  function cloudLegend() {
+    const site = get("cloud-mode").value === "site";
+    const isolated = get("cloud-mode").value.startsWith("component-") ? Number(get("cloud-mode").value.slice(-1)) : null;
+    const colors = site ? [["#4debcb","#006c5d"],["#ffab64","#ae430d"],["#b79afc","#5e36a0"]]
+      : [["#60ceff","#045b8f"],["#ffb370","#994b09"],["#d98cff","#813691"]];
+    cloud.legendValues=[];
+    const keys = (site ? cloud.names : ["|0⟩","|1⟩","|2⟩"]).flatMap((name,i) => {
+      if (isolated !== null && i !== isolated) return [];
+      const span=document.createElement("span"), dot=document.createElement("i");
+      span.className="cloud-key";dot.setAttribute("aria-hidden","true");
+      dot.style.setProperty("--key-dark",colors[i][0]);dot.style.setProperty("--key-light",colors[i][1]);
+      const value=document.createElement("span");cloud.legendValues.push({index:i,value});
+      span.append(dot,name,value);return [span];
+    });
+    get("cloud-legend").replaceChildren(...keys);
+  }
+  function showCloud(previous, current, names) {
+    cancelCloud();
+    cloud.previous = previous.map(site => site.map(DensityWalk.squared));
+    cloud.current = current.map(site => site.map(DensityWalk.squared));
+    cloud.names = names;
+    cloud.fraction = 1;
+    cloudLegend();
+    updateCloud();
+  }
+  function animateCloud() {
+    if (!state.index || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const start = performance.now();
+    const tick = now => {
+      cloud.fraction = Math.min(1,Math.max(0,(now-start)/520));
+      updateCloud();
+      if (cloud.fraction < 1) cloud.animation=requestAnimationFrame(tick);
+    };
+    tick(start);
+  }
+  get("cloud-mode").addEventListener("change",()=>{cloudLegend();updateCloud();});
+  get("cloud-angle").addEventListener("input",updateCloud);
+  get("cloud-blend").addEventListener("input",()=>{
+    stop();cloud.fraction=Number(get("cloud-blend").value)/100;updateCloud();
+  });
+  window.addEventListener("resize",updateCloud);
+
   function settings() {
     return { mix: +get("mix").value, phase: +get("phase").value, ageLimit: +get("quote-age").value };
   }
@@ -226,6 +294,9 @@ if (typeof document !== "undefined") {
     const time = new Date(step.frame.utc);
     get("quote-time").textContent = Number.isFinite(+time) ? `${time.toISOString().slice(0, 19).replace("T", " ")} UTC` : "Awaiting quotes";
     get("walk-timeline").value = state.index;
+    const previous = state.steps[Math.max(0,state.index-1)];
+    const oldState = rotated ? DensityWalk.changeBasis(previous.state,previous.links).state : previous.state;
+    showCloud(oldState,view.state,assets);
     renderMap(assets, densities, step);
     drawTrace(assets);
   }
@@ -247,6 +318,7 @@ if (typeof document !== "undefined") {
   }
 
   function stop() {
+    cancelCloud();
     clearInterval(state.timer);
     state.timer = null;
     get("walk-play").setAttribute("aria-pressed", "false");
@@ -310,10 +382,12 @@ if (typeof document !== "undefined") {
     } else { stop(); return; }
     updateControls();
     render();
+    animateCloud();
   }
 
   function theme(value) {
     document.documentElement.dataset.theme = value;
+    updateCloud();
     get("dark").setAttribute("aria-pressed", String(value === "dark"));
     get("light").setAttribute("aria-pressed", String(value === "light"));
     try { localStorage.setItem("phaseweave-theme", value); } catch {}

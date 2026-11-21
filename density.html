@@ -8,6 +8,8 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
   <script defer src="gate.js"></script>
+  <link rel="stylesheet" href="density.css">
+  <script defer src="density-cloud.js"></script>
   <script defer src="density.js"></script>
   <style>
     .density-page { max-width: 1340px; padding: clamp(16px, 3vw, 32px) clamp(12px, 3vw, 32px); }
@@ -98,6 +100,22 @@
       <button type="button" id="walk-step" disabled>Step</button>
       <button type="button" id="walk-reset" disabled>Reset walk</button>
     </section>
+    <section class="density-panel density-cloud" aria-labelledby="cloud-heading">
+      <div class="cloud-header"><h2 id="cloud-heading">Probability cloud</h2><output id="cloud-step">Loading walk…</output></div>
+      <div class="cloud-body">
+        <figure class="cloud-plot">
+          <canvas id="cloud-view" width="640" height="364" role="img" aria-label="Projected probability cloud on three currency sites"></canvas>
+          <figcaption id="cloud-legend" class="cloud-legend"></figcaption>
+        </figure>
+        <div class="cloud-tools">
+          <label>Field <select id="cloud-mode"><option value="site">Total density · color by site</option><option value="basis">Total density · color by component</option><option value="component-0">Component |0⟩ only</option><option value="component-1">Component |1⟩ only</option><option value="component-2">Component |2⟩ only</option></select></label>
+          <label for="cloud-angle"><span>View angle <output id="cloud-angle-label">8°</output></span><input id="cloud-angle" type="range" min="-180" max="180" value="8" step="2"></label>
+          <label for="cloud-blend"><span>Blend into selected step <output id="cloud-blend-label">100%</output></span><input id="cloud-blend" type="range" min="0" max="100" value="100" step="1" disabled></label>
+          <dl class="cloud-facts"><div><dt>Displayed mass</dt><dd id="cloud-mass">—</dd></div><div><dt>Site continuity error</dt><dd id="cloud-continuity">—</dd></div></dl>
+          <p class="cloud-copy">Opacity follows probability. Each site spreads its mass over a normalized three-dimensional Gaussian mixture projected onto the screen. The walk supplies dimensionless market-graph probabilities.</p>
+        </div>
+      </div>
+    </section>
     <div class="density-grid">
       <section class="density-panel" aria-labelledby="map-title">
         <header><h2 id="map-title">Site density and link flux</h2></header>
@@ -146,6 +164,7 @@
       <p>A normalized three-component state starts on the selected currency. Each fresh market pair sets a phase equal to the phase scale times tanh(rate skew ÷ 2 bps). Rate skew is half the difference of its two directed gauge-centered log rates. Quote age damps the two-site mixing angle by exp(−age ÷ max age). Each active link applies a cyclic shift |0⟩→|1⟩→|2⟩→|0⟩ followed by a determinant-one phase. An unavailable pair skips its gate in that sweep.</p>
       <p>For a link U that transports from a to b, the new site states are cos θ ψ<sub>a</sub> − sin θ U†ψ<sub>b</sub> and sin θ Uψ<sub>a</sub> + cos θ ψ<sub>b</sub>. We apply the links in triangle order. The signed change in density at b is the link flux. Site density sums the squared amplitudes across the three components.</p>
       <p>The normalized trace of the ordered SU(3) product around a fully fresh triangle is invariant under independent basis rotations at each site. The density and flux are dimensionless properties of the illustrative walk. Market quotes supply its inputs.</p>
+      <p>Between completed quote sweeps the cloud blends the two endpoint populations linearly. The same fraction of the measured signed link flux accounts for each site’s change in total probability. This visual interpolation leaves the unitary dynamics and observed quote times at their original steps. Local basis rotations can change the component colors and preserve the site totals. Spatial lobes use fixed display kernels and have no physical charge units. See the <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/c362fbc0d182c6b4b8dadb90177239e4-Abstract-Conference.html">InfGCN electron-density research</a> for the physical-field visualization inspiration.</p>
       <p><a href="https://www.histdata.com/f-a-q/data-files-detailed-specification/">HistData tick specification</a> <a href="https://www.gate.com/docs/developers/apiv4/en/">Gate public API</a> <a href="https://www.tpi.uni-jena.de/~floerchinger/qft2/lecture15/">Gauge link transformation</a></p>
     </details>
   </main>
