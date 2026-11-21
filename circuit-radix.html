@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <title>Circuit levels and phase controls · PhaseWeave</title>
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="circuit-radix.js"></script>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+  <nav aria-label="Page controls">
+   <a class="button" href="quantum-comparison.html">Quantum comparisons</a>
+   <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+  </nav>
+ </header>
+ <main class="architecture">
+  <header><h1>Circuit levels and entangling phases</h1><p class="arch-lead">Two, three, or five levels per wire in a matched one-second FX forecast. All twelve fits use the same width-200 TokenGT backbone, optimizer budget and observed training windows.</p></header>
+  <section class="arch-panel">
+   <h2>Forecast comparisons</h2>
+   <label>Evaluation window <select id="radix-cohort"><option value="november">Sealed November confirmation</option><option value="test">Reused October window</option><option value="stress">Reused September stress</option><option value="new_asset">Reused CHF window</option><option value="validation">Checkpoint validation</option></select></label>
+   <label>Initialization <select id="radix-seed"><option value="mean">Mean of both seeds</option><option value="20261225">20261225</option><option value="20261226">20261226</option></select></label>
+   <p id="radix-status" role="status">Loading the verified forecasts.</p>
+   <div class="arch-scroll" id="radix-forecast"></div>
+   <p>Negative change favors the entangling phase. The pointwise 95% intervals resample whole UTC-day groups. The two seeds share every evaluation row. Their individual November effects have opposite signs at every level count.</p>
+  </section>
+  <section class="arch-panel">
+   <h2>Compute just the four clock measurements</h2>
+   <p>Taking a partial trace before the local mixing gates leaves a reduced density matrix for each wire. For this nearest-neighbor diagonal circuit, the phase terms beyond a wire’s immediate neighbors cancel. The reduced method returns the same four expectation values.</p>
+   <label>Work measured <select id="radix-work"><option value="forward_backward">Forward and backward</option><option value="forward">Forward only</option></select></label>
+   <div class="arch-scroll" id="radix-resource"></div>
+   <p>Median RTX 4090 timings over twenty synchronized measurements with 1,024 observed training frames and fixed selected weights. Peak memory is additional allocated memory for the measurement operation.</p>
+   <p><a href="circuit-radix-v1.json">Verified forecast and resource receipts</a> · <a href="manuscripts/circuit-radix-v1/compact.pdf">Research note</a> · <a href="manuscripts/circuit-radix-v1/sources.zip">LaTeX sources</a> · <a href="gauge-benchmark.html">Signed Wilson-loop benchmark</a></p>
+  </section>
+ </main>
+</body>
+</html>
