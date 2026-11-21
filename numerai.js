@@ -138,6 +138,27 @@ function disagreementReport(source) {
   };
 }
 
+const candidateLabels = {
+  lgbm_jupiter_60: "Published LightGBM Jupiter 60",
+  gate: "Predictor disagreement selector",
+  "local-lightgbm-jupiter60": "Local LightGBM Jupiter 60 · 350",
+  binned: "Local LightGBM Jupiter 60 · 1,017",
+  all_numeric: "Static LightGBM Jupiter 60 · 1,039",
+  "same-target-fullwidth-blend": "Wide same-target seed blend",
+  "diverse-target-fullwidth-blend": "Wide diverse-target blend",
+  "jupiter60-slot2": "Wide Jupiter 60 · seed 20261121",
+  "jupiter20-slot2": "Wide Jupiter 20 · seed 20261121",
+  "jupiter60-slot3": "Wide Jupiter 60 · seed 20261122",
+  "factor-neutral60-slot3": "Wide factor-neutral 60 · seed 20261122",
+  rolling_all_numeric: "Rolling LightGBM Jupiter 60 · 1,039",
+  "fixed-medium-blend": "Fixed Medium tree blend",
+  "static-all-1039": "Static LightGBM Jupiter 60 · 1,039",
+  "rolling-all-1039": "Rolling LightGBM Jupiter 60 · 1,039",
+  "neural-multitarget-blend": "Multitarget residual MLP blend",
+  "tree-neural-blend": "75% Medium HGB + 25% residual MLP",
+  "local-lightgbm-multitarget": "Locally trained LightGBM multitarget blend",
+};
+
 async function fixedCandidateComparison() {
   const paths = {
     wide: "numerai-wide-2022-23-v1.json",
@@ -160,26 +181,6 @@ async function fixedCandidateComparison() {
   const block = get("numerai-fresh-block");
   const summary = get("numerai-fresh-summary");
   const results = get("numerai-fresh-table");
-  const labels = {
-    lgbm_jupiter_60: "Published LightGBM Jupiter 60",
-    gate: "Predictor disagreement selector",
-    "local-lightgbm-jupiter60": "Local LightGBM Jupiter 60 · 350",
-    binned: "Local LightGBM Jupiter 60 · 1,017",
-    all_numeric: "Static LightGBM Jupiter 60 · 1,039",
-    "same-target-fullwidth-blend": "Wide same-target seed blend",
-    "diverse-target-fullwidth-blend": "Wide diverse-target blend",
-    "jupiter60-slot2": "Wide Jupiter 60 · seed 20261121",
-    "jupiter20-slot2": "Wide Jupiter 20 · seed 20261121",
-    "jupiter60-slot3": "Wide Jupiter 60 · seed 20261122",
-    "factor-neutral60-slot3": "Wide factor-neutral 60 · seed 20261122",
-    rolling_all_numeric: "Rolling LightGBM Jupiter 60 · 1,039",
-    "fixed-medium-blend": "Fixed Medium tree blend",
-    "static-all-1039": "Static LightGBM Jupiter 60 · 1,039",
-    "rolling-all-1039": "Rolling LightGBM Jupiter 60 · 1,039",
-    "neural-multitarget-blend": "Multitarget residual MLP blend",
-    "tree-neural-blend": "75% Medium HGB + 25% residual MLP",
-    "local-lightgbm-multitarget": "Locally trained LightGBM multitarget blend",
-  };
   function repaint() {
     const report = periods[select.value];
     const entries = Object.entries(report.overall).sort((a, b) => b[1].neutral_corr - a[1].neutral_corr);
@@ -193,10 +194,10 @@ async function fixedCandidateComparison() {
       ? " The 13-date panel cannot support either configured block interval."
       : contrast ? " Paired 95% interval "+interval(report.primary)+"." : "";
     summary.textContent = report.dates + " matched dates · " + report.keys.toLocaleString("en-US")
-      + " stock-date keys · Reference " + (labels[report.reference] ?? report.reference) + "." + primary + precision + (report.context ?? "");
+      + " stock-date keys · Reference " + (candidateLabels[report.reference] ?? report.reference) + "." + primary + precision + (report.context ?? "");
     results.replaceChildren(table(
       ["Forecast", "Neutral CORR", "Raw CORR", "Paired neutral Δ", block.value+"-week 95% interval", "Dates ahead"],
-      entries.map(([key, score]) => [labels[key] ?? key, num(score.neutral_corr), num(score.raw_corr),
+      entries.map(([key, score]) => [candidateLabels[key] ?? key, num(score.neutral_corr), num(score.raw_corr),
         key === report.reference ? "—" : num(score.neutral_corr_delta),
         key === report.reference ? "—" : interval(score),
         key === report.reference ? "Reference" : score.neutral_corr_wins + " / " + report.dates])));
@@ -207,4 +208,81 @@ async function fixedCandidateComparison() {
 }
 fixedCandidateComparison().catch(() => {
   get("numerai-fresh-summary").textContent = "The fixed-candidate results could not load.";
+});
+
+async function fullwidthTransfer() {
+  const response = await fetch("numerai-fullwidth-transfer-60-v1.json");
+  if (!response.ok) throw Error("Transfer receipt unavailable");
+  const report = await response.json();
+  if (report.format !== "phaseweave.numerai-fullwidth-60-transfer-score.v1") throw Error("Unexpected transfer receipt");
+  const [diverse, same] = report.primary;
+  const select = get("wide-transfer60-score"), block = get("wide-transfer60-block");
+  const canvas = get("wide-transfer60-plot"), summary = get("wide-transfer60-summary");
+  const tableRegion = get("wide-transfer60-table");
+  const short = ["Same target", "Static", "Rolling", "Medium"];
+  let paired;
+
+  function chart(comparisons) {
+    const {width, height} = canvas.getBoundingClientRect();
+    const ctx = canvas.getContext("2d");
+    if (!ctx || width < 180 || height < 120) return;
+    const ratio = Math.min(2, devicePixelRatio || 1);
+    canvas.width = Math.ceil(width * ratio); canvas.height = Math.ceil(height * ratio);
+    ctx.scale(ratio, ratio);
+    const css = getComputedStyle(document.documentElement);
+    const color = name => css.getPropertyValue("--" + name).trim();
+    const bounds = comparisons.map(c => c.interval_95[block.value]);
+    const lo = Math.min(0, ...bounds.map(b => b[0])), hi = Math.max(0, ...bounds.map(b => b[1]));
+    if (!(hi > lo)) return;
+    const start = 96, end = width - 22;
+    const x = v => start + (v - lo) * (end - start) / (hi - lo);
+    const bar = (a, b, y) => {ctx.beginPath(); ctx.moveTo(a, y); ctx.lineTo(b, y); ctx.stroke();};
+    ctx.font = "12px system-ui"; ctx.lineWidth = 1;
+    ctx.strokeStyle = color("line");
+    ctx.beginPath(); ctx.moveTo(x(0), 13); ctx.lineTo(x(0), height - 25); ctx.stroke();
+    ctx.fillStyle = color("muted"); ctx.fillText("0", x(0) - 3, height - 9);
+    for (const [i, comparison] of comparisons.entries()) {
+      const y = 25 + i * 36;
+      const [left, right] = bounds[i].map(x);
+      ctx.fillStyle = color("muted"); ctx.fillText(short[i], 8, y + 4);
+      ctx.strokeStyle = color("muted"); bar(left, right, y);
+      ctx.fillStyle = color("jade");
+      ctx.beginPath(); ctx.arc(x(comparison.mean_delta), y, 4, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.fillStyle = color("muted");
+    if (x(0) - start > 48) ctx.fillText(lo.toFixed(4), start, height - 9);
+    if (end - x(0) > 48) {
+      ctx.textAlign = "right"; ctx.fillText(hi.toFixed(4), end, height - 9);
+    }
+    canvas.setAttribute("aria-label", select.selectedOptions[0].text + " paired differences and "
+      + block.selectedOptions[0].text + " 95% intervals for the diverse blend against four controls");
+  }
+
+  function render() {
+    const section = report.overall[select.value];
+    const contrast = name => section.comparisons[diverse + " vs " + name];
+    const primary = contrast(same);
+    const interval = pair => pair.interval_95[block.value].map(num).join(" to ");
+    summary.textContent = report.dates + " matched dates · " + report.keys.toLocaleString("en-US")
+      + " stock-date keys · Diverse minus same-target " + num(primary.mean_delta) + " "
+      + select.selectedOptions[0].text + " · 95% interval " + interval(primary) + ".";
+    const data = Object.entries(section.means).sort((a, b) => b[1] - a[1]).map(([name, score]) => {
+      const pair = contrast(name);
+      return [candidateLabels[name] ?? name, num(score), pair ? num(pair.mean_delta) : "—",
+        pair ? interval(pair) : "—", pair ? pair.wins + " / " + report.dates : "—"];
+    });
+    tableRegion.replaceChildren(table(["Forecast", "Mean score", "Diverse minus forecast",
+      block.value + "-week paired 95% interval", "Dates diverse led"], data));
+    paired = [primary, ...report.secondary.map(([,name]) => contrast(name))];
+    chart(paired);
+  }
+  select.addEventListener("change", render);
+  block.addEventListener("change", render);
+  new ResizeObserver(() => chart(paired)).observe(canvas);
+  new MutationObserver(() => chart(paired)).observe(document.documentElement,
+    {attributes: true, attributeFilter: ["data-theme"]});
+  render();
+}
+fullwidthTransfer().catch(() => {
+  get("wide-transfer60-summary").textContent = "The target-diversity transfer receipt could not load.";
 });

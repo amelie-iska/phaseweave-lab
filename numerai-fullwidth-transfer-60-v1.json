@@ -1,0 +1,217 @@
+{
+  "dates": 60,
+  "end": "2023-09-08",
+  "forecast_seal_sha256": "56794743dea2b96239aa3dd0548a86f99550829078a47c91dc3be4d6977293bf",
+  "format": "phaseweave.numerai-fullwidth-60-transfer-score.v1",
+  "historical_control_max_abs": 4.85722573273506e-17,
+  "independent_max_abs": {
+    "neutral_corr": 6.453171330633722e-16,
+    "raw_corr": 1.457167719820518e-16
+  },
+  "keys": 402488,
+  "model_registration_sha256": "e3a0a5181746ba985fd1611767bade07ee7d294187b57d8866a527f6f6944b30",
+  "network_access": false,
+  "neutralizers": 300,
+  "official_scorer_sha256": "fc554a310469d6bb14140645f75a23e6fe48d41f70c87be99fc53ca5691feee2",
+  "old_score_sha256": "b5d1eefde1694c9b999d4f5e9050e4b669cb40351b15ec350c52d7b16c90b8ee",
+  "overall": {
+    "neutral_corr": {
+      "comparisons": {
+        "diverse-target-fullwidth-blend vs fixed-medium-blend": {
+          "interval_95": {
+            "13": [
+              -0.0021287237988759315,
+              0.009204490041808476
+            ],
+            "26": [
+              -0.0016148988315930035,
+              0.008741741356556573
+            ]
+          },
+          "losses": 20,
+          "mean_delta": 0.003876784196321178,
+          "ties": 0,
+          "wins": 40
+        },
+        "diverse-target-fullwidth-blend vs rolling-all-1039": {
+          "interval_95": {
+            "13": [
+              -0.0015382856662254276,
+              0.004052196614177212
+            ],
+            "26": [
+              -0.001384605317307385,
+              0.00411683463505607
+            ]
+          },
+          "losses": 23,
+          "mean_delta": 0.0014583935330640743,
+          "ties": 0,
+          "wins": 37
+        },
+        "diverse-target-fullwidth-blend vs same-target-fullwidth-blend": {
+          "interval_95": {
+            "13": [
+              -0.001053245994014112,
+              0.002994460565923241
+            ],
+            "26": [
+              -0.0003719341046403129,
+              0.002406940586072309
+            ]
+          },
+          "losses": 22,
+          "mean_delta": 0.0011038179500791098,
+          "ties": 0,
+          "wins": 38
+        },
+        "diverse-target-fullwidth-blend vs static-all-1039": {
+          "interval_95": {
+            "13": [
+              -0.0010003847734874505,
+              0.003898680736349124
+            ],
+            "26": [
+              -0.0004908723834683837,
+              0.003704091303697851
+            ]
+          },
+          "losses": 15,
+          "mean_delta": 0.0017559905320351699,
+          "ties": 0,
+          "wins": 45
+        }
+      },
+      "means": {
+        "diverse-target-fullwidth-blend": 0.038720281582416735,
+        "factor-neutral60-slot3": 0.03288203049813291,
+        "fixed-medium-blend": 0.034843497386095566,
+        "jupiter20-slot2": 0.03203794310856753,
+        "jupiter60-slot2": 0.034565729126866514,
+        "jupiter60-slot3": 0.034466216456894835,
+        "rolling-all-1039": 0.03726188804935267,
+        "same-target-fullwidth-blend": 0.03761646363233763,
+        "static-all-1039": 0.03696429105038158
+      }
+    },
+    "raw_corr": {
+      "comparisons": {
+        "diverse-target-fullwidth-blend vs fixed-medium-blend": {
+          "interval_95": {
+            "13": [
+              2.550014239060837e-05,
+              0.0089123452369942
+            ],
+            "26": [
+              0.0006027828057203984,
+              0.008039223504341678
+            ]
+          },
+          "losses": 17,
+          "mean_delta": 0.004487938519019948,
+          "ties": 0,
+          "wins": 43
+        },
+        "diverse-target-fullwidth-blend vs rolling-all-1039": {
+          "interval_95": {
+            "13": [
+              -0.005826804854338427,
+              0.0026636677002885405
+            ],
+            "26": [
+              -0.005628969689291236,
+              0.002910960693738593
+            ]
+          },
+          "losses": 30,
+          "mean_delta": -0.0012604385251850805,
+          "ties": 0,
+          "wins": 30
+        },
+        "diverse-target-fullwidth-blend vs same-target-fullwidth-blend": {
+          "interval_95": {
+            "13": [
+              -0.002832789231877714,
+              0.001677277132629848
+            ],
+            "26": [
+              -0.0020235874127130776,
+              0.0007427497226637873
+            ]
+          },
+          "losses": 32,
+          "mean_delta": -0.0005408663879765636,
+          "ties": 0,
+          "wins": 28
+        },
+        "diverse-target-fullwidth-blend vs static-all-1039": {
+          "interval_95": {
+            "13": [
+              -0.0026405641377562463,
+              0.0015371828621456932
+            ],
+            "26": [
+              -0.0020555222528395203,
+              0.0009991170238395875
+            ]
+          },
+          "losses": 32,
+          "mean_delta": -0.0004695113466438897,
+          "ties": 0,
+          "wins": 28
+        }
+      },
+      "means": {
+        "diverse-target-fullwidth-blend": 0.03206038497554762,
+        "factor-neutral60-slot3": 0.021151681669715476,
+        "fixed-medium-blend": 0.027572446456527677,
+        "jupiter20-slot2": 0.028610294633429355,
+        "jupiter60-slot2": 0.029805788214670496,
+        "jupiter60-slot3": 0.030034403473121463,
+        "rolling-all-1039": 0.033320823500732705,
+        "same-target-fullwidth-blend": 0.03260125136352418,
+        "static-all-1039": 0.03252989632219151
+      }
+    }
+  },
+  "per_date_sha256": "0534e889c0d920ee38fdb4ffb9a85945a469fef92814ad3a9d6dda41086e59dc",
+  "primary": [
+    "diverse-target-fullwidth-blend",
+    "same-target-fullwidth-blend"
+  ],
+  "private_forecast_sha256": "c79815ec130da4476dd9a63303cc4188b95f6413c457dfdd5bfc9fcab7c43075",
+  "published_benchmark_decoded": false,
+  "registered_sha256": "811390a413d94573589ba1f882fb8694f1ab1ffe242001ffdb4fdaf0bcaf213c",
+  "scope": "Historical transfer on 60 previously released research dates; training and live nominations unchanged",
+  "score_receipts": {
+    "exposures": "8cf5e852603dd94a1d583404cb9e991e74afdffe8af28599961db677e2a7f901",
+    "targets": "7430c058cbb2432ca2c5f36a99b4e94ccb10d5b0f4013bc7c96e5ae5c9e32682"
+  },
+  "score_source_sha256": "e985e96ce313e1b92817f44389c3a3b723fae2e66ce12bf4cc0eac69580863dd",
+  "secondary": [
+    [
+      "diverse-target-fullwidth-blend",
+      "static-all-1039"
+    ],
+    [
+      "diverse-target-fullwidth-blend",
+      "rolling-all-1039"
+    ],
+    [
+      "diverse-target-fullwidth-blend",
+      "fixed-medium-blend"
+    ]
+  ],
+  "start": "2022-07-22",
+  "terminal_decoded": false,
+  "uncertainty": {
+    "blocks": [
+      13,
+      26
+    ],
+    "draws": 10000,
+    "seed": 20261120,
+    "type": "paired circular overlap-aware sensitivity"
+  },
+  "verified_metric_cells": 1080
+}

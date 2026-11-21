@@ -4,7 +4,7 @@
  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
  <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
- <script defer src="market-modality-theme.js"></script><script defer src="numerai.js"></script><script defer src="numerai-2019-transfer.js"></script>
+ <script defer src="market-modality-theme.js"></script><script defer src="numerai.js?v=wide-transfer-v1"></script><script defer src="numerai-2019-transfer.js"></script>
  <title>Numerai leaderboard audit · PhaseWeave</title>
 </head>
 <body>
@@ -39,6 +39,18 @@
    <div class="arch-scroll" id="numerai-fresh-table" role="region" aria-label="Matched scores" tabindex="0"></div>
    <p>Paired intervals use circular weekly-block resampling for overlapping outcomes. The 2022–23 and 2024 comparisons use the fixed Medium tree blend as reference. Published LightGBM is available on the 2020–21 periods shown here.</p>
    <p><a href="numerai-preterminal-2024-v1.json">July–September 2024 frozen audit</a> · <a href="numerai-wide-2022-23-v1.json">Wide recency result</a> · <a href="numerai-2022-23-validation-v1.json">Original candidate audit</a> · <a href="numerai-fullwidth-multitarget-v1.json">Wide target diversity</a> · <a href="#fullwidth-benchmark-addition">Wide benchmark addition</a> · <a href="numerai-development-disagreement-v1.json">Disagreement selector</a> · <a href="numerai-neural-development-v1.json">Benchmark development results</a> · <a href="numerai-historical-uncertainty-v1.json">2019 and 2020–21 uncertainty</a> · <a href="numerai-scale-development-v1.json">Feature breadth results</a> · <a href="numerai-rolling-development-v1.json">Matched 2021 recency results</a></p>
+  </section>
+  <section class="arch-panel" id="fullwidth-transfer-60" aria-labelledby="wide-transfer60-title">
+   <h2 id="wide-transfer60-title">1,039-feature target diversity on 60 dates</h2>
+   <p>Eight forecasts were frozen before scoring on a previously released 2022–23 panel. The fixed Medium blend is an additional reference. The published benchmark shares archive rows with the protected terminal set.</p>
+   <div class="arch-period-controls">
+    <label>Transfer score <select id="wide-transfer60-score"><option value="neutral_corr">Neutral CORR</option><option value="raw_corr">Raw CORR</option></select></label>
+    <label>Transfer bootstrap block <select id="wide-transfer60-block"><option value="13">13 weeks</option><option value="26">26 weeks</option></select></label>
+   </div>
+   <p id="wide-transfer60-summary" role="status">Loading the matched target-diversity transfer.</p>
+   <canvas id="wide-transfer60-plot" style="width:100%;height:180px" role="img" aria-label="Paired score differences with 95% intervals"></canvas>
+   <div class="arch-scroll" id="wide-transfer60-table" role="region" aria-label="Nine target-diversity transfer forecasts" tabindex="0"></div>
+   <p>Intervals resample overlapping weekly outcomes. A dash marks a forecast with no registered paired comparison against the diverse blend. <a href="numerai-fullwidth-transfer-60-v1.json">Verified scores and replay digests</a></p>
   </section>
   <section class="arch-panel" id="peer-freeze"><h2>Frozen Classic peer comparison</h2>
    <p>Ten public model IDs were fixed on November 21, 2026 at 02:24:47 UTC, in the provider’s MMC60 order. Rank 10, valois400_ty, had reputation 0.014322. The forward comparison begins with the first eligible Saturday opening after the freeze. Round scores must resolve at day 60 under the same Jupiter regime. PhaseWeave has no verified live rank.</p>
