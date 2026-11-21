@@ -126,6 +126,47 @@
     drawReplication(fold);
   }
 
+  const chain = name => document.getElementById("clock-chain-"+name);
+  const chainPanel=chain("panel"), chainSeed=chain("seed"), chainControl=chain("control");
+
+  function showChain(data) {
+    const fold=data.panels[chainPanel.value];
+    const selected=chainSeed.value==="mean" ? data.seeds : [Number(chainSeed.value)];
+    const result=(q,arm)=>{
+      const values=selected.map(s=>fold.cells[`tokengt-w8-q${q}-${arm}-${s}`].mae_bps);
+      return number(values.reduce((sum,value)=>sum+value,0)/values.length);
+    };
+    const control=chainControl.value;
+    const rows=data.radices.map(q=>{
+      const contrast=fold.entangling_minus_control[q][control];
+      const pair=selected.length===2 ? contrast.mean_over_fixed_seeds : contrast.by_seed[selected[0]];
+      return [q,...data.arms.map(arm=>result(q,arm)),number(pair.delta_mae_bps),interval(pair.lower_95,pair.upper_95)];
+    });
+    const matched=fold.rows.toLocaleString("en-US");
+    const coverage=chainPanel.value==="afternoon" ? matched+" of "+
+      data.afternoon.anchors.toLocaleString("en-US")+" sealed predictors" : matched+" forecast windows";
+    chain("status").textContent=coverage+" scored · Persistence "+number(fold.cells.persistence.mae_bps)+" log bp MAE.";
+    const label=chainControl.selectedOptions[0].text.toLowerCase();
+    chain("results").replaceChildren(grid(
+      ["Radix","Entangling","Product","Dephased","Max-plus","Entangling − "+label,"95% interval"],rows));
+  }
+
+  fetch("clock-chain-fx-v1.json").then(response=>{
+    if(!response.ok) throw Error("Missing eight-wire receipt");
+    return response.json();
+  }).then(data=>{
+    if(data.format!=="phaseweave.clock-chain-fx-public.v1") throw Error("Unknown eight-wire score receipt");
+    const render=()=>showChain(data);
+    for (const control of [chainPanel,chainSeed,chainControl]) control.addEventListener("change",render);
+    render();
+    chain("resources").replaceChildren(grid(["Radix","Joint amplitudes per frame","Local density entries","Peak allocated MiB"],
+      data.radices.map(q=>{
+        const fits=data.fits.filter(fit=>fit.radix===q);
+        return [q,fits[0].joint_amplitudes.toLocaleString("en-US"),fits[0].local_density_elements,
+          number(Math.max(...fits.map(fit=>fit.peak_allocated_bytes))/1048576,2)];
+      })));
+  }).catch(()=>{ chain("status").textContent="The eight-wire forecast evidence could not load."; });
+
   fetch("circuit-radix-seed-replication-v1.json").then(response=>{
     if(!response.ok) throw Error("Missing replication receipt");
     return response.json();

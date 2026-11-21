@@ -16,6 +16,23 @@
  </header>
  <main class="architecture">
   <header><h1>Circuit levels and entangling phases</h1><p class="arch-lead">Do diagonal entangling phases improve a one-second FX forecast? Compare two, three, and five levels per wire with a fixed width-200 TokenGT backbone.</p></header>
+  <section class="arch-panel" aria-labelledby="clock-chain-title">
+   <h2 id="clock-chain-title">Eight-wire circuits at radices 3, 7, and 11</h2>
+   <p>At radices 7 and 11, the product circuit had lower forecast error in the sealed November afternoon panel. The panel uses a separate hour on ten previously studied dates.</p>
+   <div class="arch-period-controls">
+    <label>Eight-wire evaluation panel <select id="clock-chain-panel"><option value="afternoon">November afternoon</option><option value="test">Reused October</option><option value="stress">Reused September stress</option><option value="new_asset">Reused CHF</option><option value="validation">Checkpoint validation</option></select></label>
+    <label>Eight-wire initialization <select id="clock-chain-seed"><option value="mean">Mean of both seeds</option><option value="20261225">20261225</option><option value="20261226">20261226</option></select></label>
+    <label>Compare entangling with <select id="clock-chain-control"><option value="product">Product</option><option value="dephased">Dephased</option><option value="maxplus">Max-plus</option></select></label>
+   </div>
+   <p id="clock-chain-status" role="status">Loading the eight-wire forecast results.</p>
+   <div class="arch-scroll" id="clock-chain-results" role="region" aria-label="Eight-wire forecast comparison" tabindex="0"></div>
+   <p>MAE is in log basis points. A negative difference favors entangling. Intervals resample UTC days with the selected seeds held fixed.</p>
+   <details><summary>Simulation costs and cuTensorNet verification</summary>
+    <p>The partial trace retains eight local density matrices. A dense radix-11 state would require 214,358,881 amplitudes per frame. The RTX 4090 training study peaked at 517.66 MiB allocated. cuTensorNet independently verified six selected circuits on observed anchor frames.</p>
+    <div class="arch-scroll" id="clock-chain-resources"></div>
+   </details>
+   <p><a href="clock-chain-fx-v1.json">Aggregate evidence for all 24 fits</a> · <a href="manuscripts/clock-chain-fx-v1/compact.pdf">Research note</a> · <a href="manuscripts/clock-chain-fx-v1/sources.zip">LaTeX source</a></p>
+  </section>
   <section class="arch-panel" aria-labelledby="radix-replication-title">
    <h2 id="radix-replication-title">Twelve new initialization seeds</h2>
    <p>Each seed shares its initial weights across all six circuit settings. The October and November quote windows were scored in the original study.</p>
