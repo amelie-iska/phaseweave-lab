@@ -1,0 +1,222 @@
+{
+  "marked_octagon": {
+    "face_words": [
+      [
+        1,
+        2,
+        -1,
+        -2,
+        3,
+        4,
+        -3,
+        -4
+      ]
+    ],
+    "assignments": 1296,
+    "flat_assignments": 486,
+    "simultaneous_conjugacy_orbits": 116,
+    "twisted_betti_by_assignment": {
+      "0/4/0": 440,
+      "1/6/1": 45,
+      "2/8/2": 1
+    },
+    "witness": [
+      {
+        "permutations": [
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "single_traces": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "mixed_trace_12": 2,
+        "twisted_betti": [
+          1,
+          6,
+          1
+        ]
+      },
+      {
+        "permutations": [
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "single_traces": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "mixed_trace_12": -1,
+        "twisted_betti": [
+          0,
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  "same_rotation": {
+    "face_words": [
+      [
+        -1,
+        2,
+        -3,
+        4,
+        1,
+        -2,
+        3,
+        -4
+      ]
+    ],
+    "assignments": 1296,
+    "flat_assignments": 486,
+    "simultaneous_conjugacy_orbits": 116,
+    "twisted_betti_by_assignment": {
+      "0/4/0": 440,
+      "1/6/1": 45,
+      "2/8/2": 1
+    },
+    "witness": [
+      {
+        "permutations": [
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "single_traces": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "mixed_trace_12": 2,
+        "twisted_betti": [
+          1,
+          6,
+          1
+        ]
+      },
+      {
+        "permutations": [
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "single_traces": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "mixed_trace_12": -1,
+        "twisted_betti": [
+          0,
+          4,
+          0
+        ]
+      }
+    ]
+  },
+  "opposite_rotation": {
+    "face_words": [
+      [
+        -4
+      ],
+      [
+        1
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        3,
+        -2
+      ],
+      [
+        4,
+        -3
+      ]
+    ],
+    "assignments": 1296,
+    "flat_assignments": 1,
+    "simultaneous_conjugacy_orbits": 1,
+    "twisted_betti_by_assignment": {
+      "2/0/2": 1
+    }
+  }
+}
