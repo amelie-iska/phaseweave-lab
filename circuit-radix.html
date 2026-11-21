@@ -15,9 +15,21 @@
   </nav>
  </header>
  <main class="architecture">
-  <header><h1>Circuit levels and entangling phases</h1><p class="arch-lead">Two, three, or five levels per wire in a matched one-second FX forecast. All twelve fits use the same width-200 TokenGT backbone, optimizer budget and observed training windows.</p></header>
+  <header><h1>Circuit levels and entangling phases</h1><p class="arch-lead">Do diagonal entangling phases improve a one-second FX forecast? Compare two, three, and five levels per wire with a fixed width-200 TokenGT backbone.</p></header>
+  <section class="arch-panel" aria-labelledby="radix-replication-title">
+   <h2 id="radix-replication-title">Twelve new initialization seeds</h2>
+   <p>Each seed shares its initial weights across all six circuit settings. The October and November quote windows were scored in the original study.</p>
+   <label>Evaluation panel <select id="radix-replication-panel"><option value="november">Reused November</option><option value="october">Reused October</option></select></label>
+   <label>Resample <select id="radix-replication-uncertainty"><option value="crossed">Seeds × UTC days</option><option value="seed">Training seeds only</option><option value="day">UTC days only</option></select></label>
+   <p id="radix-replication-status" role="status">Loading matched forecasts.</p>
+   <canvas id="radix-replication-chart" style="height:195px" role="img" aria-label="Paired phase differences by circuit level"></canvas>
+   <p>Dots show the twelve seed effects. The line and diamond show the pointwise 95% interval and the mean. Differences below zero favor the entangling arm.</p>
+   <div class="arch-scroll" id="radix-replication-summary"></div>
+   <details><summary>Seed-by-seed phase differences</summary><div class="arch-scroll" id="radix-replication-seeds"></div></details>
+   <p><a href="circuit-radix-seed-replication-v1.json">Scoring receipt for all 72 fits</a> · <a href="manuscripts/circuit-radix-seed-v1/compact.pdf">Research note</a> · <a href="manuscripts/circuit-radix-seed-v1/extended.pdf">Technical supplement</a> · <a href="manuscripts/circuit-radix-seed-v1/sources.zip">LaTeX sources</a></p>
+  </section>
   <section class="arch-panel">
-   <h2>Forecast comparisons</h2>
+   <h2>Original two-seed comparison</h2>
    <label>Evaluation window <select id="radix-cohort"><option value="november">Sealed November confirmation</option><option value="test">Reused October window</option><option value="stress">Reused September stress</option><option value="new_asset">Reused CHF window</option><option value="validation">Checkpoint validation</option></select></label>
    <label>Initialization <select id="radix-seed"><option value="mean">Mean of both seeds</option><option value="20261225">20261225</option><option value="20261226">20261226</option></select></label>
    <p id="radix-status" role="status">Loading the verified forecasts.</p>
