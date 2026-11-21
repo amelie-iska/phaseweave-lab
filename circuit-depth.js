@@ -57,7 +57,10 @@
     ctx.scale(pixelScale,pixelScale);
     const css=getComputedStyle(document.documentElement), color=name=>css.getPropertyValue("--"+name).trim();
     const theta=Number(rotation.value)*Math.PI/180, s=Math.sin(theta), c=Math.cos(theta);
-    const size=Math.min(width/5.6,height/3.7), floor=height*.74;
+    const size=Math.min(width/5.6,height/3.7), pitch=.73, front=-1.24;
+    const labelOffset=15, legendBand=34;
+    const labelReach=.42*size*Math.hypot(2.5*pitch,front);
+    const floor=height-legendBand-labelOffset-labelReach;
     const transform=(x,y,z)=>[width/2+size*(x*c+z*s),floor-size*(y+.42*(z*c-x*s))];
     const palette=[color("jade"),color("copper"),color("text")];
     function polygon(points,fill,outline,opacity=1) {
@@ -72,7 +75,7 @@
     const board=[[-2.3,0,-1.21],[2.3,0,-1.21],[2.3,0,1.21],[-2.3,0,1.21]];
     polygon(board.map(p=>transform(...p)),color("surface"),color("line"));
     const bars=frame.probabilities.flatMap((row,w)=>row.map((p,level)=>({
-      x:(w-2.5)*.73,z:(level-1)*.68,h:p*1.77,w,level,
+      x:(w-2.5)*pitch,z:(level-1)*.68,h:p*1.77,w,level,
     })));
     bars.sort((a,b)=>(b.z*c-b.x*s)-(a.z*c-a.x*s));
     for (const {x,z,h,w,level} of bars) {
@@ -88,8 +91,8 @@
     }
     ctx.font="12px system-ui"; ctx.textAlign="center"; ctx.fillStyle=color("muted");
     for (let w=0;w<6;w++) {
-      const [x,y]=transform((w-2.5)*.73,0,-1.24);
-      ctx.fillText(String(w+1),x,y+15);
+      const [x,y]=transform((w-2.5)*pitch,0,front);
+      ctx.fillText(String(w+1),x,y+labelOffset);
     }
     ctx.textAlign="left"; ctx.fillText("Wire",12,height-15);
     for (let level=0;level<3;level++) {
