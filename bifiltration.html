@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>When identical barcodes hide a cycle relation · PhaseWeave</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="reasoning.css"><link rel="stylesheet" href="bifiltration.css">
+  <script defer src="market-modality-theme.js"></script><script defer src="reasoning-3d.js"></script><script defer src="bifiltration.js"></script>
+</head>
+<body>
+<header class="top"><a class="brand" href="./">◇ PhaseWeave</a><nav aria-label="Exhibit navigation"><a class="button" href="surfaces.html">Surface lab</a><div class="themes" aria-label="Color theme"><button data-theme-choice="dark" aria-pressed="true">Dark</button><button data-theme-choice="light" aria-pressed="false">Light</button></div></nav></header>
+<main class="latent-page bf-page">
+  <header class="latent-heading"><div><h1>When identical barcodes hide a cycle relation</h1><p class="standfirst">Build loops on a genus-two dessin. Two ways to add its edges give the same barcode along every increasing path through the grade grid. Combining three loops at the final grade reveals the difference.</p></div></header>
+  <div class="bf-work">
+    <figure class="bf-figure"><div class="bf-fighead"><h2>The five paths</h2><span id="figure-grade"></span></div>
+      <canvas id="surface-view" role="img" aria-label="Five two-edge paths connect the same two hubs. Solid paths are present at the selected grade."></canvas>
+      <div class="bf-legend"><span><i></i> Active</span><span><i class="bf-focus"></i> Selected loop</span><span><i class="bf-away"></i> Absent</span></div>
+      <div class="latent-camera" id="camera"><label>Yaw <input name="yaw" type="range" min="-180" max="180" value="-32"></label><label>Pitch <input name="pitch" type="range" min="-85" max="85" value="24"></label><label>Zoom <input name="zoom" type="range" min=".65" max="1.45" step=".05" value="1"></label><button type="button">Reset view</button></div>
+      <figcaption>Drag to rotate. Each P is a two-edge path between the hubs L and R. Dashed paths show where edges can enter later. The drawing shows the graph; the cyclic orders and final face specify its surface.</figcaption>
+    </figure>
+    <section class="bf-control" aria-labelledby="grade-title">
+      <div class="bf-fighead"><h2 id="grade-title">Choose a grade</h2><div class="bf-switch" role="group" aria-label="Filtration"><button id="variant-i" aria-pressed="true">I</button><button id="variant-ii" aria-pressed="false">II</button></div></div>
+      <div class="bf-inside">
+        <p>Each threshold can increase independently. Select a cell to inspect its graph.</p>
+        <div class="bf-grid-wrap"><div class="bf-grid" id="grades" role="group" aria-label="Threshold grid"></div><div class="bf-grid-key">Cell entries give the dimension of H₁. A, B and C mark the three earliest loops.</div></div>
+        <div class="bf-selects"><label>Target grade <select id="target"></select></label><label>Highlight loop <select id="focus"></select></label></div>
+        <dl class="bf-values" aria-live="polite"><div><dt>Active edges</dt><dd id="edge-count"></dd></div><div><dt>H₁ here</dt><dd id="source-rank"></dd></div><div><dt>Rank into target</dt><dd id="map-rank"></dd></div></dl>
+        <p id="grade-note"></p>
+      </div>
+    </section>
+  </div>
+  <section class="bf-section" aria-labelledby="span-title"><h2 id="span-title">What the three loops remember together</h2>
+    <p>At (2, 2) the same graph has four independent cycles. Over 𝔽₂, adding two chains cancels any shared edge. Compare the images of A, B and C in that common space.</p>
+    <div class="bf-comparison" id="spans"></div>
+    <p>Every inclusion on H₁ is injective here. Its rank equals the dimension at the source grade. The two filtrations agree on all 36 comparable pairs, including identities. The dimension spanned by three incoming images measures a different relation and survives a change of basis.</p>
+  </section>
+  <section class="bf-foot" aria-label="Construction and scope">
+    <div><h2>Why genus two?</h2><p>Both hubs use the same cyclic path order 0, 1, 2, 3, 4. The boundary walk uses all 20 directed half-edges in one orbit. Attaching its disk at the final grade gives 7 vertices, 10 edges and 1 face. The Euler characteristic is −2. The face crosses each edge twice, so its boundary vanishes over 𝔽₂.</p><a href="https://github.com/amelie-iska/GRH-research/blob/e941b50772fb5aff322644badfbe9fb260b4d46c/papers/convextok.tex#L153-L169">Pinned dessin construction ↗</a> · <a href="downloads/grh-bifiltration.md">Derivation and source review</a></div>
+    <div><h2>How this differs from the FX study</h2><p>This finite construction checks what a topological summary can distinguish. The separate numerical experiment fits ridge models to observed three-currency quote windows using one-parameter directed flag landscapes. Forecast errors belong to that experiment.</p><a href="model-comparisons.html">Open the model comparison →</a></div>
+  </section>
+</main></body></html>
