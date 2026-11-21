@@ -1,0 +1,242 @@
+{
+  "format": "phaseweave.binance-spot-k6-depth-long.v1",
+  "verified": true,
+  "assets": [
+    "BNB",
+    "BTC",
+    "ETH",
+    "SOL",
+    "USDC",
+    "USDT"
+  ],
+  "markets": {
+    "BNBBTC": [
+      "BNB",
+      "BTC"
+    ],
+    "BNBETH": [
+      "BNB",
+      "ETH"
+    ],
+    "BNBUSDC": [
+      "BNB",
+      "USDC"
+    ],
+    "BNBUSDT": [
+      "BNB",
+      "USDT"
+    ],
+    "BTCUSDC": [
+      "BTC",
+      "USDC"
+    ],
+    "BTCUSDT": [
+      "BTC",
+      "USDT"
+    ],
+    "ETHBTC": [
+      "ETH",
+      "BTC"
+    ],
+    "ETHUSDC": [
+      "ETH",
+      "USDC"
+    ],
+    "ETHUSDT": [
+      "ETH",
+      "USDT"
+    ],
+    "SOLBNB": [
+      "SOL",
+      "BNB"
+    ],
+    "SOLBTC": [
+      "SOL",
+      "BTC"
+    ],
+    "SOLETH": [
+      "SOL",
+      "ETH"
+    ],
+    "SOLUSDC": [
+      "SOL",
+      "USDC"
+    ],
+    "SOLUSDT": [
+      "SOL",
+      "USDT"
+    ],
+    "USDCUSDT": [
+      "USDC",
+      "USDT"
+    ]
+  },
+  "start_utc": "2026-11-21T05:14:03.644+00:00",
+  "end_utc": "2026-11-21T05:24:02.644+00:00",
+  "anchors": 600,
+  "anchor_interval_s": 1,
+  "sequence_aligned_k6": 600,
+  "fresh_k6": {
+    "1000": 254,
+    "250": 20,
+    "5000": 539
+  },
+  "coverage_by_market": {
+    "BNBBTC": {
+      "fresh_1000ms": 596,
+      "fresh_250ms": 419,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "BNBETH": {
+      "fresh_1000ms": 491,
+      "fresh_250ms": 224,
+      "fresh_5000ms": 597,
+      "sequence_aligned": 600
+    },
+    "BNBUSDC": {
+      "fresh_1000ms": 600,
+      "fresh_250ms": 557,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "BNBUSDT": {
+      "fresh_1000ms": 600,
+      "fresh_250ms": 571,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "BTCUSDC": {
+      "fresh_1000ms": 600,
+      "fresh_250ms": 576,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "BTCUSDT": {
+      "fresh_1000ms": 600,
+      "fresh_250ms": 585,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "ETHBTC": {
+      "fresh_1000ms": 595,
+      "fresh_250ms": 428,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "ETHUSDC": {
+      "fresh_1000ms": 600,
+      "fresh_250ms": 580,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "ETHUSDT": {
+      "fresh_1000ms": 600,
+      "fresh_250ms": 584,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "SOLBNB": {
+      "fresh_1000ms": 335,
+      "fresh_250ms": 75,
+      "fresh_5000ms": 542,
+      "sequence_aligned": 600
+    },
+    "SOLBTC": {
+      "fresh_1000ms": 571,
+      "fresh_250ms": 350,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "SOLETH": {
+      "fresh_1000ms": 535,
+      "fresh_250ms": 276,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "SOLUSDC": {
+      "fresh_1000ms": 600,
+      "fresh_250ms": 371,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "SOLUSDT": {
+      "fresh_1000ms": 600,
+      "fresh_250ms": 578,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    },
+    "USDCUSDT": {
+      "fresh_1000ms": 600,
+      "fresh_250ms": 531,
+      "fresh_5000ms": 600,
+      "sequence_aligned": 600
+    }
+  },
+  "source": {
+    "venue": "Binance Spot via Binance Vision",
+    "mode": "public sequence-aligned diff depth",
+    "listing_catalog_url": "https://data-api.binance.vision/api/v3/exchangeInfo?showPermissionSets=false&symbolStatus=TRADING",
+    "listing_catalog_observed_utc": "2026-11-21T04:56:34.162902+00:00",
+    "diff_stream": "wss://data-stream.binance.vision",
+    "bootstrap_endpoint": "https://data-api.binance.vision/api/v3/depth",
+    "bootstrap_levels_per_side": 1000,
+    "bootstrap_schedule_s": [
+      1,
+      210,
+      420
+    ],
+    "checked_display_levels_per_side": 5,
+    "quote_clock": "Last exchange diff event at the latest certified sequence, gated by strictly prior local monotonic receipt",
+    "anchor_clock": "One connection-time monotonic-to-wall UTC reference."
+  },
+  "stream": {
+    "warmup_s": 60,
+    "capture_window_s": 600,
+    "updates": 69164,
+    "application_bytes": 47629770,
+    "bootstrap_requests": 45,
+    "bootstrap_successes": 45,
+    "bootstrap_failures": 0,
+    "max_reported_request_weight_per_minute": 750,
+    "venue_weight_limit_per_minute": 6000,
+    "rest_guard_triggered": false
+  },
+  "integrity": {
+    "independently_verified_book_states": 9000,
+    "sequence_gap_events": {},
+    "exchange_event_regressions": {},
+    "future_event_pair_anchors": 0,
+    "stream_transport_errors": 0,
+    "snapshot_noncoverage_by_market": {},
+    "certified_book_states_by_snapshot_round": {
+      "0": 2297,
+      "1": 3155,
+      "2": 3548
+    },
+    "complete_venue_event_spread_ms": {
+      "median": 1101.0,
+      "max": 16340
+    },
+    "max_complete_local_receipt_spread_ms": 16338,
+    "max_local_wall_monotonic_disagreement_ms": 1
+  },
+  "scope": {
+    "authentication": false,
+    "orders_sent": 0,
+    "raw_depth_published": false,
+    "displayed_depth_only": true,
+    "data_availability": "One ten-minute observed window. Joint event-age thresholds are reported separately from sequence coverage."
+  },
+  "provenance": {
+    "capture_plan_sha256": "420a56e1832dd43908305a2f5f8628b4ed5d35e310c3e01691497c08f23aa66d",
+    "capture_receipt_sha256": "c6bcc39bfc68d6323afd4e378db8d8e049e14287dd949203d30240fad8e98df2",
+    "independent_receipt_sha256": "b60544056139d772f8adeb24809adccab709f1e39799d2450da4f0e33b4f8c97",
+    "sequence_anchors_sha256": "5c98dcabdd74ea2012db7bac42182d3713636250fe4bda0789087c8db8d4eb70",
+    "listing_catalog_sha256": "d6469391ceed336b8da37927be7aad8ec785af5c5b2ff889f777d5110ba6bd31",
+    "rate_limit_metadata_sha256": "625bd242a7c0bdc9a8a4fd19f101c059c813fa439759b635c990c6560a3c6326",
+    "capture_adapter_sha256": "0e183e1c6b654a05ca460fe9166497849782e15f7517023789fdef10cc02c0c7",
+    "registered_base_runner_sha256": "ee5b2b795f44a8f4b66ee64be06a02f1744df34b53892c80822a999492b8e491",
+    "auditor_sha256": "88dbb69100a3db9136266871b5f81d03ea127dc297e826b24b40ed231fa86030"
+  }
+}

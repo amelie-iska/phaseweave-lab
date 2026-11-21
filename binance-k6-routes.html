@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Six-asset depth replay · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="architecture.css">
+  <link rel="stylesheet" href="binance-k6-routes.css">
+  <script defer src="market-modality-theme.js"></script>
+  <script defer src="binance-k6-routes.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="surfaces.html">Surface lab</a>
+      <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+    </nav>
+  </header>
+  <main class="architecture">
+    <header>
+      <h1>Six-asset depth replay</h1>
+      <p class="arch-lead">Compare all 320 directed cycles that start and end in USDT, using observed Binance Vision spot order books.</p>
+    </header>
+    <section class="arch-panel" aria-labelledby="k6-title">
+      <h2 id="k6-title">Same-cut depth sweep</h2>
+      <div class="k6-controls">
+        <label>Capture <select id="k6-capture"></select></label>
+        <label>Book coverage <select id="k6-scope"><option value="route">Each route’s books</option><option value="whole">All 15 books</option></select></label>
+        <label>Maximum book age <select id="k6-age"><option value="250">250 ms</option><option value="1000" selected>1 s</option><option value="5000">5 s</option></select></label>
+        <label>Starting USDT <select id="k6-size"><option>100</option><option>1000</option><option>10000</option></select></label>
+        <label>Fee per leg <select id="k6-fee"><option value="0">0 bp</option><option value="5" selected>5 bp</option><option value="10">10 bp</option></select></label>
+      </div>
+      <p id="k6-status" role="status">Loading verified replay results.</p>
+      <p id="k6-window"></p>
+      <dl class="k6-counters" id="k6-same"></dl>
+      <canvas id="k6-chart" role="img" aria-label="Eligible and depth-complete route observations by cycle length"></canvas>
+      <p>Outlined bars count eligible route observations. Filled bars count the observations with enough displayed depth to complete every leg.</p>
+      <div id="k6-routes" class="arch-scroll"></div>
+    </section>
+    <section class="arch-panel" aria-labelledby="k6-arrival-title">
+      <h2 id="k6-arrival-title">One second per leg</h2>
+      <p>At each cut we select one route using only the books at that cut. The replay crosses the first leg there, then reads each later leg one second apart. The all-books setting repeats that coverage requirement at every arrival. The positive-entry gate requires a positive same-cut depth margin.</p>
+      <dl class="k6-counters" id="k6-arrival"></dl>
+      <p id="k6-rejections"></p>
+    </section>
+    <section class="arch-panel" aria-labelledby="k6-source-title">
+      <h2 id="k6-source-title">Market evidence</h2>
+      <p>The replay spends divisible amounts, walks up to five recorded levels on each side, and deducts a hypothetical fee from the output of every leg. Margins use ordinary basis points. The scenarios do not include venue lot and minimum-order filters. The capture records books and modeled conversions. No orders were sent.</p>
+      <p><a href="binance-k6-route-replay-v1.json">Verified aggregate and protocol hashes</a> · <a href="binance-k6-depth-long-v1.json">600-cut depth evidence</a> · <a href="binance-k6-depth-v1.json">45-cut depth pilot</a> · <a href="https://developers.binance.com/docs/binance-spot-api-docs/filters">Binance symbol filters</a></p>
+    </section>
+  </main>
+</body>
+</html>
