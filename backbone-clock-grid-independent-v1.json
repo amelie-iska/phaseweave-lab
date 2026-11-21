@@ -1,0 +1,56 @@
+{
+  "format": "phaseweave.backbone-clock-grid-independent-replay.v1",
+  "verified": true,
+  "fit_seal_sha256": "fdff3d2258594cb693361d0fccc3b481c30209f804b2ebfdc76a73c3c5b460e4",
+  "prediction_seal_sha256": "2819bd936dc0ba58d3f7fa92885725a477943fe3528d79326d2bbf6decb626b9",
+  "score_sha256": "55390f310bc847cc7d776f11e28ddfa39e42c20e0e3f5f74f0d744e230c3a9cc",
+  "source_sha256": "084b2141f69675d12086a639b9a962874bb08df404e0d87c2b2c4aa948e583fc",
+  "forecasts_verified": 725,
+  "epoch_checkpoints_verified": 432,
+  "fit_records_verified": 144,
+  "per_model_scalars_reproduced": 1450,
+  "pointwise_intervals_reproduced": 245,
+  "simultaneous_intervals_reproduced": 10,
+  "maximum_discrepancy": {
+    "mae_bps": 0.0,
+    "rmse_bps": 8.215650382226158e-15,
+    "mean_delta_mae_bps": 0.0,
+    "paired_95": 0.0,
+    "simultaneous_95": 0.0,
+    "primary_simultaneous_radius": 0.0
+  },
+  "maximum_selected_validation_gap": 2.6382622309029102e-08,
+  "selected_epoch_counts": {
+    "3": 137,
+    "2": 7
+  },
+  "incumbent_tokengt_softmax_checkpoint_matches": 24,
+  "panels": {
+    "validation": {
+      "rows": 2048,
+      "utc_days": 13,
+      "primary_simultaneous_radius": null
+    },
+    "stress": {
+      "rows": 2048,
+      "utc_days": 12,
+      "primary_simultaneous_radius": null
+    },
+    "test": {
+      "rows": 2048,
+      "utc_days": 26,
+      "primary_simultaneous_radius": null
+    },
+    "new_asset": {
+      "rows": 2048,
+      "utc_days": 23,
+      "primary_simultaneous_radius": null
+    },
+    "afternoon": {
+      "rows": 1329,
+      "utc_days": 10,
+      "primary_simultaneous_radius": 0.0017956366074282958
+    }
+  },
+  "scope": "Previously scored panels and fixed seeds. Validation selected epochs."
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="circuit-backbones.js"></script>
+ <style>
+  #grid-contrasts th[scope="row"] {min-width:9.5rem; max-width:12rem; white-space:normal}
+  #grid-panel {min-width:min(12rem,100%)}
+ </style>
+ <title>Circuit depth across graph backbones · PhaseWeave</title>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Controls">
+  <a class="button" href="circuit-depth.html">Trained circuit walkthrough</a>
+  <a class="button" href="model-comparisons.html">Model comparisons</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Circuit depth across graph backbones</h1><p class="arch-lead">Identical parameter budgets for GCN, GCN → TokenGT and TokenGT on archived FX windows.</p></header>
+  <section class="arch-panel" aria-labelledby="depth-effect-title">
+   <h2 id="depth-effect-title">Four entangling layers versus one</h2>
+   <label>Archived panel <select id="grid-panel" aria-label="Archived panel"><option value="afternoon">November afternoon</option><option value="test">October</option><option value="new_asset">CHF triangles</option><option value="stress">September stress</option><option value="validation">Validation</option></select></label>
+   <p id="grid-status" role="status">Loading verified forecasts.</p>
+   <canvas id="grid-chart" style="width:100%;height:259px" role="img" aria-label="Signed depth differences in log basis points"></canvas>
+   <p>Lower values favor four layers. Dots are means over the two fixed seeds. Green bars show pointwise intervals. Thin gray November bars show the joint band over all ten planned comparisons.</p>
+   <details><summary>Exact depth differences and backbone interactions</summary>
+    <div class="arch-scroll" id="grid-contrasts" role="region" aria-label="Planned depth comparisons" tabindex="0"></div>
+   </details>
+  </section>
+  <section class="arch-panel" aria-labelledby="grid-scores-title">
+   <h2 id="grid-scores-title">Forecast scores for all 144 fits</h2>
+   <div class="arch-period-controls">
+    <label>Backbone <select id="grid-backbone" aria-label="Backbone"><option value="gcn">GCN</option><option value="gcn_tokengt">GCN → TokenGT</option><option value="tokengt">TokenGT</option></select></label>
+    <label>Attention <select id="grid-attention" aria-label="Attention"><option value="softmax">Softmax</option><option value="tropical">Tropical</option></select></label>
+    <label>Initialization <select id="grid-seed" aria-label="Initialization"><option value="mean">Mean of both seeds</option><option value="20261225">20261225</option><option value="20261226">20261226</option></select></label>
+    <label>Error metric <select id="grid-metric" aria-label="Error metric"><option value="mae_bps">MAE</option><option value="rmse_bps">RMSE</option></select></label>
+   </div>
+   <p id="grid-active" aria-live="polite"></p>
+   <div class="arch-scroll" id="grid-forecast-table" role="region" aria-label="Matched forecast scores" tabindex="0"></div>
+   <p>All panels reuse previously scored dates. The validation panel also selected checkpoint epochs. Local GCN message rules stay fixed when selectable TokenGT and temporal attention change.</p>
+   <p><a href="backbone-clock-grid-v1.json">Verified scores and resources</a> · <a href="backbone-clock-grid-independent-v1.json">Independent replay receipt</a></p>
+   <p><a href="manuscripts/backbone-clock-grid-v1/compact.pdf">Read the research note</a> · <a href="manuscripts/backbone-clock-grid-v1/sources.zip">Download LaTeX and score data</a></p>
+  </section>
+ </main>
+</body>
+</html>
