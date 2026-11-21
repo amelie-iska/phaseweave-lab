@@ -1,15 +1,25 @@
 {
   "id": "./live-widgets.html",
-  "name": "PhaseWeave Market Widgets",
-  "short_name": "PhaseWeave",
+  "name": "PhaseWeave Explorer",
+  "short_name": "Explorer",
   "description": "Open market observations across spot, perpetual and central bank feeds.",
   "start_url": "./live-widgets.html",
-  "scope": "./",
+  "scope": "./live-widgets.html",
   "display": "standalone",
   "background_color": "#0b1213",
   "theme_color": "#0b1213",
   "icons": [
-    {"src":"widget-icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"widget-icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+    {
+      "src": "widget-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "widget-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }

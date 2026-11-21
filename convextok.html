@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Concept vocabulary · PhaseWeave</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="front-brief.css">
+  <link rel="stylesheet" href="convextok.css">
+  <script defer src="convextok.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a>
+    <nav aria-label="Page controls">
+      <a class="button" href="data.html">Data sources</a>
+      <a class="button" href="reasoning.html">Reasoning lab</a>
+      <div class="themes" aria-label="Color theme">
+        <button type="button" data-theme-value="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme-value="light" aria-pressed="false">Light</button>
+      </div>
+    </nav>
+  </header>
+  <main class="concept-page">
+    <header class="concept-heading">
+      <h1>ConvexTok concept vocabulary</h1>
+      <p>Keep the exact graph-edge tokens. Append typed concepts and their evidence in a separate block.</p>
+    </header>
+    <p id="concept-status" role="status">Verifying the frozen registry and example packets.</p>
+    <section class="front-card concept-demo" aria-labelledby="demo-heading">
+      <h2 id="demo-heading">Inspect an encoded edge</h2>
+      <div class="concept-tools">
+        <label>Public source <select id="concept-example" disabled></select></label>
+        <label>Context profile <select id="concept-profile" disabled></select></label>
+        <button type="button" id="concept-download" disabled>Download exact packet</button>
+      </div>
+      <p class="front-context concept-source">
+        <time id="concept-time"></time>
+        <a id="concept-link" hidden>Official Federal Reserve release ↗</a>
+      </p>
+      <div class="concept-packet" aria-label="Token sequence split at the concept-block boundary">
+        <section aria-labelledby="concept-prefix-title">
+          <div class="front-head"><h3 id="concept-prefix-title">Original byte tokens</h3><span id="concept-prefix-meta"></span></div>
+          <ol class="concept-prefix" id="concept-preview" aria-label="First 12 legacy token IDs"></ol>
+          <details>
+            <summary>All original token IDs and source record</summary>
+            <pre id="concept-prefix"></pre>
+            <pre id="concept-record"></pre>
+          </details>
+        </section>
+        <section aria-labelledby="concept-suffix-title">
+          <div class="front-head"><h3 id="concept-suffix-title">Appended typed concepts</h3><span id="concept-suffix-meta"></span></div>
+          <ol id="concept-tags" class="concept-tags"></ol>
+          <details>
+            <summary>All appended token IDs</summary>
+            <pre id="concept-suffix"></pre>
+          </details>
+        </section>
+      </div>
+      <p class="front-context">Specified profiles encode requested context. A learned model needs a trained conditioning adapter to use these concept IDs.</p>
+    </section>
+    <section class="front-card concept-vocab" aria-labelledby="vocab-heading">
+      <div class="front-head"><h2 id="vocab-heading">Fixed v1 registry</h2><a href="convextok-concepts-v1.json">Registry and examples JSON ↗</a></div>
+      <div class="concept-tools">
+        <label>Find a concept <input id="concept-find" type="search" placeholder="Name, ID, or parameter"></label>
+        <label>Evidence <select id="concept-evidence"><option value="all">All modes</option><option value="record">From record</option><option value="specified">Specified</option></select></label>
+        <output id="concept-count"></output>
+      </div>
+      <div class="concept-catalog" id="concept-catalog"></div>
+    </section>
+  </main>
+</body>
+</html>

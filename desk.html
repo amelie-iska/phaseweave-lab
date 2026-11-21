@@ -4,14 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark light">
-  <title>Trading desk · PhaseWeave</title>
-  <link rel="icon" href="data:,">
+  <title>Paper Desk · PhaseWeave</title>
+  <link rel="icon" href="widget-icon-192.png">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="desk.css">
   <link rel="stylesheet" href="front-brief.css">
   <script defer src="front-brief.js"></script>
   <script defer src="reasoning-3d.js"></script>
   <script defer src="desk.js"></script>
+  <link rel="manifest" href="paper-desk.webmanifest">
+  <link rel="apple-touch-icon" href="widget-icon-192.png">
+  <meta name="theme-color" content="#0b1213">
+  <script defer src="edition-install.js"></script>
 </head>
 <body>
   <header class="top">
@@ -21,6 +25,7 @@
       <a class="button" href="surfaces.html">Surface lab</a>
       <a class="button" href="atlas-time.html">Knowledge timeline</a>
       <a class="button" href="live-widgets.html">Live widgets</a>
+      <button type="button" data-install-edition hidden>Install Paper Desk</button>
       <div class="themes" aria-label="Color theme">
         <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
         <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
@@ -30,11 +35,12 @@
   <main class="desk">
     <header class="desk-heading">
       <div>
-        <h1>Local trading desk</h1>
-        <p>Watch live market depth and test sequential paper execution.</p>
+        <h1>Paper Desk</h1>
+        <p>Observe public market depth. Use the local paper server to test sequential execution.</p>
       </div>
       <p id="desk-state" role="status">Checking for the local server.</p>
     </header>
+    <p data-edition-offline role="status" hidden>Offline. Reconnect for public market depth. An installed local desk runs on its own device.</p>
     <section class="front-brief" aria-label="Live activity and assessment">
       <article class="front-card">
         <div class="front-head"><h2>Live activity</h2><span id="front-activity-clock">Waiting for feed</span></div>
@@ -52,7 +58,8 @@
       </article>
     </section>
     <section id="desk-setup" class="desk-panel" hidden>
-      <h2>Start the desk</h2>
+      <h2>Run paper execution locally</h2>
+      <p><a class="button" href="http://127.0.0.1:8163/desk.html">Open installed Paper Desk</a> · <a href="apps.html#paper">Download and setup</a></p>
       <p>From the PhaseWeave checkout, run the dashboard script. It starts with live polling paused.</p>
       <pre><code>./scripts/trading_dashboard.sh</code></pre>
       <p><a href="https://amelie-iska.github.io/phaseweave-lab/downloads/phaseweave-trading-desk-v8.zip">Download the local desk</a> · <a href="http://127.0.0.1:8132/desk.html">Open the running dashboard</a> · <a href="http://127.0.0.1:8144/paper-tournament.html">Configure the live paper models</a> · <a href="short-mechanics.html">Perpetual short replay</a> · <a href="market-modalities.html">Strategy research</a> · <a href="paper-tournament.html">Paper tournament setup</a> · <a href="downloads/local-desk.md">Setup and connector options</a></p>

@@ -1,0 +1,193 @@
+{
+  "baseline_plan_sha256": "486e52a74ad05490e7331445916048c8e481555e59260d444c68e0b0954cae89",
+  "controls": {
+    "protected_terminal_used": false,
+    "reused_development": true,
+    "submitted": false
+  },
+  "dates": 105,
+  "end": "2021-12-31",
+  "fit_receipts": {
+    "all_numeric": "1d6deb434ad782c3ed19b4cda86d44719e658e6d5baf486d22b15b06044b052e",
+    "binned": "98b80a83c51f18d88c4221d2d19e6931cec5d97c93918af51ad049bf0f35b099"
+  },
+  "format": "phaseweave.numerai-scale-development.v1",
+  "keys": 699389,
+  "native_key_digest": "3c62b7103fbefa5766a4879c22607fffdaeae1b0def9ab5b4b1a8c2ba20e19ab",
+  "overall": {
+    "all_numeric": {
+      "neutral_corr": 0.03804508213763359,
+      "neutral_corr_delta": -0.00792458901835667,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.012559726671733098,
+        -0.0031975136540236177
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.012755113901824355,
+        -0.00285609081986122
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 24,
+      "raw_corr": 0.032265029944008,
+      "raw_corr_delta": -0.006292633525777597
+    },
+    "binned": {
+      "neutral_corr": 0.036773916370797556,
+      "neutral_corr_delta": -0.009195754785192706,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.013807748989890328,
+        -0.004707138998578397
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.01418710077660889,
+        -0.0044025686160360155
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 22,
+      "raw_corr": 0.03169723751442083,
+      "raw_corr_delta": -0.006860425955364763
+    },
+    "lgbm_jupiter_60": {
+      "neutral_corr": 0.04596967115599026,
+      "neutral_corr_delta": 0.0,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_ties": 105,
+      "neutral_corr_wins": 0,
+      "raw_corr": 0.03855766346978559,
+      "raw_corr_delta": 0.0
+    },
+    "local-lightgbm-jupiter60": {
+      "neutral_corr": 0.028082281007947827,
+      "neutral_corr_delta": -0.017887390148042435,
+      "neutral_corr_paired_ci_13_weeks": [
+        -0.024937710092602317,
+        -0.011128283447302068
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        -0.025067460378682637,
+        -0.011855976763620634
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 14,
+      "raw_corr": 0.02362166782102879,
+      "raw_corr_delta": -0.0149359956487568
+    }
+  },
+  "per_date_sha256": "75fd32003028e3fd2ae57c2d977a8fb12842e6e168d0fac0c20fe19c7a142468",
+  "reference": "lgbm_jupiter_60",
+  "source_sha256": "bb870ab626c81cadc5db27878d3975a818b15366f60bb1a425df5af6e8055850",
+  "start": "2020-01-03",
+  "verified": {
+    "acquisitions": {
+      "train": {
+        "new_target_benchmark_neutralizer_bytes": 0,
+        "protected_bytes": 0,
+        "reused_bytes": 1151060628,
+        "source_sha256": "997759a000908d88185d3a3b74366c679416cae3dc9ae7ea9f2066857685a887",
+        "successful_network_bytes": 988654386
+      },
+      "validation": {
+        "new_target_benchmark_neutralizer_bytes": 0,
+        "protected_bytes": 0,
+        "reused_bytes": 277307605,
+        "source_sha256": "9a14f467ad9d17c6abf894b0e285ff01ad4a14fee7558d8be1e6dee873682d32",
+        "successful_network_bytes": 233071428
+      }
+    },
+    "aggregate_recomputed": true,
+    "model_fits": {
+      "all_numeric": {
+        "capacity_probe_peak_kib": 26884396,
+        "model_sha256": "764510c2422387111a6b0889028d49928ca6d93bb671a5a17e235428c9a4895c",
+        "ordered_native_keys_sha256": "22a9eb0b5fb46bd39e289a9712943882a816f79d55557fda78b3d2f2dd9e3cc2",
+        "peak_kib": 26884396,
+        "training_dates": 835,
+        "training_rows": 4329443,
+        "wall_seconds": 149.92017147201113
+      },
+      "binned": {
+        "capacity_probe_peak_kib": 26848460,
+        "model_sha256": "e63a4889efd47d3f165cc5c2499de5ca2d6fe0ce267185a37320bf1d4b243d94",
+        "ordered_native_keys_sha256": "22a9eb0b5fb46bd39e289a9712943882a816f79d55557fda78b3d2f2dd9e3cc2",
+        "peak_kib": 26848460,
+        "training_dates": 835,
+        "training_rows": 4329443,
+        "wall_seconds": 145.26009826990776
+      }
+    },
+    "raw_scored_receipt_sha256": "c8f33d463a9d83aaa024f410196b4fd534b27413d85ed42e62c04ba239724e5c"
+  },
+  "versus_medium": {
+    "all_numeric": {
+      "neutral_corr": 0.03804508213763359,
+      "neutral_corr_delta": 0.009962801129685768,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.00479788817035532,
+        0.014904804292272306
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.005316684942541333,
+        0.014288213589560853
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 81,
+      "raw_corr": 0.032265029944008,
+      "raw_corr_delta": 0.008643362122979203
+    },
+    "binned": {
+      "neutral_corr": 0.036773916370797556,
+      "neutral_corr_delta": 0.00869163536284973,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.004147697506001186,
+        0.012800113913432753
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.004968409076358071,
+        0.01235992171974778
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 78,
+      "raw_corr": 0.03169723751442083,
+      "raw_corr_delta": 0.008075569693392036
+    },
+    "lgbm_jupiter_60": {
+      "neutral_corr": 0.04596967115599026,
+      "neutral_corr_delta": 0.017887390148042435,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.011128283447302066,
+        0.024937710092602317
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.011855976763620634,
+        0.025067460378682627
+      ],
+      "neutral_corr_ties": 0,
+      "neutral_corr_wins": 91,
+      "raw_corr": 0.03855766346978559,
+      "raw_corr_delta": 0.0149359956487568
+    },
+    "local-lightgbm-jupiter60": {
+      "neutral_corr": 0.028082281007947827,
+      "neutral_corr_delta": 0.0,
+      "neutral_corr_paired_ci_13_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_paired_ci_26_weeks": [
+        0.0,
+        0.0
+      ],
+      "neutral_corr_ties": 105,
+      "neutral_corr_wins": 0,
+      "raw_corr": 0.02362166782102879,
+      "raw_corr_delta": 0.0
+    }
+  }
+}

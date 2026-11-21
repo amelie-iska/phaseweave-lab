@@ -6,12 +6,17 @@
   <link rel="icon" href="widget-icon-192.png"><link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="architecture.css"><link rel="stylesheet" href="front-inference.css">
   <script defer src="market-modality-theme.js"></script>
+  <link rel="manifest" href="research.webmanifest">
+  <link rel="apple-touch-icon" href="widget-icon-192.png">
+  <meta name="theme-color" content="#0b1213">
+  <script defer src="edition-install.js"></script>
 </head>
 <body>
   <header class="top">
     <a class="brand" href="https://amelie-iska.github.io/phaseweave-lab/apps.html"><span aria-hidden="true">◇</span> PhaseWeave</a>
     <nav aria-label="Research app controls">
       <a class="button" href="https://huggingface.co/spaces/AmelieSchreiber/PhaseWeave-Lab">Hugging Face Space</a>
+      <button type="button" data-install-edition hidden>Install Research</button>
       <div class="themes" aria-label="Color theme">
         <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
         <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
@@ -20,6 +25,7 @@
   </header>
   <main class="architecture">
     <header><h1>PhaseWeave Research</h1><p class="arch-lead">Run a trained forecast on Hugging Face with CPU or ZeroGPU.</p></header>
+    <p data-edition-offline role="status" hidden>Offline. Reconnect to run the hosted forecast.</p>
     <section class="arch-panel trace-hosted" aria-label="Trained model controls">
       <iframe id="research-forecast" title="PhaseWeave Forecast Lab model controls"
         src="https://amelieschreiber-phaseweave-lab.hf.space/"></iframe>

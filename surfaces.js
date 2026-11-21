@@ -19,7 +19,7 @@
       (color==="blue"||color==="violet"?"latent-":"")+color).trim()]));
   }
   const draw = Reasoning3D.bind(document.getElementById("latent-chart"),item("camera"),
-    () => { if (visible) draw(visible,palette()); }, () => {});
+    () => { if (visible) draw(visible,palette()); }, () => {}, {yaw:-22,pitch:43});
   function options(select, entries) {
     select.replaceChildren(...entries.map(([name,value])=>new Option(name,value)));
   }
@@ -153,7 +153,18 @@
     const high=Math.max(...flux.map(Math.abs));
     const mid=[0,1].map(i=>(Math.max(...vertices.map(p=>p[i]))+Math.min(...vertices.map(p=>p[i])))/2);
     const extent=Math.max(...vertices.map(p=>Math.max(Math.abs(p[0]-mid[0]),Math.abs(p[1]-mid[1]))));
-    const point=([x,y,z])=>[(x-mid[0])/extent*2.45,(z-.5)*.92,(y-mid[1])/extent*2.45];
+    const roundedView=item("geometry").value==="rounded";
+    const point=([x,y,z])=>{
+      // Expand disjoint hole neighborhoods with a monotonically increasing radial map.
+      if (roundedView) for (const {center:[cx,cy]} of handles) {
+        const dx=x-cx, dy=y-cy, r=Math.hypot(dx,dy);
+        if (r===0 || r>=1.9) continue;
+        const bump=.56*(r<=.71 ? r/.71 : (1.9-r)/(1.9-.71));
+        x+=bump*dx/r; y+=bump*dy/r;
+        break;
+      }
+      return [(x-mid[0])/extent*2.45,(z-.5)*1.12,(y-mid[1])/extent*2.45];
+    };
     const coords=geometry.vertices.map(point);
     densityCoordinates=coords.slice(0,vertices.length);
     const overlay=path=>[...path,path[0]].map(id=>coords[id]);
@@ -263,8 +274,23 @@
   item("geometry").addEventListener("change",selectGeometry);
   for (const name of ["handle","scale","gauge","edit","dessin","fee","cloud","channel","mixing","radius"]) item(name).addEventListener("input",render);
   item("reset-packet").addEventListener("click",()=>{ resetDensity(); render(); });
+  function certificate(n) {
+    const message=item("certificate"), lines=item("rotation");
+    lines.textContent="";
+    if (!Number.isInteger(n)||n<3||n>8) {
+      message.textContent="This view includes verified rotation systems for three through eight assets.";
+      return;
+    }
+    const result=CompleteGraphRotation.certificate(n,item("certificate-mode").value);
+    const sizes=new Map();
+    for (const face of result.faces) sizes.set(face.length, (sizes.get(face.length)??0)+1);
+    const faces=[...sizes].sort((a,b)=>a[0]-b[0]).map(([length,count])=>`${count} of length ${length}`).join(", ");
+    message.textContent=`Genus ${result.genus} · Euler characteristic ${result.chi} · ${result.darts} darts · ${result.faces.length} faces (${faces}).`;
+    lines.textContent=result.rotation.map((row,i)=>`${i} → ${row.join(" → ")} → ${row[0]}`).join("\n");
+  }
   const capacity = () => {
     const n=value("assets");
+    certificate(n);
     if (!Number.isInteger(n) || n<1 || n>1000) {
       item("capacity").textContent="Enter a whole number from 1 to 1000";
       item("load-genus").disabled=true;
@@ -275,6 +301,7 @@
     item("load-genus").disabled=!available.includes(genus);
   };
   item("assets").addEventListener("input",capacity);
+  item("certificate-mode").addEventListener("change",capacity);
   item("load-genus").addEventListener("click",()=>{
     item("genus").value=SurfaceGenus.completeGenus(value("assets"));
     onSurface();

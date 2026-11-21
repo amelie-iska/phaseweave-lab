@@ -9,7 +9,11 @@
 .surface-density-controls label > :is(select,input[type="range"]) { min-width: 0; width: 100%; }
 #surface-status {
   color: var(--muted);
-  margin: .25rem 0 1rem;
+  margin: .25rem 0;
 }
 #surface-clock { font-variant-numeric: tabular-nums; }
 @media (max-width: 585px) { .surface-density-controls { grid-template-columns: 1fr; } }
+
+.surface-certificate { margin: .85rem 0 1.25rem; border: 1px solid var(--line); padding: .75rem; }
+.surface-certificate label { display: block; margin-top: .7rem; }
+.surface-certificate pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .84rem; }

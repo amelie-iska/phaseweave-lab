@@ -12,10 +12,11 @@
   <script defer src="core.js"></script>
   <script defer src="gate.js?v=20261121-2"></script>
   <script defer src="reasoning-core.js"></script>
-  <script defer src="reasoning-3d.js"></script>
+  <script defer src="reasoning-3d.js?v=20261121-2"></script>
   <script defer src="surface-genus-core.js?v=20261121-1"></script>
   <script defer src="surface-density.js"></script>
-  <script defer src="surfaces.js?v=20261121-2"></script>
+  <script defer src="complete-graph-rotation.js"></script>
+  <script defer src="surfaces.js?v=20261121-4"></script>
 </head>
 <body>
   <header class="top">
@@ -43,6 +44,7 @@
       <label>Step interval <select id="surface-interval"><option value="500">0.5 s</option><option value="1000" selected>1 s</option><option value="2000">2 s</option><option value="4000">4 s</option></select></label>
       <label>Cost per leg, bps <input id="surface-fee" type="number" min="0" max="100" value="10" step=".1"></label>
       <time id="surface-clock"></time>
+      <p id="surface-status" role="status">Connecting to public quotes…</p>
     </section>
     <section class="latent-workspace" aria-labelledby="surface-title">
       <div class="latent-grid">
@@ -86,6 +88,12 @@
       <strong id="surface-capacity"></strong>
       <button id="surface-load-genus" type="button">Show required genus</button>
     </section>
+    <details class="surface-certificate">
+      <summary>Complete graph embedding certificate</summary>
+      <label>Cellular embedding <select id="surface-certificate-mode"><option value="minimum">Minimum genus</option><option value="maximum">Maximum genus</option></select></label>
+      <p id="surface-certificate"></p>
+      <pre id="surface-rotation" aria-label="Cyclic order of neighbors around each vertex"></pre>
+    </details>
     <div class="latent-provenance">
       <section>
         <h2>How the graph cellulates the surface</h2>
@@ -98,7 +106,7 @@
       </section>
       <section>
         <h2>Complete trading graphs</h2>
-        <p>For n ≥ 3 the minimum orientable genus of Kₙ is ⌈(n−3)(n−4)/12⌉. One and two assets need genus zero. The result counts each bidirectional pair as a single undirected edge. A five-asset complete graph needs one handle, an eight-asset graph needs two, and a 14-asset graph needs ten. The display builds a surface of that genus. Its slab-derived cells carry the quote-driven field.</p>
+        <p>For n ≥ 3 the minimum orientable genus of Kₙ is ⌈(n−3)(n−4)/12⌉. One and two assets need genus zero. The result counts each bidirectional pair as a single undirected edge. A five-asset complete graph needs one handle, an eight-asset graph needs two, and a 14-asset graph needs ten. For K₃ through K₈ the certificate verifies each face boundary from ordered neighbors. The rounded display uses a separate cellular mesh for the quote-driven field.</p>
         <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC225066/">Ringel and Youngs’ proof</a> · <a href="fx-all-opportunities-v1.json">Five-asset all-route forecast results</a> · <a href="./#front-gate-basket">Live Gate basket</a></p>
       </section>
       <section>
@@ -106,7 +114,6 @@
         <p>One unitary sweep moves a three-channel amplitude across the mesh on each new observed or replayed quote frame. The cloud shows probability weights around the vertices in 3D; signed mode shows the difference of the two charged channels. The density is a graph field driven by the observed conversion margin.</p>
       </section>
     </div>
-    <p id="surface-status" role="status">Connecting to public quotes…</p>
   </main>
 </body>
 </html>

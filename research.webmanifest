@@ -1,0 +1,25 @@
+{
+  "id": "/phaseweave-lab/forecast-app.html",
+  "name": "PhaseWeave Research",
+  "short_name": "Research",
+  "description": "Trained FX forecasts and graph evidence.",
+  "start_url": "./forecast-app.html",
+  "scope": "./forecast-app.html",
+  "display": "standalone",
+  "background_color": "#0b1213",
+  "theme_color": "#0b1213",
+  "icons": [
+    {
+      "src": "widget-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "widget-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

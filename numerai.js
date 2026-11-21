@@ -109,6 +109,7 @@ async function fixedCandidateComparison() {
   const paths = {
     audit: "numerai-2022-23-validation-v1.json",
     development: "numerai-neural-development-v1.json",
+    scale: "numerai-scale-development-v1.json",
   };
   const reports = await Promise.all(Object.entries(paths).map(async ([key, path]) => {
     const response = await fetch(path);
@@ -121,6 +122,9 @@ async function fixedCandidateComparison() {
   const results = get("numerai-fresh-table");
   const labels = {
     lgbm_jupiter_60: "Published LightGBM Jupiter 60",
+    "local-lightgbm-jupiter60": "Local LightGBM Jupiter 60 · 350",
+    binned: "Local LightGBM Jupiter 60 · 1,017",
+    all_numeric: "Local LightGBM Jupiter 60 · 1,039",
     "fixed-medium-blend": "Fixed Medium tree blend",
     "neural-multitarget-blend": "Multitarget residual MLP blend",
     "tree-neural-blend": "75% Medium HGB + 25% residual MLP",

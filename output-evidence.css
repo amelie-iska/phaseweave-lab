@@ -1,0 +1,25 @@
+.outputs{max-width:880px;margin:0 auto;padding:2.4rem clamp(1rem,4vw,3rem) 4rem}
+.outputs h1,.outputs h2{font-weight:500;line-height:1.08;letter-spacing:-.035em}
+.outputs h1{font-size:clamp(2.75rem,7vw,5rem);margin:.35rem 0 .75rem}
+.outputs h2{font-size:clamp(1.7rem,4vw,2.5rem);margin:0}
+.outputs .intro{font-size:1.23rem;max-width:63ch;color:var(--muted)}
+.outputs .overline,.outputs label,.outputs caption,.readout,.detail{font: .85rem/1.55 var(--mono)}
+.outputs .overline{color:var(--copper);letter-spacing:.12em}
+.outputs section,.outputs footer{margin-top:2.5rem;padding-top:1.7rem;border-top:1px solid var(--faint)}
+.outputs section>p,.outputs footer p{max-width:76ch}
+.outputs details{margin:1rem 0;color:var(--muted)}
+.outputs summary{color:var(--jade);cursor:pointer}
+.outputs label{display:block;margin-top:1rem;color:var(--muted)}
+.outputs input[type=range]{display:block;width:100%;accent-color:var(--jade);margin:.6rem 0 1rem}
+.outputs select{max-width:100%}
+.outputs .table-scroll{overflow-x:auto}
+.outputs table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.outputs th,.outputs td{padding:.4rem .45rem;text-align:left;border-bottom:1px solid var(--faint);white-space:nowrap}
+.outputs caption{text-align:left;margin:.8rem 0;color:var(--muted)}
+.outputs .readout,.outputs .detail{color:var(--muted)}
+.outputs p,.outputs pre{overflow-wrap:anywhere}
+.outputs pre{white-space:pre-wrap;line-height:1.5}
+.outputs blockquote{min-height:6.4rem;background:var(--surface);border-left:3px solid var(--copper);margin:1rem 0;padding:1rem 1.2rem;font-size:1.2rem;white-space:pre-wrap}
+.outputs .play,.density-row{display:flex;align-items:center;gap:.7rem}
+.outputs .play label{margin:0}.outputs .density-row{font: .87rem/1.6 var(--mono);margin:.35rem 0}.outputs .density-row b{width:3ch}.density-row meter{width:min(65%,30rem);height:1.2rem;accent-color:var(--jade)}.outputs .density-row span{font-variant-numeric:tabular-nums}
+.outputs [hidden]{display:none}

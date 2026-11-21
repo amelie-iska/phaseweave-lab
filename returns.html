@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="dark light"><link rel="icon" href="data:,">
+ <title>Private return archive · PhaseWeave</title>
+ <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="architecture.css"><link rel="stylesheet" href="returns.css">
+ <script defer src="market-modality-theme.js"></script><script defer src="returns.js"></script>
+</head>
+<body>
+ <header class="top"><a class="brand" href="./"><span aria-hidden="true">◇</span> PhaseWeave</a><nav aria-label="Page controls">
+  <a class="button" href="workbench.html">Workbench</a><a class="button" href="numerai.html">Numerai</a>
+  <div class="themes" aria-label="Color theme"><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button><button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div>
+ </nav></header>
+ <main class="architecture">
+  <header><h1>Private return archive</h1><p class="arch-lead">Inspect settled return series, positive closures and cumulative gains by venue, model and denomination.</p></header>
+  <section class="arch-panel" aria-labelledby="ledger-title">
+   <h2 id="ledger-title">Imported ledger</h2>
+   <p>Choose the local export from the Numerai portfolio folder. Your browser reads the file on this device.</p>
+   <div class="return-controls">
+    <label>Return export <input type="file" id="returns-file" accept="application/json,.json"></label>
+    <label>Venue and portfolio <select id="returns-series" disabled></select></label>
+    <label>Positive archive <select id="returns-mode" disabled><option value="delta">Positive realized closures</option><option value="cumulative">Series currently above zero</option></select></label>
+   </div>
+   <p id="returns-status" role="status">Choose a local returns export to begin.</p>
+   <div id="returns-content" hidden>
+    <canvas id="returns-chart" role="img" aria-label="Cumulative realized net returns over time"></canvas>
+    <h3>Selected series</h3><div class="arch-scroll" id="returns-events"></div>
+    <h3>Positive results</h3><div class="arch-scroll" id="returns-positive"></div>
+   </div>
+  </section>
+ </main>
+</body>
+</html>

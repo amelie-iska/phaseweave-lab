@@ -4,8 +4,9 @@ const Reasoning3D = (() => {
   const colors = ["jade", "copper", "blue", "violet"];
   const DEFAULT_CAMERA = {yaw: -32, pitch: 24, zoom: 1};
 
-  function bind(canvas, controls, onChange, onSelect) {
-    const camera = {...DEFAULT_CAMERA};
+  function bind(canvas, controls, onChange, onSelect, initialCamera = {}) {
+    const initial = {...DEFAULT_CAMERA, ...initialCamera};
+    const camera = {...initial};
     const sliders = Object.fromEntries([...controls.querySelectorAll("input")].map(input => [input.name, input]));
     let drag = null;
     let hits = [];
@@ -13,12 +14,13 @@ const Reasoning3D = (() => {
       for (const [key, input] of Object.entries(sliders)) input.value = camera[key];
       onChange();
     }
+    for (const [key, input] of Object.entries(sliders)) input.value=camera[key];
     for (const [key, input] of Object.entries(sliders)) input.addEventListener("input", () => {
       camera[key] = Number(input.value);
       onChange();
     });
     controls.querySelector("button").addEventListener("click", () => {
-      Object.assign(camera, DEFAULT_CAMERA);
+      Object.assign(camera, initial);
       update();
     });
     canvas.addEventListener("pointerdown", event => {
