@@ -1,6 +1,6 @@
 {
   "schema": "phaseweave.numerai-front.v1",
-  "checked_utc": "2026-11-23T23:57:09+00:00",
+  "checked_utc": "2026-11-24T09:58:59+00:00",
   "leaderboard_metric": "MMC60 reputation",
   "latest_round": {
     "number": 1404,
