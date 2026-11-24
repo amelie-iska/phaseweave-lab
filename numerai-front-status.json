@@ -1,14 +1,14 @@
 {
   "schema": "phaseweave.numerai-front.v1",
-  "checked_utc": "2026-11-24T09:58:59+00:00",
+  "checked_utc": "2026-11-24T22:29:54+00:00",
   "leaderboard_metric": "MMC60 reputation",
   "latest_round": {
-    "number": 1404,
+    "number": 1405,
     "target": "target_jupiter_60",
-    "dataDatestamp": 20261120,
-    "openTime": "2026-11-21T13:12:24Z",
-    "closeTime": "2026-11-24T12:00:00Z",
-    "resolveTime": "2027-02-18T16:00:00Z"
+    "dataDatestamp": 20261123,
+    "openTime": "2026-11-24T12:56:18Z",
+    "closeTime": "2026-11-25T12:00:00Z",
+    "resolveTime": "2027-02-19T16:00:00Z"
   },
   "latest_generally_resolved": {
     "dataDatestamp": 20260826,
@@ -34,52 +34,52 @@
   ],
   "leaders": [
     {
-      "mmc60Rep": 0.01723386090796813,
+      "mmc60Rep": 0.017252518779317435,
       "rank": 1,
       "username": "valois300_1024"
     },
     {
-      "mmc60Rep": 0.01719176715233965,
+      "mmc60Rep": 0.017159610220430548,
       "rank": 2,
       "username": "hypochlorous"
     },
     {
-      "mmc60Rep": 0.01672338020498326,
+      "mmc60Rep": 0.016715619999981866,
       "rank": 3,
       "username": "valois200_1024"
     },
     {
-      "mmc60Rep": 0.01583341188920465,
+      "mmc60Rep": 0.01577944702624446,
       "rank": 4,
       "username": "tdd_model24"
     },
     {
-      "mmc60Rep": 0.015254851161349397,
+      "mmc60Rep": 0.015287951569500515,
       "rank": 5,
       "username": "valois400_1024"
     },
     {
-      "mmc60Rep": 0.014925337079726328,
+      "mmc60Rep": 0.014951152289252093,
       "rank": 6,
       "username": "kodama_ov"
     },
     {
-      "mmc60Rep": 0.014732208740399032,
+      "mmc60Rep": 0.014722548302222336,
       "rank": 7,
       "username": "tdd_model34"
     },
     {
-      "mmc60Rep": 0.01462112038666398,
+      "mmc60Rep": 0.014600189448608192,
       "rank": 8,
       "username": "tdd_model31"
     },
     {
-      "mmc60Rep": 0.014347423263706133,
+      "mmc60Rep": 0.014374787114367436,
       "rank": 9,
       "username": "valois400_ty"
     },
     {
-      "mmc60Rep": 0.01430547247949251,
+      "mmc60Rep": 0.014286334273463017,
       "rank": 10,
       "username": "dtf200_ov"
     }
