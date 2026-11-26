@@ -1,6 +1,6 @@
 {
   "schema": "phaseweave.numerai-front.v1",
-  "checked_utc": "2026-11-25T21:44:50+00:00",
+  "checked_utc": "2026-11-26T08:26:19+00:00",
   "leaderboard_metric": "MMC60 reputation",
   "latest_round": {
     "number": 1406,
@@ -34,52 +34,52 @@
   ],
   "leaders": [
     {
-      "mmc60Rep": 0.017252518779317435,
+      "mmc60Rep": 0.01727631278215111,
       "rank": 1,
       "username": "valois300_1024"
     },
     {
-      "mmc60Rep": 0.017159610220430548,
+      "mmc60Rep": 0.017123310410365737,
       "rank": 2,
       "username": "hypochlorous"
     },
     {
-      "mmc60Rep": 0.016715619999981866,
+      "mmc60Rep": 0.016713997116850513,
       "rank": 3,
       "username": "valois200_1024"
     },
     {
-      "mmc60Rep": 0.01577944702624446,
+      "mmc60Rep": 0.015737924921558486,
       "rank": 4,
       "username": "tdd_model24"
     },
     {
-      "mmc60Rep": 0.015287951569500515,
+      "mmc60Rep": 0.015316841383335689,
       "rank": 5,
       "username": "valois400_1024"
     },
     {
-      "mmc60Rep": 0.014951152289252093,
+      "mmc60Rep": 0.01495657757125348,
       "rank": 6,
       "username": "kodama_ov"
     },
     {
-      "mmc60Rep": 0.014722548302222336,
+      "mmc60Rep": 0.014728129290720985,
       "rank": 7,
       "username": "tdd_model34"
     },
     {
-      "mmc60Rep": 0.014600189448608192,
+      "mmc60Rep": 0.014583285643291897,
       "rank": 8,
       "username": "tdd_model31"
     },
     {
-      "mmc60Rep": 0.014374787114367436,
+      "mmc60Rep": 0.014411026894416881,
       "rank": 9,
       "username": "valois400_ty"
     },
     {
-      "mmc60Rep": 0.014286334273463017,
+      "mmc60Rep": 0.014313581739014822,
       "rank": 10,
       "username": "dtf200_ov"
     }
