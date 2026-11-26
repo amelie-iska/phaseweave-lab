@@ -1,19 +1,19 @@
 {
   "schema": "phaseweave.numerai-front.v1",
-  "checked_utc": "2026-11-26T08:26:19+00:00",
+  "checked_utc": "2026-11-26T21:37:33+00:00",
   "leaderboard_metric": "MMC60 reputation",
   "latest_round": {
-    "number": 1406,
+    "number": 1407,
     "target": "target_jupiter_60",
-    "dataDatestamp": 20261124,
-    "openTime": "2026-11-25T13:52:29Z",
-    "closeTime": "2026-11-26T12:00:00Z",
-    "resolveTime": "2027-02-22T16:00:00Z"
+    "dataDatestamp": 20261125,
+    "openTime": "2026-11-26T13:04:20Z",
+    "closeTime": "2026-11-27T12:00:00Z",
+    "resolveTime": "2027-02-23T16:00:00Z"
   },
   "latest_generally_resolved": {
-    "dataDatestamp": 20260827,
-    "number": 1343,
-    "resolveTime": "2026-11-25T16:00:00Z",
+    "dataDatestamp": 20260828,
+    "number": 1344,
+    "resolveTime": "2026-11-26T16:00:00Z",
     "target": "target_ender_60"
   },
   "payout_scores": [
@@ -34,52 +34,52 @@
   ],
   "leaders": [
     {
-      "mmc60Rep": 0.01727631278215111,
+      "mmc60Rep": 0.017289661318819358,
       "rank": 1,
       "username": "valois300_1024"
     },
     {
-      "mmc60Rep": 0.017123310410365737,
+      "mmc60Rep": 0.017128970315274644,
       "rank": 2,
       "username": "hypochlorous"
     },
     {
-      "mmc60Rep": 0.016713997116850513,
+      "mmc60Rep": 0.016699843713761084,
       "rank": 3,
       "username": "valois200_1024"
     },
     {
-      "mmc60Rep": 0.015737924921558486,
+      "mmc60Rep": 0.015668929903593698,
       "rank": 4,
       "username": "tdd_model24"
     },
     {
-      "mmc60Rep": 0.015316841383335689,
+      "mmc60Rep": 0.0153503808443779,
       "rank": 5,
       "username": "valois400_1024"
     },
     {
-      "mmc60Rep": 0.01495657757125348,
+      "mmc60Rep": 0.014998627704326317,
       "rank": 6,
       "username": "kodama_ov"
     },
     {
-      "mmc60Rep": 0.014728129290720985,
+      "mmc60Rep": 0.014697247049795603,
       "rank": 7,
       "username": "tdd_model34"
     },
     {
-      "mmc60Rep": 0.014583285643291897,
+      "mmc60Rep": 0.014524680317884488,
       "rank": 8,
       "username": "tdd_model31"
     },
     {
-      "mmc60Rep": 0.014411026894416881,
+      "mmc60Rep": 0.01444841732156318,
       "rank": 9,
       "username": "valois400_ty"
     },
     {
-      "mmc60Rep": 0.014313581739014822,
+      "mmc60Rep": 0.014279977646132721,
       "rank": 10,
       "username": "dtf200_ov"
     }
